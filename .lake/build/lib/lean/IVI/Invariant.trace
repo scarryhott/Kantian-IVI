@@ -1,12 +1,14 @@
 {"synthetic": false,
  "outputs":
- {"o": ["13057863916597200515"],
-  "i": "1673919069027330857",
-  "c": "6788008220322519121"},
+ {"o": ["11491200595386948699"],
+  "i": "12431553960343684413",
+  "c": "7111545339022975170"},
  "log":
  [{"message":
    ".> LEAN_PATH=/Users/harryscott/Kantian-IVI/.lake/build/lib/lean /Users/harryscott/.elan/toolchains/leanprover--lean4---v4.22.0/bin/lean /Users/harryscott/Kantian-IVI/IVI/Invariant.lean -o /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Invariant.olean -i /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Invariant.ilean -c /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Invariant.c --setup /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Invariant.setup.json --json",
-   "level": "trace"}],
+   "level": "trace"},
+  {"message": "IVI/Invariant.lean:105:4: declaration uses 'sorry'",
+   "level": "warning"}],
  "inputs":
  [["IVI.Invariant:deps",
    [["deps",
@@ -23,7 +25,7 @@
       ["module plugins", "1723"]]]]],
   ["Lean 4.22.0, commit ba2cbbf09d4978f416e0ebd1fceeebc2c4138c05",
    "8739116525927611134"],
-  ["/Users/harryscott/Kantian-IVI/IVI/Invariant.lean", "2552688319814993600"],
+  ["/Users/harryscott/Kantian-IVI/IVI/Invariant.lean", "112981547739904631"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "17123148817501827621"}
+ "depHash": "15102675737727978369"}

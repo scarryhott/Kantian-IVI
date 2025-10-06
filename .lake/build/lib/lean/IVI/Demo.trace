@@ -1,8 +1,8 @@
 {"synthetic": false,
  "outputs":
- {"o": ["5444552080657892718"],
-  "i": "13011445121143068710",
-  "c": "11442145938268514722"},
+ {"o": ["3006639728567032535"],
+  "i": "2659997044090179016",
+  "c": "11224772884264006076"},
  "log":
  [{"message":
    ".> LEAN_PATH=/Users/harryscott/Kantian-IVI/.lake/build/lib/lean /Users/harryscott/.elan/toolchains/leanprover--lean4---v4.22.0/bin/lean /Users/harryscott/Kantian-IVI/IVI/Demo.lean -o /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Demo.olean -i /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Demo.ilean -c /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Demo.c --setup /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Demo.setup.json --json",
@@ -55,7 +55,7 @@
         ["IVI.Invariant:olean",
          [["IVI.Invariant:deps", "5676546461227603325"],
           ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Invariant.olean",
-           "13057863916597200515"]]]]]]],
+           "3664329736598242654"]]]]]]],
     ["libs",
      [["import dynlibs", "1723"],
       ["package external libraries", "1723"],
@@ -63,7 +63,7 @@
       ["module plugins", "1723"]]]]],
   ["Lean 4.22.0, commit ba2cbbf09d4978f416e0ebd1fceeebc2c4138c05",
    "8739116525927611134"],
-  ["/Users/harryscott/Kantian-IVI/IVI/Demo.lean", "9290154201241676709"],
+  ["/Users/harryscott/Kantian-IVI/IVI/Demo.lean", "11608066589676358310"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "5578046817345819322"}
+ "depHash": "3475798140874755316"}

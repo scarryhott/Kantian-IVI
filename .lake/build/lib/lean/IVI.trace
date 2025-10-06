@@ -43,11 +43,11 @@
         ["IVI.Invariant:olean",
          [["IVI.Invariant:deps", "5676546461227603325"],
           ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Invariant.olean",
-           "13057863916597200515"]]],
+           "11491200595386948699"]]],
         ["IVI.FixedPoint:olean",
-         [["IVI.FixedPoint:deps", "9391006979917080599"],
+         [["IVI.FixedPoint:deps", "6471590960603212977"],
           ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/FixedPoint.olean",
-           "9675986772766722675"]]]]]]],
+           "10046407267702630871"]]]]]]],
     ["libs",
      [["import dynlibs", "1723"],
       ["package external libraries", "1723"],
@@ -58,4 +58,4 @@
   ["/Users/harryscott/Kantian-IVI/IVI.lean", "11481298074727166442"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "1396344223138752084"}
+ "depHash": "4541846211421513997"}

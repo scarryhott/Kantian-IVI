@@ -1,8 +1,8 @@
 {"synthetic": false,
  "outputs":
- {"o": ["9675986772766722675"],
+ {"o": ["10046407267702630871"],
   "i": "2878013646402200662",
-  "c": "17351752429969611530"},
+  "c": "1589483944404103238"},
  "log":
  [{"message":
    ".> LEAN_PATH=/Users/harryscott/Kantian-IVI/.lake/build/lib/lean /Users/harryscott/.elan/toolchains/leanprover--lean4---v4.22.0/bin/lean /Users/harryscott/Kantian-IVI/IVI/FixedPoint.lean -o /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/FixedPoint.olean -i /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/FixedPoint.ilean -c /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/FixedPoint.c --setup /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/FixedPoint.setup.json --json",
@@ -15,7 +15,7 @@
        [["IVI.Invariant:olean",
          [["IVI.Invariant:deps", "5676546461227603325"],
           ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Invariant.olean",
-           "13057863916597200515"]]]]]]],
+           "11491200595386948699"]]]]]]],
     ["libs",
      [["import dynlibs", "1723"],
       ["package external libraries", "1723"],
@@ -26,4 +26,4 @@
   ["/Users/harryscott/Kantian-IVI/IVI/FixedPoint.lean", "7047540458137328868"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "10334305644728744323"}
+ "depHash": "2599412412423855093"}

@@ -18,13 +18,11 @@ lean_object* l_Float_repr(double, lean_object*);
 lean_object* l_List_lengthTR___redArg(lean_object*);
 static lean_object* l_List_repr___at___IVI_FixedPoint_reprFixedWitness____x40_IVI_FixedPoint___hyg_288__spec__0___redArg___closed__2;
 static lean_object* l_IVI_FixedPoint_reprFixedWitness___redArg___closed__10____x40_IVI_FixedPoint___hyg_288_;
-LEAN_EXPORT lean_object* l_Array_foldrMUnsafe_fold___at___List_foldrTR___at___IVI_FixedPoint_coarse_spec__0_spec__0___boxed(lean_object*, lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_IVI_FixedPoint_scaleAgreement___boxed(lean_object*, lean_object*);
 static lean_object* l_IVI_FixedPoint_reprFixedWitness___redArg___closed__7____x40_IVI_FixedPoint___hyg_288_;
 LEAN_EXPORT double l_List_foldl___at___IVI_FixedPoint_loopClosureErr_spec__0(double, lean_object*);
 double lean_float_div(double, double);
-LEAN_EXPORT lean_object* l_Array_foldrMUnsafe_fold___at___List_foldrTR___at___IVI_FixedPoint_coarse_spec__0_spec__0(lean_object*, size_t, size_t, lean_object*);
-uint8_t lean_usize_dec_eq(size_t, size_t);
+lean_object* l_List_foldrTR___at___IVI_Invariant_coarse_spec__0(lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_Std_Format_joinSep___at___List_repr___at___IVI_FixedPoint_reprFixedWitness____x40_IVI_FixedPoint___hyg_288__spec__0_spec__0___lam__0___boxed(lean_object*);
 static lean_object* l_IVI_FixedPoint_reprFixedWitness___redArg___closed__13____x40_IVI_FixedPoint___hyg_288_;
 LEAN_EXPORT lean_object* l_Std_Format_joinSep___at___List_repr___at___IVI_FixedPoint_reprFixedWitness____x40_IVI_FixedPoint___hyg_288__spec__3_spec__3(lean_object*, lean_object*);
@@ -37,7 +35,6 @@ static lean_object* l_IVI_FixedPoint_reprFixedWitness___redArg___closed__1____x4
 static lean_object* l_IVI_FixedPoint_reprFixedWitness___redArg___closed__8____x40_IVI_FixedPoint___hyg_288_;
 static lean_object* l_IVI_FixedPoint_reprFixedWitness___redArg___closed__9____x40_IVI_FixedPoint___hyg_288_;
 lean_object* l_Nat_reprFast(lean_object*);
-size_t lean_usize_of_nat(lean_object*);
 LEAN_EXPORT lean_object* l_IVI_FixedPoint_instReprFixedWitness;
 static lean_object* l_List_repr___at___IVI_FixedPoint_reprFixedWitness____x40_IVI_FixedPoint___hyg_288__spec__0___redArg___closed__8;
 LEAN_EXPORT lean_object* l_IVI_FixedPoint_reprFixedWitness____x40_IVI_FixedPoint___hyg_288_(lean_object*, lean_object*);
@@ -63,27 +60,19 @@ static lean_object* l_IVI_FixedPoint_reprFixedWitness___redArg___closed__19____x
 static lean_object* l_IVI_FixedPoint_reprFixedWitness___redArg___closed__12____x40_IVI_FixedPoint___hyg_288_;
 double l_Float_ofScientific(lean_object*, uint8_t, lean_object*);
 static lean_object* l_IVI_FixedPoint_reprFixedWitness___redArg___closed__6____x40_IVI_FixedPoint___hyg_288_;
-uint8_t lean_nat_dec_eq(lean_object*, lean_object*);
-uint8_t lean_nat_dec_lt(lean_object*, lean_object*);
-lean_object* lean_nat_mod(lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_Std_Format_joinSep___at___List_repr___at___IVI_FixedPoint_reprFixedWitness____x40_IVI_FixedPoint___hyg_288__spec__0_spec__0(lean_object*, lean_object*);
 static lean_object* l_IVI_FixedPoint_reprFixedWitness___redArg___closed__3____x40_IVI_FixedPoint___hyg_288_;
 LEAN_EXPORT lean_object* l_List_foldl___at___Std_Format_joinSep___at___List_repr___at___IVI_FixedPoint_reprFixedWitness____x40_IVI_FixedPoint___hyg_288__spec__0_spec__0_spec__0(lean_object*, lean_object*, lean_object*, lean_object*);
 static lean_object* l_IVI_FixedPoint_reprFixedWitness___redArg___closed__11____x40_IVI_FixedPoint___hyg_288_;
 static lean_object* l_List_repr___at___IVI_FixedPoint_reprFixedWitness____x40_IVI_FixedPoint___hyg_288__spec__0___redArg___closed__0;
 static lean_object* l_IVI_FixedPoint_reprFixedWitness___redArg___closed__14____x40_IVI_FixedPoint___hyg_288_;
-size_t lean_usize_sub(size_t, size_t);
-lean_object* lean_array_mk(lean_object*);
-LEAN_EXPORT lean_object* l_List_foldrTR___at___IVI_FixedPoint_coarse_spec__0(lean_object*, lean_object*);
 double l_IVI_Invariant_spectralInvariantW(lean_object*, lean_object*);
 static lean_object* l_IVI_FixedPoint_reprFixedWitness___redArg___closed__16____x40_IVI_FixedPoint___hyg_288_;
-lean_object* lean_array_uget(lean_object*, size_t);
 lean_object* l_List_zipWith___at___List_zip_spec__0___redArg(lean_object*, lean_object*);
 static lean_object* l_IVI_FixedPoint_reprFixedWitness___redArg___closed__17____x40_IVI_FixedPoint___hyg_288_;
 LEAN_EXPORT double l_IVI_FixedPoint_scaleAgreement(lean_object*, lean_object*);
 double fabs(double);
 static lean_object* l_List_repr___at___IVI_FixedPoint_reprFixedWitness____x40_IVI_FixedPoint___hyg_288__spec__0___redArg___closed__1;
-lean_object* lean_array_get_size(lean_object*);
 static lean_object* l_IVI_FixedPoint_reprFixedWitness___redArg___closed__4____x40_IVI_FixedPoint___hyg_288_;
 LEAN_EXPORT lean_object* l_List_repr___at___IVI_FixedPoint_reprFixedWitness____x40_IVI_FixedPoint___hyg_288__spec__0___boxed(lean_object*, lean_object*);
 lean_object* l_IVI_reprDomainNode___redArg____x40_IVI_Intangible___hyg_143_(lean_object*);
@@ -181,131 +170,14 @@ x_4 = lean_box_float(x_3);
 return x_4;
 }
 }
-LEAN_EXPORT lean_object* l_Array_foldrMUnsafe_fold___at___List_foldrTR___at___IVI_FixedPoint_coarse_spec__0_spec__0(lean_object* x_1, size_t x_2, size_t x_3, lean_object* x_4) {
-_start:
-{
-uint8_t x_5; 
-x_5 = lean_usize_dec_eq(x_2, x_3);
-if (x_5 == 0)
-{
-size_t x_6; size_t x_7; lean_object* x_8; uint8_t x_9; 
-x_6 = 1;
-x_7 = lean_usize_sub(x_2, x_6);
-x_8 = lean_array_uget(x_1, x_7);
-x_9 = !lean_is_exclusive(x_8);
-if (x_9 == 0)
-{
-lean_object* x_10; lean_object* x_11; lean_object* x_12; lean_object* x_13; lean_object* x_14; uint8_t x_15; 
-x_10 = lean_ctor_get(x_8, 0);
-x_11 = lean_ctor_get(x_8, 1);
-x_12 = lean_unsigned_to_nat(2u);
-x_13 = lean_nat_mod(x_10, x_12);
-lean_dec(x_10);
-x_14 = lean_unsigned_to_nat(0u);
-x_15 = lean_nat_dec_eq(x_13, x_14);
-lean_dec(x_13);
-if (x_15 == 0)
-{
-lean_free_object(x_8);
-lean_dec(x_11);
-x_2 = x_7;
-goto _start;
-}
-else
-{
-lean_ctor_set_tag(x_8, 1);
-lean_ctor_set(x_8, 1, x_4);
-lean_ctor_set(x_8, 0, x_11);
-x_2 = x_7;
-x_4 = x_8;
-goto _start;
-}
-}
-else
-{
-lean_object* x_18; lean_object* x_19; lean_object* x_20; lean_object* x_21; lean_object* x_22; uint8_t x_23; 
-x_18 = lean_ctor_get(x_8, 0);
-x_19 = lean_ctor_get(x_8, 1);
-lean_inc(x_19);
-lean_inc(x_18);
-lean_dec(x_8);
-x_20 = lean_unsigned_to_nat(2u);
-x_21 = lean_nat_mod(x_18, x_20);
-lean_dec(x_18);
-x_22 = lean_unsigned_to_nat(0u);
-x_23 = lean_nat_dec_eq(x_21, x_22);
-lean_dec(x_21);
-if (x_23 == 0)
-{
-lean_dec(x_19);
-x_2 = x_7;
-goto _start;
-}
-else
-{
-lean_object* x_25; 
-x_25 = lean_alloc_ctor(1, 2, 0);
-lean_ctor_set(x_25, 0, x_19);
-lean_ctor_set(x_25, 1, x_4);
-x_2 = x_7;
-x_4 = x_25;
-goto _start;
-}
-}
-}
-else
-{
-return x_4;
-}
-}
-}
-LEAN_EXPORT lean_object* l_List_foldrTR___at___IVI_FixedPoint_coarse_spec__0(lean_object* x_1, lean_object* x_2) {
-_start:
-{
-lean_object* x_3; lean_object* x_4; lean_object* x_5; uint8_t x_6; 
-x_3 = lean_array_mk(x_2);
-x_4 = lean_array_get_size(x_3);
-x_5 = lean_unsigned_to_nat(0u);
-x_6 = lean_nat_dec_lt(x_5, x_4);
-if (x_6 == 0)
-{
-lean_dec(x_4);
-lean_dec(x_3);
-return x_1;
-}
-else
-{
-size_t x_7; size_t x_8; lean_object* x_9; 
-x_7 = lean_usize_of_nat(x_4);
-lean_dec(x_4);
-x_8 = 0;
-x_9 = l_Array_foldrMUnsafe_fold___at___List_foldrTR___at___IVI_FixedPoint_coarse_spec__0_spec__0(x_3, x_7, x_8, x_1);
-lean_dec(x_3);
-return x_9;
-}
-}
-}
 LEAN_EXPORT lean_object* l_IVI_FixedPoint_coarse(lean_object* x_1) {
 _start:
 {
 lean_object* x_2; lean_object* x_3; lean_object* x_4; 
 x_2 = lean_box(0);
 x_3 = l_IVI_Invariant_enumerate___redArg(x_1);
-x_4 = l_List_foldrTR___at___IVI_FixedPoint_coarse_spec__0(x_2, x_3);
+x_4 = l_List_foldrTR___at___IVI_Invariant_coarse_spec__0(x_2, x_3);
 return x_4;
-}
-}
-LEAN_EXPORT lean_object* l_Array_foldrMUnsafe_fold___at___List_foldrTR___at___IVI_FixedPoint_coarse_spec__0_spec__0___boxed(lean_object* x_1, lean_object* x_2, lean_object* x_3, lean_object* x_4) {
-_start:
-{
-size_t x_5; size_t x_6; lean_object* x_7; 
-x_5 = lean_unbox_usize(x_2);
-lean_dec(x_2);
-x_6 = lean_unbox_usize(x_3);
-lean_dec(x_3);
-x_7 = l_Array_foldrMUnsafe_fold___at___List_foldrTR___at___IVI_FixedPoint_coarse_spec__0_spec__0(x_1, x_5, x_6, x_4);
-lean_dec(x_1);
-return x_7;
 }
 }
 LEAN_EXPORT double l_IVI_FixedPoint_scaleAgreement(lean_object* x_1, lean_object* x_2) {

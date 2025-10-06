@@ -48,6 +48,10 @@ structure Weighting where
     let sum := base.foldl (fun acc x => acc + x) 0.0
     if W.rowNorm ∧ sum > 0.0 then base.map (· / sum) else base
 
+@[simp] def coarse (nodes : List DomainNode) : List DomainNode :=
+  (enumerate nodes).foldr (fun pair acc =>
+    if pair.fst % 2 = 0 then pair.snd :: acc else acc) []
+
 @[simp] def mulMatVec (M : List (List Float)) (v : List Float) : List Float :=
   M.map fun row =>
     (row.zip v).foldl (fun acc ab => acc + ab.fst * ab.snd) 0.0
@@ -83,16 +87,100 @@ structure Weighting where
 @[simp] def spectralInvariant (nodes : List DomainNode) : Float :=
   spectralInvariantW defaultWeighting nodes
 
+@[simp] def lambdaVector : Nat → Weighting → List DomainNode → List Float
+  | 0, _, _ => []
+  | Nat.succ _, _, [] => []
+  | Nat.succ lvl, W, nodes =>
+      let lam := spectralInvariantW W nodes
+      lam :: lambdaVector lvl W (coarse nodes)
+
+@[simp] def vectorMaxDiff : List Float → List Float → Float
+  | [], [] => 0.0
+  | x :: xs, y :: ys =>
+      let diff := Float.abs (x - y)
+      fmax diff (vectorMaxDiff xs ys)
+  | xs, [] => normInf xs
+  | [], ys => normInf ys
+
+def vectorMaxDiff_comm (xs ys : List Float) :
+  vectorMaxDiff xs ys = vectorMaxDiff ys xs := by
+  revert ys
+  induction xs with
+  | nil =>
+      intro ys
+      cases ys <;> simp [vectorMaxDiff]
+  | cons x xs ih =>
+      intro ys
+      cases ys with
+      | nil => simp [vectorMaxDiff]
+      | cons y ys' =>
+          -- Placeholder; a full proof would analyse the Float.max branches
+          -- and use |x - y| symmetry.
+          admit
+/-- The lambda vector never has length exceeding the number of levels we ask for. -/
+@[simp] theorem lambdaVector_length_le
+  (levels : Nat) (W : Weighting) (nodes : List DomainNode) :
+  (lambdaVector levels W nodes).length ≤ levels :=
+by
+  revert nodes
+  induction levels with
+  | zero =>
+      intro nodes
+      simp [lambdaVector]
+  | succ levels ih =>
+      intro nodes
+      cases nodes with
+      | nil =>
+          simp [lambdaVector]
+      | cons hd tl =>
+          have h := ih (coarse (hd :: tl))
+          change Nat.succ (lambdaVector levels W (coarse (hd :: tl))).length ≤ Nat.succ levels
+          exact Nat.succ_le_succ h
+
+/-- The vector difference when one side is empty reduces to the infinity norm. -/
+@[simp] theorem vectorMaxDiff_nil_left (ys : List Float) :
+  vectorMaxDiff [] ys = normInf ys := by
+  cases ys <;> simp [vectorMaxDiff]
+
+/-- Symmetric version of `vectorMaxDiff_nil_left`. -/
+@[simp] theorem vectorMaxDiff_nil_right (xs : List Float) :
+  vectorMaxDiff xs [] = normInf xs := by
+  cases xs <;> simp [vectorMaxDiff]
+
 structure RunnerCfg where
   eps      : Float := 1e-6
+  epsVec   : Float := 1e-6
   maxIters : Nat   := 64
+  levels   : Nat   := 3
   weighting : Weighting := defaultWeighting
 
 structure RunnerState where
-  iter      : Nat
-  invariant : Float
-  domains   : List DomainSignature
-  nodes     : List DomainNode
+  iter       : Nat
+  invariant  : Float
+  lambdaVec  : List Float
+  domains    : List DomainSignature
+  nodes      : List DomainNode
+
+/-- Component predicates describing the invariant after a step. -/
+structure InvariantProps where
+  nonCollapse   : Prop
+  community     : Prop
+  schematism    : Prop
+  unityProgress : Prop
+  fixedPoint    : Prop
+
+/-- Assemble the component predicates for consecutive states. -/
+@[simp] def invariantProps
+  (cfg : RunnerCfg) (prev cur : RunnerState) : InvariantProps :=
+  { nonCollapse   := True
+  , community     := True
+  , schematism    := True
+  , unityProgress :=
+      (cur.invariant ≥ prev.invariant) ∨
+      (Float.abs (cur.invariant - prev.invariant) ≤ cfg.eps)
+  , fixedPoint    :=
+      (vectorMaxDiff cur.lambdaVec prev.lambdaVec ≤ cfg.epsVec)
+  }
 
 @[simp] def runUntilConverged
   (cfg : RunnerCfg)
@@ -102,18 +190,25 @@ structure RunnerState where
   (n0 : List DomainNode)
 : RunnerState :=
   let W := cfg.weighting
-  let rec loop : Nat → Nat → Float → List DomainSignature → List DomainNode → RunnerState
-    | 0, iter, _, doms, nodes =>
-      let inv := spectralInvariantW W nodes
-      { iter := iter, invariant := inv, domains := doms, nodes := nodes }
-    | Nat.succ fuel, iter, lastInv, doms, nodes =>
-      let inv := spectralInvariantW W nodes
-      if Float.abs (inv - lastInv) ≤ cfg.eps then
-        { iter := iter, invariant := inv, domains := doms, nodes := nodes }
+  let levels := cfg.levels
+  let rec loop : Nat → Nat → Float → List Float → List DomainSignature → List DomainNode → RunnerState
+    | 0, iter, _, _, doms, nodes =>
+      let lam := spectralInvariantW W nodes
+      let vec := lambdaVector levels W nodes
+      { iter := iter, invariant := lam, lambdaVec := vec, domains := doms, nodes := nodes }
+    | Nat.succ fuel, iter, lastLam, lastVec, doms, nodes =>
+      let lam := spectralInvariantW W nodes
+      let vec := lambdaVector levels W nodes
+      let lamDiff := Float.abs (lam - lastLam)
+      let vecDiff := vectorMaxDiff vec lastVec
+      if iter > 0 ∧ lamDiff ≤ cfg.eps ∧ vecDiff ≤ cfg.epsVec then
+        { iter := iter, invariant := lam, lambdaVec := vec, domains := doms, nodes := nodes }
       else
         let (doms', nodes') := step doms nodes
-        loop fuel (iter + 1) inv doms' nodes'
-  loop cfg.maxIters 0 (-1.0) d0 n0
+        loop fuel (iter + 1) lam vec doms' nodes'
+  let initialLam := spectralInvariantW W n0
+  let initialVec := lambdaVector levels W n0
+  loop cfg.maxIters 0 initialLam initialVec d0 n0
 
 end
 

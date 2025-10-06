@@ -1,5 +1,5 @@
 {"synthetic": false,
- "outputs": "9566460436718112652",
+ "outputs": "1315374967687595624",
  "log":
  [{"message":
    ".> MACOSX_DEPLOYMENT_TARGET=99.0 /Users/harryscott/.elan/toolchains/leanprover--lean4---v4.22.0/bin/clang -o /Users/harryscott/Kantian-IVI/.lake/build/bin/ivi-demo /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Demo.c.o.export /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Core.c.o.export /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Pure.c.o.export /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Logic.c.o.export /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Operators.c.o.export /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Domain.c.o.export /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/System.c.o.export /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/C3Model.c.o.export /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Theorems.c.o.export /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Proofs.c.o.export /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Intangible.c.o.export /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Invariant.c.o.export -L /Users/harryscott/.elan/toolchains/leanprover--lean4---v4.22.0/lib/lean --sysroot /Users/harryscott/.elan/toolchains/leanprover--lean4---v4.22.0 -L /Users/harryscott/.elan/toolchains/leanprover--lean4---v4.22.0/lib -L /Users/harryscott/.elan/toolchains/leanprover--lean4---v4.22.0/lib/libc -fuse-ld=lld -lleancpp -lInit -lStd -lLean -lleanrt -lc++ -lLake -lgmp -luv",
@@ -7,7 +7,7 @@
  "inputs":
  [["linkObjs",
    [["/Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Demo.c.o.export",
-     "8050845383864632532"],
+     "15905849855283675964"],
     ["/Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Core.c.o.export",
      "5129078194044995017"],
     ["/Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Pure.c.o.export",
@@ -29,10 +29,10 @@
     ["/Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Intangible.c.o.export",
      "13463276176178428978"],
     ["/Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Invariant.c.o.export",
-     "6418747264150395216"]]],
+     "1176628033882093762"]]],
   ["linkLibs", "1723"],
   ["Lean 4.22.0, commit ba2cbbf09d4978f416e0ebd1fceeebc2c4138c05",
    "8739116525927611134"],
   ["traceArgs: #[]", "1723"],
   ["arm64-apple-darwin23.6.0", "17616366027971700708"]],
- "depHash": "16353868626529188325"}
+ "depHash": "9854721016514030925"}

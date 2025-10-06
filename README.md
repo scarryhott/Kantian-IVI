@@ -24,8 +24,9 @@ lake exe ivi-demo
 - `IVI/System.lean` — system unity and closure checks
 - `IVI/C3Model.lean` — mathlib-free ℂ³ placeholder scaffold
 - `IVI/Intangible.lean` — intangible verification (Δi translation, fractal iteration)
-- `IVI/Invariant.lean` — spectral invariant + convergence runner
+- `IVI/Invariant.lean` — spectral invariant + multi-scale convergence runner
 - `IVI/FixedPoint.lean` — fixed-point predicate and runner (loop closure, scale agreement)
+- `IVI/Bridge.lean` — scaffolds the Kant ⇄ IVI correspondence (soundness, completeness, minimality)
 - `IVI/Theorems.lean` — named theorem stubs (T1–T5)
 - `IVI/Proofs.lean` — proven lemmas (symmetry, harmonize/Resuperpose singletons, closure helper)
 - `IVI/Demo.lean` — tiny demo wiring pieces together
@@ -46,6 +47,8 @@ lake exe ivi-demo
 - `IVI/Demo.lean` exercises the new results without printing raw propositions.
 - `IVI/Intangible.lean` formalises the Δi = k · |r⃗| · θ rule and recursive domain interactions.
 - `IVI/Invariant.lean` adds resonance matrices + power iteration to detect convergence invariantly.
+- `IVI/Demo.lean` now prints the multi-scale λ-vector to show spectral stability across scales.
+- `IVI/Bridge.lean` records the functor skeletons (Kant ⇒ IVI, IVI ⇒ Kant) and minimality placeholders.
 - `IVI/FixedPoint.lean` captures the fixed-point predicate (λ, loop closure, scale agreement) with a runner.
 
 Everything still builds cleanly:

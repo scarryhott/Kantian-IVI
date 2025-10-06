@@ -113,6 +113,7 @@ def main : IO Unit := do
     (doms.map updateDomain, updated)
   let convergence := runUntilConverged cfgRun stepFn domainsList domainNodes
   IO.println s!"Invariant converged in {convergence.iter} iterations; lambda ≈ {convergence.invariant}"
+  IO.println s!"Lambda vector (multi-scale): {convergence.lambdaVec}"
   IO.println s!"Final domain time shifts: {convergence.domains.map (·.timeShift)}"
 
   -- Reference to future theorem work (placeholders compile today).

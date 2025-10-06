@@ -50,6 +50,7 @@ extern lean_object* l_IVI_Aesthetics_f_u2080;
 LEAN_EXPORT lean_object* l_IO_print___at___IO_println___at___main_spec__0_spec__0(lean_object*, lean_object*);
 double lean_float_add(double, double);
 static double l_main___closed__14;
+static lean_object* l_main___closed__55;
 static lean_object* l_main___closed__39;
 extern lean_object* l_IVI_Invariant_defaultWeighting;
 static lean_object* l_main___closed__1;
@@ -1255,15 +1256,18 @@ return x_5;
 static lean_object* _init_l_main___closed__51() {
 _start:
 {
-lean_object* x_1; lean_object* x_2; double x_3; lean_object* x_4; 
+lean_object* x_1; lean_object* x_2; lean_object* x_3; double x_4; lean_object* x_5; 
 x_1 = l_IVI_Invariant_defaultWeighting;
-x_2 = lean_unsigned_to_nat(10u);
-x_3 = l_main___closed__50;
-x_4 = lean_alloc_ctor(0, 2, 8);
-lean_ctor_set(x_4, 0, x_2);
-lean_ctor_set(x_4, 1, x_1);
-lean_ctor_set_float(x_4, sizeof(void*)*2, x_3);
-return x_4;
+x_2 = lean_unsigned_to_nat(3u);
+x_3 = lean_unsigned_to_nat(10u);
+x_4 = l_main___closed__50;
+x_5 = lean_alloc_ctor(0, 3, 16);
+lean_ctor_set(x_5, 0, x_3);
+lean_ctor_set(x_5, 1, x_2);
+lean_ctor_set(x_5, 2, x_1);
+lean_ctor_set_float(x_5, sizeof(void*)*3, x_4);
+lean_ctor_set_float(x_5, sizeof(void*)*3 + 8, x_4);
+return x_5;
 }
 }
 static lean_object* _init_l_main___closed__52() {
@@ -1283,6 +1287,14 @@ return x_1;
 }
 }
 static lean_object* _init_l_main___closed__54() {
+_start:
+{
+lean_object* x_1; 
+x_1 = lean_mk_string_unchecked("Lambda vector (multi-scale): ", 29, 29);
+return x_1;
+}
+}
+static lean_object* _init_l_main___closed__55() {
 _start:
 {
 lean_object* x_1; 
@@ -1391,7 +1403,7 @@ lean_dec(x_36);
 x_38 = l_IO_println___at___main_spec__0(x_37, x_29);
 if (lean_obj_tag(x_38) == 0)
 {
-lean_object* x_39; lean_object* x_40; lean_object* x_41; lean_object* x_42; lean_object* x_43; lean_object* x_44; lean_object* x_45; lean_object* x_46; double x_47; lean_object* x_48; lean_object* x_49; lean_object* x_50; lean_object* x_51; lean_object* x_52; lean_object* x_53; lean_object* x_54; lean_object* x_55; lean_object* x_56; 
+lean_object* x_39; lean_object* x_40; lean_object* x_41; lean_object* x_42; lean_object* x_43; lean_object* x_44; lean_object* x_45; lean_object* x_46; double x_47; lean_object* x_48; lean_object* x_49; lean_object* x_50; lean_object* x_51; lean_object* x_52; lean_object* x_53; lean_object* x_54; lean_object* x_55; lean_object* x_56; lean_object* x_57; 
 x_39 = lean_ctor_get(x_38, 1);
 lean_inc(x_39);
 lean_dec(x_38);
@@ -1406,67 +1418,87 @@ x_44 = l_main___closed__51;
 x_45 = l_IVI_Invariant_runUntilConverged(x_44, x_42, x_43, x_30);
 x_46 = lean_ctor_get(x_45, 0);
 lean_inc(x_46);
-x_47 = lean_ctor_get_float(x_45, sizeof(void*)*3);
+x_47 = lean_ctor_get_float(x_45, sizeof(void*)*4);
 x_48 = lean_ctor_get(x_45, 1);
 lean_inc(x_48);
+x_49 = lean_ctor_get(x_45, 2);
+lean_inc(x_49);
 lean_dec(x_45);
-x_49 = l_main___closed__52;
-x_50 = l_Nat_reprFast(x_46);
-x_51 = lean_string_append(x_49, x_50);
-lean_dec(x_50);
-x_52 = l_main___closed__53;
-x_53 = lean_string_append(x_51, x_52);
-x_54 = lean_float_to_string(x_47);
-x_55 = lean_string_append(x_53, x_54);
-lean_dec(x_54);
-x_56 = l_IO_println___at___main_spec__0(x_55, x_39);
-if (lean_obj_tag(x_56) == 0)
+x_50 = l_main___closed__52;
+x_51 = l_Nat_reprFast(x_46);
+x_52 = lean_string_append(x_50, x_51);
+lean_dec(x_51);
+x_53 = l_main___closed__53;
+x_54 = lean_string_append(x_52, x_53);
+x_55 = lean_float_to_string(x_47);
+x_56 = lean_string_append(x_54, x_55);
+lean_dec(x_55);
+x_57 = l_IO_println___at___main_spec__0(x_56, x_39);
+if (lean_obj_tag(x_57) == 0)
 {
-lean_object* x_57; lean_object* x_58; lean_object* x_59; lean_object* x_60; lean_object* x_61; lean_object* x_62; 
-x_57 = lean_ctor_get(x_56, 1);
-lean_inc(x_57);
-lean_dec(x_56);
-x_58 = l_main___closed__54;
-x_59 = l_List_mapTR_loop___at___main_spec__10(x_48, x_34);
-x_60 = l_List_toString___at___main_spec__8(x_59);
-x_61 = lean_string_append(x_58, x_60);
+lean_object* x_58; lean_object* x_59; lean_object* x_60; lean_object* x_61; lean_object* x_62; 
+x_58 = lean_ctor_get(x_57, 1);
+lean_inc(x_58);
+lean_dec(x_57);
+x_59 = l_main___closed__54;
+x_60 = l_List_toString___at___main_spec__8(x_48);
+x_61 = lean_string_append(x_59, x_60);
 lean_dec(x_60);
-x_62 = l_IO_println___at___main_spec__0(x_61, x_57);
+x_62 = l_IO_println___at___main_spec__0(x_61, x_58);
 if (lean_obj_tag(x_62) == 0)
 {
-uint8_t x_63; 
-x_63 = !lean_is_exclusive(x_62);
-if (x_63 == 0)
+lean_object* x_63; lean_object* x_64; lean_object* x_65; lean_object* x_66; lean_object* x_67; lean_object* x_68; 
+x_63 = lean_ctor_get(x_62, 1);
+lean_inc(x_63);
+lean_dec(x_62);
+x_64 = l_main___closed__55;
+x_65 = l_List_mapTR_loop___at___main_spec__10(x_49, x_34);
+x_66 = l_List_toString___at___main_spec__8(x_65);
+x_67 = lean_string_append(x_64, x_66);
+lean_dec(x_66);
+x_68 = l_IO_println___at___main_spec__0(x_67, x_63);
+if (lean_obj_tag(x_68) == 0)
 {
-lean_object* x_64; lean_object* x_65; 
-x_64 = lean_ctor_get(x_62, 0);
-lean_dec(x_64);
-x_65 = lean_box(0);
-lean_ctor_set(x_62, 0, x_65);
-return x_62;
+uint8_t x_69; 
+x_69 = !lean_is_exclusive(x_68);
+if (x_69 == 0)
+{
+lean_object* x_70; lean_object* x_71; 
+x_70 = lean_ctor_get(x_68, 0);
+lean_dec(x_70);
+x_71 = lean_box(0);
+lean_ctor_set(x_68, 0, x_71);
+return x_68;
 }
 else
 {
-lean_object* x_66; lean_object* x_67; lean_object* x_68; 
-x_66 = lean_ctor_get(x_62, 1);
-lean_inc(x_66);
-lean_dec(x_62);
-x_67 = lean_box(0);
-x_68 = lean_alloc_ctor(0, 2, 0);
-lean_ctor_set(x_68, 0, x_67);
-lean_ctor_set(x_68, 1, x_66);
+lean_object* x_72; lean_object* x_73; lean_object* x_74; 
+x_72 = lean_ctor_get(x_68, 1);
+lean_inc(x_72);
+lean_dec(x_68);
+x_73 = lean_box(0);
+x_74 = lean_alloc_ctor(0, 2, 0);
+lean_ctor_set(x_74, 0, x_73);
+lean_ctor_set(x_74, 1, x_72);
+return x_74;
+}
+}
+else
+{
 return x_68;
 }
 }
 else
 {
+lean_dec(x_49);
 return x_62;
 }
 }
 else
 {
+lean_dec(x_49);
 lean_dec(x_48);
-return x_56;
+return x_57;
 }
 }
 else
@@ -1722,6 +1754,8 @@ l_main___closed__53 = _init_l_main___closed__53();
 lean_mark_persistent(l_main___closed__53);
 l_main___closed__54 = _init_l_main___closed__54();
 lean_mark_persistent(l_main___closed__54);
+l_main___closed__55 = _init_l_main___closed__55();
+lean_mark_persistent(l_main___closed__55);
 l_main___boxed__const__1 = _init_l_main___boxed__const__1();
 lean_mark_persistent(l_main___boxed__const__1);
 l_main___boxed__const__2 = _init_l_main___boxed__const__2();
