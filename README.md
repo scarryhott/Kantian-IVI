@@ -62,3 +62,4 @@ lake build && lake exe ivi-demo
 4. Use the new lemmas as scaffolding for stronger domain logics or topology upgrades.
 # Kantian-IVI
 # Kantian-IVI
+# Kantian-IVI
