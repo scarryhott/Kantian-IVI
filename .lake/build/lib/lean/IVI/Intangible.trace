@@ -1,0 +1,29 @@
+{"synthetic": false,
+ "outputs":
+ {"o": ["119600506267118591"],
+  "i": "12517261076046206016",
+  "c": "18409632104087454344"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/Users/harryscott/Kantian-IVI/.lake/build/lib/lean /Users/harryscott/.elan/toolchains/leanprover--lean4---v4.22.0/bin/lean /Users/harryscott/Kantian-IVI/IVI/Intangible.lean -o /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Intangible.olean -i /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Intangible.ilean -c /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Intangible.c --setup /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Intangible.setup.json --json",
+   "level": "trace"}],
+ "inputs":
+ [["IVI.Intangible:deps",
+   [["deps",
+     [["ivi/IVI:extraDep", [["@ivi:extraDep", "1723"]]],
+      ["import oleans",
+       [["IVI.C3Model:olean",
+         [["IVI.C3Model:deps", "15550444365902634996"],
+          ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/C3Model.olean",
+           "5533677389340440780"]]]]]]],
+    ["libs",
+     [["import dynlibs", "1723"],
+      ["package external libraries", "1723"],
+      ["module dynlibs", "1723"],
+      ["module plugins", "1723"]]]]],
+  ["Lean 4.22.0, commit ba2cbbf09d4978f416e0ebd1fceeebc2c4138c05",
+   "8739116525927611134"],
+  ["/Users/harryscott/Kantian-IVI/IVI/Intangible.lean", "9972559232253601983"],
+  ["options", "1723"],
+  ["Module.leanArgs: #[]", "1723"]],
+ "depHash": "12274954371343159535"}

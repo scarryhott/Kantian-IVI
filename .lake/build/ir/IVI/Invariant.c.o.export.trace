@@ -1,0 +1,17 @@
+{"synthetic": false,
+ "outputs": "6418747264150395216",
+ "log":
+ [{"message":
+   ".> /Users/harryscott/.elan/toolchains/leanprover--lean4---v4.22.0/bin/clang -c -o /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Invariant.c.o.export /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Invariant.c -I /Users/harryscott/.elan/toolchains/leanprover--lean4---v4.22.0/include -fstack-clash-protection -fwrapv -fvisibility=hidden -Wno-unused-command-line-argument --sysroot /Users/harryscott/.elan/toolchains/leanprover--lean4---v4.22.0 -nostdinc -isystem /Users/harryscott/.elan/toolchains/leanprover--lean4---v4.22.0/include/clang -O3 -DNDEBUG -DLEAN_EXPORTING",
+   "level": "trace"}],
+ "inputs":
+ [["IVI.Invariant:c",
+   [["/Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Invariant.c",
+     "6788008220322519121"],
+    ["Lean 4.22.0, commit ba2cbbf09d4978f416e0ebd1fceeebc2c4138c05",
+     "8739116525927611134"]]],
+  ["Lean 4.22.0, commit ba2cbbf09d4978f416e0ebd1fceeebc2c4138c05",
+   "8739116525927611134"],
+  ["traceArgs: #[-O3, -DNDEBUG, -DLEAN_EXPORTING]", "13974588697068907418"],
+  ["arm64-apple-darwin23.6.0", "17616366027971700708"]],
+ "depHash": "4479261725892850421"}
