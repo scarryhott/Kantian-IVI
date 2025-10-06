@@ -61,3 +61,4 @@ lake build && lake exe ivi-demo
 3. Swap `IVI/C3Model.lean` for a full complex-vector backend when ready.
 4. Use the new lemmas as scaffolding for stronger domain logics or topology upgrades.
 # Kantian-IVI
+# Kantian-IVI
