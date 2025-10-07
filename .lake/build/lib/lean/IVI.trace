@@ -1,8 +1,8 @@
 {"synthetic": false,
  "outputs":
- {"o": ["2693317082601271506"],
-  "i": "3265145983139430895",
-  "c": "4113998309828745541"},
+ {"o": ["4090896915808715359"],
+  "i": "948437055683408971",
+  "c": "16225318544675580465"},
  "log":
  [{"message":
    ".> LEAN_PATH=/Users/harryscott/Kantian-IVI/.lake/build/lib/lean /Users/harryscott/.elan/toolchains/leanprover--lean4---v4.22.0/bin/lean /Users/harryscott/Kantian-IVI/IVI.lean -o /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI.olean -i /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI.ilean -c /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI.c --setup /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI.setup.json --json",
@@ -47,7 +47,19 @@
         ["IVI.FixedPoint:olean",
          [["IVI.FixedPoint:deps", "15781563038402602422"],
           ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/FixedPoint.olean",
-           "10046407267702630871"]]]]]]],
+           "10046407267702630871"]]],
+        ["IVI.Kakeya:olean",
+         [["IVI.Kakeya:deps", "1864017184678738944"],
+          ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Kakeya.olean",
+           "7692637001874779052"]]],
+        ["IVI.Harmonics:olean",
+         [["IVI.Harmonics:deps", "15781563038402602422"],
+          ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Harmonics.olean",
+           "5838156797236561283"]]],
+        ["IVI.KantLimit:olean",
+         [["IVI.KantLimit:deps", "18169657644071153872"],
+          ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/KantLimit.olean",
+           "16914238083463951946"]]]]]]],
     ["libs",
      [["import dynlibs", "1723"],
       ["package external libraries", "1723"],
@@ -55,7 +67,7 @@
       ["module plugins", "1723"]]]]],
   ["Lean 4.22.0, commit ba2cbbf09d4978f416e0ebd1fceeebc2c4138c05",
    "8739116525927611134"],
-  ["/Users/harryscott/Kantian-IVI/IVI.lean", "11481298074727166442"],
+  ["/Users/harryscott/Kantian-IVI/IVI.lean", "14115346240521862283"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "6560484592123646420"}
+ "depHash": "16825497828453037076"}

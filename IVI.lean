@@ -7,3 +7,6 @@ import IVI.C3Model
 import IVI.Intangible
 import IVI.Invariant
 import IVI.FixedPoint
+import IVI.Kakeya
+import IVI.Harmonics
+import IVI.KantLimit

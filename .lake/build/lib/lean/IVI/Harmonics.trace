@@ -1,0 +1,29 @@
+{"synthetic": false,
+ "outputs":
+ {"o": ["5838156797236561283"],
+  "i": "17719986280449433696",
+  "c": "3484037219742598310"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/Users/harryscott/Kantian-IVI/.lake/build/lib/lean /Users/harryscott/.elan/toolchains/leanprover--lean4---v4.22.0/bin/lean /Users/harryscott/Kantian-IVI/IVI/Harmonics.lean -o /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Harmonics.olean -i /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Harmonics.ilean -c /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Harmonics.c --setup /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Harmonics.setup.json --json",
+   "level": "trace"}],
+ "inputs":
+ [["IVI.Harmonics:deps",
+   [["deps",
+     [["ivi/IVI:extraDep", [["@ivi:extraDep", "1723"]]],
+      ["import oleans",
+       [["IVI.Invariant:olean",
+         [["IVI.Invariant:deps", "12182908386892602159"],
+          ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Invariant.olean",
+           "13629072164379061021"]]]]]]],
+    ["libs",
+     [["import dynlibs", "1723"],
+      ["package external libraries", "1723"],
+      ["module dynlibs", "1723"],
+      ["module plugins", "1723"]]]]],
+  ["Lean 4.22.0, commit ba2cbbf09d4978f416e0ebd1fceeebc2c4138c05",
+   "8739116525927611134"],
+  ["/Users/harryscott/Kantian-IVI/IVI/Harmonics.lean", "16576466831767859721"],
+  ["options", "1723"],
+  ["Module.leanArgs: #[]", "1723"]],
+ "depHash": "1665802263344037678"}
