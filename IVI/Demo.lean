@@ -14,10 +14,15 @@ import IVI.Theorems
 import IVI.Proofs
 import IVI.Intangible
 import IVI.Invariant
+import IVI.Kakeya
+import IVI.Harmonics
+import IVI.KantLimit
+import IVI.Fractal
 
 open IVI
 open Intangible
 open Invariant
+open Classical
 
 set_option autoImplicit true
 
@@ -115,6 +120,35 @@ def main : IO Unit := do
   IO.println s!"Invariant converged in {convergence.iter} iterations; lambda ≈ {convergence.invariant}"
   IO.println s!"Lambda vector (multi-scale): {convergence.lambdaVec}"
   IO.println s!"Final domain time shifts: {convergence.domains.map (·.timeShift)}"
+
+  -- Kakeya/Harmonics/Kant-limit diagnostics across an I-directed zoom
+  let layer0 : FractalLayer := { depth := 0, nodes := domainNodes }
+  let itrans : ITranslation := { k := k, pairs := interactions }
+  let (layer1, _) := itrans.zoomE layer0
+  let S0 := resonanceMatrixW defaultWeighting layer0.nodes
+  let S1 := resonanceMatrixW defaultWeighting layer1.nodes
+  let grain0 := graininessScore S0
+  let grain1 := graininessScore S1
+  let stick01 := stickinessScore S0 S1
+  IO.println s!"Kakeya/Harmonics: grain₀={grain0}, grain₁={grain1}, stick01={stick01}"
+  let dirOf (sig : DomainSignature) : Dir3 :=
+    { x := sig.axis.r1, y := sig.axis.r2, z := sig.axis.r3 }
+  let dirs : DirectionSet := [dirOf mathSig, dirOf physicsSig, dirOf ethicsSig]
+  let collapseMeasure : CollapseMeasure := fun _ => 0.0
+  let kakeyaField : KakeyaField :=
+    { tolDir := 0.1, dirs := dirs, μ := collapseMeasure, nodes := layer0.nodes }
+  let cfgInvK : InvariantCfg :=
+    { W := defaultWeighting, tau := 0.0
+    , ncfg := { epsLambda := 1e-6, levels := 3 }
+    , epsUnity := 1e-6, Ridx := none }
+  let kantBounds := grainStickAfterZoom cfgInvK 0.6 0.7 itrans layer0 kakeyaField
+  let boundedFlag : Bool := decide kantBounds.boundedIntuition
+  let schematismFlag : Bool := decide kantBounds.schematismBound
+  let noumenalFlag : Bool := decide kantBounds.noumenalBoundary
+  let unityFlag : Bool := decide kantBounds.unity
+  IO.println s!"Kant limits: bounded={boundedFlag}, schematism={schematismFlag}, noumenal={noumenalFlag}, unity={unityFlag}"
+  let selfSimFlag : Bool := decide (selfSimilar cfgInvK 0.6 0.7 itrans layer0 kakeyaField)
+  IO.println s!"Fractal self-similar after one zoom cycle? {selfSimFlag}"
 
   -- Reference to future theorem work (placeholders compile today).
   let _ : True := T4_practical_aperture_unique

@@ -26,12 +26,35 @@ lake exe ivi-demo
 - `IVI/Intangible.lean` — intangible verification (Δi translation, fractal iteration)
 - `IVI/Invariant.lean` — spectral invariant + multi-scale convergence runner
 - `IVI/FixedPoint.lean` — fixed-point predicate and runner (loop closure, scale agreement)
+- `IVI/Kakeya.lean` — Kakeya-style directional completeness and collapse-zero axiomatisation
+- `IVI/Harmonics.lean` — graininess/stickiness metrics via Laplacian harmonics
+- `IVI/KantLimit.lean` — Kantian bounds (bounded intuition, schematism, noumenal limit, unity)
+- `IVI/Fractal.lean` — I-directed zoom cycles connecting layers with Kakeya/Kant diagnostics
 - `IVI/Bridge.lean` — scaffolds the Kant ⇄ IVI correspondence (soundness, completeness, minimality)
 - `IVI/Theorems.lean` — named theorem stubs (T1–T5)
 - `IVI/Proofs.lean` — proven lemmas (symmetry, harmonize/Resuperpose singletons, closure helper)
 - `IVI/Demo.lean` — tiny demo wiring pieces together
 
-## What's new in this enhancement pack
+## Kakeya / Harmonic / Kant limits (current drop)
+
+- Kakeya bridge: `IVI/Kakeya.lean` bundles directional completeness, collapse-zero fields,
+  and preservation lemmas so Δi-steps can cite classical Besicovitch structure.
+- Harmonic diagnostics: `IVI/Harmonics.lean` quantifies resonance (“stickiness”) and
+  dissonance (“graininess”) using list-based Laplacian tools.
+- Kantian interpretation: `IVI/KantLimit.lean` interprets grain/stick/Kakeya data as
+  bounded intuition, schematism, noumenal boundary, and unity predicates.
+- Fractal flow: `IVI/Fractal.lean` threads the I-axis zoom-in/out cycles, feeding the
+  Kakeya and Kant limits to show zoom self-similarity in the IVI recursion.
+
+Everything still builds cleanly:
+
+```bash
+lake build && lake exe ivi-demo
+```
+
+## Earlier enhancement packs
+
+### Pack 1
 
 - Strengthened recognition logic in `IVI/Logic.lean` (`lawful`, `compatible`, `harmonize`).
 - Bridged `VWM` with `compatible` and added `closed_sublist` in `IVI/Operators.lean`.
@@ -45,17 +68,18 @@ lake exe ivi-demo
 - `IVI/Logic.lean` exposes `compatible_refl_on` when you can supply a reflexive closure.
 - `IVI/System.lean` adds `harmonizeIfClosed` so any closed list yields a harmonized witness.
 - `IVI/Demo.lean` exercises the new results without printing raw propositions.
+### Pack 2
+
+- `IVI/Proofs.lean` delivers `VWM_symm`, `compatible_iff_VWM`, `harmonize_singleton`,
+  `Resuperpose_singleton`, and `closedUnderIVI_cons` with full proofs.
+- `IVI/Logic.lean` exposes `compatible_refl_on` when you can supply a reflexive closure.
+- `IVI/System.lean` adds `harmonizeIfClosed` so any closed list yields a harmonized witness.
+- `IVI/Demo.lean` exercises the new results without printing raw propositions.
 - `IVI/Intangible.lean` formalises the Δi = k · |r⃗| · θ rule and recursive domain interactions.
 - `IVI/Invariant.lean` adds resonance matrices + power iteration to detect convergence invariantly.
 - `IVI/Demo.lean` now prints the multi-scale λ-vector to show spectral stability across scales.
 - `IVI/Bridge.lean` records the functor skeletons (Kant ⇒ IVI, IVI ⇒ Kant) and minimality placeholders.
 - `IVI/FixedPoint.lean` captures the fixed-point predicate (λ, loop closure, scale agreement) with a runner.
-
-Everything still builds cleanly:
-
-```bash
-lake build && lake exe ivi-demo
-```
 
 ## Where to go next
 
