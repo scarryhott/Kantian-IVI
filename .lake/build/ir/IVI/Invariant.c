@@ -1,6 +1,6 @@
 // Lean compiler output
 // Module: IVI.Invariant
-// Imports: Init IVI.Intangible
+// Imports: Init IVI.Intangible IVI.SchematismEvidence
 #include <lean/lean.h>
 #if defined(__clang__)
 #pragma clang diagnostic ignored "-Wunused-parameter"
@@ -13,17 +13,27 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+lean_object* l_Float_repr(double, lean_object*);
+LEAN_EXPORT lean_object* l_IVI_invariantProps___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+static lean_object* l_IVI_reprNonCollapseCfg___redArg___closed__9____x40_IVI_Invariant___hyg_1716_;
 lean_object* l_List_lengthTR___redArg(lean_object*);
 LEAN_EXPORT lean_object* l_IVI_Invariant_runUntilConverged_loop___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
 double lean_float_mul(double, double);
+static lean_object* l_IVI_reprNonCollapseCfg___redArg___closed__6____x40_IVI_Invariant___hyg_1716_;
 LEAN_EXPORT lean_object* l_List_foldl___at___IVI_Invariant_resonanceMatrixW_spec__1___boxed(lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l___private_IVI_Invariant_0__IVI_Invariant_vectorMaxDiff_match__1_splitter___redArg(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_IVI_Invariant_spectralInvariantW___boxed(lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_List_mapTR_loop___at___IVI_Invariant_mulMatVec_spec__1(lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_IVI_zipIdx___redArg(lean_object*);
+static lean_object* l_IVI_reprNonCollapseCfg___redArg___closed__14____x40_IVI_Invariant___hyg_1716_;
+static lean_object* l_IVI_reprNonCollapseCfg___redArg___closed__4____x40_IVI_Invariant___hyg_1716_;
 LEAN_EXPORT lean_object* l_List_mapTR_loop___at___IVI_Invariant_resonanceMatrixW_spec__0(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_IVI_Invariant_defaultWeighting___lam__0___boxed(lean_object*, lean_object*);
+static lean_object* l_IVI_reprNonCollapseCfg___redArg___closed__15____x40_IVI_Invariant___hyg_1716_;
 LEAN_EXPORT lean_object* l_IVI_Invariant_powerIter(lean_object*, lean_object*, double);
+static lean_object* l_IVI_reprNonCollapseCfg___redArg___closed__16____x40_IVI_Invariant___hyg_1716_;
 double lean_float_div(double, double);
+LEAN_EXPORT lean_object* l_IVI_reprNonCollapseCfg___redArg____x40_IVI_Invariant___hyg_1716_(lean_object*);
 LEAN_EXPORT lean_object* l___private_IVI_Invariant_0__IVI_Invariant_normInf_match__1_splitter___boxed(lean_object*, lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l___private_IVI_Invariant_0__IVI_Invariant_powerIterAux_match__1_splitter___redArg___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT double l_IVI_Invariant_spectralInvariant(lean_object*);
@@ -31,62 +41,106 @@ LEAN_EXPORT lean_object* l_List_foldrTR___at___IVI_Invariant_coarse_spec__0(lean
 LEAN_EXPORT double l_IVI_Invariant_fmax(double, double);
 LEAN_EXPORT lean_object* l___private_IVI_Invariant_0__IVI_Invariant_vectorMaxDiff_match__1_splitter___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
 uint8_t lean_usize_dec_eq(size_t, size_t);
-LEAN_EXPORT lean_object* l_IVI_Invariant_invariantProps(lean_object*, lean_object*, lean_object*);
+static lean_object* l_IVI_reprNonCollapseCfg___redArg___closed__12____x40_IVI_Invariant___hyg_1716_;
 LEAN_EXPORT lean_object* l___private_IVI_Invariant_0__IVI_Invariant_vectorMaxDiff_match__1_splitter(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_IVI_reprNonCollapseCfg____x40_IVI_Invariant___hyg_1716____boxed(lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_List_foldl___at___IVI_Invariant_mulMatVec_spec__0___boxed(lean_object*, lean_object*);
 double l_IVI_align(double, double);
 LEAN_EXPORT lean_object* l_IVI_Invariant_coarse(lean_object*);
 uint8_t lean_float_decLt(double, double);
 LEAN_EXPORT double l_List_foldl___at___IVI_Invariant_resonanceMatrixW_spec__1(double, lean_object*);
+static lean_object* l_IVI_reprNonCollapseCfg___redArg___closed__7____x40_IVI_Invariant___hyg_1716_;
 LEAN_EXPORT lean_object* l___private_IVI_Invariant_0__IVI_Invariant_normInf_match__1_splitter___redArg___boxed(lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l___private_IVI_Invariant_0__IVI_Invariant_normInf_match__1_splitter___redArg(lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT double l_List_foldl___at___IVI_rowEntropy_spec__1(lean_object*, double, lean_object*);
+LEAN_EXPORT double l_IVI_rowEntropy(lean_object*);
+double lean_float_negate(double);
 double l_IVI_sim(lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_IVI_Invariant_lambdaVector___boxed(lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_List_mapTR_loop___at___IVI_Invariant_resonanceMatrixW_spec__3(lean_object*, lean_object*, lean_object*, lean_object*);
+lean_object* l_Nat_reprFast(lean_object*);
+LEAN_EXPORT lean_object* l_IVI_listGetD(lean_object*, lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l___private_IVI_Invariant_0__IVI_Invariant_powerIterAux_match__1_splitter___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
 size_t lean_usize_of_nat(lean_object*);
-LEAN_EXPORT lean_object* l_IVI_Invariant_invariantProps___boxed(lean_object*, lean_object*, lean_object*);
 static double l_IVI_Invariant_clampZero___closed__0;
+LEAN_EXPORT lean_object* l_List_foldl___at___IVI_rowEntropy_spec__0___boxed(lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_IVI_favg___boxed(lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_List_foldl___at___List_foldl___at___IVI_rowEntropy_spec__1_spec__1___boxed(lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_IVI_weightsFrom(lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_List_mapTR_loop___at___List_mapTR_loop___at___IVI_Invariant_resonanceMatrixW_spec__3_spec__3(lean_object*, lean_object*, lean_object*, lean_object*);
 double lean_float_add(double, double);
+LEAN_EXPORT lean_object* l_IVI_listGetD___redArg___boxed(lean_object*, lean_object*, lean_object*);
+lean_object* lean_nat_to_int(lean_object*);
 LEAN_EXPORT lean_object* l___private_IVI_Invariant_0__IVI_Invariant_normInf_match__1_splitter(lean_object*, lean_object*, lean_object*, lean_object*);
+static double l_IVI_favg___closed__0;
 LEAN_EXPORT lean_object* l_IVI_Invariant_defaultWeighting;
+static lean_object* l_IVI_reprNonCollapseCfg___redArg___closed__0____x40_IVI_Invariant___hyg_1716_;
 lean_object* l_List_range(lean_object*);
+LEAN_EXPORT lean_object* l_IVI_rowEntropy___boxed(lean_object*);
+LEAN_EXPORT double l_List_foldl___at___List_foldl___at___IVI_rowEntropy_spec__1_spec__1(lean_object*, double, lean_object*);
 LEAN_EXPORT lean_object* l___private_IVI_Invariant_0__IVI_Invariant_powerIterAux_match__1_splitter(lean_object*, lean_object*, double, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_IVI_reprNonCollapseCfg____x40_IVI_Invariant___hyg_1716_(lean_object*, lean_object*);
 double lean_float_of_nat(lean_object*);
+double log(double);
 LEAN_EXPORT lean_object* l_IVI_Invariant_vectorMaxDiff___boxed(lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l___private_IVI_Invariant_0__IVI_Invariant_lambdaVector_match__1_splitter___redArg___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+static lean_object* l_IVI_reprNonCollapseCfg___redArg___closed__10____x40_IVI_Invariant___hyg_1716_;
 lean_object* l_List_replicateTR___redArg(lean_object*, lean_object*);
+static lean_object* l_IVI_instReprNonCollapseCfg___closed__0;
 LEAN_EXPORT lean_object* l_IVI_Invariant_enumerate(lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l___private_IVI_Invariant_0__IVI_Invariant_lambdaVector_match__1_splitter___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT double l_List_foldl___at___IVI_rowEntropy_spec__0(double, double, double, lean_object*);
+LEAN_EXPORT lean_object* l_IVI_listGetD___redArg(lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_IVI_Invariant_clampZero___boxed(lean_object*);
+static lean_object* l_IVI_reprNonCollapseCfg___redArg___closed__11____x40_IVI_Invariant___hyg_1716_;
 LEAN_EXPORT lean_object* l_IVI_Invariant_fmax___boxed(lean_object*, lean_object*);
+static lean_object* l_IVI_reprNonCollapseCfg___redArg___closed__5____x40_IVI_Invariant___hyg_1716_;
+static lean_object* l_IVI_reprNonCollapseCfg___redArg___closed__8____x40_IVI_Invariant___hyg_1716_;
+LEAN_EXPORT uint8_t l_IVI_surpriseNonDecreasing(lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_List_mapTR_loop___at___IVI_symmetriseLL_spec__0___boxed(lean_object*, lean_object*, lean_object*, lean_object*);
 static double l_IVI_Invariant_spectralInvariantW___closed__0;
 LEAN_EXPORT lean_object* l___private_IVI_Invariant_0__IVI_Invariant_vectorMaxDiff_match__1_splitter___redArg___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_List_mapTR_loop___at___IVI_Invariant_resonanceMatrixW_spec__0___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_IVI_zipIdx(lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_IVI_invariantProps(lean_object*, double, double, lean_object*, lean_object*, uint8_t);
+LEAN_EXPORT lean_object* l_IVI_instReprNonCollapseCfg;
 LEAN_EXPORT lean_object* l_List_mapTR_loop___at___IVI_Invariant_resonanceMatrixW_spec__2___boxed(lean_object*, lean_object*, lean_object*);
 double l_Float_ofScientific(lean_object*, uint8_t, lean_object*);
 LEAN_EXPORT double l_IVI_Invariant_vectorMaxDiff(lean_object*, lean_object*);
 static double l_IVI_Invariant_powerIter___closed__0;
 LEAN_EXPORT lean_object* l_IVI_Invariant_lambdaVector(lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_List_mapTR_loop___at___IVI_symmetriseLL_spec__1___boxed(lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_IVI_Invariant_normInf___boxed(lean_object*);
 LEAN_EXPORT lean_object* l_IVI_Invariant_powerIter___boxed(lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_List_mapTR_loop___at___List_mapTR_loop___at___IVI_symmetriseLL_spec__1_spec__1___boxed(lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_List_mapTR_loop___at___List_mapTR_loop___at___IVI_symmetriseLL_spec__1_spec__1(lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_IVI_Invariant_runUntilConverged(lean_object*, lean_object*, lean_object*, lean_object*);
+static lean_object* l_IVI_reprNonCollapseCfg___redArg___closed__3____x40_IVI_Invariant___hyg_1716_;
 uint8_t lean_nat_dec_eq(lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l___private_IVI_Invariant_0__IVI_Invariant_lambdaVector_match__1_splitter(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_IVI_surpriseNonDecreasing___boxed(lean_object*, lean_object*);
+static double l_IVI_surpriseNonDecreasing___closed__0;
 uint8_t lean_nat_dec_lt(lean_object*, lean_object*);
 lean_object* lean_nat_mod(lean_object*, lean_object*);
 LEAN_EXPORT double l_IVI_Invariant_clampZero(double);
 LEAN_EXPORT lean_object* l___private_IVI_Invariant_0__IVI_Invariant_lambdaVector_match__1_splitter___redArg(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_IVI_Invariant_normalise(lean_object*);
+static lean_object* l_IVI_reprNonCollapseCfg___redArg___closed__1____x40_IVI_Invariant___hyg_1716_;
 LEAN_EXPORT lean_object* l_IVI_Invariant_powerIterAux___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT double l_IVI_Invariant_defaultWeighting___lam__0(lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_List_foldl___at___IVI_rowEntropy_spec__1___boxed(lean_object*, lean_object*, lean_object*);
 uint8_t lean_float_beq(double, double);
 LEAN_EXPORT double l_IVI_Invariant_defaultWeighting___lam__1(lean_object*, lean_object*);
 lean_object* l_List_reverse___redArg(lean_object*);
 lean_object* lean_nat_sub(lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_IVI_Invariant_powerIterAux(lean_object*, double, lean_object*, double, lean_object*);
+LEAN_EXPORT lean_object* l_List_mapTR_loop___at___IVI_symmetriseLL_spec__0___boxed__const__1;
 uint8_t lean_float_decLe(double, double);
+LEAN_EXPORT lean_object* l_IVI_symmetriseLL(lean_object*);
+LEAN_EXPORT double l_IVI_favg(double, double);
+LEAN_EXPORT lean_object* l_List_mapTR_loop___at___IVI_symmetriseLL_spec__0(lean_object*, lean_object*, lean_object*, lean_object*);
+static lean_object* l_IVI_reprNonCollapseCfg___redArg___closed__2____x40_IVI_Invariant___hyg_1716_;
+LEAN_EXPORT lean_object* l_List_mapTR_loop___at___IVI_symmetriseLL_spec__1(lean_object*, lean_object*, lean_object*);
 size_t lean_usize_sub(size_t, size_t);
 lean_object* lean_array_mk(lean_object*);
 LEAN_EXPORT double l_IVI_Invariant_spectralInvariantW(lean_object*, lean_object*);
@@ -100,10 +154,13 @@ double fabs(double);
 LEAN_EXPORT double l_List_foldl___at___IVI_Invariant_mulMatVec_spec__0(double, lean_object*);
 lean_object* lean_array_get_size(lean_object*);
 LEAN_EXPORT lean_object* l_List_mapTR_loop___at___IVI_Invariant_resonanceMatrixW_spec__2(double, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_IVI_listGetD___boxed(lean_object*, lean_object*, lean_object*, lean_object*);
+static lean_object* l_IVI_reprNonCollapseCfg___redArg___closed__13____x40_IVI_Invariant___hyg_1716_;
 lean_object* lean_nat_add(lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_IVI_Invariant_enumerate___redArg(lean_object*);
 LEAN_EXPORT double l_IVI_Invariant_normInf(lean_object*);
 LEAN_EXPORT lean_object* l_IVI_Invariant_mulMatVec(lean_object*, lean_object*);
+lean_object* l_List_drop___redArg(lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_IVI_Invariant_resonanceMatrixW(lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_Array_foldrMUnsafe_fold___at___List_foldrTR___at___IVI_Invariant_coarse_spec__0_spec__0___boxed(lean_object*, lean_object*, lean_object*, lean_object*);
 double lean_float_sub(double, double);
@@ -1474,25 +1531,6 @@ lean_dec(x_4);
 return x_8;
 }
 }
-LEAN_EXPORT lean_object* l_IVI_Invariant_invariantProps(lean_object* x_1, lean_object* x_2, lean_object* x_3) {
-_start:
-{
-lean_object* x_4; 
-x_4 = lean_box(0);
-return x_4;
-}
-}
-LEAN_EXPORT lean_object* l_IVI_Invariant_invariantProps___boxed(lean_object* x_1, lean_object* x_2, lean_object* x_3) {
-_start:
-{
-lean_object* x_4; 
-x_4 = l_IVI_Invariant_invariantProps(x_1, x_2, x_3);
-lean_dec(x_3);
-lean_dec(x_2);
-lean_dec(x_1);
-return x_4;
-}
-}
 LEAN_EXPORT lean_object* l_IVI_Invariant_runUntilConverged_loop(lean_object* x_1, lean_object* x_2, lean_object* x_3, lean_object* x_4, lean_object* x_5, lean_object* x_6, double x_7, lean_object* x_8, lean_object* x_9, lean_object* x_10) {
 _start:
 {
@@ -1633,8 +1671,894 @@ lean_dec(x_1);
 return x_11;
 }
 }
+LEAN_EXPORT lean_object* l_IVI_weightsFrom(lean_object* x_1, lean_object* x_2) {
+_start:
+{
+lean_object* x_3; 
+x_3 = l_IVI_Invariant_resonanceMatrixW(x_1, x_2);
+return x_3;
+}
+}
+LEAN_EXPORT lean_object* l_IVI_zipIdx___redArg(lean_object* x_1) {
+_start:
+{
+lean_object* x_2; lean_object* x_3; lean_object* x_4; 
+x_2 = l_List_lengthTR___redArg(x_1);
+x_3 = l_List_range(x_2);
+x_4 = l_List_zipWith___at___List_zip_spec__0___redArg(x_3, x_1);
+return x_4;
+}
+}
+LEAN_EXPORT lean_object* l_IVI_zipIdx(lean_object* x_1, lean_object* x_2) {
+_start:
+{
+lean_object* x_3; 
+x_3 = l_IVI_zipIdx___redArg(x_2);
+return x_3;
+}
+}
+LEAN_EXPORT lean_object* l_IVI_listGetD___redArg(lean_object* x_1, lean_object* x_2, lean_object* x_3) {
+_start:
+{
+lean_object* x_4; 
+x_4 = l_List_drop___redArg(x_2, x_1);
+if (lean_obj_tag(x_4) == 0)
+{
+lean_inc(x_3);
+return x_3;
+}
+else
+{
+lean_object* x_5; 
+x_5 = lean_ctor_get(x_4, 0);
+lean_inc(x_5);
+lean_dec(x_4);
+return x_5;
+}
+}
+}
+LEAN_EXPORT lean_object* l_IVI_listGetD(lean_object* x_1, lean_object* x_2, lean_object* x_3, lean_object* x_4) {
+_start:
+{
+lean_object* x_5; 
+x_5 = l_IVI_listGetD___redArg(x_2, x_3, x_4);
+return x_5;
+}
+}
+LEAN_EXPORT lean_object* l_IVI_listGetD___redArg___boxed(lean_object* x_1, lean_object* x_2, lean_object* x_3) {
+_start:
+{
+lean_object* x_4; 
+x_4 = l_IVI_listGetD___redArg(x_1, x_2, x_3);
+lean_dec(x_3);
+lean_dec(x_1);
+return x_4;
+}
+}
+LEAN_EXPORT lean_object* l_IVI_listGetD___boxed(lean_object* x_1, lean_object* x_2, lean_object* x_3, lean_object* x_4) {
+_start:
+{
+lean_object* x_5; 
+x_5 = l_IVI_listGetD(x_1, x_2, x_3, x_4);
+lean_dec(x_4);
+lean_dec(x_2);
+return x_5;
+}
+}
+static double _init_l_IVI_favg___closed__0() {
+_start:
+{
+lean_object* x_1; lean_object* x_2; lean_object* x_3; uint8_t x_4; double x_5; 
+x_1 = lean_unsigned_to_nat(1u);
+x_2 = lean_box(1);
+x_3 = lean_unsigned_to_nat(20u);
+x_4 = lean_unbox(x_2);
+x_5 = l_Float_ofScientific(x_3, x_4, x_1);
+return x_5;
+}
+}
+LEAN_EXPORT double l_IVI_favg(double x_1, double x_2) {
+_start:
+{
+double x_3; double x_4; double x_5; 
+x_3 = lean_float_add(x_1, x_2);
+x_4 = l_IVI_favg___closed__0;
+x_5 = lean_float_div(x_3, x_4);
+return x_5;
+}
+}
+LEAN_EXPORT lean_object* l_IVI_favg___boxed(lean_object* x_1, lean_object* x_2) {
+_start:
+{
+double x_3; double x_4; double x_5; lean_object* x_6; 
+x_3 = lean_unbox_float(x_1);
+lean_dec(x_1);
+x_4 = lean_unbox_float(x_2);
+lean_dec(x_2);
+x_5 = l_IVI_favg(x_3, x_4);
+x_6 = lean_box_float(x_5);
+return x_6;
+}
+}
+static lean_object* _init_l_List_mapTR_loop___at___IVI_symmetriseLL_spec__0___boxed__const__1() {
+_start:
+{
+double x_1; lean_object* x_2; 
+x_1 = l_IVI_Invariant_clampZero___closed__0;
+x_2 = lean_box_float(x_1);
+return x_2;
+}
+}
+LEAN_EXPORT lean_object* l_List_mapTR_loop___at___IVI_symmetriseLL_spec__0(lean_object* x_1, lean_object* x_2, lean_object* x_3, lean_object* x_4) {
+_start:
+{
+if (lean_obj_tag(x_3) == 0)
+{
+lean_object* x_5; 
+lean_dec(x_2);
+x_5 = l_List_reverse___redArg(x_4);
+return x_5;
+}
+else
+{
+uint8_t x_6; 
+x_6 = !lean_is_exclusive(x_3);
+if (x_6 == 0)
+{
+lean_object* x_7; lean_object* x_8; lean_object* x_9; lean_object* x_10; lean_object* x_11; lean_object* x_12; lean_object* x_13; lean_object* x_14; double x_15; double x_16; double x_17; lean_object* x_18; 
+x_7 = lean_ctor_get(x_3, 0);
+x_8 = lean_ctor_get(x_3, 1);
+x_9 = lean_ctor_get(x_7, 0);
+lean_inc(x_9);
+x_10 = lean_ctor_get(x_7, 1);
+lean_inc(x_10);
+lean_dec(x_7);
+x_11 = lean_box(0);
+x_12 = l_IVI_listGetD___redArg(x_1, x_9, x_11);
+x_13 = l_List_mapTR_loop___at___IVI_symmetriseLL_spec__0___boxed__const__1;
+lean_inc(x_2);
+x_14 = l_IVI_listGetD___redArg(x_12, x_2, x_13);
+lean_dec(x_12);
+x_15 = lean_unbox_float(x_10);
+lean_dec(x_10);
+x_16 = lean_unbox_float(x_14);
+lean_dec(x_14);
+x_17 = l_IVI_favg(x_15, x_16);
+x_18 = lean_box_float(x_17);
+lean_ctor_set(x_3, 1, x_4);
+lean_ctor_set(x_3, 0, x_18);
+{
+lean_object* _tmp_2 = x_8;
+lean_object* _tmp_3 = x_3;
+x_3 = _tmp_2;
+x_4 = _tmp_3;
+}
+goto _start;
+}
+else
+{
+lean_object* x_20; lean_object* x_21; lean_object* x_22; lean_object* x_23; lean_object* x_24; lean_object* x_25; lean_object* x_26; lean_object* x_27; double x_28; double x_29; double x_30; lean_object* x_31; lean_object* x_32; 
+x_20 = lean_ctor_get(x_3, 0);
+x_21 = lean_ctor_get(x_3, 1);
+lean_inc(x_21);
+lean_inc(x_20);
+lean_dec(x_3);
+x_22 = lean_ctor_get(x_20, 0);
+lean_inc(x_22);
+x_23 = lean_ctor_get(x_20, 1);
+lean_inc(x_23);
+lean_dec(x_20);
+x_24 = lean_box(0);
+x_25 = l_IVI_listGetD___redArg(x_1, x_22, x_24);
+x_26 = l_List_mapTR_loop___at___IVI_symmetriseLL_spec__0___boxed__const__1;
+lean_inc(x_2);
+x_27 = l_IVI_listGetD___redArg(x_25, x_2, x_26);
+lean_dec(x_25);
+x_28 = lean_unbox_float(x_23);
+lean_dec(x_23);
+x_29 = lean_unbox_float(x_27);
+lean_dec(x_27);
+x_30 = l_IVI_favg(x_28, x_29);
+x_31 = lean_box_float(x_30);
+x_32 = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(x_32, 0, x_31);
+lean_ctor_set(x_32, 1, x_4);
+x_3 = x_21;
+x_4 = x_32;
+goto _start;
+}
+}
+}
+}
+LEAN_EXPORT lean_object* l_List_mapTR_loop___at___List_mapTR_loop___at___IVI_symmetriseLL_spec__1_spec__1(lean_object* x_1, lean_object* x_2, lean_object* x_3) {
+_start:
+{
+if (lean_obj_tag(x_2) == 0)
+{
+lean_object* x_4; 
+x_4 = l_List_reverse___redArg(x_3);
+return x_4;
+}
+else
+{
+uint8_t x_5; 
+x_5 = !lean_is_exclusive(x_2);
+if (x_5 == 0)
+{
+lean_object* x_6; lean_object* x_7; lean_object* x_8; lean_object* x_9; lean_object* x_10; lean_object* x_11; lean_object* x_12; 
+x_6 = lean_ctor_get(x_2, 0);
+x_7 = lean_ctor_get(x_2, 1);
+x_8 = lean_ctor_get(x_6, 0);
+lean_inc(x_8);
+x_9 = lean_ctor_get(x_6, 1);
+lean_inc(x_9);
+lean_dec(x_6);
+x_10 = l_IVI_zipIdx___redArg(x_9);
+x_11 = lean_box(0);
+x_12 = l_List_mapTR_loop___at___IVI_symmetriseLL_spec__0(x_1, x_8, x_10, x_11);
+lean_ctor_set(x_2, 1, x_3);
+lean_ctor_set(x_2, 0, x_12);
+{
+lean_object* _tmp_1 = x_7;
+lean_object* _tmp_2 = x_2;
+x_2 = _tmp_1;
+x_3 = _tmp_2;
+}
+goto _start;
+}
+else
+{
+lean_object* x_14; lean_object* x_15; lean_object* x_16; lean_object* x_17; lean_object* x_18; lean_object* x_19; lean_object* x_20; lean_object* x_21; 
+x_14 = lean_ctor_get(x_2, 0);
+x_15 = lean_ctor_get(x_2, 1);
+lean_inc(x_15);
+lean_inc(x_14);
+lean_dec(x_2);
+x_16 = lean_ctor_get(x_14, 0);
+lean_inc(x_16);
+x_17 = lean_ctor_get(x_14, 1);
+lean_inc(x_17);
+lean_dec(x_14);
+x_18 = l_IVI_zipIdx___redArg(x_17);
+x_19 = lean_box(0);
+x_20 = l_List_mapTR_loop___at___IVI_symmetriseLL_spec__0(x_1, x_16, x_18, x_19);
+x_21 = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(x_21, 0, x_20);
+lean_ctor_set(x_21, 1, x_3);
+x_2 = x_15;
+x_3 = x_21;
+goto _start;
+}
+}
+}
+}
+LEAN_EXPORT lean_object* l_List_mapTR_loop___at___IVI_symmetriseLL_spec__1(lean_object* x_1, lean_object* x_2, lean_object* x_3) {
+_start:
+{
+if (lean_obj_tag(x_2) == 0)
+{
+lean_object* x_4; 
+x_4 = l_List_reverse___redArg(x_3);
+return x_4;
+}
+else
+{
+uint8_t x_5; 
+x_5 = !lean_is_exclusive(x_2);
+if (x_5 == 0)
+{
+lean_object* x_6; lean_object* x_7; lean_object* x_8; lean_object* x_9; lean_object* x_10; lean_object* x_11; lean_object* x_12; lean_object* x_13; 
+x_6 = lean_ctor_get(x_2, 0);
+x_7 = lean_ctor_get(x_2, 1);
+x_8 = lean_ctor_get(x_6, 0);
+lean_inc(x_8);
+x_9 = lean_ctor_get(x_6, 1);
+lean_inc(x_9);
+lean_dec(x_6);
+x_10 = l_IVI_zipIdx___redArg(x_9);
+x_11 = lean_box(0);
+x_12 = l_List_mapTR_loop___at___IVI_symmetriseLL_spec__0(x_1, x_8, x_10, x_11);
+lean_ctor_set(x_2, 1, x_3);
+lean_ctor_set(x_2, 0, x_12);
+x_13 = l_List_mapTR_loop___at___List_mapTR_loop___at___IVI_symmetriseLL_spec__1_spec__1(x_1, x_7, x_2);
+return x_13;
+}
+else
+{
+lean_object* x_14; lean_object* x_15; lean_object* x_16; lean_object* x_17; lean_object* x_18; lean_object* x_19; lean_object* x_20; lean_object* x_21; lean_object* x_22; 
+x_14 = lean_ctor_get(x_2, 0);
+x_15 = lean_ctor_get(x_2, 1);
+lean_inc(x_15);
+lean_inc(x_14);
+lean_dec(x_2);
+x_16 = lean_ctor_get(x_14, 0);
+lean_inc(x_16);
+x_17 = lean_ctor_get(x_14, 1);
+lean_inc(x_17);
+lean_dec(x_14);
+x_18 = l_IVI_zipIdx___redArg(x_17);
+x_19 = lean_box(0);
+x_20 = l_List_mapTR_loop___at___IVI_symmetriseLL_spec__0(x_1, x_16, x_18, x_19);
+x_21 = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(x_21, 0, x_20);
+lean_ctor_set(x_21, 1, x_3);
+x_22 = l_List_mapTR_loop___at___List_mapTR_loop___at___IVI_symmetriseLL_spec__1_spec__1(x_1, x_15, x_21);
+return x_22;
+}
+}
+}
+}
+LEAN_EXPORT lean_object* l_IVI_symmetriseLL(lean_object* x_1) {
+_start:
+{
+lean_object* x_2; lean_object* x_3; lean_object* x_4; 
+lean_inc(x_1);
+x_2 = l_IVI_zipIdx___redArg(x_1);
+x_3 = lean_box(0);
+x_4 = l_List_mapTR_loop___at___IVI_symmetriseLL_spec__1(x_1, x_2, x_3);
+lean_dec(x_1);
+return x_4;
+}
+}
+LEAN_EXPORT lean_object* l_List_mapTR_loop___at___IVI_symmetriseLL_spec__0___boxed(lean_object* x_1, lean_object* x_2, lean_object* x_3, lean_object* x_4) {
+_start:
+{
+lean_object* x_5; 
+x_5 = l_List_mapTR_loop___at___IVI_symmetriseLL_spec__0(x_1, x_2, x_3, x_4);
+lean_dec(x_1);
+return x_5;
+}
+}
+LEAN_EXPORT lean_object* l_List_mapTR_loop___at___List_mapTR_loop___at___IVI_symmetriseLL_spec__1_spec__1___boxed(lean_object* x_1, lean_object* x_2, lean_object* x_3) {
+_start:
+{
+lean_object* x_4; 
+x_4 = l_List_mapTR_loop___at___List_mapTR_loop___at___IVI_symmetriseLL_spec__1_spec__1(x_1, x_2, x_3);
+lean_dec(x_1);
+return x_4;
+}
+}
+LEAN_EXPORT lean_object* l_List_mapTR_loop___at___IVI_symmetriseLL_spec__1___boxed(lean_object* x_1, lean_object* x_2, lean_object* x_3) {
+_start:
+{
+lean_object* x_4; 
+x_4 = l_List_mapTR_loop___at___IVI_symmetriseLL_spec__1(x_1, x_2, x_3);
+lean_dec(x_1);
+return x_4;
+}
+}
+static lean_object* _init_l_IVI_reprNonCollapseCfg___redArg___closed__0____x40_IVI_Invariant___hyg_1716_() {
+_start:
+{
+lean_object* x_1; 
+x_1 = lean_mk_string_unchecked("{ ", 2, 2);
+return x_1;
+}
+}
+static lean_object* _init_l_IVI_reprNonCollapseCfg___redArg___closed__1____x40_IVI_Invariant___hyg_1716_() {
+_start:
+{
+lean_object* x_1; 
+x_1 = lean_mk_string_unchecked("epsLambda", 9, 9);
+return x_1;
+}
+}
+static lean_object* _init_l_IVI_reprNonCollapseCfg___redArg___closed__2____x40_IVI_Invariant___hyg_1716_() {
+_start:
+{
+lean_object* x_1; lean_object* x_2; 
+x_1 = l_IVI_reprNonCollapseCfg___redArg___closed__1____x40_IVI_Invariant___hyg_1716_;
+x_2 = lean_alloc_ctor(3, 1, 0);
+lean_ctor_set(x_2, 0, x_1);
+return x_2;
+}
+}
+static lean_object* _init_l_IVI_reprNonCollapseCfg___redArg___closed__3____x40_IVI_Invariant___hyg_1716_() {
+_start:
+{
+lean_object* x_1; lean_object* x_2; lean_object* x_3; 
+x_1 = l_IVI_reprNonCollapseCfg___redArg___closed__2____x40_IVI_Invariant___hyg_1716_;
+x_2 = lean_box(0);
+x_3 = lean_alloc_ctor(5, 2, 0);
+lean_ctor_set(x_3, 0, x_2);
+lean_ctor_set(x_3, 1, x_1);
+return x_3;
+}
+}
+static lean_object* _init_l_IVI_reprNonCollapseCfg___redArg___closed__4____x40_IVI_Invariant___hyg_1716_() {
+_start:
+{
+lean_object* x_1; 
+x_1 = lean_mk_string_unchecked(" := ", 4, 4);
+return x_1;
+}
+}
+static lean_object* _init_l_IVI_reprNonCollapseCfg___redArg___closed__5____x40_IVI_Invariant___hyg_1716_() {
+_start:
+{
+lean_object* x_1; lean_object* x_2; 
+x_1 = l_IVI_reprNonCollapseCfg___redArg___closed__4____x40_IVI_Invariant___hyg_1716_;
+x_2 = lean_alloc_ctor(3, 1, 0);
+lean_ctor_set(x_2, 0, x_1);
+return x_2;
+}
+}
+static lean_object* _init_l_IVI_reprNonCollapseCfg___redArg___closed__6____x40_IVI_Invariant___hyg_1716_() {
+_start:
+{
+lean_object* x_1; lean_object* x_2; lean_object* x_3; 
+x_1 = l_IVI_reprNonCollapseCfg___redArg___closed__5____x40_IVI_Invariant___hyg_1716_;
+x_2 = l_IVI_reprNonCollapseCfg___redArg___closed__3____x40_IVI_Invariant___hyg_1716_;
+x_3 = lean_alloc_ctor(5, 2, 0);
+lean_ctor_set(x_3, 0, x_2);
+lean_ctor_set(x_3, 1, x_1);
+return x_3;
+}
+}
+static lean_object* _init_l_IVI_reprNonCollapseCfg___redArg___closed__7____x40_IVI_Invariant___hyg_1716_() {
+_start:
+{
+lean_object* x_1; lean_object* x_2; 
+x_1 = lean_unsigned_to_nat(13u);
+x_2 = lean_nat_to_int(x_1);
+return x_2;
+}
+}
+static lean_object* _init_l_IVI_reprNonCollapseCfg___redArg___closed__8____x40_IVI_Invariant___hyg_1716_() {
+_start:
+{
+lean_object* x_1; 
+x_1 = lean_mk_string_unchecked(",", 1, 1);
+return x_1;
+}
+}
+static lean_object* _init_l_IVI_reprNonCollapseCfg___redArg___closed__9____x40_IVI_Invariant___hyg_1716_() {
+_start:
+{
+lean_object* x_1; lean_object* x_2; 
+x_1 = l_IVI_reprNonCollapseCfg___redArg___closed__8____x40_IVI_Invariant___hyg_1716_;
+x_2 = lean_alloc_ctor(3, 1, 0);
+lean_ctor_set(x_2, 0, x_1);
+return x_2;
+}
+}
+static lean_object* _init_l_IVI_reprNonCollapseCfg___redArg___closed__10____x40_IVI_Invariant___hyg_1716_() {
+_start:
+{
+lean_object* x_1; 
+x_1 = lean_mk_string_unchecked("levels", 6, 6);
+return x_1;
+}
+}
+static lean_object* _init_l_IVI_reprNonCollapseCfg___redArg___closed__11____x40_IVI_Invariant___hyg_1716_() {
+_start:
+{
+lean_object* x_1; lean_object* x_2; 
+x_1 = l_IVI_reprNonCollapseCfg___redArg___closed__10____x40_IVI_Invariant___hyg_1716_;
+x_2 = lean_alloc_ctor(3, 1, 0);
+lean_ctor_set(x_2, 0, x_1);
+return x_2;
+}
+}
+static lean_object* _init_l_IVI_reprNonCollapseCfg___redArg___closed__12____x40_IVI_Invariant___hyg_1716_() {
+_start:
+{
+lean_object* x_1; lean_object* x_2; 
+x_1 = lean_unsigned_to_nat(10u);
+x_2 = lean_nat_to_int(x_1);
+return x_2;
+}
+}
+static lean_object* _init_l_IVI_reprNonCollapseCfg___redArg___closed__13____x40_IVI_Invariant___hyg_1716_() {
+_start:
+{
+lean_object* x_1; 
+x_1 = lean_mk_string_unchecked(" }", 2, 2);
+return x_1;
+}
+}
+static lean_object* _init_l_IVI_reprNonCollapseCfg___redArg___closed__14____x40_IVI_Invariant___hyg_1716_() {
+_start:
+{
+lean_object* x_1; lean_object* x_2; 
+x_1 = lean_unsigned_to_nat(2u);
+x_2 = lean_nat_to_int(x_1);
+return x_2;
+}
+}
+static lean_object* _init_l_IVI_reprNonCollapseCfg___redArg___closed__15____x40_IVI_Invariant___hyg_1716_() {
+_start:
+{
+lean_object* x_1; lean_object* x_2; 
+x_1 = l_IVI_reprNonCollapseCfg___redArg___closed__0____x40_IVI_Invariant___hyg_1716_;
+x_2 = lean_alloc_ctor(3, 1, 0);
+lean_ctor_set(x_2, 0, x_1);
+return x_2;
+}
+}
+static lean_object* _init_l_IVI_reprNonCollapseCfg___redArg___closed__16____x40_IVI_Invariant___hyg_1716_() {
+_start:
+{
+lean_object* x_1; lean_object* x_2; 
+x_1 = l_IVI_reprNonCollapseCfg___redArg___closed__13____x40_IVI_Invariant___hyg_1716_;
+x_2 = lean_alloc_ctor(3, 1, 0);
+lean_ctor_set(x_2, 0, x_1);
+return x_2;
+}
+}
+LEAN_EXPORT lean_object* l_IVI_reprNonCollapseCfg___redArg____x40_IVI_Invariant___hyg_1716_(lean_object* x_1) {
+_start:
+{
+double x_2; lean_object* x_3; lean_object* x_4; lean_object* x_5; lean_object* x_6; lean_object* x_7; lean_object* x_8; lean_object* x_9; lean_object* x_10; lean_object* x_11; uint8_t x_12; lean_object* x_13; lean_object* x_14; lean_object* x_15; lean_object* x_16; lean_object* x_17; lean_object* x_18; lean_object* x_19; lean_object* x_20; lean_object* x_21; lean_object* x_22; lean_object* x_23; lean_object* x_24; lean_object* x_25; uint8_t x_26; lean_object* x_27; lean_object* x_28; lean_object* x_29; lean_object* x_30; lean_object* x_31; lean_object* x_32; lean_object* x_33; lean_object* x_34; uint8_t x_35; 
+x_2 = lean_ctor_get_float(x_1, sizeof(void*)*1);
+x_3 = lean_ctor_get(x_1, 0);
+lean_inc(x_3);
+lean_dec(x_1);
+x_4 = l_IVI_reprNonCollapseCfg___redArg___closed__5____x40_IVI_Invariant___hyg_1716_;
+x_5 = l_IVI_reprNonCollapseCfg___redArg___closed__6____x40_IVI_Invariant___hyg_1716_;
+x_6 = l_IVI_reprNonCollapseCfg___redArg___closed__7____x40_IVI_Invariant___hyg_1716_;
+x_7 = lean_unsigned_to_nat(0u);
+x_8 = l_Float_repr(x_2, x_7);
+x_9 = lean_alloc_ctor(4, 2, 0);
+lean_ctor_set(x_9, 0, x_6);
+lean_ctor_set(x_9, 1, x_8);
+x_10 = lean_box(0);
+x_11 = lean_alloc_ctor(6, 1, 1);
+lean_ctor_set(x_11, 0, x_9);
+x_12 = lean_unbox(x_10);
+lean_ctor_set_uint8(x_11, sizeof(void*)*1, x_12);
+x_13 = lean_alloc_ctor(5, 2, 0);
+lean_ctor_set(x_13, 0, x_5);
+lean_ctor_set(x_13, 1, x_11);
+x_14 = l_IVI_reprNonCollapseCfg___redArg___closed__9____x40_IVI_Invariant___hyg_1716_;
+x_15 = lean_alloc_ctor(5, 2, 0);
+lean_ctor_set(x_15, 0, x_13);
+lean_ctor_set(x_15, 1, x_14);
+x_16 = lean_box(1);
+x_17 = lean_alloc_ctor(5, 2, 0);
+lean_ctor_set(x_17, 0, x_15);
+lean_ctor_set(x_17, 1, x_16);
+x_18 = l_IVI_reprNonCollapseCfg___redArg___closed__11____x40_IVI_Invariant___hyg_1716_;
+x_19 = lean_alloc_ctor(5, 2, 0);
+lean_ctor_set(x_19, 0, x_17);
+lean_ctor_set(x_19, 1, x_18);
+x_20 = lean_alloc_ctor(5, 2, 0);
+lean_ctor_set(x_20, 0, x_19);
+lean_ctor_set(x_20, 1, x_4);
+x_21 = l_IVI_reprNonCollapseCfg___redArg___closed__12____x40_IVI_Invariant___hyg_1716_;
+x_22 = l_Nat_reprFast(x_3);
+x_23 = lean_alloc_ctor(3, 1, 0);
+lean_ctor_set(x_23, 0, x_22);
+x_24 = lean_alloc_ctor(4, 2, 0);
+lean_ctor_set(x_24, 0, x_21);
+lean_ctor_set(x_24, 1, x_23);
+x_25 = lean_alloc_ctor(6, 1, 1);
+lean_ctor_set(x_25, 0, x_24);
+x_26 = lean_unbox(x_10);
+lean_ctor_set_uint8(x_25, sizeof(void*)*1, x_26);
+x_27 = lean_alloc_ctor(5, 2, 0);
+lean_ctor_set(x_27, 0, x_20);
+lean_ctor_set(x_27, 1, x_25);
+x_28 = l_IVI_reprNonCollapseCfg___redArg___closed__14____x40_IVI_Invariant___hyg_1716_;
+x_29 = l_IVI_reprNonCollapseCfg___redArg___closed__15____x40_IVI_Invariant___hyg_1716_;
+x_30 = lean_alloc_ctor(5, 2, 0);
+lean_ctor_set(x_30, 0, x_29);
+lean_ctor_set(x_30, 1, x_27);
+x_31 = l_IVI_reprNonCollapseCfg___redArg___closed__16____x40_IVI_Invariant___hyg_1716_;
+x_32 = lean_alloc_ctor(5, 2, 0);
+lean_ctor_set(x_32, 0, x_30);
+lean_ctor_set(x_32, 1, x_31);
+x_33 = lean_alloc_ctor(4, 2, 0);
+lean_ctor_set(x_33, 0, x_28);
+lean_ctor_set(x_33, 1, x_32);
+x_34 = lean_alloc_ctor(6, 1, 1);
+lean_ctor_set(x_34, 0, x_33);
+x_35 = lean_unbox(x_10);
+lean_ctor_set_uint8(x_34, sizeof(void*)*1, x_35);
+return x_34;
+}
+}
+LEAN_EXPORT lean_object* l_IVI_reprNonCollapseCfg____x40_IVI_Invariant___hyg_1716_(lean_object* x_1, lean_object* x_2) {
+_start:
+{
+lean_object* x_3; 
+x_3 = l_IVI_reprNonCollapseCfg___redArg____x40_IVI_Invariant___hyg_1716_(x_1);
+return x_3;
+}
+}
+LEAN_EXPORT lean_object* l_IVI_reprNonCollapseCfg____x40_IVI_Invariant___hyg_1716____boxed(lean_object* x_1, lean_object* x_2) {
+_start:
+{
+lean_object* x_3; 
+x_3 = l_IVI_reprNonCollapseCfg____x40_IVI_Invariant___hyg_1716_(x_1, x_2);
+lean_dec(x_2);
+return x_3;
+}
+}
+static lean_object* _init_l_IVI_instReprNonCollapseCfg___closed__0() {
+_start:
+{
+lean_object* x_1; 
+x_1 = lean_alloc_closure((void*)(l_IVI_reprNonCollapseCfg____x40_IVI_Invariant___hyg_1716____boxed), 2, 0);
+return x_1;
+}
+}
+static lean_object* _init_l_IVI_instReprNonCollapseCfg() {
+_start:
+{
+lean_object* x_1; 
+x_1 = l_IVI_instReprNonCollapseCfg___closed__0;
+return x_1;
+}
+}
+LEAN_EXPORT double l_List_foldl___at___IVI_rowEntropy_spec__0(double x_1, double x_2, double x_3, lean_object* x_4) {
+_start:
+{
+if (lean_obj_tag(x_4) == 0)
+{
+return x_3;
+}
+else
+{
+lean_object* x_5; lean_object* x_6; double x_7; double x_8; uint8_t x_9; 
+x_5 = lean_ctor_get(x_4, 0);
+lean_inc(x_5);
+x_6 = lean_ctor_get(x_4, 1);
+lean_inc(x_6);
+lean_dec(x_4);
+x_7 = lean_unbox_float(x_5);
+lean_dec(x_5);
+x_8 = lean_float_div(x_7, x_1);
+x_9 = lean_float_decLt(x_2, x_8);
+if (x_9 == 0)
+{
+double x_10; 
+x_10 = lean_float_add(x_3, x_2);
+x_3 = x_10;
+x_4 = x_6;
+goto _start;
+}
+else
+{
+double x_12; double x_13; double x_14; double x_15; 
+x_12 = lean_float_negate(x_8);
+x_13 = log(x_8);
+x_14 = lean_float_mul(x_12, x_13);
+x_15 = lean_float_add(x_3, x_14);
+x_3 = x_15;
+x_4 = x_6;
+goto _start;
+}
+}
+}
+}
+LEAN_EXPORT double l_List_foldl___at___List_foldl___at___IVI_rowEntropy_spec__1_spec__1(lean_object* x_1, double x_2, lean_object* x_3) {
+_start:
+{
+if (lean_obj_tag(x_3) == 0)
+{
+return x_2;
+}
+else
+{
+lean_object* x_4; lean_object* x_5; lean_object* x_6; lean_object* x_7; uint8_t x_8; double x_9; double x_10; uint8_t x_11; 
+x_4 = lean_ctor_get(x_3, 0);
+lean_inc(x_4);
+x_5 = lean_ctor_get(x_3, 1);
+lean_inc(x_5);
+lean_dec(x_3);
+x_6 = lean_box(1);
+x_7 = lean_unsigned_to_nat(1u);
+x_8 = lean_unbox(x_6);
+x_9 = l_Float_ofScientific(x_1, x_8, x_7);
+lean_inc(x_4);
+x_10 = l_List_foldl___at___IVI_Invariant_resonanceMatrixW_spec__1(x_9, x_4);
+x_11 = lean_float_decLe(x_10, x_9);
+if (x_11 == 0)
+{
+double x_12; double x_13; 
+x_12 = l_List_foldl___at___IVI_rowEntropy_spec__0(x_10, x_9, x_9, x_4);
+x_13 = lean_float_add(x_2, x_12);
+x_2 = x_13;
+x_3 = x_5;
+goto _start;
+}
+else
+{
+double x_15; 
+lean_dec(x_4);
+x_15 = lean_float_add(x_2, x_9);
+x_2 = x_15;
+x_3 = x_5;
+goto _start;
+}
+}
+}
+}
+LEAN_EXPORT double l_List_foldl___at___IVI_rowEntropy_spec__1(lean_object* x_1, double x_2, lean_object* x_3) {
+_start:
+{
+if (lean_obj_tag(x_3) == 0)
+{
+return x_2;
+}
+else
+{
+lean_object* x_4; lean_object* x_5; lean_object* x_6; lean_object* x_7; uint8_t x_8; double x_9; double x_10; uint8_t x_11; 
+x_4 = lean_ctor_get(x_3, 0);
+lean_inc(x_4);
+x_5 = lean_ctor_get(x_3, 1);
+lean_inc(x_5);
+lean_dec(x_3);
+x_6 = lean_box(1);
+x_7 = lean_unsigned_to_nat(1u);
+x_8 = lean_unbox(x_6);
+x_9 = l_Float_ofScientific(x_1, x_8, x_7);
+lean_inc(x_4);
+x_10 = l_List_foldl___at___IVI_Invariant_resonanceMatrixW_spec__1(x_9, x_4);
+x_11 = lean_float_decLe(x_10, x_9);
+if (x_11 == 0)
+{
+double x_12; double x_13; double x_14; 
+x_12 = l_List_foldl___at___IVI_rowEntropy_spec__0(x_10, x_9, x_9, x_4);
+x_13 = lean_float_add(x_2, x_12);
+x_14 = l_List_foldl___at___List_foldl___at___IVI_rowEntropy_spec__1_spec__1(x_1, x_13, x_5);
+return x_14;
+}
+else
+{
+double x_15; double x_16; 
+lean_dec(x_4);
+x_15 = lean_float_add(x_2, x_9);
+x_16 = l_List_foldl___at___List_foldl___at___IVI_rowEntropy_spec__1_spec__1(x_1, x_15, x_5);
+return x_16;
+}
+}
+}
+}
+LEAN_EXPORT double l_IVI_rowEntropy(lean_object* x_1) {
+_start:
+{
+lean_object* x_2; lean_object* x_3; uint8_t x_4; 
+x_2 = l_List_lengthTR___redArg(x_1);
+x_3 = lean_unsigned_to_nat(0u);
+x_4 = lean_nat_dec_eq(x_2, x_3);
+if (x_4 == 0)
+{
+double x_5; double x_6; double x_7; double x_8; 
+x_5 = l_IVI_Invariant_clampZero___closed__0;
+x_6 = l_List_foldl___at___IVI_rowEntropy_spec__1(x_3, x_5, x_1);
+x_7 = lean_float_of_nat(x_2);
+x_8 = lean_float_div(x_6, x_7);
+return x_8;
+}
+else
+{
+lean_object* x_9; double x_10; 
+lean_dec(x_2);
+lean_dec(x_1);
+x_9 = lean_unsigned_to_nat(1u);
+x_10 = l_Float_ofScientific(x_3, x_4, x_9);
+return x_10;
+}
+}
+}
+LEAN_EXPORT lean_object* l_List_foldl___at___IVI_rowEntropy_spec__0___boxed(lean_object* x_1, lean_object* x_2, lean_object* x_3, lean_object* x_4) {
+_start:
+{
+double x_5; double x_6; double x_7; double x_8; lean_object* x_9; 
+x_5 = lean_unbox_float(x_1);
+lean_dec(x_1);
+x_6 = lean_unbox_float(x_2);
+lean_dec(x_2);
+x_7 = lean_unbox_float(x_3);
+lean_dec(x_3);
+x_8 = l_List_foldl___at___IVI_rowEntropy_spec__0(x_5, x_6, x_7, x_4);
+x_9 = lean_box_float(x_8);
+return x_9;
+}
+}
+LEAN_EXPORT lean_object* l_List_foldl___at___List_foldl___at___IVI_rowEntropy_spec__1_spec__1___boxed(lean_object* x_1, lean_object* x_2, lean_object* x_3) {
+_start:
+{
+double x_4; double x_5; lean_object* x_6; 
+x_4 = lean_unbox_float(x_2);
+lean_dec(x_2);
+x_5 = l_List_foldl___at___List_foldl___at___IVI_rowEntropy_spec__1_spec__1(x_1, x_4, x_3);
+lean_dec(x_1);
+x_6 = lean_box_float(x_5);
+return x_6;
+}
+}
+LEAN_EXPORT lean_object* l_List_foldl___at___IVI_rowEntropy_spec__1___boxed(lean_object* x_1, lean_object* x_2, lean_object* x_3) {
+_start:
+{
+double x_4; double x_5; lean_object* x_6; 
+x_4 = lean_unbox_float(x_2);
+lean_dec(x_2);
+x_5 = l_List_foldl___at___IVI_rowEntropy_spec__1(x_1, x_4, x_3);
+lean_dec(x_1);
+x_6 = lean_box_float(x_5);
+return x_6;
+}
+}
+LEAN_EXPORT lean_object* l_IVI_rowEntropy___boxed(lean_object* x_1) {
+_start:
+{
+double x_2; lean_object* x_3; 
+x_2 = l_IVI_rowEntropy(x_1);
+x_3 = lean_box_float(x_2);
+return x_3;
+}
+}
+static double _init_l_IVI_surpriseNonDecreasing___closed__0() {
+_start:
+{
+lean_object* x_1; lean_object* x_2; lean_object* x_3; uint8_t x_4; double x_5; 
+x_1 = lean_unsigned_to_nat(9u);
+x_2 = lean_box(1);
+x_3 = lean_unsigned_to_nat(1u);
+x_4 = lean_unbox(x_2);
+x_5 = l_Float_ofScientific(x_3, x_4, x_1);
+return x_5;
+}
+}
+LEAN_EXPORT uint8_t l_IVI_surpriseNonDecreasing(lean_object* x_1, lean_object* x_2) {
+_start:
+{
+lean_object* x_3; lean_object* x_4; lean_object* x_5; lean_object* x_6; lean_object* x_7; double x_8; double x_9; double x_10; double x_11; uint8_t x_12; 
+lean_inc(x_2);
+lean_inc(x_1);
+x_3 = l_IVI_Invariant_resonanceMatrixW(x_1, x_2);
+x_4 = l_IVI_symmetriseLL(x_3);
+x_5 = l_IVI_Invariant_coarse(x_2);
+x_6 = l_IVI_Invariant_resonanceMatrixW(x_1, x_5);
+x_7 = l_IVI_symmetriseLL(x_6);
+x_8 = l_IVI_rowEntropy(x_4);
+x_9 = l_IVI_rowEntropy(x_7);
+x_10 = l_IVI_surpriseNonDecreasing___closed__0;
+x_11 = lean_float_add(x_9, x_10);
+x_12 = lean_float_decLe(x_8, x_11);
+return x_12;
+}
+}
+LEAN_EXPORT lean_object* l_IVI_surpriseNonDecreasing___boxed(lean_object* x_1, lean_object* x_2) {
+_start:
+{
+uint8_t x_3; lean_object* x_4; 
+x_3 = l_IVI_surpriseNonDecreasing(x_1, x_2);
+x_4 = lean_box(x_3);
+return x_4;
+}
+}
+LEAN_EXPORT lean_object* l_IVI_invariantProps(lean_object* x_1, double x_2, double x_3, lean_object* x_4, lean_object* x_5, uint8_t x_6) {
+_start:
+{
+lean_object* x_7; 
+x_7 = lean_box(0);
+return x_7;
+}
+}
+LEAN_EXPORT lean_object* l_IVI_invariantProps___boxed(lean_object* x_1, lean_object* x_2, lean_object* x_3, lean_object* x_4, lean_object* x_5, lean_object* x_6) {
+_start:
+{
+double x_7; double x_8; uint8_t x_9; lean_object* x_10; 
+x_7 = lean_unbox_float(x_2);
+lean_dec(x_2);
+x_8 = lean_unbox_float(x_3);
+lean_dec(x_3);
+x_9 = lean_unbox(x_6);
+lean_dec(x_6);
+x_10 = l_IVI_invariantProps(x_1, x_7, x_8, x_4, x_5, x_9);
+lean_dec(x_5);
+lean_dec(x_4);
+lean_dec(x_1);
+return x_10;
+}
+}
 lean_object* initialize_Init(uint8_t builtin, lean_object*);
 lean_object* initialize_IVI_Intangible(uint8_t builtin, lean_object*);
+lean_object* initialize_IVI_SchematismEvidence(uint8_t builtin, lean_object*);
 static bool _G_initialized = false;
 LEAN_EXPORT lean_object* initialize_IVI_Invariant(uint8_t builtin, lean_object* w) {
 lean_object * res;
@@ -1646,11 +2570,56 @@ lean_dec_ref(res);
 res = initialize_IVI_Intangible(builtin, lean_io_mk_world());
 if (lean_io_result_is_error(res)) return res;
 lean_dec_ref(res);
+res = initialize_IVI_SchematismEvidence(builtin, lean_io_mk_world());
+if (lean_io_result_is_error(res)) return res;
+lean_dec_ref(res);
 l_IVI_Invariant_clampZero___closed__0 = _init_l_IVI_Invariant_clampZero___closed__0();
 l_IVI_Invariant_defaultWeighting = _init_l_IVI_Invariant_defaultWeighting();
 lean_mark_persistent(l_IVI_Invariant_defaultWeighting);
 l_IVI_Invariant_powerIter___closed__0 = _init_l_IVI_Invariant_powerIter___closed__0();
 l_IVI_Invariant_spectralInvariantW___closed__0 = _init_l_IVI_Invariant_spectralInvariantW___closed__0();
+l_IVI_favg___closed__0 = _init_l_IVI_favg___closed__0();
+l_List_mapTR_loop___at___IVI_symmetriseLL_spec__0___boxed__const__1 = _init_l_List_mapTR_loop___at___IVI_symmetriseLL_spec__0___boxed__const__1();
+lean_mark_persistent(l_List_mapTR_loop___at___IVI_symmetriseLL_spec__0___boxed__const__1);
+l_IVI_reprNonCollapseCfg___redArg___closed__0____x40_IVI_Invariant___hyg_1716_ = _init_l_IVI_reprNonCollapseCfg___redArg___closed__0____x40_IVI_Invariant___hyg_1716_();
+lean_mark_persistent(l_IVI_reprNonCollapseCfg___redArg___closed__0____x40_IVI_Invariant___hyg_1716_);
+l_IVI_reprNonCollapseCfg___redArg___closed__1____x40_IVI_Invariant___hyg_1716_ = _init_l_IVI_reprNonCollapseCfg___redArg___closed__1____x40_IVI_Invariant___hyg_1716_();
+lean_mark_persistent(l_IVI_reprNonCollapseCfg___redArg___closed__1____x40_IVI_Invariant___hyg_1716_);
+l_IVI_reprNonCollapseCfg___redArg___closed__2____x40_IVI_Invariant___hyg_1716_ = _init_l_IVI_reprNonCollapseCfg___redArg___closed__2____x40_IVI_Invariant___hyg_1716_();
+lean_mark_persistent(l_IVI_reprNonCollapseCfg___redArg___closed__2____x40_IVI_Invariant___hyg_1716_);
+l_IVI_reprNonCollapseCfg___redArg___closed__3____x40_IVI_Invariant___hyg_1716_ = _init_l_IVI_reprNonCollapseCfg___redArg___closed__3____x40_IVI_Invariant___hyg_1716_();
+lean_mark_persistent(l_IVI_reprNonCollapseCfg___redArg___closed__3____x40_IVI_Invariant___hyg_1716_);
+l_IVI_reprNonCollapseCfg___redArg___closed__4____x40_IVI_Invariant___hyg_1716_ = _init_l_IVI_reprNonCollapseCfg___redArg___closed__4____x40_IVI_Invariant___hyg_1716_();
+lean_mark_persistent(l_IVI_reprNonCollapseCfg___redArg___closed__4____x40_IVI_Invariant___hyg_1716_);
+l_IVI_reprNonCollapseCfg___redArg___closed__5____x40_IVI_Invariant___hyg_1716_ = _init_l_IVI_reprNonCollapseCfg___redArg___closed__5____x40_IVI_Invariant___hyg_1716_();
+lean_mark_persistent(l_IVI_reprNonCollapseCfg___redArg___closed__5____x40_IVI_Invariant___hyg_1716_);
+l_IVI_reprNonCollapseCfg___redArg___closed__6____x40_IVI_Invariant___hyg_1716_ = _init_l_IVI_reprNonCollapseCfg___redArg___closed__6____x40_IVI_Invariant___hyg_1716_();
+lean_mark_persistent(l_IVI_reprNonCollapseCfg___redArg___closed__6____x40_IVI_Invariant___hyg_1716_);
+l_IVI_reprNonCollapseCfg___redArg___closed__7____x40_IVI_Invariant___hyg_1716_ = _init_l_IVI_reprNonCollapseCfg___redArg___closed__7____x40_IVI_Invariant___hyg_1716_();
+lean_mark_persistent(l_IVI_reprNonCollapseCfg___redArg___closed__7____x40_IVI_Invariant___hyg_1716_);
+l_IVI_reprNonCollapseCfg___redArg___closed__8____x40_IVI_Invariant___hyg_1716_ = _init_l_IVI_reprNonCollapseCfg___redArg___closed__8____x40_IVI_Invariant___hyg_1716_();
+lean_mark_persistent(l_IVI_reprNonCollapseCfg___redArg___closed__8____x40_IVI_Invariant___hyg_1716_);
+l_IVI_reprNonCollapseCfg___redArg___closed__9____x40_IVI_Invariant___hyg_1716_ = _init_l_IVI_reprNonCollapseCfg___redArg___closed__9____x40_IVI_Invariant___hyg_1716_();
+lean_mark_persistent(l_IVI_reprNonCollapseCfg___redArg___closed__9____x40_IVI_Invariant___hyg_1716_);
+l_IVI_reprNonCollapseCfg___redArg___closed__10____x40_IVI_Invariant___hyg_1716_ = _init_l_IVI_reprNonCollapseCfg___redArg___closed__10____x40_IVI_Invariant___hyg_1716_();
+lean_mark_persistent(l_IVI_reprNonCollapseCfg___redArg___closed__10____x40_IVI_Invariant___hyg_1716_);
+l_IVI_reprNonCollapseCfg___redArg___closed__11____x40_IVI_Invariant___hyg_1716_ = _init_l_IVI_reprNonCollapseCfg___redArg___closed__11____x40_IVI_Invariant___hyg_1716_();
+lean_mark_persistent(l_IVI_reprNonCollapseCfg___redArg___closed__11____x40_IVI_Invariant___hyg_1716_);
+l_IVI_reprNonCollapseCfg___redArg___closed__12____x40_IVI_Invariant___hyg_1716_ = _init_l_IVI_reprNonCollapseCfg___redArg___closed__12____x40_IVI_Invariant___hyg_1716_();
+lean_mark_persistent(l_IVI_reprNonCollapseCfg___redArg___closed__12____x40_IVI_Invariant___hyg_1716_);
+l_IVI_reprNonCollapseCfg___redArg___closed__13____x40_IVI_Invariant___hyg_1716_ = _init_l_IVI_reprNonCollapseCfg___redArg___closed__13____x40_IVI_Invariant___hyg_1716_();
+lean_mark_persistent(l_IVI_reprNonCollapseCfg___redArg___closed__13____x40_IVI_Invariant___hyg_1716_);
+l_IVI_reprNonCollapseCfg___redArg___closed__14____x40_IVI_Invariant___hyg_1716_ = _init_l_IVI_reprNonCollapseCfg___redArg___closed__14____x40_IVI_Invariant___hyg_1716_();
+lean_mark_persistent(l_IVI_reprNonCollapseCfg___redArg___closed__14____x40_IVI_Invariant___hyg_1716_);
+l_IVI_reprNonCollapseCfg___redArg___closed__15____x40_IVI_Invariant___hyg_1716_ = _init_l_IVI_reprNonCollapseCfg___redArg___closed__15____x40_IVI_Invariant___hyg_1716_();
+lean_mark_persistent(l_IVI_reprNonCollapseCfg___redArg___closed__15____x40_IVI_Invariant___hyg_1716_);
+l_IVI_reprNonCollapseCfg___redArg___closed__16____x40_IVI_Invariant___hyg_1716_ = _init_l_IVI_reprNonCollapseCfg___redArg___closed__16____x40_IVI_Invariant___hyg_1716_();
+lean_mark_persistent(l_IVI_reprNonCollapseCfg___redArg___closed__16____x40_IVI_Invariant___hyg_1716_);
+l_IVI_instReprNonCollapseCfg___closed__0 = _init_l_IVI_instReprNonCollapseCfg___closed__0();
+lean_mark_persistent(l_IVI_instReprNonCollapseCfg___closed__0);
+l_IVI_instReprNonCollapseCfg = _init_l_IVI_instReprNonCollapseCfg();
+lean_mark_persistent(l_IVI_instReprNonCollapseCfg);
+l_IVI_surpriseNonDecreasing___closed__0 = _init_l_IVI_surpriseNonDecreasing___closed__0();
 return lean_io_result_mk_ok(lean_box(0));
 }
 #ifdef __cplusplus

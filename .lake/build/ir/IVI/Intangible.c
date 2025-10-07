@@ -1,6 +1,6 @@
 // Lean compiler output
 // Module: IVI.Intangible
-// Imports: Init IVI.C3Model
+// Imports: Init IVI.C3Model IVI.SchematismEvidence
 #include <lean/lean.h>
 #if defined(__clang__)
 #pragma clang diagnostic ignored "-Wunused-parameter"
@@ -39,6 +39,7 @@ LEAN_EXPORT lean_object* l_IVI_reprDomainNode____x40_IVI_Intangible___hyg_143___
 double acos(double);
 uint8_t lean_float_decLt(double, double);
 static double l_IVI_Intangible_clampUnit___closed__1;
+LEAN_EXPORT lean_object* l_IVI_Intangible_resuperposeStepE___boxed(lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_IVI_Intangible_translateTemporal___boxed(lean_object*, lean_object*);
 uint8_t lean_string_dec_eq(lean_object*, lean_object*);
 static lean_object* l_IVI_reprDomainSignature___redArg___closed__12____x40_IVI_Intangible___hyg_40_;
@@ -48,7 +49,9 @@ LEAN_EXPORT lean_object* l_IVI_Intangible_dot3___boxed(lean_object*, lean_object
 LEAN_EXPORT lean_object* l_List_mapTR_loop___at___IVI_Intangible_resonanceSum_spec__0(lean_object*, lean_object*);
 lean_object* l_IVI_reprC3State___redArg____x40_IVI_C3Model___hyg_292_(lean_object*);
 LEAN_EXPORT lean_object* l_IVI_reprDomainSignature____x40_IVI_Intangible___hyg_40____boxed(lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_IVI_Intangible_resuperposeFractalE(double, lean_object*, lean_object*, lean_object*);
 double sqrt(double);
+LEAN_EXPORT lean_object* l_IVI_Intangible_resuperposeFractalE___boxed(lean_object*, lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT double l_IVI_Intangible_spatialNorm(lean_object*);
 double lean_float_add(double, double);
 lean_object* lean_nat_to_int(lean_object*);
@@ -99,6 +102,7 @@ static lean_object* l_IVI_reprDomainSignature___redArg___closed__5____x40_IVI_In
 static lean_object* l_IVI_reprDomainSignature___redArg___closed__15____x40_IVI_Intangible___hyg_40_;
 LEAN_EXPORT lean_object* l_IVI_Intangible_resuperposeStep(double, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_IVI_Intangible_angleBetween___boxed(lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_IVI_Intangible_resuperposeStepE(double, lean_object*, lean_object*);
 LEAN_EXPORT double l_IVI_Intangible_resonanceSum_loop(lean_object*, double);
 LEAN_EXPORT lean_object* l_IVI_reprDomainNode___redArg____x40_IVI_Intangible___hyg_143_(lean_object*);
 LEAN_EXPORT lean_object* l_IVI_Intangible_resuperposeFractal(double, lean_object*, lean_object*, lean_object*);
@@ -1470,6 +1474,28 @@ x_5 = l_IVI_Intangible_resuperposeStep(x_4, x_2, x_3);
 return x_5;
 }
 }
+LEAN_EXPORT lean_object* l_IVI_Intangible_resuperposeStepE(double x_1, lean_object* x_2, lean_object* x_3) {
+_start:
+{
+lean_object* x_4; lean_object* x_5; lean_object* x_6; 
+x_4 = l_List_foldl___at___IVI_Intangible_resuperposeStep_spec__0(x_1, x_3, x_2);
+x_5 = lean_box(1);
+x_6 = lean_alloc_ctor(0, 2, 0);
+lean_ctor_set(x_6, 0, x_4);
+lean_ctor_set(x_6, 1, x_5);
+return x_6;
+}
+}
+LEAN_EXPORT lean_object* l_IVI_Intangible_resuperposeStepE___boxed(lean_object* x_1, lean_object* x_2, lean_object* x_3) {
+_start:
+{
+double x_4; lean_object* x_5; 
+x_4 = lean_unbox_float(x_1);
+lean_dec(x_1);
+x_5 = l_IVI_Intangible_resuperposeStepE(x_4, x_2, x_3);
+return x_5;
+}
+}
 LEAN_EXPORT lean_object* l_IVI_Intangible_resuperposeFractal(double x_1, lean_object* x_2, lean_object* x_3, lean_object* x_4) {
 _start:
 {
@@ -1556,8 +1582,70 @@ lean_dec(x_2);
 return x_5;
 }
 }
+LEAN_EXPORT lean_object* l_IVI_Intangible_resuperposeFractalE(double x_1, lean_object* x_2, lean_object* x_3, lean_object* x_4) {
+_start:
+{
+lean_object* x_5; uint8_t x_6; 
+x_5 = lean_unsigned_to_nat(0u);
+x_6 = lean_nat_dec_eq(x_3, x_5);
+if (x_6 == 1)
+{
+lean_object* x_7; lean_object* x_8; 
+lean_dec(x_2);
+x_7 = lean_box(0);
+x_8 = lean_alloc_ctor(0, 2, 0);
+lean_ctor_set(x_8, 0, x_4);
+lean_ctor_set(x_8, 1, x_7);
+return x_8;
+}
+else
+{
+lean_object* x_9; lean_object* x_10; lean_object* x_11; lean_object* x_12; uint8_t x_13; 
+x_9 = lean_unsigned_to_nat(1u);
+x_10 = lean_nat_sub(x_3, x_9);
+lean_inc(x_2);
+x_11 = l_List_foldl___at___IVI_Intangible_resuperposeStep_spec__0(x_1, x_4, x_2);
+x_12 = l_IVI_Intangible_resuperposeFractalE(x_1, x_2, x_10, x_11);
+lean_dec(x_10);
+x_13 = !lean_is_exclusive(x_12);
+if (x_13 == 0)
+{
+lean_object* x_14; lean_object* x_15; 
+x_14 = lean_ctor_get(x_12, 1);
+lean_dec(x_14);
+x_15 = lean_box(1);
+lean_ctor_set(x_12, 1, x_15);
+return x_12;
+}
+else
+{
+lean_object* x_16; lean_object* x_17; lean_object* x_18; 
+x_16 = lean_ctor_get(x_12, 0);
+lean_inc(x_16);
+lean_dec(x_12);
+x_17 = lean_box(1);
+x_18 = lean_alloc_ctor(0, 2, 0);
+lean_ctor_set(x_18, 0, x_16);
+lean_ctor_set(x_18, 1, x_17);
+return x_18;
+}
+}
+}
+}
+LEAN_EXPORT lean_object* l_IVI_Intangible_resuperposeFractalE___boxed(lean_object* x_1, lean_object* x_2, lean_object* x_3, lean_object* x_4) {
+_start:
+{
+double x_5; lean_object* x_6; 
+x_5 = lean_unbox_float(x_1);
+lean_dec(x_1);
+x_6 = l_IVI_Intangible_resuperposeFractalE(x_5, x_2, x_3, x_4);
+lean_dec(x_3);
+return x_6;
+}
+}
 lean_object* initialize_Init(uint8_t builtin, lean_object*);
 lean_object* initialize_IVI_C3Model(uint8_t builtin, lean_object*);
+lean_object* initialize_IVI_SchematismEvidence(uint8_t builtin, lean_object*);
 static bool _G_initialized = false;
 LEAN_EXPORT lean_object* initialize_IVI_Intangible(uint8_t builtin, lean_object* w) {
 lean_object * res;
@@ -1567,6 +1655,9 @@ res = initialize_Init(builtin, lean_io_mk_world());
 if (lean_io_result_is_error(res)) return res;
 lean_dec_ref(res);
 res = initialize_IVI_C3Model(builtin, lean_io_mk_world());
+if (lean_io_result_is_error(res)) return res;
+lean_dec_ref(res);
+res = initialize_IVI_SchematismEvidence(builtin, lean_io_mk_world());
 if (lean_io_result_is_error(res)) return res;
 lean_dec_ref(res);
 l_IVI_reprDomainSignature___redArg___closed__0____x40_IVI_Intangible___hyg_40_ = _init_l_IVI_reprDomainSignature___redArg___closed__0____x40_IVI_Intangible___hyg_40_();

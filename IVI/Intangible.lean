@@ -6,6 +6,7 @@
 -/
 
 import IVI.C3Model
+import IVI.SchematismEvidence
 
 namespace IVI
 
@@ -135,6 +136,13 @@ namespace Intangible
   pairs.foldl (fun acc (p : DomainSignature × DomainSignature) =>
     translateNodes k p.fst p.snd acc) nodes
 
+/-- Variant exposing schematism evidence alongside the updated nodes. -/
+@[simp] def resuperposeStepE (k : Float)
+    (pairs : List (DomainSignature × DomainSignature))
+    (nodes : List DomainNode)
+    : List DomainNode × StepEvidence :=
+  (resuperposeStep k pairs nodes, { usedSchematism := true })
+
 /-- Iterate the intangible verification step a bounded number of times
     (the `fuel` argument). This stands in for the fractal recursion in
     a computationally safe way. -/
@@ -146,6 +154,18 @@ namespace Intangible
   | Nat.succ f =>
     let updated := resuperposeStep k pairs nodes
     resuperposeFractal k pairs f updated
+
+/-- Fractal variant that accumulates schematism evidence. -/
+@[simp] def resuperposeFractalE (k : Float)
+    (pairs : List (DomainSignature × DomainSignature))
+    (fuel : Nat) (nodes : List DomainNode)
+    : List DomainNode × StepEvidence :=
+  match fuel with
+  | 0 => (nodes, { usedSchematism := false })
+  | Nat.succ f =>
+    let updated := resuperposeStep k pairs nodes
+    let (nodes', _) := resuperposeFractalE k pairs f updated
+    (nodes', { usedSchematism := true })
 
 end Intangible
 

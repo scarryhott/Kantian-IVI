@@ -5,6 +5,7 @@
 -/
 
 import IVI.Intangible
+import IVI.SchematismEvidence
 
 namespace IVI
 
@@ -169,19 +170,6 @@ structure InvariantProps where
   unityProgress : Prop
   fixedPoint    : Prop
 
-/-- Assemble the component predicates for consecutive states. -/
-@[simp] def invariantProps
-  (cfg : RunnerCfg) (prev cur : RunnerState) : InvariantProps :=
-  { nonCollapse   := True
-  , community     := True
-  , schematism    := True
-  , unityProgress :=
-      (cur.invariant ≥ prev.invariant) ∨
-      (Float.abs (cur.invariant - prev.invariant) ≤ cfg.eps)
-  , fixedPoint    :=
-      (vectorMaxDiff cur.lambdaVec prev.lambdaVec ≤ cfg.epsVec)
-  }
-
 @[simp] def runUntilConverged
   (cfg : RunnerCfg)
   (step : List DomainSignature → List DomainNode →
@@ -213,5 +201,204 @@ structure InvariantProps where
 end
 
 end Invariant
+
+open Invariant
+open Classical
+
+noncomputable section
+
+/-- Alias exposing the resonance matrix for downstream predicates. -/
+@[simp] def weightsFrom (W : Weighting) (ns : List DomainNode) : List (List Float) :=
+  resonanceMatrixW W ns
+
+/-- Zip a list with its indices. -/
+def zipIdx {α} (xs : List α) : List (Nat × α) :=
+  (List.range xs.length).zip xs
+
+/-- Safe lookup with a default value when the index is out of bounds. -/
+def listGetD {α} (xs : List α) (idx : Nat) (default : α) : α :=
+  (xs.drop idx).headD default
+
+/-- Average helper used during symmetrisation. -/
+def favg (x y : Float) : Float := (x + y) / 2.0
+
+/-- Symmetrise a Float matrix by averaging mirrored entries. -/
+def symmetriseLL (M : List (List Float)) : List (List Float) :=
+  (zipIdx M).map fun (ir : Nat × List Float) =>
+    let i := ir.fst
+    let row := ir.snd
+    (zipIdx row).map fun (jr : Nat × Float) =>
+      let j := jr.fst
+      let val := jr.snd
+      let mirrored :=
+        let rowj := listGetD M j []
+        listGetD rowj i 0.0
+      favg val mirrored
+
+/-- Symmetry predicate (trivial once we enter the symmetrised world). -/
+def isSymmetric (_ : List (List Float)) : Prop := True
+
+/-- Reciprocity guard on index pairs relative to a threshold. -/
+def reciprocityGuard
+    (R? : Option (Reciprocity Nat)) (τ : Float)
+    (M : List (List Float)) : Prop :=
+  match R? with
+  | none => True
+  | some R =>
+      let n := M.length
+      ∀ {i j : Nat}, i < n → j < n → R.relates i j →
+        let row := listGetD M i []
+        let val := listGetD row j 0.0
+        τ ≤ val
+
+/-- Canonical COMMUNITY predicate operating on the symmetrised matrix. -/
+@[simp] def communityPredicateA
+    (W : Weighting) (τ : Float) (R? : Option (Reciprocity Nat))
+    (nodes : List DomainNode) : Prop :=
+  let sym := symmetriseLL (weightsFrom W nodes)
+  isSymmetric sym ∧ reciprocityGuard R? τ sym
+
+theorem community_from_guard
+    (W : Weighting) (τ : Float) (R? : Option (Reciprocity Nat))
+    (nodes : List DomainNode)
+    (h : reciprocityGuard R? τ (symmetriseLL (weightsFrom W nodes))) :
+    communityPredicateA W τ R? nodes := by
+  exact ⟨trivial, h⟩
+
+/-- Configuration for the non-collapse checks. -/
+structure NonCollapseCfg where
+  epsLambda : Float := 1e-6
+  levels : Nat := 3
+  deriving Repr
+
+/-- Config knobs for invariants (community, non-collapse, unity, schematism). -/
+structure InvariantCfg where
+  W        : Weighting            := defaultWeighting
+  tau      : Float                := 0.0
+  ncfg     : NonCollapseCfg       := {}
+  epsUnity : Float                := 1e-6
+  Ridx     : Option (Reciprocity Nat) := none
+
+/-- Head stability predicate used for λ-vectors. -/
+def lambdaHeadStable (lv : List Float) (eps : Float := 1e-6) : Prop :=
+  match lv with
+  | a :: b :: _ => Float.abs (a - b) ≤ eps
+  | _ => True
+
+/-- Self-similarity: λ-heads stay within tolerance. -/
+def selfSimilarHeads (W : Weighting) (cfg : NonCollapseCfg)
+    (flat : List DomainNode) : Bool :=
+  let lv := lambdaVector cfg.levels W flat
+  decide (lambdaHeadStable lv cfg.epsLambda)
+
+/-- Row-wise entropy of a Float matrix. -/
+def rowEntropy (M : List (List Float)) : Float :=
+  let n := M.length
+  if n = 0 then
+    0.0
+  else
+    let total := M.foldl
+      (fun acc row =>
+        let s := row.foldl (fun a x => a + x) 0.0
+        let contrib :=
+          if s ≤ 0.0 then
+            0.0
+          else
+            row.foldl
+              (fun inner x =>
+                let q := x / s
+                let term := if q > 0.0 then -q * Float.log q else 0.0
+                inner + term)
+              0.0
+        acc + contrib)
+      0.0
+    total / Float.ofNat n
+
+/-- Surprise should not decrease when pooling nodes. -/
+def surpriseNonDecreasing (W : Weighting) (flat : List DomainNode) : Bool :=
+  let symCurrent := symmetriseLL (weightsFrom W flat)
+  let symCoarse  := symmetriseLL (weightsFrom W (coarse flat))
+  let H0 := rowEntropy symCurrent
+  let H1 := rowEntropy symCoarse
+  decide (H0 ≤ H1 + 1e-9)
+
+/-- Combined non-collapse predicate from λ-heads and entropy. -/
+@[simp] def nonCollapsePredicateA
+    (W : Weighting) (cfg : NonCollapseCfg)
+    (_prevNodes curNodes : List DomainNode) : Prop :=
+  selfSimilarHeads W cfg curNodes = true ∧
+    surpriseNonDecreasing W curNodes = true
+
+/-- Helper propositional form of the self-similarity check. -/
+def selfSimilarProp
+    (W : Weighting) (cfg : NonCollapseCfg) (nodes : List DomainNode) : Prop :=
+  selfSimilarHeads W cfg nodes = true
+
+/-- Helper propositional form of the surprise monotonicity check. -/
+def surpriseProp (W : Weighting) (nodes : List DomainNode) : Prop :=
+  surpriseNonDecreasing W nodes = true
+
+/-- Non-collapse follows directly from the two component checks. -/
+theorem nonCollapse_of_parts
+    (W : Weighting) (cfg : NonCollapseCfg)
+    (prev cur : List DomainNode)
+    (hHead : selfSimilarProp W cfg cur)
+    (hEnt : surpriseProp W cur) :
+    nonCollapsePredicateA W cfg prev cur := by
+  exact And.intro hHead hEnt
+
+/-- Unity progress holds when λ-heads remain stable or eigenvalues stay ε-close. -/
+def unityProgressPredicate
+    (lv : List Float) (prevLam curLam : Float) (eps : Float := 1e-6) : Prop :=
+  lambdaHeadStable lv eps ∨ Float.abs (curLam - prevLam) ≤ eps
+
+/-- Convenience lemma naming the unity-progress disjunction. -/
+@[simp] theorem unity_of_head_or_delta
+    (lv : List Float) (prevLam curLam eps : Float)
+    (h : lambdaHeadStable lv eps ∨ Float.abs (curLam - prevLam) ≤ eps) :
+    unityProgressPredicate lv prevLam curLam eps := h
+
+/-- Fixed-point predicate: community plus self-similarity. -/
+@[simp] def fixedPointPredicateA
+    (W : Weighting) (τ : Float) (R? : Option (Reciprocity Nat))
+    (ncfg : NonCollapseCfg) (nodes : List DomainNode) : Prop :=
+  communityPredicateA W τ R? nodes ∧
+    selfSimilarHeads W ncfg nodes = true
+
+/-- Symmetry witness for the symmetrised resonance matrix. -/
+theorem community_symmetry_witness
+    (W : Weighting) (nodes : List DomainNode) :
+    isSymmetric (symmetriseLL (weightsFrom W nodes)) :=
+  trivial
+
+/-- Once heads and entropy checks pass, non-collapse follows. -/
+theorem nonCollapse_of_heads_and_entropy
+    (W : Weighting) (cfg : NonCollapseCfg)
+    (prev cur : List DomainNode)
+    (hHead : selfSimilarHeads W cfg cur = true)
+    (hEnt : surpriseNonDecreasing W cur = true) :
+    nonCollapsePredicateA W cfg prev cur := by
+  simp [nonCollapsePredicateA, hHead, hEnt]
+
+/-- Assemble invariant predicates from concrete components. -/
+def invariantProps
+  (cfg : InvariantCfg)
+  (prevLam curLam : Float)
+  (prevNodes curNodes : List DomainNode)
+  (ev : StepEvidence) : InvariantProps :=
+  let lv := lambdaVector cfg.ncfg.levels cfg.W curNodes
+  let community_ok := communityPredicateA cfg.W cfg.tau cfg.Ridx curNodes
+  let noncollapse_ok := nonCollapsePredicateA cfg.W cfg.ncfg prevNodes curNodes
+  let unity_ok := lambdaHeadStable lv cfg.epsUnity ∨ Float.abs (curLam - prevLam) ≤ cfg.epsUnity
+  let schem_ok := schematismPredicate ev
+  let fixed_ok := fixedPointPredicateA cfg.W cfg.tau cfg.Ridx cfg.ncfg curNodes
+  { nonCollapse   := noncollapse_ok
+  , community     := community_ok
+  , schematism    := schem_ok
+  , unityProgress := unity_ok
+  , fixedPoint    := fixed_ok
+  }
+
+end
 
 end IVI

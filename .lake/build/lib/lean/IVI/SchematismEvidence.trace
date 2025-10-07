@@ -1,0 +1,26 @@
+{"synthetic": false,
+ "outputs":
+ {"o": ["3955761931721435902"],
+  "i": "14241205234320068215",
+  "c": "4167214989597310054"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/Users/harryscott/Kantian-IVI/.lake/build/lib/lean /Users/harryscott/.elan/toolchains/leanprover--lean4---v4.22.0/bin/lean /Users/harryscott/Kantian-IVI/IVI/SchematismEvidence.lean -o /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/SchematismEvidence.olean -i /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/SchematismEvidence.ilean -c /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/SchematismEvidence.c --setup /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/SchematismEvidence.setup.json --json",
+   "level": "trace"}],
+ "inputs":
+ [["IVI.SchematismEvidence:deps",
+   [["deps",
+     [["ivi/IVI:extraDep", [["@ivi:extraDep", "1723"]]],
+      ["import oleans", "1723"]]],
+    ["libs",
+     [["import dynlibs", "1723"],
+      ["package external libraries", "1723"],
+      ["module dynlibs", "1723"],
+      ["module plugins", "1723"]]]]],
+  ["Lean 4.22.0, commit ba2cbbf09d4978f416e0ebd1fceeebc2c4138c05",
+   "8739116525927611134"],
+  ["/Users/harryscott/Kantian-IVI/IVI/SchematismEvidence.lean",
+   "9029872755403260686"],
+  ["options", "1723"],
+  ["Module.leanArgs: #[]", "1723"]],
+ "depHash": "6160535724122255776"}

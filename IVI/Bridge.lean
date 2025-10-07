@@ -9,9 +9,10 @@
 import IVI.Pure
 import IVI.Logic
 import IVI.Operators
-import IVI.Intangible
 import IVI.Invariant
 import IVI.FixedPoint
+import IVI.Intangible
+import IVI.SchematismSpec
 
 namespace IVI
 
@@ -68,13 +69,15 @@ embedding into IVI (without collapse) preserves verification.
 -/
 
 def soundness
-  (F : KantToIVI)
-  (cfg : RunnerCfg)
-  (d0 : List DomainSignature)
-  (n0 : List DomainNode)
-  (kRecognizer : Recognition C3State Nat) : RunnerState :=
-  let step := F.stepMap kRecognizer
-  runUntilConverged cfg step d0 n0
+  (cfgInv : InvariantCfg)
+  (step : List DomainSignature → List DomainNode →
+          (List DomainSignature × List DomainNode × StepEvidence))
+  (domains : List DomainSignature)
+  (nodes : List DomainNode) : InvariantProps :=
+  let (doms₁, nodes₁, ev) := step domains nodes
+  let prevλ := spectralInvariantW cfgInv.W nodes
+  let curλ  := spectralInvariantW cfgInv.W nodes₁
+  invariantProps cfgInv prevλ curλ nodes nodes₁ ev
 
 /-!
 ### Completeness
@@ -83,16 +86,18 @@ under the schematism/categorical apparatus.
 -/
 
 def completeness
-  (G : IVIToKant)
-  (cfg : FixedCfg)
+  (cfgFix : FixedCfg)
+  (cfgInv : InvariantCfg)
+  (seed : List DomainSignature)
+  (domains : List DomainSignature)
+  (nodes : List DomainNode)
   (step : List DomainSignature → List DomainNode →
           (List DomainSignature × List DomainNode))
-  (seed : List DomainSignature)
-  (d0 : List DomainSignature)
-  (n0 : List DomainNode)
-  : Recognition C3State Nat :=
-  let witness := runToFixedPoint cfg step seed d0 n0
-  G.stepMap witness.domains witness.nodes
+  (toKant : List DomainSignature → List DomainNode → Recognition C3State Nat)
+  : Recognition C3State Nat × Float :=
+  let witness := runToFixedPoint cfgFix step seed domains nodes
+  let lam := spectralInvariantW cfgInv.W witness.nodes
+  (toKant witness.domains witness.nodes, lam)
 
 /-!
 ### Minimality

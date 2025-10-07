@@ -3,6 +3,8 @@
   ℝ-based (proof-side) specs for θ and Δi.
 -/
 
+import IVI.SchematismEvidence
+
 namespace IVI
 
 set_option autoImplicit true
