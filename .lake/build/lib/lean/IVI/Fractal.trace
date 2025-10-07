@@ -1,12 +1,18 @@
 {"synthetic": false,
  "outputs":
- {"o": ["14516596280494961881"],
-  "i": "7481830665650132721",
-  "c": "1732045456390103171"},
+ {"o": ["14373550984487496403"],
+  "i": "16892550971736250188",
+  "c": "3250536460946762412"},
  "log":
  [{"message":
    ".> LEAN_PATH=/Users/harryscott/Kantian-IVI/.lake/build/lib/lean /Users/harryscott/.elan/toolchains/leanprover--lean4---v4.22.0/bin/lean /Users/harryscott/Kantian-IVI/IVI/Fractal.lean -o /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Fractal.olean -i /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Fractal.ilean -c /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Fractal.c --setup /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Fractal.setup.json --json",
-   "level": "trace"}],
+   "level": "trace"},
+  {"message":
+   "IVI/Fractal.lean:112:2: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`",
+   "level": "warning"},
+  {"message":
+   "IVI/Fractal.lean:117:2: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`",
+   "level": "warning"}],
  "inputs":
  [["IVI.Fractal:deps",
    [["deps",
@@ -24,14 +30,18 @@
          [["IVI.Harmonics:deps", "7385600187699551567"],
           ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Harmonics.olean",
            "5838156797236561283"]]],
+        ["IVI.Collapse:olean",
+         [["IVI.Collapse:deps", "17081450911318812759"],
+          ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Collapse.olean",
+           "9603740668814285344"]]],
         ["IVI.Kakeya:olean",
-         [["IVI.Kakeya:deps", "12369146794119238966"],
+         [["IVI.Kakeya:deps", "7668117168719139913"],
           ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Kakeya.olean",
-           "433205604699233036"]]],
+           "8794622707416835282"]]],
         ["IVI.KantLimit:olean",
-         [["IVI.KantLimit:deps", "7876893752984874222"],
+         [["IVI.KantLimit:deps", "8066411334475048861"],
           ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/KantLimit.olean",
-           "1751365653680554692"]]]]]]],
+           "932623232758135453"]]]]]]],
     ["libs",
      [["import dynlibs", "1723"],
       ["package external libraries", "1723"],
@@ -39,7 +49,7 @@
       ["module plugins", "1723"]]]]],
   ["Lean 4.22.0, commit ba2cbbf09d4978f416e0ebd1fceeebc2c4138c05",
    "8739116525927611134"],
-  ["/Users/harryscott/Kantian-IVI/IVI/Fractal.lean", "1575184787521223285"],
+  ["/Users/harryscott/Kantian-IVI/IVI/Fractal.lean", "17511911168221637322"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "13785932196187055621"}
+ "depHash": "17239092002527199716"}

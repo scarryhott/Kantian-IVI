@@ -157,7 +157,8 @@ def main : IO Unit := do
       let inertia := if total = 0 then 1.0 else Float.ofNat good / Float.ofNat total
       0.5 * jac + 0.5 * inertia
     let baseField : KakeyaField :=
-      { tolDir := 0.1, τGrain := τGrain, W := defaultWeighting
+      { tolDir := 0.1
+      , collapseCfg := { τGrain := τGrain, ε := 1e-5, W := defaultWeighting }
       , dirs := [ { x := mathSig.axis.r1, y := mathSig.axis.r2, z := mathSig.axis.r3 }
                 , { x := physicsSig.axis.r1, y := physicsSig.axis.r2, z := physicsSig.axis.r3 }
                 , { x := ethicsSig.axis.r1, y := ethicsSig.axis.r2, z := ethicsSig.axis.r3 } ]
@@ -182,7 +183,8 @@ def main : IO Unit := do
             let stickPrev := stickinessScoreEval SPrev SNext
             let boundedFlag : Bool := grainNext ≤ τIntuition
             let schematismFlag : Bool := stickPrev ≥ τStick
-            let noumenalFlag : Bool := if collapsePrev ≤ τGrain then true else false
+            let noumenalFlag : Bool :=
+              if collapsePrev ≤ baseField.collapseCfg.τGrain then true else false
             let unityFlag : Bool := Float.abs (grainNext - grainPrev) ≤ 1e-3
             let selfSimFlag : Bool := boundedFlag ∧ schematismFlag ∧ unityFlag
             IO.println s!"  zoom {idx}→{idx+1}: grain={grainPrev}→{grainNext}, stick={stickPrev}, collapseScore={collapsePrev}, Kant*(b={boundedFlag}, s={schematismFlag}, n={noumenalFlag}, u={unityFlag}), self-sim≈{selfSimFlag}"

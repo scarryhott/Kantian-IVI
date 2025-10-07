@@ -1,6 +1,6 @@
 // Lean compiler output
 // Module: IVI
-// Imports: Init IVI.Core IVI.Pure IVI.Operators IVI.Domain IVI.System IVI.C3Model IVI.Intangible IVI.Invariant IVI.FixedPoint IVI.Kakeya IVI.Harmonics IVI.KantLimit IVI.Fractal
+// Imports: Init IVI.Core IVI.Pure IVI.Operators IVI.Domain IVI.System IVI.C3Model IVI.Intangible IVI.Invariant IVI.Collapse IVI.FixedPoint IVI.Kakeya IVI.Harmonics IVI.KantLimit IVI.Fractal
 #include <lean/lean.h>
 #if defined(__clang__)
 #pragma clang diagnostic ignored "-Wunused-parameter"
@@ -22,6 +22,7 @@ lean_object* initialize_IVI_System(uint8_t builtin, lean_object*);
 lean_object* initialize_IVI_C3Model(uint8_t builtin, lean_object*);
 lean_object* initialize_IVI_Intangible(uint8_t builtin, lean_object*);
 lean_object* initialize_IVI_Invariant(uint8_t builtin, lean_object*);
+lean_object* initialize_IVI_Collapse(uint8_t builtin, lean_object*);
 lean_object* initialize_IVI_FixedPoint(uint8_t builtin, lean_object*);
 lean_object* initialize_IVI_Kakeya(uint8_t builtin, lean_object*);
 lean_object* initialize_IVI_Harmonics(uint8_t builtin, lean_object*);
@@ -57,6 +58,9 @@ res = initialize_IVI_Intangible(builtin, lean_io_mk_world());
 if (lean_io_result_is_error(res)) return res;
 lean_dec_ref(res);
 res = initialize_IVI_Invariant(builtin, lean_io_mk_world());
+if (lean_io_result_is_error(res)) return res;
+lean_dec_ref(res);
+res = initialize_IVI_Collapse(builtin, lean_io_mk_world());
 if (lean_io_result_is_error(res)) return res;
 lean_dec_ref(res);
 res = initialize_IVI_FixedPoint(builtin, lean_io_mk_world());

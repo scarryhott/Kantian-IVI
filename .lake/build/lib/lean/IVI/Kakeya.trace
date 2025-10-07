@@ -1,12 +1,18 @@
 {"synthetic": false,
  "outputs":
- {"o": ["433205604699233036"],
-  "i": "8815610467979239710",
-  "c": "8801090860183995828"},
+ {"o": ["8794622707416835282"],
+  "i": "5592515363195593603",
+  "c": "4881036759716930035"},
  "log":
  [{"message":
    ".> LEAN_PATH=/Users/harryscott/Kantian-IVI/.lake/build/lib/lean /Users/harryscott/.elan/toolchains/leanprover--lean4---v4.22.0/bin/lean /Users/harryscott/Kantian-IVI/IVI/Kakeya.lean -o /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Kakeya.olean -i /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Kakeya.ilean -c /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Kakeya.c --setup /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Kakeya.setup.json --json",
-   "level": "trace"}],
+   "level": "trace"},
+  {"message":
+   "IVI/Kakeya.lean:91:2: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`",
+   "level": "warning"},
+  {"message":
+   "IVI/Kakeya.lean:95:2: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`",
+   "level": "warning"}],
  "inputs":
  [["IVI.Kakeya:deps",
    [["deps",
@@ -24,6 +30,10 @@
          [["IVI.Harmonics:deps", "7385600187699551567"],
           ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Harmonics.olean",
            "5838156797236561283"]]],
+        ["IVI.Collapse:olean",
+         [["IVI.Collapse:deps", "17081450911318812759"],
+          ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Collapse.olean",
+           "9603740668814285344"]]],
         ["IVI.SchematismEvidence:olean",
          [["IVI.SchematismEvidence:deps", "12720339749678921893"],
           ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/SchematismEvidence.olean",
@@ -35,7 +45,7 @@
       ["module plugins", "1723"]]]]],
   ["Lean 4.22.0, commit ba2cbbf09d4978f416e0ebd1fceeebc2c4138c05",
    "8739116525927611134"],
-  ["/Users/harryscott/Kantian-IVI/IVI/Kakeya.lean", "3025736363366186718"],
+  ["/Users/harryscott/Kantian-IVI/IVI/Kakeya.lean", "4651670810973357654"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "4956347112196475900"}
+ "depHash": "160261791312983527"}

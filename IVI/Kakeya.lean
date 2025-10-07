@@ -8,6 +8,7 @@
 import IVI.Intangible
 import IVI.Invariant
 import IVI.Harmonics
+import IVI.Collapse
 import IVI.SchematismEvidence
 
 namespace IVI
@@ -59,29 +60,39 @@ abbrev DirectionSet := List Dir3
 
 /-- Kakeya-style field: directionally complete with bounded graininess. -/
 structure KakeyaField where
-  tolDir : Float := 1e-6
-  τGrain : Float := 0.5
-  W      : Invariant.Weighting := Invariant.defaultWeighting
-  dirs   : DirectionSet
-  nodes  : List DomainNode
+  tolDir      : Float := 1e-6
+  collapseCfg : ICollapseCfg := {}
+  dirs        : DirectionSet
+  nodes       : List DomainNode
+
+@[simp] def KakeyaField.weighting (K : KakeyaField) : Invariant.Weighting :=
+  K.collapseCfg.W
 
 @[simp] def KakeyaField.isDirComplete (K : KakeyaField) : Prop :=
   directionallyComplete K.tolDir K.nodes K.dirs
 
 @[simp] def KakeyaField.collapseScore (K : KakeyaField) : Float :=
-  graininessScore (resonanceMatrixW K.W K.nodes)
+  K.collapseCfg.collapseScore K.nodes
 
 @[simp] def KakeyaField.isCollapseZero (K : KakeyaField) : Prop :=
-  K.collapseScore ≤ K.τGrain
+  K.collapseCfg.grainSafe K.nodes
 
 @[simp] def KakeyaField.collapseExceeded (K : KakeyaField) : Prop :=
-  K.τGrain < K.collapseScore
+  K.collapseCfg.grainCollapse K.nodes
 
 @[simp] def KakeyaField.collapseOK (K : KakeyaField) : Bool :=
-  decide (K.collapseScore ≤ K.τGrain)
+  K.collapseCfg.grainSafeBool K.nodes
 
 @[simp] def KakeyaField.collapseExceededBool (K : KakeyaField) : Bool :=
-  decide (K.τGrain < K.collapseScore)
+  K.collapseCfg.grainCollapseBool K.nodes
+
+@[simp] theorem KakeyaField.collapseOK_iff
+    (K : KakeyaField) : K.collapseOK = true ↔ K.isCollapseZero := by
+  simpa [KakeyaField.collapseOK, KakeyaField.isCollapseZero]
+
+@[simp] theorem KakeyaField.collapseExceededBool_iff
+    (K : KakeyaField) : K.collapseExceededBool = true ↔ K.collapseExceeded := by
+  simpa [KakeyaField.collapseExceededBool, KakeyaField.collapseExceeded]
 
 @[simp] def KakeyaField.withNodes (K : KakeyaField) (ns : List DomainNode) : KakeyaField :=
   { K with nodes := ns }
@@ -97,7 +108,7 @@ abbrev StepE :=
     (doms : List DomainSignature) (nodes : List DomainNode) : Prop :=
   let (_, nodes', _) := stepE doms nodes
   directionallyComplete K.tolDir nodes' K.dirs ∧
-    graininessScore (resonanceMatrixW K.W nodes') ≤ K.τGrain
+    K.collapseCfg.safeScore (K.collapseCfg.collapseScore nodes')
 
 /-- IVI–Kakeya Principle (axiom placeholder).
     Future work: replace with an explicit Besicovitch-style construction. -/

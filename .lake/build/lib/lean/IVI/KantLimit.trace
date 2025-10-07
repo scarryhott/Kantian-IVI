@@ -1,6 +1,6 @@
 {"synthetic": false,
  "outputs":
- {"o": ["1751365653680554692"],
+ {"o": ["932623232758135453"],
   "i": "10808570534215338199",
   "c": "2485060040281250102"},
  "log":
@@ -21,9 +21,9 @@
           ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Harmonics.olean",
            "5838156797236561283"]]],
         ["IVI.Kakeya:olean",
-         [["IVI.Kakeya:deps", "12369146794119238966"],
+         [["IVI.Kakeya:deps", "7668117168719139913"],
           ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Kakeya.olean",
-           "433205604699233036"]]]]]]],
+           "8794622707416835282"]]]]]]],
     ["libs",
      [["import dynlibs", "1723"],
       ["package external libraries", "1723"],
@@ -34,4 +34,4 @@
   ["/Users/harryscott/Kantian-IVI/IVI/KantLimit.lean", "15692200279887317632"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "16306822482684251254"}
+ "depHash": "10224295842957361126"}

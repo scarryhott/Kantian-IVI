@@ -6,6 +6,7 @@ import IVI.System
 import IVI.C3Model
 import IVI.Intangible
 import IVI.Invariant
+import IVI.Collapse
 import IVI.FixedPoint
 import IVI.Kakeya
 import IVI.Harmonics

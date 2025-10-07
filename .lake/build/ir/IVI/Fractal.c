@@ -1,6 +1,6 @@
 // Lean compiler output
 // Module: IVI.Fractal
-// Imports: Init IVI.Intangible IVI.Invariant IVI.Harmonics IVI.Kakeya IVI.KantLimit
+// Imports: Init IVI.Intangible IVI.Invariant IVI.Harmonics IVI.Collapse IVI.Kakeya IVI.KantLimit
 #include <lean/lean.h>
 #if defined(__clang__)
 #pragma clang diagnostic ignored "-Wunused-parameter"
@@ -15,6 +15,7 @@ extern "C" {
 #endif
 static lean_object* l_IVI_reprITranslation___redArg___closed__0____x40_IVI_Fractal___hyg_228_;
 lean_object* l_IVI_reprDomainSignature___redArg____x40_IVI_Intangible___hyg_40_(lean_object*);
+uint8_t l_IVI_ICollapseCfg_grainSafeBool(lean_object*, lean_object*);
 LEAN_EXPORT double l_IVI_FractalLayer_iCentroid(lean_object*);
 lean_object* l_Float_repr(double, lean_object*);
 static lean_object* l_IVI_reprFractalLayer___redArg___closed__10____x40_IVI_Fractal___hyg_33_;
@@ -24,22 +25,24 @@ static lean_object* l_IVI_reprFractalLayer___redArg___closed__1____x40_IVI_Fract
 LEAN_EXPORT lean_object* l___private_IVI_Fractal_0__IVI_iterateZoomSafe_match__1_splitter(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_List_foldl___at___IVI_FractalLayer_iCentroid_spec__0___boxed(lean_object*, lean_object*);
 static lean_object* l_IVI_reprFractalLayer___redArg___closed__9____x40_IVI_Fractal___hyg_33_;
-LEAN_EXPORT lean_object* l_IVI_grainCollapse___boxed(lean_object*, lean_object*);
-LEAN_EXPORT lean_object* l_IVI_grainSafe___boxed(lean_object*, lean_object*);
 double lean_float_div(double, double);
+LEAN_EXPORT uint8_t l_IVI_KakeyaField_grainCollapseBool(lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_IVI_FractalLayer_iCentroid___boxed(lean_object*);
 static lean_object* l_List_repr___at___IVI_reprFractalLayer____x40_IVI_Fractal___hyg_33__spec__0___redArg___closed__5;
 LEAN_EXPORT double l_IVI_FractalLayer_radiusMean(lean_object*);
 LEAN_EXPORT lean_object* l_IVI_FractalLayer_size(lean_object*);
 LEAN_EXPORT lean_object* l_List_foldl___at___Std_Format_joinSep___at___List_repr___at___IVI_reprITranslation____x40_IVI_Fractal___hyg_228__spec__0_spec__1_spec__1(lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_IVI_grainSafeLayerBool___boxed(lean_object*, lean_object*);
 static lean_object* l_List_repr___at___IVI_reprFractalLayer____x40_IVI_Fractal___hyg_33__spec__0___redArg___closed__8;
+LEAN_EXPORT uint8_t l_IVI_KakeyaField_grainSafeBool(lean_object*, lean_object*);
 lean_object* l_IVI_Invariant_coarse(lean_object*);
 static lean_object* l_IVI_reprFractalLayer___redArg___closed__2____x40_IVI_Fractal___hyg_33_;
+LEAN_EXPORT lean_object* l_IVI_grainCollapseLayerBool___boxed(lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_IVI_KakeyaField_grainCollapseBool___boxed(lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_IVI_reprITranslation____x40_IVI_Fractal___hyg_228____boxed(lean_object*, lean_object*);
-uint8_t l_IVI_KakeyaField_collapseOK(lean_object*);
-LEAN_EXPORT uint8_t l_IVI_grainSafe(lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l___private_IVI_Fractal_0__IVI_spectralGraininess_match__1_splitter___boxed(lean_object*, lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l___private_IVI_Fractal_0__IVI_harmonicSummary_match__1_splitter(lean_object*, lean_object*, lean_object*, lean_object*);
+uint8_t l_IVI_ICollapseCfg_grainCollapseBool(lean_object*, lean_object*);
 static lean_object* l_IVI_reprITranslation___redArg___closed__2____x40_IVI_Fractal___hyg_228_;
 LEAN_EXPORT lean_object* l___private_IVI_Fractal_0__IVI_spectralGraininess_match__1_splitter(lean_object*, lean_object*, lean_object*, lean_object*);
 static lean_object* l_Prod_repr___at___List_repr___at___IVI_reprITranslation____x40_IVI_Fractal___hyg_228__spec__0_spec__0___redArg___closed__1;
@@ -72,8 +75,9 @@ static lean_object* l_IVI_reprFractalLayer___redArg___closed__0____x40_IVI_Fract
 LEAN_EXPORT double l_List_foldl___at___IVI_FractalLayer_iCentroid_spec__0(double, lean_object*);
 LEAN_EXPORT lean_object* l_Prod_repr___at___List_repr___at___IVI_reprITranslation____x40_IVI_Fractal___hyg_228__spec__0_spec__0(lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_Std_Format_joinSep___at___List_repr___at___IVI_reprITranslation____x40_IVI_Fractal___hyg_228__spec__0_spec__1___lam__0(lean_object*);
+LEAN_EXPORT uint8_t l_IVI_grainSafeLayerBool(lean_object*, lean_object*);
 static lean_object* l_List_repr___at___IVI_reprFractalLayer____x40_IVI_Fractal___hyg_33__spec__0___redArg___closed__4;
-LEAN_EXPORT uint8_t l_IVI_grainCollapse(lean_object*, lean_object*);
+LEAN_EXPORT uint8_t l_IVI_grainCollapseLayerBool(lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l___private_IVI_Fractal_0__IVI_spectralGraininess_match__1_splitter___redArg___boxed(lean_object*, lean_object*, lean_object*);
 static lean_object* l_List_repr___at___IVI_reprFractalLayer____x40_IVI_Fractal___hyg_33__spec__0___redArg___closed__1;
 LEAN_EXPORT lean_object* l_IVI_iterateZoom(lean_object*, lean_object*, lean_object*);
@@ -107,7 +111,7 @@ LEAN_EXPORT lean_object* l_List_repr___at___IVI_reprITranslation____x40_IVI_Frac
 lean_object* l_List_reverse___redArg(lean_object*);
 lean_object* lean_nat_sub(lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_IVI_KakeyaField_withLayer(lean_object*, lean_object*);
-uint8_t l_IVI_KakeyaField_collapseExceededBool(lean_object*);
+LEAN_EXPORT lean_object* l_IVI_KakeyaField_grainSafeBool___boxed(lean_object*, lean_object*);
 lean_object* l_Std_Format_joinSep___at___Lean_Syntax_formatStxAux_spec__1(lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_IVI_reprFractalLayer____x40_IVI_Fractal___hyg_33_(lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_Std_Format_joinSep___at___List_repr___at___IVI_reprITranslation____x40_IVI_Fractal___hyg_228__spec__0_spec__1(lean_object*, lean_object*);
@@ -1550,44 +1554,42 @@ lean_ctor_set(x_7, 1, x_6);
 return x_7;
 }
 }
-LEAN_EXPORT uint8_t l_IVI_grainCollapse(lean_object* x_1, lean_object* x_2) {
+LEAN_EXPORT uint8_t l_IVI_grainCollapseLayerBool(lean_object* x_1, lean_object* x_2) {
 _start:
 {
-lean_object* x_3; lean_object* x_4; uint8_t x_5; 
+lean_object* x_3; uint8_t x_4; 
 x_3 = lean_ctor_get(x_2, 1);
 lean_inc(x_3);
 lean_dec(x_2);
-x_4 = l_IVI_KakeyaField_withNodes(x_1, x_3);
-x_5 = l_IVI_KakeyaField_collapseExceededBool(x_4);
-return x_5;
+x_4 = l_IVI_ICollapseCfg_grainCollapseBool(x_1, x_3);
+return x_4;
 }
 }
-LEAN_EXPORT lean_object* l_IVI_grainCollapse___boxed(lean_object* x_1, lean_object* x_2) {
+LEAN_EXPORT lean_object* l_IVI_grainCollapseLayerBool___boxed(lean_object* x_1, lean_object* x_2) {
 _start:
 {
 uint8_t x_3; lean_object* x_4; 
-x_3 = l_IVI_grainCollapse(x_1, x_2);
+x_3 = l_IVI_grainCollapseLayerBool(x_1, x_2);
 x_4 = lean_box(x_3);
 return x_4;
 }
 }
-LEAN_EXPORT uint8_t l_IVI_grainSafe(lean_object* x_1, lean_object* x_2) {
+LEAN_EXPORT uint8_t l_IVI_grainSafeLayerBool(lean_object* x_1, lean_object* x_2) {
 _start:
 {
-lean_object* x_3; lean_object* x_4; uint8_t x_5; 
+lean_object* x_3; uint8_t x_4; 
 x_3 = lean_ctor_get(x_2, 1);
 lean_inc(x_3);
 lean_dec(x_2);
-x_4 = l_IVI_KakeyaField_withNodes(x_1, x_3);
-x_5 = l_IVI_KakeyaField_collapseOK(x_4);
-return x_5;
+x_4 = l_IVI_ICollapseCfg_grainSafeBool(x_1, x_3);
+return x_4;
 }
 }
-LEAN_EXPORT lean_object* l_IVI_grainSafe___boxed(lean_object* x_1, lean_object* x_2) {
+LEAN_EXPORT lean_object* l_IVI_grainSafeLayerBool___boxed(lean_object* x_1, lean_object* x_2) {
 _start:
 {
 uint8_t x_3; lean_object* x_4; 
-x_3 = l_IVI_grainSafe(x_1, x_2);
+x_3 = l_IVI_grainSafeLayerBool(x_1, x_2);
 x_4 = lean_box(x_3);
 return x_4;
 }
@@ -1600,6 +1602,46 @@ x_3 = lean_ctor_get(x_2, 1);
 lean_inc(x_3);
 lean_dec(x_2);
 x_4 = l_IVI_KakeyaField_withNodes(x_1, x_3);
+return x_4;
+}
+}
+LEAN_EXPORT uint8_t l_IVI_KakeyaField_grainSafeBool(lean_object* x_1, lean_object* x_2) {
+_start:
+{
+lean_object* x_3; uint8_t x_4; 
+x_3 = lean_ctor_get(x_1, 0);
+lean_inc(x_3);
+lean_dec(x_1);
+x_4 = l_IVI_grainSafeLayerBool(x_3, x_2);
+return x_4;
+}
+}
+LEAN_EXPORT lean_object* l_IVI_KakeyaField_grainSafeBool___boxed(lean_object* x_1, lean_object* x_2) {
+_start:
+{
+uint8_t x_3; lean_object* x_4; 
+x_3 = l_IVI_KakeyaField_grainSafeBool(x_1, x_2);
+x_4 = lean_box(x_3);
+return x_4;
+}
+}
+LEAN_EXPORT uint8_t l_IVI_KakeyaField_grainCollapseBool(lean_object* x_1, lean_object* x_2) {
+_start:
+{
+lean_object* x_3; uint8_t x_4; 
+x_3 = lean_ctor_get(x_1, 0);
+lean_inc(x_3);
+lean_dec(x_1);
+x_4 = l_IVI_grainCollapseLayerBool(x_3, x_2);
+return x_4;
+}
+}
+LEAN_EXPORT lean_object* l_IVI_KakeyaField_grainCollapseBool___boxed(lean_object* x_1, lean_object* x_2) {
+_start:
+{
+uint8_t x_3; lean_object* x_4; 
+x_3 = l_IVI_KakeyaField_grainCollapseBool(x_1, x_2);
+x_4 = lean_box(x_3);
 return x_4;
 }
 }
@@ -1712,7 +1754,7 @@ else
 uint8_t x_7; 
 lean_inc(x_4);
 lean_inc(x_2);
-x_7 = l_IVI_grainSafe(x_2, x_4);
+x_7 = l_IVI_KakeyaField_grainSafeBool(x_2, x_4);
 if (x_7 == 0)
 {
 lean_dec(x_3);
@@ -1815,6 +1857,7 @@ lean_object* initialize_Init(uint8_t builtin, lean_object*);
 lean_object* initialize_IVI_Intangible(uint8_t builtin, lean_object*);
 lean_object* initialize_IVI_Invariant(uint8_t builtin, lean_object*);
 lean_object* initialize_IVI_Harmonics(uint8_t builtin, lean_object*);
+lean_object* initialize_IVI_Collapse(uint8_t builtin, lean_object*);
 lean_object* initialize_IVI_Kakeya(uint8_t builtin, lean_object*);
 lean_object* initialize_IVI_KantLimit(uint8_t builtin, lean_object*);
 static bool _G_initialized = false;
@@ -1832,6 +1875,9 @@ res = initialize_IVI_Invariant(builtin, lean_io_mk_world());
 if (lean_io_result_is_error(res)) return res;
 lean_dec_ref(res);
 res = initialize_IVI_Harmonics(builtin, lean_io_mk_world());
+if (lean_io_result_is_error(res)) return res;
+lean_dec_ref(res);
+res = initialize_IVI_Collapse(builtin, lean_io_mk_world());
 if (lean_io_result_is_error(res)) return res;
 lean_dec_ref(res);
 res = initialize_IVI_Kakeya(builtin, lean_io_mk_world());

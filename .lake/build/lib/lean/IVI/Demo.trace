@@ -1,8 +1,8 @@
 {"synthetic": false,
  "outputs":
- {"o": ["16671752627754354147"],
-  "i": "11243228339451101705",
-  "c": "7669556055933248378"},
+ {"o": ["17489435372760190157"],
+  "i": "7128100606100086241",
+  "c": "9215035097486492088"},
  "log":
  [{"message":
    ".> LEAN_PATH=/Users/harryscott/Kantian-IVI/.lake/build/lib/lean /Users/harryscott/.elan/toolchains/leanprover--lean4---v4.22.0/bin/lean /Users/harryscott/Kantian-IVI/IVI/Demo.lean -o /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Demo.olean -i /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Demo.ilean -c /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Demo.c --setup /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Demo.setup.json --json",
@@ -61,9 +61,9 @@
           ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Harmonics.olean",
            "5838156797236561283"]]],
         ["IVI.Fractal:olean",
-         [["IVI.Fractal:deps", "8421246231023664785"],
+         [["IVI.Fractal:deps", "9131904374840295243"],
           ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Fractal.olean",
-           "14516596280494961881"]]]]]]],
+           "10332131366301926813"]]]]]]],
     ["libs",
      [["import dynlibs", "1723"],
       ["package external libraries", "1723"],
@@ -71,7 +71,7 @@
       ["module plugins", "1723"]]]]],
   ["Lean 4.22.0, commit ba2cbbf09d4978f416e0ebd1fceeebc2c4138c05",
    "8739116525927611134"],
-  ["/Users/harryscott/Kantian-IVI/IVI/Demo.lean", "2757347960188161232"],
+  ["/Users/harryscott/Kantian-IVI/IVI/Demo.lean", "923060057897272336"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "15769272361617115140"}
+ "depHash": "14131701437374733413"}

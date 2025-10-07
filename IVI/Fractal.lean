@@ -7,6 +7,7 @@
 import IVI.Intangible
 import IVI.Invariant
 import IVI.Harmonics
+import IVI.Collapse
 import IVI.Kakeya
 import IVI.KantLimit
 
@@ -77,26 +78,50 @@ structure ITranslation where
     (doms, nodes', ev)
 
 /-- Detect whether the Kakeya grain threshold is exceeded on a layer. -/
-@[simp] def grainCollapse (K : KakeyaField) (L : FractalLayer) : Bool :=
-  (K.withNodes L.nodes).collapseExceededBool
+@[simp] def grainCollapseLayer (cfg : ICollapseCfg) (L : FractalLayer) : Prop :=
+  cfg.grainCollapse L.nodes
+
+@[simp] def grainCollapseLayerBool (cfg : ICollapseCfg) (L : FractalLayer) : Bool :=
+  cfg.grainCollapseBool L.nodes
 
 /-- Witness that a layer is still within the grain threshold. -/
-@[simp] def grainSafe (K : KakeyaField) (L : FractalLayer) : Bool :=
-  (K.withNodes L.nodes).collapseOK
+@[simp] def grainSafeLayer (cfg : ICollapseCfg) (L : FractalLayer) : Prop :=
+  cfg.grainSafe L.nodes
+
+@[simp] def grainSafeLayerBool (cfg : ICollapseCfg) (L : FractalLayer) : Bool :=
+  cfg.grainSafeBool L.nodes
 
 @[simp] def KakeyaField.withLayer (K : KakeyaField) (L : FractalLayer) : KakeyaField :=
   K.withNodes L.nodes
 
-@[simp] theorem grainSafe_iff
-    (K : KakeyaField) (L : FractalLayer) :
-    grainSafe K L = true ↔ (K.withNodes L.nodes).collapseScore ≤ K.τGrain := by
-  simp [grainSafe, KakeyaField.collapseScore]
+@[simp] def KakeyaField.grainSafe (K : KakeyaField) (L : FractalLayer) : Prop :=
+  grainSafeLayer K.collapseCfg L
 
-@[simp] theorem grainSafe_isCollapse_iff
+@[simp] def KakeyaField.grainSafeBool (K : KakeyaField) (L : FractalLayer) : Bool :=
+  grainSafeLayerBool K.collapseCfg L
+
+@[simp] def KakeyaField.grainCollapse (K : KakeyaField) (L : FractalLayer) : Prop :=
+  grainCollapseLayer K.collapseCfg L
+
+@[simp] def KakeyaField.grainCollapseBool (K : KakeyaField) (L : FractalLayer) : Bool :=
+  grainCollapseLayerBool K.collapseCfg L
+
+@[simp] theorem grainSafeBool_iff
+    (cfg : ICollapseCfg) (L : FractalLayer) :
+    grainSafeLayerBool cfg L = true ↔ grainSafeLayer cfg L := by
+  simpa [grainSafeLayerBool, grainSafeLayer]
+
+@[simp] theorem KakeyaField.grainSafeBool_iff
     (K : KakeyaField) (L : FractalLayer) :
-    grainSafe K L = true ↔ (K.withLayer L).isCollapseZero := by
-  simp [grainSafe, KakeyaField.withLayer, KakeyaField.isCollapseZero,
-        KakeyaField.collapseScore]
+    K.grainSafeBool L = true ↔ K.grainSafe L := by
+  simpa [KakeyaField.grainSafeBool, KakeyaField.grainSafe,
+        grainSafeLayerBool, grainSafeLayer]
+
+@[simp] theorem KakeyaField.grainSafe_iff_isCollapseZero
+    (K : KakeyaField) (L : FractalLayer) :
+    K.grainSafe L ↔ (K.withLayer L).isCollapseZero := by
+  simp [KakeyaField.grainSafe, KakeyaField.withLayer, KakeyaField.isCollapseZero,
+        grainSafeLayer]
 
 /-- The Kakeya field is preserved by one zoom step along the I direction. -/
 @[simp] def preservesKakeyaAlongI
@@ -136,20 +161,19 @@ structure ITranslation where
     (T : ITranslation) (K : KakeyaField)
     (doms : List DomainSignature) (L : FractalLayer)
     (hPres : preservesKakeya (K.withLayer L) (T.stepE) doms L.nodes) :
-    grainSafe K (T.zoom L) = true := by
+    K.grainSafe (T.zoom L) := by
   obtain ⟨_, hCollapse⟩ := hPres
-  apply (grainSafe_iff K (T.zoom L)).mpr
   have h := hCollapse
-  simp [KakeyaField.withLayer, KakeyaField.withNodes] at h
-  simpa [grainSafe, ITranslation.zoom, ITranslation.zoomE, KakeyaField.withNodes,
-        KakeyaField.collapseScore]
+  dsimp [preservesKakeya, ITranslation.stepE] at h
+  simpa [KakeyaField.grainSafe, grainSafeLayer, KakeyaField.withLayer,
+        ITranslation.zoom, ITranslation.zoomE] using h
 
 /-- Iterate zoom cycles while staying below the grain threshold. -/
 @[simp] def iterateZoomSafe (T : ITranslation) (K : KakeyaField)
     : Nat → FractalLayer → FractalLayer
   | 0, L => L
   | Nat.succ n, L =>
-      if grainSafe K L = true then
+      if K.grainSafeBool L then
         iterateZoomSafe T K n (T.zoomCycle L)
       else
         L
