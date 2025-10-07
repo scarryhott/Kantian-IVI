@@ -37,8 +37,8 @@ lake exe ivi-demo
 
 ## Kakeya / Harmonic / Kant limits (current drop)
 
-- Kakeya bridge: `IVI/Kakeya.lean` bundles directional completeness, collapse-zero fields,
-  and preservation lemmas so Δi-steps can cite classical Besicovitch structure.
+- Kakeya bridge: `IVI/Kakeya.lean` now bounds collapse via an `i`-direction grain threshold
+  (`τGrain`) while preserving directional completeness across Δi-steps.
 - Harmonic diagnostics: `IVI/Harmonics.lean` quantifies resonance (“stickiness”) and
   dissonance (“graininess”) using list-based Laplacian tools.
 - Kantian interpretation: `IVI/KantLimit.lean` interprets grain/stick/Kakeya data as

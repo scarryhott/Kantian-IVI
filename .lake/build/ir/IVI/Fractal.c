@@ -15,16 +15,17 @@ extern "C" {
 #endif
 static lean_object* l_IVI_reprITranslation___redArg___closed__0____x40_IVI_Fractal___hyg_228_;
 lean_object* l_IVI_reprDomainSignature___redArg____x40_IVI_Intangible___hyg_40_(lean_object*);
-LEAN_EXPORT lean_object* l_IVI_KakeyaField_withLayer___boxed(lean_object*, lean_object*);
 LEAN_EXPORT double l_IVI_FractalLayer_iCentroid(lean_object*);
 lean_object* l_Float_repr(double, lean_object*);
-LEAN_EXPORT lean_object* l___private_IVI_Fractal_0__IVI_iterateZoom_match__1_splitter___redArg___boxed(lean_object*, lean_object*, lean_object*, lean_object*);
 static lean_object* l_IVI_reprFractalLayer___redArg___closed__10____x40_IVI_Fractal___hyg_33_;
 static lean_object* l_List_repr___at___IVI_reprFractalLayer____x40_IVI_Fractal___hyg_33__spec__0___redArg___closed__6;
 lean_object* l_List_lengthTR___redArg(lean_object*);
 static lean_object* l_IVI_reprFractalLayer___redArg___closed__1____x40_IVI_Fractal___hyg_33_;
+LEAN_EXPORT lean_object* l___private_IVI_Fractal_0__IVI_iterateZoomSafe_match__1_splitter(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_List_foldl___at___IVI_FractalLayer_iCentroid_spec__0___boxed(lean_object*, lean_object*);
 static lean_object* l_IVI_reprFractalLayer___redArg___closed__9____x40_IVI_Fractal___hyg_33_;
+LEAN_EXPORT lean_object* l_IVI_grainCollapse___boxed(lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_IVI_grainSafe___boxed(lean_object*, lean_object*);
 double lean_float_div(double, double);
 LEAN_EXPORT lean_object* l_IVI_FractalLayer_iCentroid___boxed(lean_object*);
 static lean_object* l_List_repr___at___IVI_reprFractalLayer____x40_IVI_Fractal___hyg_33__spec__0___redArg___closed__5;
@@ -35,22 +36,29 @@ static lean_object* l_List_repr___at___IVI_reprFractalLayer____x40_IVI_Fractal__
 lean_object* l_IVI_Invariant_coarse(lean_object*);
 static lean_object* l_IVI_reprFractalLayer___redArg___closed__2____x40_IVI_Fractal___hyg_33_;
 LEAN_EXPORT lean_object* l_IVI_reprITranslation____x40_IVI_Fractal___hyg_228____boxed(lean_object*, lean_object*);
+uint8_t l_IVI_KakeyaField_collapseOK(lean_object*);
+LEAN_EXPORT uint8_t l_IVI_grainSafe(lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l___private_IVI_Fractal_0__IVI_spectralGraininess_match__1_splitter___boxed(lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l___private_IVI_Fractal_0__IVI_harmonicSummary_match__1_splitter(lean_object*, lean_object*, lean_object*, lean_object*);
 static lean_object* l_IVI_reprITranslation___redArg___closed__2____x40_IVI_Fractal___hyg_228_;
+LEAN_EXPORT lean_object* l___private_IVI_Fractal_0__IVI_spectralGraininess_match__1_splitter(lean_object*, lean_object*, lean_object*, lean_object*);
 static lean_object* l_Prod_repr___at___List_repr___at___IVI_reprITranslation____x40_IVI_Fractal___hyg_228__spec__0_spec__0___redArg___closed__1;
 LEAN_EXPORT lean_object* l_IVI_FractalLayer_zoomOut(lean_object*);
 lean_object* l_Nat_reprFast(lean_object*);
-LEAN_EXPORT lean_object* l___private_IVI_Fractal_0__IVI_iterateZoom_match__1_splitter___redArg(lean_object*, lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_List_foldl___at___IVI_FractalLayer_radiusMean_spec__0___boxed(lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_IVI_reprFractalLayer___redArg____x40_IVI_Fractal___hyg_33_(lean_object*);
 double l_IVI_Intangible_spatialNorm(lean_object*);
+LEAN_EXPORT lean_object* l___private_IVI_Fractal_0__IVI_harmonicSummary_match__1_splitter___redArg___boxed(lean_object*, lean_object*, lean_object*);
 double lean_float_add(double, double);
 LEAN_EXPORT lean_object* l_IVI_FractalLayer_size___boxed(lean_object*);
 static lean_object* l_Prod_repr___at___List_repr___at___IVI_reprITranslation____x40_IVI_Fractal___hyg_228__spec__0_spec__0___redArg___closed__3;
 static lean_object* l_List_repr___at___IVI_reprFractalLayer____x40_IVI_Fractal___hyg_33__spec__0___redArg___closed__0;
 lean_object* lean_nat_to_int(lean_object*);
+LEAN_EXPORT lean_object* l___private_IVI_Fractal_0__IVI_iterateZoomSafe_match__1_splitter___redArg___boxed(lean_object*, lean_object*, lean_object*, lean_object*);
 static lean_object* l_Prod_repr___at___List_repr___at___IVI_reprITranslation____x40_IVI_Fractal___hyg_228__spec__0_spec__0___redArg___closed__2;
 static lean_object* l_List_repr___at___IVI_reprFractalLayer____x40_IVI_Fractal___hyg_33__spec__0___redArg___closed__7;
 static lean_object* l_IVI_reprITranslation___redArg___closed__4____x40_IVI_Fractal___hyg_228_;
+LEAN_EXPORT lean_object* l___private_IVI_Fractal_0__IVI_harmonicSummary_match__1_splitter___redArg(lean_object*, lean_object*, lean_object*);
 double lean_float_of_nat(lean_object*);
 LEAN_EXPORT lean_object* l_List_repr___at___IVI_reprFractalLayer____x40_IVI_Fractal___hyg_33__spec__0(lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_IVI_instReprITranslation;
@@ -58,12 +66,15 @@ LEAN_EXPORT lean_object* l_IVI_reprFractalLayer____x40_IVI_Fractal___hyg_33____b
 static lean_object* l_IVI_reprFractalLayer___redArg___closed__5____x40_IVI_Fractal___hyg_33_;
 static lean_object* l_IVI_reprITranslation___redArg___closed__6____x40_IVI_Fractal___hyg_228_;
 LEAN_EXPORT lean_object* l_List_repr___at___IVI_reprFractalLayer____x40_IVI_Fractal___hyg_33__spec__0___redArg(lean_object*);
+LEAN_EXPORT lean_object* l___private_IVI_Fractal_0__IVI_iterateZoomSafe_match__1_splitter___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_IVI_iterateZoomSafe(lean_object*, lean_object*, lean_object*, lean_object*);
 static lean_object* l_IVI_reprFractalLayer___redArg___closed__0____x40_IVI_Fractal___hyg_33_;
 LEAN_EXPORT double l_List_foldl___at___IVI_FractalLayer_iCentroid_spec__0(double, lean_object*);
 LEAN_EXPORT lean_object* l_Prod_repr___at___List_repr___at___IVI_reprITranslation____x40_IVI_Fractal___hyg_228__spec__0_spec__0(lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_Std_Format_joinSep___at___List_repr___at___IVI_reprITranslation____x40_IVI_Fractal___hyg_228__spec__0_spec__1___lam__0(lean_object*);
 static lean_object* l_List_repr___at___IVI_reprFractalLayer____x40_IVI_Fractal___hyg_33__spec__0___redArg___closed__4;
-LEAN_EXPORT lean_object* l___private_IVI_Fractal_0__IVI_iterateZoom_match__1_splitter___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT uint8_t l_IVI_grainCollapse(lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l___private_IVI_Fractal_0__IVI_spectralGraininess_match__1_splitter___redArg___boxed(lean_object*, lean_object*, lean_object*);
 static lean_object* l_List_repr___at___IVI_reprFractalLayer____x40_IVI_Fractal___hyg_33__spec__0___redArg___closed__1;
 LEAN_EXPORT lean_object* l_IVI_iterateZoom(lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_List_repr___at___IVI_reprITranslation____x40_IVI_Fractal___hyg_228__spec__0___redArg(lean_object*);
@@ -96,7 +107,7 @@ LEAN_EXPORT lean_object* l_List_repr___at___IVI_reprITranslation____x40_IVI_Frac
 lean_object* l_List_reverse___redArg(lean_object*);
 lean_object* lean_nat_sub(lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_IVI_KakeyaField_withLayer(lean_object*, lean_object*);
-LEAN_EXPORT lean_object* l___private_IVI_Fractal_0__IVI_iterateZoom_match__1_splitter(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+uint8_t l_IVI_KakeyaField_collapseExceededBool(lean_object*);
 lean_object* l_Std_Format_joinSep___at___Lean_Syntax_formatStxAux_spec__1(lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_IVI_reprFractalLayer____x40_IVI_Fractal___hyg_33_(lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_Std_Format_joinSep___at___List_repr___at___IVI_reprITranslation____x40_IVI_Fractal___hyg_228__spec__0_spec__1(lean_object*, lean_object*);
@@ -104,15 +115,19 @@ LEAN_EXPORT lean_object* l_List_repr___at___IVI_reprFractalLayer____x40_IVI_Frac
 LEAN_EXPORT double l_List_foldl___at___IVI_FractalLayer_radiusMean_spec__0(double, lean_object*);
 LEAN_EXPORT lean_object* l_IVI_reprITranslation____x40_IVI_Fractal___hyg_228_(lean_object*, lean_object*);
 static lean_object* l_List_repr___at___IVI_reprFractalLayer____x40_IVI_Fractal___hyg_33__spec__0___redArg___closed__3;
+LEAN_EXPORT lean_object* l___private_IVI_Fractal_0__IVI_iterateZoomSafe_match__1_splitter___redArg(lean_object*, lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_List_repr___at___IVI_reprITranslation____x40_IVI_Fractal___hyg_228__spec__0(lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_IVI_ITranslation_stepE(lean_object*, lean_object*, lean_object*);
 lean_object* l_IVI_Intangible_resuperposeStepE(double, lean_object*, lean_object*);
 static lean_object* l_IVI_reprITranslation___redArg___closed__5____x40_IVI_Fractal___hyg_228_;
 lean_object* l_IVI_reprDomainNode___redArg____x40_IVI_Intangible___hyg_143_(lean_object*);
+lean_object* l_IVI_KakeyaField_withNodes(lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l___private_IVI_Fractal_0__IVI_spectralGraininess_match__1_splitter___redArg(lean_object*, lean_object*, lean_object*);
 static lean_object* l_IVI_instReprFractalLayer___closed__0;
 LEAN_EXPORT lean_object* l_IVI_reprITranslation___redArg____x40_IVI_Fractal___hyg_228_(lean_object*);
 static lean_object* l_IVI_reprFractalLayer___redArg___closed__11____x40_IVI_Fractal___hyg_33_;
 lean_object* lean_nat_add(lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l___private_IVI_Fractal_0__IVI_harmonicSummary_match__1_splitter___boxed(lean_object*, lean_object*, lean_object*, lean_object*);
 static lean_object* l_List_repr___at___IVI_reprFractalLayer____x40_IVI_Fractal___hyg_33__spec__0___redArg___closed__9;
 LEAN_EXPORT lean_object* l_List_foldl___at___Std_Format_joinSep___at___List_repr___at___IVI_reprFractalLayer____x40_IVI_Fractal___hyg_33__spec__0_spec__0_spec__0(lean_object* x_1, lean_object* x_2, lean_object* x_3, lean_object* x_4) {
 _start:
@@ -1535,50 +1550,239 @@ lean_ctor_set(x_7, 1, x_6);
 return x_7;
 }
 }
+LEAN_EXPORT uint8_t l_IVI_grainCollapse(lean_object* x_1, lean_object* x_2) {
+_start:
+{
+lean_object* x_3; lean_object* x_4; uint8_t x_5; 
+x_3 = lean_ctor_get(x_2, 1);
+lean_inc(x_3);
+lean_dec(x_2);
+x_4 = l_IVI_KakeyaField_withNodes(x_1, x_3);
+x_5 = l_IVI_KakeyaField_collapseExceededBool(x_4);
+return x_5;
+}
+}
+LEAN_EXPORT lean_object* l_IVI_grainCollapse___boxed(lean_object* x_1, lean_object* x_2) {
+_start:
+{
+uint8_t x_3; lean_object* x_4; 
+x_3 = l_IVI_grainCollapse(x_1, x_2);
+x_4 = lean_box(x_3);
+return x_4;
+}
+}
+LEAN_EXPORT uint8_t l_IVI_grainSafe(lean_object* x_1, lean_object* x_2) {
+_start:
+{
+lean_object* x_3; lean_object* x_4; uint8_t x_5; 
+x_3 = lean_ctor_get(x_2, 1);
+lean_inc(x_3);
+lean_dec(x_2);
+x_4 = l_IVI_KakeyaField_withNodes(x_1, x_3);
+x_5 = l_IVI_KakeyaField_collapseOK(x_4);
+return x_5;
+}
+}
+LEAN_EXPORT lean_object* l_IVI_grainSafe___boxed(lean_object* x_1, lean_object* x_2) {
+_start:
+{
+uint8_t x_3; lean_object* x_4; 
+x_3 = l_IVI_grainSafe(x_1, x_2);
+x_4 = lean_box(x_3);
+return x_4;
+}
+}
 LEAN_EXPORT lean_object* l_IVI_KakeyaField_withLayer(lean_object* x_1, lean_object* x_2) {
 _start:
 {
-uint8_t x_3; 
-x_3 = !lean_is_exclusive(x_1);
-if (x_3 == 0)
+lean_object* x_3; lean_object* x_4; 
+x_3 = lean_ctor_get(x_2, 1);
+lean_inc(x_3);
+lean_dec(x_2);
+x_4 = l_IVI_KakeyaField_withNodes(x_1, x_3);
+return x_4;
+}
+}
+LEAN_EXPORT lean_object* l___private_IVI_Fractal_0__IVI_harmonicSummary_match__1_splitter___redArg(lean_object* x_1, lean_object* x_2, lean_object* x_3) {
+_start:
 {
-lean_object* x_4; lean_object* x_5; 
-x_4 = lean_ctor_get(x_1, 2);
-lean_dec(x_4);
-x_5 = lean_ctor_get(x_2, 1);
-lean_inc(x_5);
-lean_ctor_set(x_1, 2, x_5);
-return x_1;
+if (lean_obj_tag(x_1) == 0)
+{
+lean_dec(x_3);
+lean_inc(x_2);
+return x_2;
 }
 else
 {
-double x_6; double x_7; lean_object* x_8; lean_object* x_9; lean_object* x_10; lean_object* x_11; 
-x_6 = lean_ctor_get_float(x_1, sizeof(void*)*3);
-x_7 = lean_ctor_get_float(x_1, sizeof(void*)*3 + 8);
-x_8 = lean_ctor_get(x_1, 0);
-x_9 = lean_ctor_get(x_1, 1);
-lean_inc(x_9);
-lean_inc(x_8);
+lean_object* x_4; lean_object* x_5; lean_object* x_6; 
+x_4 = lean_ctor_get(x_1, 0);
+lean_inc(x_4);
+x_5 = lean_ctor_get(x_1, 1);
+lean_inc(x_5);
 lean_dec(x_1);
-x_10 = lean_ctor_get(x_2, 1);
-lean_inc(x_10);
-x_11 = lean_alloc_ctor(0, 3, 16);
-lean_ctor_set(x_11, 0, x_8);
-lean_ctor_set(x_11, 1, x_9);
-lean_ctor_set(x_11, 2, x_10);
-lean_ctor_set_float(x_11, sizeof(void*)*3, x_6);
-lean_ctor_set_float(x_11, sizeof(void*)*3 + 8, x_7);
-return x_11;
+x_6 = lean_apply_2(x_3, x_4, x_5);
+return x_6;
 }
 }
 }
-LEAN_EXPORT lean_object* l_IVI_KakeyaField_withLayer___boxed(lean_object* x_1, lean_object* x_2) {
+LEAN_EXPORT lean_object* l___private_IVI_Fractal_0__IVI_harmonicSummary_match__1_splitter(lean_object* x_1, lean_object* x_2, lean_object* x_3, lean_object* x_4) {
 _start:
 {
-lean_object* x_3; 
-x_3 = l_IVI_KakeyaField_withLayer(x_1, x_2);
+lean_object* x_5; 
+x_5 = l___private_IVI_Fractal_0__IVI_harmonicSummary_match__1_splitter___redArg(x_2, x_3, x_4);
+return x_5;
+}
+}
+LEAN_EXPORT lean_object* l___private_IVI_Fractal_0__IVI_harmonicSummary_match__1_splitter___redArg___boxed(lean_object* x_1, lean_object* x_2, lean_object* x_3) {
+_start:
+{
+lean_object* x_4; 
+x_4 = l___private_IVI_Fractal_0__IVI_harmonicSummary_match__1_splitter___redArg(x_1, x_2, x_3);
 lean_dec(x_2);
-return x_3;
+return x_4;
+}
+}
+LEAN_EXPORT lean_object* l___private_IVI_Fractal_0__IVI_harmonicSummary_match__1_splitter___boxed(lean_object* x_1, lean_object* x_2, lean_object* x_3, lean_object* x_4) {
+_start:
+{
+lean_object* x_5; 
+x_5 = l___private_IVI_Fractal_0__IVI_harmonicSummary_match__1_splitter(x_1, x_2, x_3, x_4);
+lean_dec(x_3);
+return x_5;
+}
+}
+LEAN_EXPORT lean_object* l___private_IVI_Fractal_0__IVI_spectralGraininess_match__1_splitter___redArg(lean_object* x_1, lean_object* x_2, lean_object* x_3) {
+_start:
+{
+if (lean_obj_tag(x_1) == 0)
+{
+lean_dec(x_3);
+lean_inc(x_2);
+return x_2;
+}
+else
+{
+lean_object* x_4; 
+x_4 = lean_apply_2(x_3, x_1, lean_box(0));
+return x_4;
+}
+}
+}
+LEAN_EXPORT lean_object* l___private_IVI_Fractal_0__IVI_spectralGraininess_match__1_splitter(lean_object* x_1, lean_object* x_2, lean_object* x_3, lean_object* x_4) {
+_start:
+{
+lean_object* x_5; 
+x_5 = l___private_IVI_Fractal_0__IVI_spectralGraininess_match__1_splitter___redArg(x_2, x_3, x_4);
+return x_5;
+}
+}
+LEAN_EXPORT lean_object* l___private_IVI_Fractal_0__IVI_spectralGraininess_match__1_splitter___redArg___boxed(lean_object* x_1, lean_object* x_2, lean_object* x_3) {
+_start:
+{
+lean_object* x_4; 
+x_4 = l___private_IVI_Fractal_0__IVI_spectralGraininess_match__1_splitter___redArg(x_1, x_2, x_3);
+lean_dec(x_2);
+return x_4;
+}
+}
+LEAN_EXPORT lean_object* l___private_IVI_Fractal_0__IVI_spectralGraininess_match__1_splitter___boxed(lean_object* x_1, lean_object* x_2, lean_object* x_3, lean_object* x_4) {
+_start:
+{
+lean_object* x_5; 
+x_5 = l___private_IVI_Fractal_0__IVI_spectralGraininess_match__1_splitter(x_1, x_2, x_3, x_4);
+lean_dec(x_3);
+return x_5;
+}
+}
+LEAN_EXPORT lean_object* l_IVI_iterateZoomSafe(lean_object* x_1, lean_object* x_2, lean_object* x_3, lean_object* x_4) {
+_start:
+{
+lean_object* x_5; uint8_t x_6; 
+x_5 = lean_unsigned_to_nat(0u);
+x_6 = lean_nat_dec_eq(x_3, x_5);
+if (x_6 == 1)
+{
+lean_dec(x_3);
+lean_dec(x_2);
+lean_dec(x_1);
+return x_4;
+}
+else
+{
+uint8_t x_7; 
+lean_inc(x_4);
+lean_inc(x_2);
+x_7 = l_IVI_grainSafe(x_2, x_4);
+if (x_7 == 0)
+{
+lean_dec(x_3);
+lean_dec(x_2);
+lean_dec(x_1);
+return x_4;
+}
+else
+{
+lean_object* x_8; lean_object* x_9; lean_object* x_10; 
+x_8 = lean_unsigned_to_nat(1u);
+x_9 = lean_nat_sub(x_3, x_8);
+lean_dec(x_3);
+lean_inc(x_1);
+x_10 = l_IVI_ITranslation_zoomCycle(x_1, x_4);
+x_3 = x_9;
+x_4 = x_10;
+goto _start;
+}
+}
+}
+}
+LEAN_EXPORT lean_object* l___private_IVI_Fractal_0__IVI_iterateZoomSafe_match__1_splitter___redArg(lean_object* x_1, lean_object* x_2, lean_object* x_3, lean_object* x_4) {
+_start:
+{
+lean_object* x_5; uint8_t x_6; 
+x_5 = lean_unsigned_to_nat(0u);
+x_6 = lean_nat_dec_eq(x_1, x_5);
+if (x_6 == 1)
+{
+lean_object* x_7; 
+lean_dec(x_4);
+x_7 = lean_apply_1(x_3, x_2);
+return x_7;
+}
+else
+{
+lean_object* x_8; lean_object* x_9; lean_object* x_10; 
+lean_dec(x_3);
+x_8 = lean_unsigned_to_nat(1u);
+x_9 = lean_nat_sub(x_1, x_8);
+x_10 = lean_apply_2(x_4, x_9, x_2);
+return x_10;
+}
+}
+}
+LEAN_EXPORT lean_object* l___private_IVI_Fractal_0__IVI_iterateZoomSafe_match__1_splitter(lean_object* x_1, lean_object* x_2, lean_object* x_3, lean_object* x_4, lean_object* x_5) {
+_start:
+{
+lean_object* x_6; 
+x_6 = l___private_IVI_Fractal_0__IVI_iterateZoomSafe_match__1_splitter___redArg(x_2, x_3, x_4, x_5);
+return x_6;
+}
+}
+LEAN_EXPORT lean_object* l___private_IVI_Fractal_0__IVI_iterateZoomSafe_match__1_splitter___redArg___boxed(lean_object* x_1, lean_object* x_2, lean_object* x_3, lean_object* x_4) {
+_start:
+{
+lean_object* x_5; 
+x_5 = l___private_IVI_Fractal_0__IVI_iterateZoomSafe_match__1_splitter___redArg(x_1, x_2, x_3, x_4);
+lean_dec(x_1);
+return x_5;
+}
+}
+LEAN_EXPORT lean_object* l___private_IVI_Fractal_0__IVI_iterateZoomSafe_match__1_splitter___boxed(lean_object* x_1, lean_object* x_2, lean_object* x_3, lean_object* x_4, lean_object* x_5) {
+_start:
+{
+lean_object* x_6; 
+x_6 = l___private_IVI_Fractal_0__IVI_iterateZoomSafe_match__1_splitter(x_1, x_2, x_3, x_4, x_5);
+lean_dec(x_2);
+return x_6;
 }
 }
 LEAN_EXPORT lean_object* l_IVI_iterateZoom(lean_object* x_1, lean_object* x_2, lean_object* x_3) {
@@ -1605,56 +1809,6 @@ x_2 = x_7;
 x_3 = x_8;
 goto _start;
 }
-}
-}
-LEAN_EXPORT lean_object* l___private_IVI_Fractal_0__IVI_iterateZoom_match__1_splitter___redArg(lean_object* x_1, lean_object* x_2, lean_object* x_3, lean_object* x_4) {
-_start:
-{
-lean_object* x_5; uint8_t x_6; 
-x_5 = lean_unsigned_to_nat(0u);
-x_6 = lean_nat_dec_eq(x_1, x_5);
-if (x_6 == 1)
-{
-lean_object* x_7; 
-lean_dec(x_4);
-x_7 = lean_apply_1(x_3, x_2);
-return x_7;
-}
-else
-{
-lean_object* x_8; lean_object* x_9; lean_object* x_10; 
-lean_dec(x_3);
-x_8 = lean_unsigned_to_nat(1u);
-x_9 = lean_nat_sub(x_1, x_8);
-x_10 = lean_apply_2(x_4, x_9, x_2);
-return x_10;
-}
-}
-}
-LEAN_EXPORT lean_object* l___private_IVI_Fractal_0__IVI_iterateZoom_match__1_splitter(lean_object* x_1, lean_object* x_2, lean_object* x_3, lean_object* x_4, lean_object* x_5) {
-_start:
-{
-lean_object* x_6; 
-x_6 = l___private_IVI_Fractal_0__IVI_iterateZoom_match__1_splitter___redArg(x_2, x_3, x_4, x_5);
-return x_6;
-}
-}
-LEAN_EXPORT lean_object* l___private_IVI_Fractal_0__IVI_iterateZoom_match__1_splitter___redArg___boxed(lean_object* x_1, lean_object* x_2, lean_object* x_3, lean_object* x_4) {
-_start:
-{
-lean_object* x_5; 
-x_5 = l___private_IVI_Fractal_0__IVI_iterateZoom_match__1_splitter___redArg(x_1, x_2, x_3, x_4);
-lean_dec(x_1);
-return x_5;
-}
-}
-LEAN_EXPORT lean_object* l___private_IVI_Fractal_0__IVI_iterateZoom_match__1_splitter___boxed(lean_object* x_1, lean_object* x_2, lean_object* x_3, lean_object* x_4, lean_object* x_5) {
-_start:
-{
-lean_object* x_6; 
-x_6 = l___private_IVI_Fractal_0__IVI_iterateZoom_match__1_splitter(x_1, x_2, x_3, x_4, x_5);
-lean_dec(x_2);
-return x_6;
 }
 }
 lean_object* initialize_Init(uint8_t builtin, lean_object*);

@@ -123,8 +123,7 @@ def main : IO Unit := do
   let itrans : ITranslation := { k := k, pairs := interactions }
   let maxZooms : Nat := 4
   let runDiagnostics
-      (label : String) (collapseFn : CollapseMeasure)
-      (τIntuition τStick : Float) : IO Unit := do
+      (label : String) (τGrain τIntuition τStick : Float) : IO Unit := do
     IO.println label
     let dedupNat (xs : List Nat) : List Nat :=
       let acc := xs.foldl
@@ -157,38 +156,40 @@ def main : IO Unit := do
       let total := rows.foldl (fun acc r => acc + r.length) 0
       let inertia := if total = 0 then 1.0 else Float.ofNat good / Float.ofNat total
       0.5 * jac + 0.5 * inertia
+    let baseField : KakeyaField :=
+      { tolDir := 0.1, τGrain := τGrain, W := defaultWeighting
+      , dirs := [ { x := mathSig.axis.r1, y := mathSig.axis.r2, z := mathSig.axis.r3 }
+                , { x := physicsSig.axis.r1, y := physicsSig.axis.r2, z := physicsSig.axis.r3 }
+                , { x := ethicsSig.axis.r1, y := ethicsSig.axis.r2, z := ethicsSig.axis.r3 } ]
+      , nodes := layer0.nodes }
     let grainInit := graininessScore (resonanceMatrixW defaultWeighting layer0.nodes)
-    let collapseInit := collapseFn layer0.nodes
-    IO.println s!"  layer 0: grain={grainInit}, collapse={collapseInit}"
+    let collapseInit := (baseField.withLayer layer0).collapseScore
+    IO.println s!"  layer 0: grain={grainInit}, collapseScore={collapseInit}, safe={(baseField.withLayer layer0).collapseOK}"
     let rec logZooms : Nat → Nat → FractalLayer → IO Unit
       | 0, _, _ => pure ()
       | Nat.succ remaining, idx, layerPrev => do
-          let (layerNext, _) := itrans.zoomE layerPrev
           let SPrev := resonanceMatrixW defaultWeighting layerPrev.nodes
-          let SNext := resonanceMatrixW defaultWeighting layerNext.nodes
           let grainPrev := graininessScore SPrev
-          let grainNext := graininessScore SNext
-          let stickPrev := stickinessScoreEval SPrev SNext
-          let collapsePrev := collapseFn layerPrev.nodes
-          let boundedFlag : Bool := grainNext ≤ τIntuition
-          let schematismFlag : Bool := stickPrev ≥ τStick
-          let noumenalFlag : Bool := collapsePrev ≤ 1e-9
-          let unityFlag : Bool := Float.abs (grainNext - grainPrev) ≤ 1e-3
-          let selfSimFlag : Bool := boundedFlag ∧ schematismFlag ∧ unityFlag
-          IO.println s!"  zoom {idx}→{idx+1}: grain={grainPrev}→{grainNext}, stick={stickPrev}, collapse={collapsePrev}, Kant*(b={boundedFlag}, s={schematismFlag}, n={noumenalFlag}, u={unityFlag}), self-sim≈{selfSimFlag}"
-          logZooms remaining (idx + 1) layerNext
+          let kLayer := baseField.withLayer layerPrev
+          let collapsePrev := kLayer.collapseScore
+          let collapseFlag := kLayer.collapseExceededBool
+          if collapseFlag then
+            IO.println s!"  zoom halt at {idx}: grain={grainPrev}, collapseScore={collapsePrev} (exceeds τ={τGrain})"
+          else
+            let (layerNext, _) := itrans.zoomE layerPrev
+            let SNext := resonanceMatrixW defaultWeighting layerNext.nodes
+            let grainNext := graininessScore SNext
+            let stickPrev := stickinessScoreEval SPrev SNext
+            let boundedFlag : Bool := grainNext ≤ τIntuition
+            let schematismFlag : Bool := stickPrev ≥ τStick
+            let noumenalFlag : Bool := if collapsePrev ≤ τGrain then true else false
+            let unityFlag : Bool := Float.abs (grainNext - grainPrev) ≤ 1e-3
+            let selfSimFlag : Bool := boundedFlag ∧ schematismFlag ∧ unityFlag
+            IO.println s!"  zoom {idx}→{idx+1}: grain={grainPrev}→{grainNext}, stick={stickPrev}, collapseScore={collapsePrev}, Kant*(b={boundedFlag}, s={schematismFlag}, n={noumenalFlag}, u={unityFlag}), self-sim≈{selfSimFlag}"
+            logZooms remaining (idx + 1) layerNext
     logZooms maxZooms 0 layer0
-  let collapseZero : CollapseMeasure := fun _ => 0.0
-  let collapsePerturb : CollapseMeasure := fun nodes =>
-    match nodes with
-    | [] => 0.0
-    | _ =>
-        let total := nodes.foldl
-          (fun acc n => acc + Intangible.spatialNorm n.state.ψ) 0.0
-        let avg := total / Float.ofNat nodes.length
-        avg * 1e-3
-  runDiagnostics "Intangible Kakeya (μ = 0)" collapseZero 0.6 0.7
-  runDiagnostics "Perturbed Kakeya (μ ∝ radius)" collapsePerturb 0.6 0.7
+  runDiagnostics "Intangible Kakeya (τ=0.6)" 0.6 0.6 0.7
+  runDiagnostics "Strict Kakeya (τ=0.0005)" 0.0005 0.6 0.7
 
   -- Reference to future theorem work (placeholders compile today).
   let _ : True := T4_practical_aperture_unique

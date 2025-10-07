@@ -102,22 +102,6 @@ structure Weighting where
       fmax diff (vectorMaxDiff xs ys)
   | xs, [] => normInf xs
   | [], ys => normInf ys
-
-def vectorMaxDiff_comm (xs ys : List Float) :
-  vectorMaxDiff xs ys = vectorMaxDiff ys xs := by
-  revert ys
-  induction xs with
-  | nil =>
-      intro ys
-      cases ys <;> simp [vectorMaxDiff]
-  | cons x xs ih =>
-      intro ys
-      cases ys with
-      | nil => simp [vectorMaxDiff]
-      | cons y ys' =>
-          -- Placeholder; a full proof would analyse the Float.max branches
-          -- and use |x - y| symmetry.
-          admit
 /-- The lambda vector never has length exceeding the number of levels we ask for. -/
 @[simp] theorem lambdaVector_length_le
   (levels : Nat) (W : Weighting) (nodes : List DomainNode) :

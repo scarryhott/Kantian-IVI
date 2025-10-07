@@ -7,6 +7,7 @@
 
 import IVI.Intangible
 import IVI.Invariant
+import IVI.Harmonics
 import IVI.SchematismEvidence
 
 namespace IVI
@@ -56,26 +57,34 @@ abbrev DirectionSet := List Dir3
     (tol : Float) (nodes : List DomainNode) (dirs : DirectionSet) : Prop :=
   ∀ {d}, d ∈ dirs → ∃ n, n ∈ nodes ∧ realizes tol n d = true
 
-/-- Abstract collapse-measure functional over node sets. -/
-abbrev CollapseMeasure := List DomainNode → Float
-
-@[simp] def collapseZero (μ : CollapseMeasure) (ns : List DomainNode)
-    (eps : Float := 1e-9) : Prop :=
-  μ ns ≤ eps
-
-/-- Kakeya-style field: directionally complete with near-zero collapse measure. -/
+/-- Kakeya-style field: directionally complete with bounded graininess. -/
 structure KakeyaField where
   tolDir : Float := 1e-6
-  epsCol : Float := 1e-9
+  τGrain : Float := 0.5
+  W      : Invariant.Weighting := Invariant.defaultWeighting
   dirs   : DirectionSet
-  μ      : CollapseMeasure
   nodes  : List DomainNode
 
 @[simp] def KakeyaField.isDirComplete (K : KakeyaField) : Prop :=
   directionallyComplete K.tolDir K.nodes K.dirs
 
+@[simp] def KakeyaField.collapseScore (K : KakeyaField) : Float :=
+  graininessScore (resonanceMatrixW K.W K.nodes)
+
 @[simp] def KakeyaField.isCollapseZero (K : KakeyaField) : Prop :=
-  collapseZero K.μ K.nodes K.epsCol
+  K.collapseScore ≤ K.τGrain
+
+@[simp] def KakeyaField.collapseExceeded (K : KakeyaField) : Prop :=
+  K.τGrain < K.collapseScore
+
+@[simp] def KakeyaField.collapseOK (K : KakeyaField) : Bool :=
+  decide (K.collapseScore ≤ K.τGrain)
+
+@[simp] def KakeyaField.collapseExceededBool (K : KakeyaField) : Bool :=
+  decide (K.τGrain < K.collapseScore)
+
+@[simp] def KakeyaField.withNodes (K : KakeyaField) (ns : List DomainNode) : KakeyaField :=
+  { K with nodes := ns }
 
 /-- Steps exposing schematism evidence (used across the repo). -/
 abbrev StepE :=
@@ -88,7 +97,7 @@ abbrev StepE :=
     (doms : List DomainSignature) (nodes : List DomainNode) : Prop :=
   let (_, nodes', _) := stepE doms nodes
   directionallyComplete K.tolDir nodes' K.dirs ∧
-    collapseZero K.μ nodes' K.epsCol
+    graininessScore (resonanceMatrixW K.W nodes') ≤ K.τGrain
 
 /-- IVI–Kakeya Principle (axiom placeholder).
     Future work: replace with an explicit Besicovitch-style construction. -/

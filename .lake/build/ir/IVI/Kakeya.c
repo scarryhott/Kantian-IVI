@@ -1,6 +1,6 @@
 // Lean compiler output
 // Module: IVI.Kakeya
-// Imports: Init IVI.Intangible IVI.Invariant IVI.SchematismEvidence
+// Imports: Init IVI.Intangible IVI.Invariant IVI.Harmonics IVI.SchematismEvidence
 #include <lean/lean.h>
 #if defined(__clang__)
 #pragma clang diagnostic ignored "-Wunused-parameter"
@@ -22,14 +22,21 @@ double lean_float_div(double, double);
 static lean_object* l_IVI_reprDir3___redArg___closed__7____x40_IVI_Kakeya___hyg_41_;
 LEAN_EXPORT double l_IVI_dirNorm(lean_object*);
 lean_object* l_IVI_Intangible_normaliseDir(lean_object*);
+LEAN_EXPORT double l_IVI_KakeyaField_collapseScore(lean_object*);
 LEAN_EXPORT double l_IVI_dirDot(lean_object*, lean_object*);
 static lean_object* l_IVI_reprDir3___redArg___closed__9____x40_IVI_Kakeya___hyg_41_;
+uint8_t lean_float_decLt(double, double);
+LEAN_EXPORT lean_object* l_IVI_KakeyaField_collapseOK___boxed(lean_object*);
 static lean_object* l_IVI_reprDir3___redArg___closed__3____x40_IVI_Kakeya___hyg_41_;
+LEAN_EXPORT uint8_t l_IVI_KakeyaField_collapseOK(lean_object*);
 LEAN_EXPORT lean_object* l_IVI_invariantFromKakeya(lean_object*, uint8_t, double, double, lean_object*, lean_object*, lean_object*);
+double l_IVI_graininessScore(lean_object*);
 double sqrt(double);
+LEAN_EXPORT lean_object* l_IVI_KakeyaField_collapseScore___boxed(lean_object*);
 double lean_float_add(double, double);
 lean_object* lean_nat_to_int(lean_object*);
 static lean_object* l_IVI_reprDir3___redArg___closed__2____x40_IVI_Kakeya___hyg_41_;
+LEAN_EXPORT lean_object* l_IVI_KakeyaField_collapseExceededBool___boxed(lean_object*);
 LEAN_EXPORT lean_object* l_IVI_reprDir3____x40_IVI_Kakeya___hyg_41_(lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_IVI_reprDir3___redArg____x40_IVI_Kakeya___hyg_41_(lean_object*);
 static double l_IVI_normaliseDir3___closed__1;
@@ -47,6 +54,7 @@ static lean_object* l_IVI_reprDir3___redArg___closed__1____x40_IVI_Kakeya___hyg_
 static lean_object* l_IVI_reprDir3___redArg___closed__11____x40_IVI_Kakeya___hyg_41_;
 static lean_object* l_IVI_reprDir3___redArg___closed__0____x40_IVI_Kakeya___hyg_41_;
 uint8_t lean_float_decLe(double, double);
+LEAN_EXPORT uint8_t l_IVI_KakeyaField_collapseExceededBool(lean_object*);
 static lean_object* l_IVI_reprDir3___redArg___closed__15____x40_IVI_Kakeya___hyg_41_;
 static lean_object* l_IVI_reprDir3___redArg___closed__6____x40_IVI_Kakeya___hyg_41_;
 LEAN_EXPORT lean_object* l_IVI_instReprDir3;
@@ -55,9 +63,11 @@ LEAN_EXPORT lean_object* l_IVI_dirDot___boxed(lean_object*, lean_object*);
 static lean_object* l_IVI_reprDir3___redArg___closed__4____x40_IVI_Kakeya___hyg_41_;
 LEAN_EXPORT lean_object* l_IVI_normaliseDir3(lean_object*);
 LEAN_EXPORT lean_object* l_IVI_reprDir3____x40_IVI_Kakeya___hyg_41____boxed(lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_IVI_KakeyaField_withNodes(lean_object*, lean_object*);
 static lean_object* l_IVI_normaliseDir3___closed__2;
 static lean_object* l_IVI_reprDir3___redArg___closed__17____x40_IVI_Kakeya___hyg_41_;
 static lean_object* l_IVI_reprDir3___redArg___closed__12____x40_IVI_Kakeya___hyg_41_;
+lean_object* l_IVI_Invariant_resonanceMatrixW(lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_IVI_reprDir3___redArg____x40_IVI_Kakeya___hyg_41____boxed(lean_object*);
 double lean_float_sub(double, double);
 static lean_object* l_IVI_reprDir3___redArg___closed__10____x40_IVI_Kakeya___hyg_41_;
@@ -555,6 +565,100 @@ x_6 = lean_box(x_5);
 return x_6;
 }
 }
+LEAN_EXPORT double l_IVI_KakeyaField_collapseScore(lean_object* x_1) {
+_start:
+{
+lean_object* x_2; lean_object* x_3; lean_object* x_4; double x_5; 
+x_2 = lean_ctor_get(x_1, 0);
+lean_inc(x_2);
+x_3 = lean_ctor_get(x_1, 2);
+lean_inc(x_3);
+lean_dec(x_1);
+x_4 = l_IVI_Invariant_resonanceMatrixW(x_2, x_3);
+x_5 = l_IVI_graininessScore(x_4);
+return x_5;
+}
+}
+LEAN_EXPORT lean_object* l_IVI_KakeyaField_collapseScore___boxed(lean_object* x_1) {
+_start:
+{
+double x_2; lean_object* x_3; 
+x_2 = l_IVI_KakeyaField_collapseScore(x_1);
+x_3 = lean_box_float(x_2);
+return x_3;
+}
+}
+LEAN_EXPORT uint8_t l_IVI_KakeyaField_collapseOK(lean_object* x_1) {
+_start:
+{
+double x_2; double x_3; uint8_t x_4; 
+x_2 = lean_ctor_get_float(x_1, sizeof(void*)*3 + 8);
+x_3 = l_IVI_KakeyaField_collapseScore(x_1);
+x_4 = lean_float_decLe(x_3, x_2);
+return x_4;
+}
+}
+LEAN_EXPORT lean_object* l_IVI_KakeyaField_collapseOK___boxed(lean_object* x_1) {
+_start:
+{
+uint8_t x_2; lean_object* x_3; 
+x_2 = l_IVI_KakeyaField_collapseOK(x_1);
+x_3 = lean_box(x_2);
+return x_3;
+}
+}
+LEAN_EXPORT uint8_t l_IVI_KakeyaField_collapseExceededBool(lean_object* x_1) {
+_start:
+{
+double x_2; double x_3; uint8_t x_4; 
+x_2 = lean_ctor_get_float(x_1, sizeof(void*)*3 + 8);
+x_3 = l_IVI_KakeyaField_collapseScore(x_1);
+x_4 = lean_float_decLt(x_2, x_3);
+return x_4;
+}
+}
+LEAN_EXPORT lean_object* l_IVI_KakeyaField_collapseExceededBool___boxed(lean_object* x_1) {
+_start:
+{
+uint8_t x_2; lean_object* x_3; 
+x_2 = l_IVI_KakeyaField_collapseExceededBool(x_1);
+x_3 = lean_box(x_2);
+return x_3;
+}
+}
+LEAN_EXPORT lean_object* l_IVI_KakeyaField_withNodes(lean_object* x_1, lean_object* x_2) {
+_start:
+{
+uint8_t x_3; 
+x_3 = !lean_is_exclusive(x_1);
+if (x_3 == 0)
+{
+lean_object* x_4; 
+x_4 = lean_ctor_get(x_1, 2);
+lean_dec(x_4);
+lean_ctor_set(x_1, 2, x_2);
+return x_1;
+}
+else
+{
+double x_5; double x_6; lean_object* x_7; lean_object* x_8; lean_object* x_9; 
+x_5 = lean_ctor_get_float(x_1, sizeof(void*)*3);
+x_6 = lean_ctor_get_float(x_1, sizeof(void*)*3 + 8);
+x_7 = lean_ctor_get(x_1, 0);
+x_8 = lean_ctor_get(x_1, 1);
+lean_inc(x_8);
+lean_inc(x_7);
+lean_dec(x_1);
+x_9 = lean_alloc_ctor(0, 3, 16);
+lean_ctor_set(x_9, 0, x_7);
+lean_ctor_set(x_9, 1, x_8);
+lean_ctor_set(x_9, 2, x_2);
+lean_ctor_set_float(x_9, sizeof(void*)*3, x_5);
+lean_ctor_set_float(x_9, sizeof(void*)*3 + 8, x_6);
+return x_9;
+}
+}
+}
 LEAN_EXPORT lean_object* l_IVI_invariantFromKakeya(lean_object* x_1, uint8_t x_2, double x_3, double x_4, lean_object* x_5, lean_object* x_6, lean_object* x_7) {
 _start:
 {
@@ -584,6 +688,7 @@ return x_11;
 lean_object* initialize_Init(uint8_t builtin, lean_object*);
 lean_object* initialize_IVI_Intangible(uint8_t builtin, lean_object*);
 lean_object* initialize_IVI_Invariant(uint8_t builtin, lean_object*);
+lean_object* initialize_IVI_Harmonics(uint8_t builtin, lean_object*);
 lean_object* initialize_IVI_SchematismEvidence(uint8_t builtin, lean_object*);
 static bool _G_initialized = false;
 LEAN_EXPORT lean_object* initialize_IVI_Kakeya(uint8_t builtin, lean_object* w) {
@@ -597,6 +702,9 @@ res = initialize_IVI_Intangible(builtin, lean_io_mk_world());
 if (lean_io_result_is_error(res)) return res;
 lean_dec_ref(res);
 res = initialize_IVI_Invariant(builtin, lean_io_mk_world());
+if (lean_io_result_is_error(res)) return res;
+lean_dec_ref(res);
+res = initialize_IVI_Harmonics(builtin, lean_io_mk_world());
 if (lean_io_result_is_error(res)) return res;
 lean_dec_ref(res);
 res = initialize_IVI_SchematismEvidence(builtin, lean_io_mk_world());
