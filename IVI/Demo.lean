@@ -14,15 +14,12 @@ import IVI.Theorems
 import IVI.Proofs
 import IVI.Intangible
 import IVI.Invariant
-import IVI.Kakeya
 import IVI.Harmonics
-import IVI.KantLimit
 import IVI.Fractal
 
 open IVI
 open Intangible
 open Invariant
-open Classical
 
 set_option autoImplicit true
 
@@ -121,34 +118,77 @@ def main : IO Unit := do
   IO.println s!"Lambda vector (multi-scale): {convergence.lambdaVec}"
   IO.println s!"Final domain time shifts: {convergence.domains.map (·.timeShift)}"
 
-  -- Kakeya/Harmonics/Kant-limit diagnostics across an I-directed zoom
+  -- Kakeya/Harmonics/Kant-limit diagnostics across successive I-directed zooms
   let layer0 : FractalLayer := { depth := 0, nodes := domainNodes }
   let itrans : ITranslation := { k := k, pairs := interactions }
-  let (layer1, _) := itrans.zoomE layer0
-  let S0 := resonanceMatrixW defaultWeighting layer0.nodes
-  let S1 := resonanceMatrixW defaultWeighting layer1.nodes
-  let grain0 := graininessScore S0
-  let grain1 := graininessScore S1
-  let stick01 := stickinessScore S0 S1
-  IO.println s!"Kakeya/Harmonics: grain₀={grain0}, grain₁={grain1}, stick01={stick01}"
-  let dirOf (sig : DomainSignature) : Dir3 :=
-    { x := sig.axis.r1, y := sig.axis.r2, z := sig.axis.r3 }
-  let dirs : DirectionSet := [dirOf mathSig, dirOf physicsSig, dirOf ethicsSig]
-  let collapseMeasure : CollapseMeasure := fun _ => 0.0
-  let kakeyaField : KakeyaField :=
-    { tolDir := 0.1, dirs := dirs, μ := collapseMeasure, nodes := layer0.nodes }
-  let cfgInvK : InvariantCfg :=
-    { W := defaultWeighting, tau := 0.0
-    , ncfg := { epsLambda := 1e-6, levels := 3 }
-    , epsUnity := 1e-6, Ridx := none }
-  let kantBounds := grainStickAfterZoom cfgInvK 0.6 0.7 itrans layer0 kakeyaField
-  let boundedFlag : Bool := decide kantBounds.boundedIntuition
-  let schematismFlag : Bool := decide kantBounds.schematismBound
-  let noumenalFlag : Bool := decide kantBounds.noumenalBoundary
-  let unityFlag : Bool := decide kantBounds.unity
-  IO.println s!"Kant limits: bounded={boundedFlag}, schematism={schematismFlag}, noumenal={noumenalFlag}, unity={unityFlag}"
-  let selfSimFlag : Bool := decide (selfSimilar cfgInvK 0.6 0.7 itrans layer0 kakeyaField)
-  IO.println s!"Fractal self-similar after one zoom cycle? {selfSimFlag}"
+  let maxZooms : Nat := 4
+  let runDiagnostics
+      (label : String) (collapseFn : CollapseMeasure)
+      (τIntuition τStick : Float) : IO Unit := do
+    IO.println label
+    let dedupNat (xs : List Nat) : List Nat :=
+      let acc := xs.foldl
+        (fun (acc : List Nat) x => if acc.contains x then acc else x :: acc) []
+      acc.reverse
+    let jaccardEval (xs ys : List Nat) : Float :=
+      let xu := dedupNat xs
+      let yu := dedupNat ys
+      let inter := (xu.filter fun i => yu.contains i).length
+      let union := (dedupNat (xu ++ yu)).length
+      if union = 0 then 1.0 else Float.ofNat inter / Float.ofNat union
+    let stickinessScoreEval
+        (Sprev Scur : List (List Float)) (τ : Float := 0.1) (ε : Float := 1e-3) : Float :=
+      let Np := neighborMatrix Sprev τ
+      let Nc := neighborMatrix Scur τ
+      let count := Nat.min Np.length Nc.length
+      let sims := (List.range count).map fun i =>
+        jaccardEval (getRow Np i) (getRow Nc i)
+      let jac :=
+        match sims with
+        | [] => 1.0
+        | _ =>
+            let total := sims.foldl (fun acc x => acc + x) 0.0
+            total / Float.ofNat sims.length
+      let rows := zipWithTrunc
+        (fun a b => zipWithTrunc (fun x y => decide (Float.abs (x - y) ≤ ε)) a b)
+        Sprev Scur
+      let good := rows.foldl (fun acc r =>
+        r.foldl (fun inner b => inner + (if b then 1 else 0)) acc) 0
+      let total := rows.foldl (fun acc r => acc + r.length) 0
+      let inertia := if total = 0 then 1.0 else Float.ofNat good / Float.ofNat total
+      0.5 * jac + 0.5 * inertia
+    let grainInit := graininessScore (resonanceMatrixW defaultWeighting layer0.nodes)
+    let collapseInit := collapseFn layer0.nodes
+    IO.println s!"  layer 0: grain={grainInit}, collapse={collapseInit}"
+    let rec logZooms : Nat → Nat → FractalLayer → IO Unit
+      | 0, _, _ => pure ()
+      | Nat.succ remaining, idx, layerPrev => do
+          let (layerNext, _) := itrans.zoomE layerPrev
+          let SPrev := resonanceMatrixW defaultWeighting layerPrev.nodes
+          let SNext := resonanceMatrixW defaultWeighting layerNext.nodes
+          let grainPrev := graininessScore SPrev
+          let grainNext := graininessScore SNext
+          let stickPrev := stickinessScoreEval SPrev SNext
+          let collapsePrev := collapseFn layerPrev.nodes
+          let boundedFlag : Bool := grainNext ≤ τIntuition
+          let schematismFlag : Bool := stickPrev ≥ τStick
+          let noumenalFlag : Bool := collapsePrev ≤ 1e-9
+          let unityFlag : Bool := Float.abs (grainNext - grainPrev) ≤ 1e-3
+          let selfSimFlag : Bool := boundedFlag ∧ schematismFlag ∧ unityFlag
+          IO.println s!"  zoom {idx}→{idx+1}: grain={grainPrev}→{grainNext}, stick={stickPrev}, collapse={collapsePrev}, Kant*(b={boundedFlag}, s={schematismFlag}, n={noumenalFlag}, u={unityFlag}), self-sim≈{selfSimFlag}"
+          logZooms remaining (idx + 1) layerNext
+    logZooms maxZooms 0 layer0
+  let collapseZero : CollapseMeasure := fun _ => 0.0
+  let collapsePerturb : CollapseMeasure := fun nodes =>
+    match nodes with
+    | [] => 0.0
+    | _ =>
+        let total := nodes.foldl
+          (fun acc n => acc + Intangible.spatialNorm n.state.ψ) 0.0
+        let avg := total / Float.ofNat nodes.length
+        avg * 1e-3
+  runDiagnostics "Intangible Kakeya (μ = 0)" collapseZero 0.6 0.7
+  runDiagnostics "Perturbed Kakeya (μ ∝ radius)" collapsePerturb 0.6 0.7
 
   -- Reference to future theorem work (placeholders compile today).
   let _ : True := T4_practical_aperture_unique

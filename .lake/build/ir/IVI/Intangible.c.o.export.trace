@@ -1,5 +1,5 @@
 {"synthetic": false,
- "outputs": "13463276176178428978",
+ "outputs": "10104544828296124513",
  "log":
  [{"message":
    ".> /Users/harryscott/.elan/toolchains/leanprover--lean4---v4.22.0/bin/clang -c -o /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Intangible.c.o.export /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Intangible.c -I /Users/harryscott/.elan/toolchains/leanprover--lean4---v4.22.0/include -fstack-clash-protection -fwrapv -fvisibility=hidden -Wno-unused-command-line-argument --sysroot /Users/harryscott/.elan/toolchains/leanprover--lean4---v4.22.0 -nostdinc -isystem /Users/harryscott/.elan/toolchains/leanprover--lean4---v4.22.0/include/clang -O3 -DNDEBUG -DLEAN_EXPORTING",
@@ -7,11 +7,11 @@
  "inputs":
  [["IVI.Intangible:c",
    [["/Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Intangible.c",
-     "18409632104087454344"],
+     "15656957787992639423"],
     ["Lean 4.22.0, commit ba2cbbf09d4978f416e0ebd1fceeebc2c4138c05",
      "8739116525927611134"]]],
   ["Lean 4.22.0, commit ba2cbbf09d4978f416e0ebd1fceeebc2c4138c05",
    "8739116525927611134"],
   ["traceArgs: #[-O3, -DNDEBUG, -DLEAN_EXPORTING]", "13974588697068907418"],
   ["arm64-apple-darwin23.6.0", "17616366027971700708"]],
- "depHash": "4927210283789365885"}
+ "depHash": "6553684826471922006"}
