@@ -15,9 +15,12 @@ extern "C" {
 #endif
 static lean_object* l_IVI_reprSubject___closed__8____x40_IVI_Pure___hyg_17_;
 static lean_object* l_IVI_reprSubject___closed__0____x40_IVI_Pure___hyg_17_;
+LEAN_EXPORT lean_object* l_IVI_FromIThink_Thread_reciprocity(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
 static lean_object* l_IVI_reprSubject___closed__5____x40_IVI_Pure___hyg_17_;
 LEAN_EXPORT lean_object* l_IVI_reprSubject____x40_IVI_Pure___hyg_17_(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_IVI_FromIThink_Thread_reciprocity___redArg(lean_object*);
 static lean_object* l_IVI_reprSubject___closed__2____x40_IVI_Pure___hyg_17_;
+LEAN_EXPORT lean_object* l_IVI_FromIThink_Thread_reciprocity___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
 static lean_object* l_IVI_reprSubject___closed__1____x40_IVI_Pure___hyg_17_;
 static lean_object* l_IVI_reprSubject___closed__3____x40_IVI_Pure___hyg_17_;
 lean_object* lean_nat_to_int(lean_object*);
@@ -25,6 +28,7 @@ LEAN_EXPORT lean_object* l_IVI_instReprSubject(lean_object*, lean_object*, lean_
 LEAN_EXPORT lean_object* l_IVI_instReprSubject___redArg(lean_object*, lean_object*);
 static lean_object* l_IVI_reprSubject___closed__6____x40_IVI_Pure___hyg_17_;
 static lean_object* l_IVI_reprSubject___closed__4____x40_IVI_Pure___hyg_17_;
+LEAN_EXPORT lean_object* l_IVI_Axioms_reciprocity(lean_object*);
 LEAN_EXPORT lean_object* l_IVI_reprSubject____x40_IVI_Pure___hyg_17____boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
 static lean_object* l_IVI_reprSubject___closed__7____x40_IVI_Pure___hyg_17_;
 static lean_object* _init_l_IVI_reprSubject___closed__0____x40_IVI_Pure___hyg_17_() {
@@ -161,6 +165,40 @@ lean_closure_set(x_4, 0, lean_box(0));
 lean_closure_set(x_4, 1, x_2);
 lean_closure_set(x_4, 2, x_3);
 return x_4;
+}
+}
+LEAN_EXPORT lean_object* l_IVI_Axioms_reciprocity(lean_object* x_1) {
+_start:
+{
+lean_object* x_2; 
+x_2 = lean_box(0);
+return x_2;
+}
+}
+LEAN_EXPORT lean_object* l_IVI_FromIThink_Thread_reciprocity___redArg(lean_object* x_1) {
+_start:
+{
+lean_object* x_2; 
+x_2 = lean_apply_2(x_1, lean_box(0), lean_box(0));
+return x_2;
+}
+}
+LEAN_EXPORT lean_object* l_IVI_FromIThink_Thread_reciprocity(lean_object* x_1, lean_object* x_2, lean_object* x_3, lean_object* x_4, lean_object* x_5) {
+_start:
+{
+lean_object* x_6; 
+x_6 = lean_apply_2(x_5, lean_box(0), lean_box(0));
+return x_6;
+}
+}
+LEAN_EXPORT lean_object* l_IVI_FromIThink_Thread_reciprocity___boxed(lean_object* x_1, lean_object* x_2, lean_object* x_3, lean_object* x_4, lean_object* x_5) {
+_start:
+{
+lean_object* x_6; 
+x_6 = l_IVI_FromIThink_Thread_reciprocity(x_1, x_2, x_3, x_4, x_5);
+lean_dec(x_3);
+lean_dec(x_2);
+return x_6;
 }
 }
 lean_object* initialize_Init(uint8_t builtin, lean_object*);

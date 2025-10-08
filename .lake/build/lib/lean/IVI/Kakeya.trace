@@ -1,7 +1,7 @@
 {"synthetic": false,
  "outputs":
- {"o": ["8794622707416835282"],
-  "i": "5592515363195593603",
+ {"o": ["5526196998438385900"],
+  "i": "2897664523208178759",
   "c": "4881036759716930035"},
  "log":
  [{"message":
@@ -12,6 +12,18 @@
    "level": "warning"},
   {"message":
    "IVI/Kakeya.lean:95:2: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`",
+   "level": "warning"},
+  {"message":
+   "IVI/Kakeya.lean:107:5: unused variable `K`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "IVI/Kakeya.lean:108:5: unused variable `stepE`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "IVI/Kakeya.lean:109:5: unused variable `doms`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "IVI/Kakeya.lean:109:35: unused variable `nodes`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"}],
  "inputs":
  [["IVI.Kakeya:deps",
@@ -45,7 +57,7 @@
       ["module plugins", "1723"]]]]],
   ["Lean 4.22.0, commit ba2cbbf09d4978f416e0ebd1fceeebc2c4138c05",
    "8739116525927611134"],
-  ["/Users/harryscott/Kantian-IVI/IVI/Kakeya.lean", "4651670810973357654"],
+  ["/Users/harryscott/Kantian-IVI/IVI/Kakeya.lean", "13374066085044783577"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "160261791312983527"}
+ "depHash": "8300552302176010966"}

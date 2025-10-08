@@ -27,6 +27,17 @@ open FixedPoint
 @[simp] def floatListToReal (xs : List Float) : List Real :=
   xs.map (fun x => (x : Real))
 
+@[simp] lemma floatListToReal_nil : floatListToReal [] = [] := by
+  simp [floatListToReal]
+
+@[simp] lemma floatListToReal_cons (x : Float) (xs : List Float) :
+    floatListToReal (x :: xs) = (x : Real) :: floatListToReal xs := by
+  simp [floatListToReal]
+
+@[simp] lemma floatListToReal_length (xs : List Float) :
+    (floatListToReal xs).length = xs.length := by
+  simp [floatListToReal]
+
 /-- Measure of resonance/dissonance asymmetry between two nodes. -/
 @[simp] def communityAsymmetry (W : Weighting) (n₁ n₂ : DomainNode) : Float :=
   let s₁₂ := W.sim n₁.state n₂.state
@@ -39,6 +50,11 @@ open FixedPoint
 @[simp] def communityPredicate (W : Weighting) (tol : Float) (nodes : List DomainNode) : Prop :=
   ∀ n₁ n₂, n₁ ∈ nodes → n₂ ∈ nodes → communityAsymmetry W n₁ n₂ ≤ tol
 
+@[simp] lemma communityPredicate_nil (W : Weighting) (tol : Float) :
+    communityPredicate W tol [] := by
+  intro n₁ n₂ h₁ _
+  cases h₁
+
 /-- Non-collapse predicate: the λ-vector exhibits fractal stability across scales. -/
 @[simp] def nonCollapsePredicate (cfg : RunnerCfg) (prev cur : RunnerState) : Prop :=
   (vectorMaxDiff cur.lambdaVec prev.lambdaVec ≤ cfg.epsVec) ∧
@@ -46,9 +62,6 @@ open FixedPoint
       ≤ (cfg.epsVec : Real)) ∧
   cur.lambdaVec.length = prev.lambdaVec.length ∧
   cur.lambdaVec.length = cfg.levels
-
-/-- Schematism predicate placeholder (will connect Δi spec later). -/
-@[simp] def schematismPredicate : Prop := True
 
 /-- Bundles the data of a functor from the Kantian recognition side to the IVI side. -/
 structure KantToIVI where

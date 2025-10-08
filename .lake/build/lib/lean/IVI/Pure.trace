@@ -1,12 +1,21 @@
 {"synthetic": false,
  "outputs":
- {"o": ["11839972535389550996"],
-  "i": "23329871993364470",
-  "c": "16002384141130415683"},
+ {"o": ["11506171676308195171"],
+  "i": "7038100006733642521",
+  "c": "1510813165663858016"},
  "log":
  [{"message":
    ".> LEAN_PATH=/Users/harryscott/Kantian-IVI/.lake/build/lib/lean /Users/harryscott/.elan/toolchains/leanprover--lean4---v4.22.0/bin/lean /Users/harryscott/Kantian-IVI/IVI/Pure.lean -o /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Pure.olean -i /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Pure.ilean -c /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Pure.c --setup /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Pure.setup.json --json",
-   "level": "trace"}],
+   "level": "trace"},
+  {"message":
+   "IVI/Pure.lean:19:42: unused variable `s`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "IVI/Pure.lean:23:25: unused variable `any`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "IVI/Pure.lean:97:29: unused variable `any`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"}],
  "inputs":
  [["IVI.Pure:deps",
    [["deps",
@@ -23,7 +32,7 @@
       ["module plugins", "1723"]]]]],
   ["Lean 4.22.0, commit ba2cbbf09d4978f416e0ebd1fceeebc2c4138c05",
    "8739116525927611134"],
-  ["/Users/harryscott/Kantian-IVI/IVI/Pure.lean", "2260149811112508599"],
+  ["/Users/harryscott/Kantian-IVI/IVI/Pure.lean", "1210337904923251511"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "1053011498092345165"}
+ "depHash": "7961034688316149121"}
