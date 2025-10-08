@@ -37,9 +37,9 @@
         ["IVI.Kakeya:olean",
          [["IVI.Kakeya:deps", "7668117168719139913"],
           ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Kakeya.olean",
-           "5526196998438385900"]]],
+           "937680250423620021"]]],
         ["IVI.KantLimit:olean",
-         [["IVI.KantLimit:deps", "14630568376609756353"],
+         [["IVI.KantLimit:deps", "14090432772049001978"],
           ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/KantLimit.olean",
            "932623232758135453"]]]]]]],
     ["libs",
@@ -52,4 +52,4 @@
   ["/Users/harryscott/Kantian-IVI/IVI/Fractal.lean", "13501463215043298475"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "12934370939683807639"}
+ "depHash": "8226458838132837368"}

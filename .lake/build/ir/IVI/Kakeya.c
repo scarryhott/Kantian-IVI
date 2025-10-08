@@ -15,6 +15,7 @@ extern "C" {
 #endif
 uint8_t l_IVI_ICollapseCfg_grainSafeBool(lean_object*, lean_object*);
 lean_object* l_Float_repr(double, lean_object*);
+LEAN_EXPORT lean_object* l_IVI_KakeyaContract_trivial;
 static lean_object* l_IVI_reprDir3___redArg___closed__13____x40_IVI_Kakeya___hyg_41_;
 double lean_float_mul(double, double);
 LEAN_EXPORT uint8_t l_IVI_realizes(double, lean_object*, lean_object*);
@@ -47,6 +48,7 @@ LEAN_EXPORT lean_object* l_IVI_reprDir3____x40_IVI_Kakeya___hyg_41_(lean_object*
 LEAN_EXPORT lean_object* l_IVI_reprDir3___redArg____x40_IVI_Kakeya___hyg_41_(lean_object*);
 LEAN_EXPORT lean_object* l___private_IVI_Kakeya_0__IVI_harmonicSummary_match__1_splitter___redArg___boxed(lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l___private_IVI_Kakeya_0__IVI_harmonicSummary_match__1_splitter___boxed(lean_object*, lean_object*, lean_object*, lean_object*);
+static lean_object* l_IVI_KakeyaContract_trivial___closed__0;
 static double l_IVI_normaliseDir3___closed__1;
 static double l_IVI_normaliseDir3___closed__0;
 static lean_object* l_IVI_instReprDir3___closed__0;
@@ -782,6 +784,27 @@ return x_8;
 }
 }
 }
+static lean_object* _init_l_IVI_KakeyaContract_trivial___closed__0() {
+_start:
+{
+double x_1; lean_object* x_2; 
+x_1 = l_IVI_normaliseDir3___closed__0;
+x_2 = lean_alloc_ctor(0, 0, 32);
+lean_ctor_set_float(x_2, 0, x_1);
+lean_ctor_set_float(x_2, 8, x_1);
+lean_ctor_set_float(x_2, 16, x_1);
+lean_ctor_set_float(x_2, 24, x_1);
+return x_2;
+}
+}
+static lean_object* _init_l_IVI_KakeyaContract_trivial() {
+_start:
+{
+lean_object* x_1; 
+x_1 = l_IVI_KakeyaContract_trivial___closed__0;
+return x_1;
+}
+}
 LEAN_EXPORT lean_object* l_IVI_invariantFromKakeya(lean_object* x_1, uint8_t x_2, double x_3, double x_4, lean_object* x_5, lean_object* x_6, lean_object* x_7) {
 _start:
 {
@@ -881,6 +904,10 @@ l_IVI_normaliseDir3___closed__0 = _init_l_IVI_normaliseDir3___closed__0();
 l_IVI_normaliseDir3___closed__1 = _init_l_IVI_normaliseDir3___closed__1();
 l_IVI_normaliseDir3___closed__2 = _init_l_IVI_normaliseDir3___closed__2();
 lean_mark_persistent(l_IVI_normaliseDir3___closed__2);
+l_IVI_KakeyaContract_trivial___closed__0 = _init_l_IVI_KakeyaContract_trivial___closed__0();
+lean_mark_persistent(l_IVI_KakeyaContract_trivial___closed__0);
+l_IVI_KakeyaContract_trivial = _init_l_IVI_KakeyaContract_trivial();
+lean_mark_persistent(l_IVI_KakeyaContract_trivial);
 return lean_io_result_mk_ok(lean_box(0));
 }
 #ifdef __cplusplus
