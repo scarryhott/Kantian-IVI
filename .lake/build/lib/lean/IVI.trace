@@ -17,9 +17,9 @@
           ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Core.olean",
            "12286444512450632711"]]],
         ["IVI.Pure:olean",
-         [["IVI.Pure:deps", "5157319595381646800"],
+         [["IVI.Pure:deps", "15550444365902634996"],
           ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Pure.olean",
-           "3472578242376119864"]]],
+           "11839972535389550996"]]],
         ["IVI.Operators:olean",
          [["IVI.Operators:deps", "288529257706707994"],
           ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Operators.olean",
@@ -78,4 +78,4 @@
   ["/Users/harryscott/Kantian-IVI/IVI.lean", "7237924139189680720"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "8182761644539743314"}
+ "depHash": "4724984322479361095"}

@@ -1,6 +1,6 @@
 // Lean compiler output
 // Module: IVI.Pure
-// Imports: Init IVI.Core IVI.SchematismEvidence IVI.Invariant IVI.System
+// Imports: Init IVI.Core
 #include <lean/lean.h>
 #if defined(__clang__)
 #pragma clang diagnostic ignored "-Wunused-parameter"
@@ -25,9 +25,7 @@ LEAN_EXPORT lean_object* l_IVI_instReprSubject(lean_object*, lean_object*, lean_
 LEAN_EXPORT lean_object* l_IVI_instReprSubject___redArg(lean_object*, lean_object*);
 static lean_object* l_IVI_reprSubject___closed__6____x40_IVI_Pure___hyg_17_;
 static lean_object* l_IVI_reprSubject___closed__4____x40_IVI_Pure___hyg_17_;
-LEAN_EXPORT lean_object* l_IVI_Axioms_reciprocity(lean_object*);
 LEAN_EXPORT lean_object* l_IVI_reprSubject____x40_IVI_Pure___hyg_17____boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
-LEAN_EXPORT lean_object* l_IVI_Axioms_diagonalReciprocity(lean_object*);
 static lean_object* l_IVI_reprSubject___closed__7____x40_IVI_Pure___hyg_17_;
 static lean_object* _init_l_IVI_reprSubject___closed__0____x40_IVI_Pure___hyg_17_() {
 _start:
@@ -165,27 +163,8 @@ lean_closure_set(x_4, 2, x_3);
 return x_4;
 }
 }
-LEAN_EXPORT lean_object* l_IVI_Axioms_diagonalReciprocity(lean_object* x_1) {
-_start:
-{
-lean_object* x_2; 
-x_2 = lean_box(0);
-return x_2;
-}
-}
-LEAN_EXPORT lean_object* l_IVI_Axioms_reciprocity(lean_object* x_1) {
-_start:
-{
-lean_object* x_2; 
-x_2 = lean_box(0);
-return x_2;
-}
-}
 lean_object* initialize_Init(uint8_t builtin, lean_object*);
 lean_object* initialize_IVI_Core(uint8_t builtin, lean_object*);
-lean_object* initialize_IVI_SchematismEvidence(uint8_t builtin, lean_object*);
-lean_object* initialize_IVI_Invariant(uint8_t builtin, lean_object*);
-lean_object* initialize_IVI_System(uint8_t builtin, lean_object*);
 static bool _G_initialized = false;
 LEAN_EXPORT lean_object* initialize_IVI_Pure(uint8_t builtin, lean_object* w) {
 lean_object * res;
@@ -195,15 +174,6 @@ res = initialize_Init(builtin, lean_io_mk_world());
 if (lean_io_result_is_error(res)) return res;
 lean_dec_ref(res);
 res = initialize_IVI_Core(builtin, lean_io_mk_world());
-if (lean_io_result_is_error(res)) return res;
-lean_dec_ref(res);
-res = initialize_IVI_SchematismEvidence(builtin, lean_io_mk_world());
-if (lean_io_result_is_error(res)) return res;
-lean_dec_ref(res);
-res = initialize_IVI_Invariant(builtin, lean_io_mk_world());
-if (lean_io_result_is_error(res)) return res;
-lean_dec_ref(res);
-res = initialize_IVI_System(builtin, lean_io_mk_world());
 if (lean_io_result_is_error(res)) return res;
 lean_dec_ref(res);
 l_IVI_reprSubject___closed__0____x40_IVI_Pure___hyg_17_ = _init_l_IVI_reprSubject___closed__0____x40_IVI_Pure___hyg_17_();
