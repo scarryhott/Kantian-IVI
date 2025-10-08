@@ -1,7 +1,7 @@
 {"synthetic": false,
  "outputs":
- {"o": ["937680250423620021"],
-  "i": "275518450721227340",
+ {"o": ["16728747025943590296"],
+  "i": "3069861603642319750",
   "c": "189651575866941193"},
  "log":
  [{"message":
@@ -14,16 +14,16 @@
    "IVI/Kakeya.lean:95:2: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`",
    "level": "warning"},
   {"message":
-   "IVI/Kakeya.lean:122:5: unused variable `K`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "IVI/Kakeya.lean:119:5: unused variable `K`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "IVI/Kakeya.lean:123:5: unused variable `stepE`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "IVI/Kakeya.lean:120:5: unused variable `stepE`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "IVI/Kakeya.lean:124:5: unused variable `doms`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "IVI/Kakeya.lean:121:5: unused variable `doms`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "IVI/Kakeya.lean:124:35: unused variable `nodes`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "IVI/Kakeya.lean:121:35: unused variable `nodes`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"}],
  "inputs":
  [["IVI.Kakeya:deps",
@@ -57,7 +57,7 @@
       ["module plugins", "1723"]]]]],
   ["Lean 4.22.0, commit ba2cbbf09d4978f416e0ebd1fceeebc2c4138c05",
    "8739116525927611134"],
-  ["/Users/harryscott/Kantian-IVI/IVI/Kakeya.lean", "4063909666191223816"],
+  ["/Users/harryscott/Kantian-IVI/IVI/Kakeya.lean", "3212853594438208533"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "1509726511054748582"}
+ "depHash": "4802172221517768261"}

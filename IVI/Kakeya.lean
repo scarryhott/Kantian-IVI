@@ -104,19 +104,16 @@ abbrev StepE :=
 
 /-- Stability requirement: a single IVI step preserves Kakeya properties. -/
 structure KakeyaContract where
-  Cg : Float
-  Ce : Float
-  Cl : Float
-  θMax : Float
-  grain_ok : Prop
-  entropy_ok : Prop
-  lam_ok : Prop
+  Cg : Float := 0.0
+  Ce : Float := 0.0
+  Cl : Float := 0.0
+  θMax : Float := 0.0
+  grain_ok : Prop := True
+  entropy_ok : Prop := True
+  lam_ok : Prop := True
 
-@[simp] def KakeyaContract.trivial : KakeyaContract :=
-  { Cg := 0.0, Ce := 0.0, Cl := 0.0, θMax := 0.0
-  , grain_ok := True
-  , entropy_ok := True
-  , lam_ok := True }
+@[simp] def KakeyaContract.trivial : KakeyaContract := 
+  {}
 
 @[simp] def preservesKakeya
     (K : KakeyaField)
