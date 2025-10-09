@@ -3,8 +3,18 @@
  "name": "IVI.Fractal",
  "isModule": false,
  "importArts":
- {"IVI.SchematismEvidence":
+ {"IVI.Will":
+  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Will.olean"],
+  "IVI.SchematismEvidence":
   ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/SchematismEvidence.olean"],
+  "IVI.SchemaLaw":
+  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/SchemaLaw.olean"],
+  "IVI.SVObj":
+  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/SVObj.olean"],
+  "IVI.Operators":
+  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Operators.olean"],
+  "IVI.Logic":
+  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Logic.olean"],
   "IVI.KantLimit":
   ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/KantLimit.olean"],
   "IVI.KakeyaBounds":
@@ -19,10 +29,14 @@
   ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Intangible.olean"],
   "IVI.Harmonics":
   ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Harmonics.olean"],
+  "IVI.Domain":
+  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Domain.olean"],
   "IVI.Core":
   ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Core.olean"],
   "IVI.Collapse":
   ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Collapse.olean"],
   "IVI.C3Model":
-  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/C3Model.olean"]},
+  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/C3Model.olean"],
+  "IVI.Bounds":
+  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Bounds.olean"]},
  "dynlibs": []}

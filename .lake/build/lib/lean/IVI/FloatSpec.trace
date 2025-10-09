@@ -1,0 +1,24 @@
+{"synthetic": false,
+ "outputs":
+ {"o": ["7272589844386484795"],
+  "i": "10960303095383397807",
+  "c": "9341998286685152926"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/Users/harryscott/Kantian-IVI/.lake/build/lib/lean /Users/harryscott/.elan/toolchains/leanprover--lean4---v4.23.0/bin/lean /Users/harryscott/Kantian-IVI/IVI/FloatSpec.lean -o /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/FloatSpec.olean -i /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/FloatSpec.ilean -c /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/FloatSpec.c --setup /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/FloatSpec.setup.json --json",
+   "level": "trace"}],
+ "inputs":
+ [["IVI.FloatSpec:deps",
+   [["deps",
+     [["ivi/IVI:extraDep", [["@ivi:extraDep", "1723"]]], ["imports", "1723"]]],
+    ["libs",
+     [["import dynlibs", "1723"],
+      ["package external libraries", "1723"],
+      ["module dynlibs", "1723"],
+      ["module plugins", "1723"]]]]],
+  ["Lean 4.23.0, commit 50aaf682e9b74ab92880292a25c68baa1cc81c87",
+   "5786258275165720599"],
+  ["/Users/harryscott/Kantian-IVI/IVI/FloatSpec.lean", "15734433396140487687"],
+  ["options", "1723"],
+  ["Module.leanArgs: #[]", "1723"]],
+ "depHash": "11486704029310265115"}

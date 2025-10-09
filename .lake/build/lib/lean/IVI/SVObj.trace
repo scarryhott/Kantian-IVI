@@ -1,0 +1,29 @@
+{"synthetic": false,
+ "outputs":
+ {"o": ["8819806324537377708"],
+  "i": "9973473317541193800",
+  "c": "3604063445461000826"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/Users/harryscott/Kantian-IVI/.lake/build/lib/lean /Users/harryscott/.elan/toolchains/leanprover--lean4---v4.23.0/bin/lean /Users/harryscott/Kantian-IVI/IVI/SVObj.lean -o /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/SVObj.olean -i /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/SVObj.ilean -c /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/SVObj.c --setup /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/SVObj.setup.json --json",
+   "level": "trace"}],
+ "inputs":
+ [["IVI.SVObj:deps",
+   [["deps",
+     [["ivi/IVI:extraDep", [["@ivi:extraDep", "1723"]]],
+      ["imports",
+       [["IVI.Domain transitive imports (legacy)", "17849264653420357201"],
+        ["IVI.Domain:importAllArts", "17799345751516240756"],
+        ["IVI.Kakeya.Core transitive imports (legacy)", "5554259929642494307"],
+        ["IVI.Kakeya.Core:importAllArts", "2116020674087704044"]]]]],
+    ["libs",
+     [["import dynlibs", "1723"],
+      ["package external libraries", "1723"],
+      ["module dynlibs", "1723"],
+      ["module plugins", "1723"]]]]],
+  ["Lean 4.23.0, commit 50aaf682e9b74ab92880292a25c68baa1cc81c87",
+   "5786258275165720599"],
+  ["/Users/harryscott/Kantian-IVI/IVI/SVObj.lean", "5645367260933088495"],
+  ["options", "1723"],
+  ["Module.leanArgs: #[]", "1723"]],
+ "depHash": "1152298783940599320"}

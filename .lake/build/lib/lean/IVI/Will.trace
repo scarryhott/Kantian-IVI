@@ -1,0 +1,31 @@
+{"synthetic": false,
+ "outputs":
+ {"o": ["2118465207260952292"],
+  "i": "6755539866473629153",
+  "c": "13530057540029352287"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/Users/harryscott/Kantian-IVI/.lake/build/lib/lean /Users/harryscott/.elan/toolchains/leanprover--lean4---v4.23.0/bin/lean /Users/harryscott/Kantian-IVI/IVI/Will.lean -o /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Will.olean -i /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Will.ilean -c /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Will.c --setup /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Will.setup.json --json",
+   "level": "trace"}],
+ "inputs":
+ [["IVI.Will:deps",
+   [["deps",
+     [["ivi/IVI:extraDep", [["@ivi:extraDep", "1723"]]],
+      ["imports",
+       [["IVI.SVObj transitive imports (legacy)", "1132310917149315465"],
+        ["IVI.SVObj:importAllArts", "9360616289091170371"],
+        ["IVI.Bounds transitive imports (legacy)", "1723"],
+        ["IVI.Bounds:importAllArts", "8128756869966731433"],
+        ["IVI.SchemaLaw transitive imports (legacy)", "14232488719842474885"],
+        ["IVI.SchemaLaw:importAllArts", "3804871935655891800"]]]]],
+    ["libs",
+     [["import dynlibs", "1723"],
+      ["package external libraries", "1723"],
+      ["module dynlibs", "1723"],
+      ["module plugins", "1723"]]]]],
+  ["Lean 4.23.0, commit 50aaf682e9b74ab92880292a25c68baa1cc81c87",
+   "5786258275165720599"],
+  ["/Users/harryscott/Kantian-IVI/IVI/Will.lean", "17581658747869111552"],
+  ["options", "1723"],
+  ["Module.leanArgs: #[]", "1723"]],
+ "depHash": "16303185159599470915"}

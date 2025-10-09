@@ -5,6 +5,9 @@
 -/
 
 import IVI.Kakeya.Core
+import IVI.SVObj
+import IVI.Will
+import IVI.Bounds
 
 namespace IVI
 
@@ -15,6 +18,7 @@ namespace KakeyaBounds
 
 open Classical
 open Invariant
+open List
 
 /--
 Packaged deltas between successive IVI steps.
@@ -96,8 +100,12 @@ structure ContractWitness
     (doms : List DomainSignature)
     (nodes : List DomainNode) where
   K : KakeyaField
+  ctx : WillCtx
+  will : Will
   nextDomains : List DomainSignature
   nextNodes : List DomainNode
+  nextObjs : List SVObj
+  preObjs : List SVObj
   evidence : StepEvidence
   nodesAligned : K.nodes = nextNodes
   deltas : DeltaPack
@@ -121,7 +129,9 @@ by
 noncomputable def buildContract
     (stepE : StepE)
     (doms : List DomainSignature)
-    (nodes : List DomainNode) :
+    (nodes : List DomainNode)
+    (ctx : WillCtx := {})
+    (will : Will := Will.idle) :
     ContractWitness stepE doms nodes :=
 by
   classical
@@ -142,7 +152,7 @@ by
   let lambdaPrev := spectralInvariant nodes
   let lambdaNext := spectralInvariant nodes₁
   let lambdaDiff := lambdaNext - lambdaPrev
-  let thetaMax :=
+  let thetaMeasured :=
     (List.zip nodes nodes₁).foldl
       (fun acc pair =>
         let θPrev := pair.fst.state.time.theta
@@ -150,21 +160,45 @@ by
         let δ := Float.abs (θNext - θPrev)
         if acc < δ then δ else acc)
       0.0
+  let thetaBound :=
+    if ctx.bounds.θCap ≤ thetaMeasured then thetaMeasured else ctx.bounds.θCap
   let deltas : DeltaPack :=
     { grainDiff := grainDiff
     , entropyDiff := entropyDiff
     , lambdaDiff := lambdaDiff
-    , θMax := thetaMax }
+    , θMax := thetaMeasured }
+  let preObjs :=
+    nodes₁.map fun n =>
+      let dir := headingOf n
+      let schemaInput := SVObj.fromNode n thetaMeasured
+      let schemaId := will.selectSchema ctx schemaInput
+      let schemCtx : SchemaContext :=
+        { schema := schemaId
+        , concept := n.signature.name
+        , direction := dir
+        , intensity := 1.0 }
+      let θ := ctx.law.chooseTheta schemCtx
+      let base := SVObj.fromNode n θ
+      let withW := base.withWeights matrixNext
+      let recMeta : KantRecognition := { label := schemaId, valid := true }
+      let recogn := withW.withRecognition recMeta
+      recogn
+  let nextObjs := preObjs.map (will.apply ctx)
   let K : KakeyaField :=
     { tolDir := 0.0
     , collapseCfg := collapseCfg
     , dirs := []
     , nodes := nodes₁ }
-  let contract : KakeyaContract := deltas.assemble
+  let contract : KakeyaContract :=
+    { (deltas.assemble) with θMax := thetaBound }
   refine
     { K := K
+    , ctx := ctx
+    , will := will
     , nextDomains := doms₁
     , nextNodes := nodes₁
+    , nextObjs := nextObjs
+    , preObjs := preObjs
     , evidence := ev
     , nodesAligned := rfl
     , deltas := deltas
@@ -192,6 +226,10 @@ def ContractWitness.relax
     ContractWitness stepE doms nodes :=
   { w with
     contract := w.deltas.relaxedContract Cg Ce Cl θMax
+    , nextObjs := w.nextObjs
+    , ctx := w.ctx
+    , will := w.will
+    , preObjs := w.preObjs
     , grainWitness := w.deltas.relaxGrain hCg
     , entropyWitness := w.deltas.relaxEntropy hCe
     , lamWitness := w.deltas.relaxLambda hCl }

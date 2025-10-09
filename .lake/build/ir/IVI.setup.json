@@ -3,10 +3,18 @@
  "name": "IVI",
  "isModule": false,
  "importArts":
- {"IVI.System":
+ {"IVI.Will":
+  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Will.olean"],
+  "IVI.System":
   ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/System.olean"],
   "IVI.SchematismEvidence":
   ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/SchematismEvidence.olean"],
+  "IVI.SchemaLaw":
+  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/SchemaLaw.olean"],
+  "IVI.SVObj":
+  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/SVObj.olean"],
+  "IVI.Relax":
+  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Relax.olean"],
   "IVI.Pure":
   ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Pure.olean"],
   "IVI.Operators":
@@ -17,6 +25,8 @@
   ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/KantLimit.olean"],
   "IVI.KakeyaBounds":
   ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/KakeyaBounds.olean"],
+  "IVI.KakeyaAssemble":
+  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/KakeyaAssemble.olean"],
   "IVI.Kakeya.Core":
   ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Kakeya/Core.olean"],
   "IVI.Kakeya":
@@ -29,6 +39,8 @@
   ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Harmonics.olean"],
   "IVI.Fractal":
   ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Fractal.olean"],
+  "IVI.FloatSpec":
+  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/FloatSpec.olean"],
   "IVI.FixedPoint":
   ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/FixedPoint.olean"],
   "IVI.Domain":
@@ -38,5 +50,7 @@
   "IVI.Collapse":
   ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Collapse.olean"],
   "IVI.C3Model":
-  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/C3Model.olean"]},
+  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/C3Model.olean"],
+  "IVI.Bounds":
+  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Bounds.olean"]},
  "dynlibs": []}

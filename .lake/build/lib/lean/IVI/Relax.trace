@@ -1,0 +1,30 @@
+{"synthetic": false,
+ "outputs":
+ {"o": ["7017095644912920896"],
+  "i": "6618950797129632503",
+  "c": "9803494519527072752"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/Users/harryscott/Kantian-IVI/.lake/build/lib/lean /Users/harryscott/.elan/toolchains/leanprover--lean4---v4.23.0/bin/lean /Users/harryscott/Kantian-IVI/IVI/Relax.lean -o /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Relax.olean -i /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Relax.ilean -c /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Relax.c --setup /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Relax.setup.json --json",
+   "level": "trace"}],
+ "inputs":
+ [["IVI.Relax:deps",
+   [["deps",
+     [["ivi/IVI:extraDep", [["@ivi:extraDep", "1723"]]],
+      ["imports",
+       [["IVI.KakeyaBounds transitive imports (legacy)",
+         "16507694439156314996"],
+        ["IVI.KakeyaBounds:importAllArts", "4053996230844202380"],
+        ["IVI.Bounds transitive imports (legacy)", "1723"],
+        ["IVI.Bounds:importAllArts", "8128756869966731433"]]]]],
+    ["libs",
+     [["import dynlibs", "1723"],
+      ["package external libraries", "1723"],
+      ["module dynlibs", "1723"],
+      ["module plugins", "1723"]]]]],
+  ["Lean 4.23.0, commit 50aaf682e9b74ab92880292a25c68baa1cc81c87",
+   "5786258275165720599"],
+  ["/Users/harryscott/Kantian-IVI/IVI/Relax.lean", "1346973362737903296"],
+  ["options", "1723"],
+  ["Module.leanArgs: #[]", "1723"]],
+ "depHash": "5832079907790594382"}

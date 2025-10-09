@@ -9,6 +9,14 @@ import IVI.Invariant
 import IVI.Collapse
 import IVI.FixedPoint
 import IVI.Kakeya
+import IVI.KakeyaBounds
+import IVI.KakeyaAssemble
+import IVI.Bounds
+import IVI.Relax
+import IVI.FloatSpec
+import IVI.SVObj
+import IVI.SchemaLaw
+import IVI.Will
 import IVI.Harmonics
 import IVI.KantLimit
 import IVI.Fractal

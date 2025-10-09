@@ -1,0 +1,31 @@
+{"synthetic": false,
+ "outputs":
+ {"o": ["14910440917771519044"],
+  "i": "6160304420580397687",
+  "c": "8599725628234642955"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/Users/harryscott/Kantian-IVI/.lake/build/lib/lean /Users/harryscott/.elan/toolchains/leanprover--lean4---v4.23.0/bin/lean /Users/harryscott/Kantian-IVI/IVI/KakeyaAssemble.lean -o /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/KakeyaAssemble.olean -i /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/KakeyaAssemble.ilean -c /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/KakeyaAssemble.c --setup /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/KakeyaAssemble.setup.json --json",
+   "level": "trace"}],
+ "inputs":
+ [["IVI.KakeyaAssemble:deps",
+   [["deps",
+     [["ivi/IVI:extraDep", [["@ivi:extraDep", "1723"]]],
+      ["imports",
+       [["IVI.KakeyaBounds transitive imports (legacy)",
+         "16507694439156314996"],
+        ["IVI.KakeyaBounds:importAllArts", "4053996230844202380"],
+        ["IVI.Relax transitive imports (legacy)", "2384895499023129081"],
+        ["IVI.Relax:importAllArts", "1621879623172062637"]]]]],
+    ["libs",
+     [["import dynlibs", "1723"],
+      ["package external libraries", "1723"],
+      ["module dynlibs", "1723"],
+      ["module plugins", "1723"]]]]],
+  ["Lean 4.23.0, commit 50aaf682e9b74ab92880292a25c68baa1cc81c87",
+   "5786258275165720599"],
+  ["/Users/harryscott/Kantian-IVI/IVI/KakeyaAssemble.lean",
+   "10538306818394319237"],
+  ["options", "1723"],
+  ["Module.leanArgs: #[]", "1723"]],
+ "depHash": "5006648423817481475"}
