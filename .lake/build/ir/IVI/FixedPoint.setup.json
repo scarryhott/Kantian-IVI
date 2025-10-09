@@ -2,5 +2,15 @@
  "options": {},
  "name": "IVI.FixedPoint",
  "isModule": false,
- "importArts": {},
+ "importArts":
+ {"IVI.SchematismEvidence":
+  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/SchematismEvidence.olean"],
+  "IVI.Invariant":
+  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Invariant.olean"],
+  "IVI.Intangible":
+  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Intangible.olean"],
+  "IVI.Core":
+  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Core.olean"],
+  "IVI.C3Model":
+  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/C3Model.olean"]},
  "dynlibs": []}

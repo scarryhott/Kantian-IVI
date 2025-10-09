@@ -1,25 +1,24 @@
 {"synthetic": false,
  "outputs":
- {"o": ["12286444512450632711"],
+ {"o": ["4891676184280289164"],
   "i": "2943805470766912617",
-  "c": "9072498570601650990"},
+  "c": "5036311831208514801"},
  "log":
  [{"message":
-   ".> LEAN_PATH=/Users/harryscott/Kantian-IVI/.lake/build/lib/lean /Users/harryscott/.elan/toolchains/leanprover--lean4---v4.22.0/bin/lean /Users/harryscott/Kantian-IVI/IVI/Core.lean -o /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Core.olean -i /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Core.ilean -c /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Core.c --setup /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Core.setup.json --json",
+   ".> LEAN_PATH=/Users/harryscott/Kantian-IVI/.lake/build/lib/lean /Users/harryscott/.elan/toolchains/leanprover--lean4---v4.23.0/bin/lean /Users/harryscott/Kantian-IVI/IVI/Core.lean -o /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Core.olean -i /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Core.ilean -c /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Core.c --setup /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Core.setup.json --json",
    "level": "trace"}],
  "inputs":
  [["IVI.Core:deps",
    [["deps",
-     [["ivi/IVI:extraDep", [["@ivi:extraDep", "1723"]]],
-      ["import oleans", "1723"]]],
+     [["ivi/IVI:extraDep", [["@ivi:extraDep", "1723"]]], ["imports", "1723"]]],
     ["libs",
      [["import dynlibs", "1723"],
       ["package external libraries", "1723"],
       ["module dynlibs", "1723"],
       ["module plugins", "1723"]]]]],
-  ["Lean 4.22.0, commit ba2cbbf09d4978f416e0ebd1fceeebc2c4138c05",
-   "8739116525927611134"],
+  ["Lean 4.23.0, commit 50aaf682e9b74ab92880292a25c68baa1cc81c87",
+   "5786258275165720599"],
   ["/Users/harryscott/Kantian-IVI/IVI/Core.lean", "1831290536399635443"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "7759048389372915309"}
+ "depHash": "2952116735647519771"}

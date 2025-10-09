@@ -1,11 +1,11 @@
 {"synthetic": false,
  "outputs":
- {"o": ["11506171676308195171"],
-  "i": "7038100006733642521",
-  "c": "1510813165663858016"},
+ {"o": ["3430230363815535494"],
+  "i": "7086495006185538255",
+  "c": "15545343809160290193"},
  "log":
  [{"message":
-   ".> LEAN_PATH=/Users/harryscott/Kantian-IVI/.lake/build/lib/lean /Users/harryscott/.elan/toolchains/leanprover--lean4---v4.22.0/bin/lean /Users/harryscott/Kantian-IVI/IVI/Pure.lean -o /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Pure.olean -i /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Pure.ilean -c /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Pure.c --setup /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Pure.setup.json --json",
+   ".> LEAN_PATH=/Users/harryscott/Kantian-IVI/.lake/build/lib/lean /Users/harryscott/.elan/toolchains/leanprover--lean4---v4.23.0/bin/lean /Users/harryscott/Kantian-IVI/IVI/Pure.lean -o /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Pure.olean -i /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Pure.ilean -c /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Pure.c --setup /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Pure.setup.json --json",
    "level": "trace"},
   {"message":
    "IVI/Pure.lean:19:42: unused variable `s`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
@@ -20,19 +20,17 @@
  [["IVI.Pure:deps",
    [["deps",
      [["ivi/IVI:extraDep", [["@ivi:extraDep", "1723"]]],
-      ["import oleans",
-       [["IVI.Core:olean",
-         [["IVI.Core:deps", "12720339749678921893"],
-          ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Core.olean",
-           "12286444512450632711"]]]]]]],
+      ["imports",
+       [["IVI.Core transitive imports (legacy)", "1723"],
+        ["IVI.Core:importAllArts", "18116588190697556974"]]]]],
     ["libs",
      [["import dynlibs", "1723"],
       ["package external libraries", "1723"],
       ["module dynlibs", "1723"],
       ["module plugins", "1723"]]]]],
-  ["Lean 4.22.0, commit ba2cbbf09d4978f416e0ebd1fceeebc2c4138c05",
-   "8739116525927611134"],
+  ["Lean 4.23.0, commit 50aaf682e9b74ab92880292a25c68baa1cc81c87",
+   "5786258275165720599"],
   ["/Users/harryscott/Kantian-IVI/IVI/Pure.lean", "1210337904923251511"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "7961034688316149121"}
+ "depHash": "11276595643238276656"}

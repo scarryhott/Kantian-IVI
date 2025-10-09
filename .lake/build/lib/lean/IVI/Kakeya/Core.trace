@@ -1,0 +1,54 @@
+{"synthetic": false,
+ "outputs":
+ {"o": ["10632897553017022568"],
+  "i": "8897642605054125624",
+  "c": "10793666397630573943"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/Users/harryscott/Kantian-IVI/.lake/build/lib/lean /Users/harryscott/.elan/toolchains/leanprover--lean4---v4.23.0/bin/lean /Users/harryscott/Kantian-IVI/IVI/Kakeya/Core.lean -o /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Kakeya/Core.olean -i /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Kakeya/Core.ilean -c /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Kakeya/Core.c --setup /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Kakeya/Core.setup.json --json",
+   "level": "trace"},
+  {"message":
+   "IVI/Kakeya/Core.lean:89:2: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`",
+   "level": "warning"},
+  {"message":
+   "IVI/Kakeya/Core.lean:94:2: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`",
+   "level": "warning"},
+  {"message":
+   "IVI/Kakeya/Core.lean:117:5: unused variable `K`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "IVI/Kakeya/Core.lean:118:5: unused variable `stepE`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "IVI/Kakeya/Core.lean:119:5: unused variable `doms`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "IVI/Kakeya/Core.lean:119:35: unused variable `nodes`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"}],
+ "inputs":
+ [["IVI.Kakeya.Core:deps",
+   [["deps",
+     [["ivi/IVI:extraDep", [["@ivi:extraDep", "1723"]]],
+      ["imports",
+       [["IVI.Intangible transitive imports (legacy)", "18366831339449116832"],
+        ["IVI.Intangible:importAllArts", "1307306836415668194"],
+        ["IVI.Invariant transitive imports (legacy)", "16455706825858143466"],
+        ["IVI.Invariant:importAllArts", "6202212656711103309"],
+        ["IVI.Harmonics transitive imports (legacy)", "6113991185488242431"],
+        ["IVI.Harmonics:importAllArts", "10174937585595110126"],
+        ["IVI.Collapse transitive imports (legacy)", "7710953080240532413"],
+        ["IVI.Collapse:importAllArts", "13664618344916580060"],
+        ["IVI.SchematismEvidence transitive imports (legacy)", "1723"],
+        ["IVI.SchematismEvidence:importAllArts", "16712961853345461743"]]]]],
+    ["libs",
+     [["import dynlibs", "1723"],
+      ["package external libraries", "1723"],
+      ["module dynlibs", "1723"],
+      ["module plugins", "1723"]]]]],
+  ["Lean 4.23.0, commit 50aaf682e9b74ab92880292a25c68baa1cc81c87",
+   "5786258275165720599"],
+  ["/Users/harryscott/Kantian-IVI/IVI/Kakeya/Core.lean",
+   "18056098471612581447"],
+  ["options", "1723"],
+  ["Module.leanArgs: #[]", "1723"]],
+ "depHash": "1863720599935130768"}

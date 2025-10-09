@@ -1,0 +1,20 @@
+{"plugins": [],
+ "options": {},
+ "name": "IVI.Kakeya.Core",
+ "isModule": false,
+ "importArts":
+ {"IVI.SchematismEvidence":
+  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/SchematismEvidence.olean"],
+  "IVI.Invariant":
+  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Invariant.olean"],
+  "IVI.Intangible":
+  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Intangible.olean"],
+  "IVI.Harmonics":
+  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Harmonics.olean"],
+  "IVI.Core":
+  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Core.olean"],
+  "IVI.Collapse":
+  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Collapse.olean"],
+  "IVI.C3Model":
+  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/C3Model.olean"]},
+ "dynlibs": []}

@@ -2,5 +2,7 @@
  "options": {},
  "name": "IVI.C3Model",
  "isModule": false,
- "importArts": {},
+ "importArts":
+ {"IVI.Core":
+  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Core.olean"]},
  "dynlibs": []}
