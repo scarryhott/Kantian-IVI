@@ -158,6 +158,57 @@ by
   have hLam := hBound
   simpa using soundnessUnity_of_lambdaBound cfgInv stepE domains nodes ctx will hHead hLam
 
+@[simp] theorem soundnessUnity_from_weylBound
+  (cfgInv : InvariantCfg)
+  (stepE : StepE)
+  (domains : List DomainSignature)
+  (nodes : List DomainNode)
+  (ctx : WillCtx := {})
+  (will : Will := Will.idle)
+  (kernelLip stepLip degreeBound : Float)
+  (hHead : lambdaHeadStable
+      (lambdaVector cfgInv.ncfg.levels cfgInv.W
+        (soundnessBridge cfgInv stepE domains nodes ctx will).unityNext.nodes)
+      cfgInv.epsUnity)
+  (hE : Float.abs ((soundnessBridge cfgInv stepE domains nodes ctx will).deltas.lambdaDiff)
+      ≤ kernelLip * stepLip *
+          (soundnessBridge cfgInv stepE domains nodes ctx will).contract.θMax * degreeBound)
+  (hBudget : kernelLip * stepLip *
+          (soundnessBridge cfgInv stepE domains nodes ctx will).contract.θMax * degreeBound
+        ≤ cfgInv.epsUnity) :
+  soundnessUnity cfgInv stepE domains nodes ctx will :=
+by
+  have hDelta : Float.abs ((soundnessBridge cfgInv stepE domains nodes ctx will).deltas.lambdaDiff)
+      ≤ cfgInv.epsUnity := le_trans hE hBudget
+  exact soundnessUnity_from_deltas cfgInv stepE domains nodes ctx will hHead hDelta
+
+@[simp] theorem soundnessUnity_from_weylBudget
+  (cfgInv : InvariantCfg)
+  (stepE : StepE)
+  (domains : List DomainSignature)
+  (nodes : List DomainNode)
+  (ctx : WillCtx := {})
+  (will : Will := Will.idle)
+  (kernelLip stepLip degreeBound : Float)
+  (hHead : lambdaHeadStable
+      (lambdaVector cfgInv.ncfg.levels cfgInv.W
+        (soundnessBridge cfgInv stepE domains nodes ctx will).unityNext.nodes)
+      cfgInv.epsUnity)
+  (hWeyl : (soundnessBridge cfgInv stepE domains nodes ctx will).contract.Cl ≤
+      kernelLip * stepLip *
+        (soundnessBridge cfgInv stepE domains nodes ctx will).contract.θMax * degreeBound)
+  (hBudget : kernelLip * stepLip *
+        (soundnessBridge cfgInv stepE domains nodes ctx will).contract.θMax * degreeBound
+        ≤ cfgInv.epsUnity) :
+  soundnessUnity cfgInv stepE domains nodes ctx will :=
+by
+  have hDelta : Float.abs ((soundnessBridge cfgInv stepE domains nodes ctx will).deltas.lambdaDiff)
+      ≤ cfgInv.epsUnity := by
+    have := soundnessUnity_from_contractBound cfgInv stepE domains nodes ctx will hHead
+      (le_trans hWeyl hBudget)
+    simpa using this
+  exact soundnessUnity_from_deltas cfgInv stepE domains nodes ctx will hHead hDelta
+
 @[simp] theorem soundnessUnity_from_contractBound
   (cfgInv : InvariantCfg)
   (stepE : StepE)
