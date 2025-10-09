@@ -173,3 +173,26 @@ noncomputable def bridgeStep
   mkKakeyaBridge cfgInv ctx will stepE doms nodes
 
 end IVI
+
+/-- Extract the invariant part of the soundness bridge. -/
+@[simp] noncomputable def soundnessInvariant
+  (cfgInv : InvariantCfg)
+  (stepE : StepE)
+  (domains : List DomainSignature)
+  (nodes : List DomainNode)
+  (ctx : WillCtx := {})
+  (will : Will := Will.idle) : BridgeInvariant :=
+  (soundnessBridge cfgInv stepE domains nodes ctx will).invariant
+
+/-- Extract unity states before and after the step. -/
+@[simp] noncomputable def soundnessUnityStates
+  (cfgInv : InvariantCfg)
+  (stepE : StepE)
+  (domains : List DomainSignature)
+  (nodes : List DomainNode)
+  (ctx : WillCtx := {})
+  (will : Will := Will.idle) : UnityState × UnityState :=
+  let bridge := soundnessBridge cfgInv stepE domains nodes ctx will
+  (bridge.unityPrev, bridge.unityNext)
+
+end IVI
