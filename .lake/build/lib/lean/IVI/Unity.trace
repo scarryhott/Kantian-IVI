@@ -1,0 +1,38 @@
+{"synthetic": false,
+ "outputs":
+ {"o": ["12274032719463013740"],
+  "i": "10747763211834430579",
+  "c": "11703657978288880844"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/Users/harryscott/Kantian-IVI/.lake/build/lib/lean /Users/harryscott/.elan/toolchains/leanprover--lean4---v4.23.0/bin/lean /Users/harryscott/Kantian-IVI/IVI/Unity.lean -o /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Unity.olean -i /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Unity.ilean -c /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Unity.c --setup /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Unity.setup.json --json",
+   "level": "trace"},
+  {"message":
+   "IVI/Unity.lean:25:6: unused variable `lvPrev`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "IVI/Unity.lean:33:6: unused variable `lamPrev`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"}],
+ "inputs":
+ [["IVI.Unity:deps",
+   [["deps",
+     [["ivi/IVI:extraDep", [["@ivi:extraDep", "1723"]]],
+      ["imports",
+       [["IVI.SVObj transitive imports (legacy)", "1132310917149315465"],
+        ["IVI.SVObj:importAllArts", "9360616289091170371"],
+        ["IVI.KakeyaBounds transitive imports (legacy)",
+         "16507694439156314996"],
+        ["IVI.KakeyaBounds:importAllArts", "3764693527638311431"],
+        ["IVI.Invariant transitive imports (legacy)", "16455706825858143466"],
+        ["IVI.Invariant:importAllArts", "6202212656711103309"]]]]],
+    ["libs",
+     [["import dynlibs", "1723"],
+      ["package external libraries", "1723"],
+      ["module dynlibs", "1723"],
+      ["module plugins", "1723"]]]]],
+  ["Lean 4.23.0, commit 50aaf682e9b74ab92880292a25c68baa1cc81c87",
+   "5786258275165720599"],
+  ["/Users/harryscott/Kantian-IVI/IVI/Unity.lean", "3188792861966554617"],
+  ["options", "1723"],
+  ["Module.leanArgs: #[]", "1723"]],
+ "depHash": "3856938885492568925"}
