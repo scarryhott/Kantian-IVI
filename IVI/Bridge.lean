@@ -110,6 +110,17 @@ Iterate Kakeya bridge frames for a given fuel, providing the data needed to
 reconstruct Kantian recognitions once fixed-point conditions are met.
 -/
 
+noncomputable def completenessRun
+  (cfgInv : InvariantCfg)
+  (stepE : StepE)
+  (fuel : Nat)
+  (domains : List DomainSignature)
+  (nodes : List DomainNode)
+  (ctx : WillCtx := {})
+  (will : Will := Will.idle) :
+  BridgeRun cfgInv stepE :=
+  bridgeRun cfgInv stepE fuel domains nodes ctx will
+
 noncomputable def completenessBridge
   (cfgInv : InvariantCfg)
   (stepE : StepE)
@@ -119,7 +130,7 @@ noncomputable def completenessBridge
   (ctx : WillCtx := {})
   (will : Will := Will.idle) :
   List (BridgeFrame cfgInv stepE) :=
-  (iterateBridge cfgInv stepE fuel domains nodes ctx will).fst
+  (completenessRun cfgInv stepE fuel domains nodes ctx will).frames
 
 noncomputable def completenessFinalState
   (cfgInv : InvariantCfg)
@@ -130,7 +141,8 @@ noncomputable def completenessFinalState
   (ctx : WillCtx := {})
   (will : Will := Will.idle) :
   List DomainSignature × List DomainNode :=
-  (iterateBridge cfgInv stepE fuel domains nodes ctx will).snd
+let run := completenessRun cfgInv stepE fuel domains nodes ctx will
+in (run.finalDomains, run.finalNodes)
 
 /-!
 ### Minimality

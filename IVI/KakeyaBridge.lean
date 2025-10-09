@@ -92,18 +92,36 @@ by
       ih frame.bridge.witness.nextDomains frame.bridge.witness.nextNodes
     exact (frame :: tail, finalState)
 
+structure BridgeRun (cfgInv : InvariantCfg) (stepE : StepE) where
+  frames       : List (BridgeFrame cfgInv stepE)
+  finalDomains : List DomainSignature
+  finalNodes   : List DomainNode
+
+@[simp] noncomputable def bridgeRun
+    (cfgInv : InvariantCfg) (stepE : StepE) (fuel : Nat)
+    (doms : List DomainSignature) (nodes : List DomainNode)
+    (ctx : WillCtx := {}) (will : Will := Will.idle) :
+    BridgeRun cfgInv stepE :=
+by
+  classical
+  let res := iterateBridge cfgInv stepE fuel doms nodes ctx will
+  exact { frames := res.fst
+        , finalDomains := res.snd.fst
+        , finalNodes := res.snd.snd }
+
 @[simp] noncomputable def bridgeFrames
     (cfgInv : InvariantCfg) (stepE : StepE) (fuel : Nat)
     (doms : List DomainSignature) (nodes : List DomainNode)
     (ctx : WillCtx := {}) (will : Will := Will.idle) :
     List (BridgeFrame cfgInv stepE) :=
-  (iterateBridge cfgInv stepE fuel doms nodes ctx will).fst
+  (bridgeRun cfgInv stepE fuel doms nodes ctx will).frames
 
 @[simp] noncomputable def bridgeFinalState
     (cfgInv : InvariantCfg) (stepE : StepE) (fuel : Nat)
     (doms : List DomainSignature) (nodes : List DomainNode)
     (ctx : WillCtx := {}) (will : Will := Will.idle) :
     List DomainSignature × List DomainNode :=
-  (iterateBridge cfgInv stepE fuel doms nodes ctx will).snd
+let run := bridgeRun cfgInv stepE fuel doms nodes ctx will
+in (run.finalDomains, run.finalNodes)
 
 end IVI
