@@ -106,6 +106,8 @@ structure ContractWitness
   nextNodes : List DomainNode
   nextObjs : List SVObj
   preObjs : List SVObj
+  lamPrev : Float
+  lamNext : Float
   evidence : StepEvidence
   nodesAligned : K.nodes = nextNodes
   deltas : DeltaPack
@@ -167,6 +169,8 @@ by
     , entropyDiff := entropyDiff
     , lambdaDiff := lambdaDiff
     , θMax := thetaMeasured }
+  let lamPrev := spectralInvariantW defaultWeighting nodes
+  let lamNext := spectralInvariantW defaultWeighting nodes₁
   let preObjs :=
     nodes₁.map fun n =>
       let dir := headingOf n
@@ -199,6 +203,8 @@ by
     , nextNodes := nodes₁
     , nextObjs := nextObjs
     , preObjs := preObjs
+    , lamPrev := lamPrev
+    , lamNext := lamNext
     , evidence := ev
     , nodesAligned := rfl
     , deltas := deltas
@@ -230,6 +236,8 @@ def ContractWitness.relax
     , ctx := w.ctx
     , will := w.will
     , preObjs := w.preObjs
+    , lamPrev := w.lamPrev
+    , lamNext := w.lamNext
     , grainWitness := w.deltas.relaxGrain hCg
     , entropyWitness := w.deltas.relaxEntropy hCe
     , lamWitness := w.deltas.relaxLambda hCl }

@@ -7,6 +7,9 @@
 
 import IVI.Kakeya.Core
 import IVI.KakeyaBounds
+import IVI.KakeyaAssemble
+import IVI.InvariantBridge
+import IVI.Will
 
 namespace IVI
 
@@ -16,6 +19,16 @@ set_option maxHeartbeats 400000
 open Classical
 open KakeyaBounds
 
+/-- Build the full contract witness for a single IVI step. -/
+@[simp] noncomputable def kakeyaWitness
+    (stepE : StepE)
+    (doms : List DomainSignature)
+    (nodes : List DomainNode)
+    (ctx : WillCtx := {})
+    (will : Will := Will.idle) :
+    KakeyaBounds.ContractWitness stepE doms nodes :=
+  KakeyaBounds.buildContract stepE doms nodes ctx will
+
 /-- IVI–Kakeya Principle: assemble a Kakeya field and preservation contract. -/
 theorem IVI_Kakeya_Principle
   (stepE : StepE)
@@ -24,9 +37,9 @@ theorem IVI_Kakeya_Principle
   ∃ K : KakeyaField, preservesKakeya K stepE doms nodes :=
 by
   classical
-  let witness := KakeyaBounds.buildContract stepE doms nodes
+  let witness := kakeyaWitness stepE doms nodes
   refine ⟨witness.K, ?_⟩
-  exact KakeyaBounds.assemble_preservation_from_components witness
+  exact preserves_of_witness (w := witness)
 
 /-- Existence corollary: there is a directionally complete, non-collapsing field. -/
 @[simp] theorem exists_kakeya_field

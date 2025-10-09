@@ -14,7 +14,7 @@
       ["imports",
        [["IVI.KakeyaBounds transitive imports (legacy)",
          "16507694439156314996"],
-        ["IVI.KakeyaBounds:importAllArts", "4053996230844202380"],
+        ["IVI.KakeyaBounds:importAllArts", "12404322220200890540"],
         ["IVI.Bounds transitive imports (legacy)", "1723"],
         ["IVI.Bounds:importAllArts", "8128756869966731433"]]]]],
     ["libs",
@@ -27,4 +27,4 @@
   ["/Users/harryscott/Kantian-IVI/IVI/Relax.lean", "1346973362737903296"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "5832079907790594382"}
+ "depHash": "6278583390135447657"}

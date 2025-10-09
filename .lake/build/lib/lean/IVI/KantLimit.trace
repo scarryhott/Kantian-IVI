@@ -16,8 +16,8 @@
         ["IVI.Invariant:importAllArts", "6202212656711103309"],
         ["IVI.Harmonics transitive imports (legacy)", "6113991185488242431"],
         ["IVI.Harmonics:importAllArts", "10174937585595110126"],
-        ["IVI.Kakeya transitive imports (legacy)", "13644421611493222524"],
-        ["IVI.Kakeya:importAllArts", "4690617310284495943"]]]]],
+        ["IVI.Kakeya transitive imports (legacy)", "11420471990871661752"],
+        ["IVI.Kakeya:importAllArts", "9712946405730243976"]]]]],
     ["libs",
      [["import dynlibs", "1723"],
       ["package external libraries", "1723"],
@@ -28,4 +28,4 @@
   ["/Users/harryscott/Kantian-IVI/IVI/KantLimit.lean", "15692200279887317632"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "12214557332769617643"}
+ "depHash": "12205850865784678129"}

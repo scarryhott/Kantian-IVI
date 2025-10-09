@@ -11,14 +11,20 @@
   ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/SchemaLaw.olean"],
   "IVI.SVObj":
   ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/SVObj.olean"],
+  "IVI.Relax":
+  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Relax.olean"],
   "IVI.Operators":
   ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Operators.olean"],
   "IVI.Logic":
   ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Logic.olean"],
   "IVI.KakeyaBounds":
   ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/KakeyaBounds.olean"],
+  "IVI.KakeyaAssemble":
+  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/KakeyaAssemble.olean"],
   "IVI.Kakeya.Core":
   ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Kakeya/Core.olean"],
+  "IVI.InvariantBridge":
+  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/InvariantBridge.olean"],
   "IVI.Invariant":
   ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Invariant.olean"],
   "IVI.Intangible":

@@ -1,6 +1,6 @@
 // Lean compiler output
-// Module: IVI.Kakeya
-// Imports: Init IVI.Kakeya.Core IVI.KakeyaBounds IVI.KakeyaAssemble IVI.InvariantBridge IVI.Will
+// Module: IVI.InvariantBridge
+// Imports: Init IVI.KakeyaBounds IVI.Invariant
 #include <lean/lean.h>
 #if defined(__clang__)
 #pragma clang diagnostic ignored "-Wunused-parameter"
@@ -14,32 +14,20 @@
 extern "C" {
 #endif
 lean_object* initialize_Init(uint8_t builtin, lean_object*);
-lean_object* initialize_IVI_Kakeya_Core(uint8_t builtin, lean_object*);
 lean_object* initialize_IVI_KakeyaBounds(uint8_t builtin, lean_object*);
-lean_object* initialize_IVI_KakeyaAssemble(uint8_t builtin, lean_object*);
-lean_object* initialize_IVI_InvariantBridge(uint8_t builtin, lean_object*);
-lean_object* initialize_IVI_Will(uint8_t builtin, lean_object*);
+lean_object* initialize_IVI_Invariant(uint8_t builtin, lean_object*);
 static bool _G_initialized = false;
-LEAN_EXPORT lean_object* initialize_IVI_Kakeya(uint8_t builtin, lean_object* w) {
+LEAN_EXPORT lean_object* initialize_IVI_InvariantBridge(uint8_t builtin, lean_object* w) {
 lean_object * res;
 if (_G_initialized) return lean_io_result_mk_ok(lean_box(0));
 _G_initialized = true;
 res = initialize_Init(builtin, lean_io_mk_world());
 if (lean_io_result_is_error(res)) return res;
 lean_dec_ref(res);
-res = initialize_IVI_Kakeya_Core(builtin, lean_io_mk_world());
-if (lean_io_result_is_error(res)) return res;
-lean_dec_ref(res);
 res = initialize_IVI_KakeyaBounds(builtin, lean_io_mk_world());
 if (lean_io_result_is_error(res)) return res;
 lean_dec_ref(res);
-res = initialize_IVI_KakeyaAssemble(builtin, lean_io_mk_world());
-if (lean_io_result_is_error(res)) return res;
-lean_dec_ref(res);
-res = initialize_IVI_InvariantBridge(builtin, lean_io_mk_world());
-if (lean_io_result_is_error(res)) return res;
-lean_dec_ref(res);
-res = initialize_IVI_Will(builtin, lean_io_mk_world());
+res = initialize_IVI_Invariant(builtin, lean_io_mk_world());
 if (lean_io_result_is_error(res)) return res;
 lean_dec_ref(res);
 return lean_io_result_mk_ok(lean_box(0));

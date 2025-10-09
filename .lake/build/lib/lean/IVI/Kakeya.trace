@@ -1,8 +1,8 @@
 {"synthetic": false,
  "outputs":
- {"o": ["5437100407573839350"],
-  "i": "1263209118127163850",
-  "c": "6994793695031190621"},
+ {"o": ["10670892749347402803"],
+  "i": "8255392670306006957",
+  "c": "7326307563495632621"},
  "log":
  [{"message":
    ".> LEAN_PATH=/Users/harryscott/Kantian-IVI/.lake/build/lib/lean /Users/harryscott/.elan/toolchains/leanprover--lean4---v4.23.0/bin/lean /Users/harryscott/Kantian-IVI/IVI/Kakeya.lean -o /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Kakeya.olean -i /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Kakeya.ilean -c /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Kakeya.c --setup /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Kakeya.setup.json --json",
@@ -16,7 +16,15 @@
         ["IVI.Kakeya.Core:importAllArts", "2116020674087704044"],
         ["IVI.KakeyaBounds transitive imports (legacy)",
          "16507694439156314996"],
-        ["IVI.KakeyaBounds:importAllArts", "4053996230844202380"]]]]],
+        ["IVI.KakeyaBounds:importAllArts", "12404322220200890540"],
+        ["IVI.KakeyaAssemble transitive imports (legacy)",
+         "8019738861970885067"],
+        ["IVI.KakeyaAssemble:importAllArts", "13541518546258193193"],
+        ["IVI.InvariantBridge transitive imports (legacy)",
+         "18155378140912099398"],
+        ["IVI.InvariantBridge:importAllArts", "4486981766454855850"],
+        ["IVI.Will transitive imports (legacy)", "14342350051768402180"],
+        ["IVI.Will:importAllArts", "7327294481807090206"]]]]],
     ["libs",
      [["import dynlibs", "1723"],
       ["package external libraries", "1723"],
@@ -24,7 +32,7 @@
       ["module plugins", "1723"]]]]],
   ["Lean 4.23.0, commit 50aaf682e9b74ab92880292a25c68baa1cc81c87",
    "5786258275165720599"],
-  ["/Users/harryscott/Kantian-IVI/IVI/Kakeya.lean", "6744913590236274133"],
+  ["/Users/harryscott/Kantian-IVI/IVI/Kakeya.lean", "13033874555967366612"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "16601895060780461309"}
+ "depHash": "3622604459102229260"}

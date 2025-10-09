@@ -1,8 +1,8 @@
 {"synthetic": false,
  "outputs":
- {"o": ["926777745095693470"],
-  "i": "1061726344564131415",
-  "c": "12389038921314291486"},
+ {"o": ["17302390440057970450"],
+  "i": "17167993528714279765",
+  "c": "15837921246116028475"},
  "log":
  [{"message":
    ".> LEAN_PATH=/Users/harryscott/Kantian-IVI/.lake/build/lib/lean /Users/harryscott/.elan/toolchains/leanprover--lean4---v4.23.0/bin/lean /Users/harryscott/Kantian-IVI/IVI/KakeyaBounds.lean -o /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/KakeyaBounds.olean -i /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/KakeyaBounds.ilean -c /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/KakeyaBounds.c --setup /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/KakeyaBounds.setup.json --json",
@@ -28,7 +28,7 @@
   ["Lean 4.23.0, commit 50aaf682e9b74ab92880292a25c68baa1cc81c87",
    "5786258275165720599"],
   ["/Users/harryscott/Kantian-IVI/IVI/KakeyaBounds.lean",
-   "15611680035536639166"],
+   "3487627882111571963"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "4697304625748009428"}
+ "depHash": "5640723045851141270"}

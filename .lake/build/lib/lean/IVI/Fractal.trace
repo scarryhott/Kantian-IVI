@@ -26,9 +26,9 @@
         ["IVI.Harmonics:importAllArts", "10174937585595110126"],
         ["IVI.Collapse transitive imports (legacy)", "7710953080240532413"],
         ["IVI.Collapse:importAllArts", "13664618344916580060"],
-        ["IVI.Kakeya transitive imports (legacy)", "13644421611493222524"],
-        ["IVI.Kakeya:importAllArts", "4690617310284495943"],
-        ["IVI.KantLimit transitive imports (legacy)", "11242859871715366068"],
+        ["IVI.Kakeya transitive imports (legacy)", "11420471990871661752"],
+        ["IVI.Kakeya:importAllArts", "9712946405730243976"],
+        ["IVI.KantLimit transitive imports (legacy)", "12001580588274074820"],
         ["IVI.KantLimit:importAllArts", "322755523623908720"]]]]],
     ["libs",
      [["import dynlibs", "1723"],
@@ -40,4 +40,4 @@
   ["/Users/harryscott/Kantian-IVI/IVI/Fractal.lean", "13501463215043298475"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "13745631692005772009"}
+ "depHash": "8774535919257050447"}

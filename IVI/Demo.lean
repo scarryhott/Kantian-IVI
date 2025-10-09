@@ -17,6 +17,9 @@ import IVI.Invariant
 import IVI.Harmonics
 import IVI.Fractal
 import IVI.KakeyaBounds
+import IVI.Kakeya.Core
+import IVI.SchemaLaw
+import IVI.Will
 
 open IVI
 open Intangible
@@ -124,6 +127,24 @@ def main : IO Unit := do
   let layer0 : FractalLayer := { depth := 0, nodes := domainNodes }
   let itrans : ITranslation := { k := k, pairs := interactions }
   let maxZooms : Nat := 4
+  let computeTheta
+      (ctx : WillCtx) (obj : SVObj) : Float :=
+    let dir := headingOf obj.ivi.node
+    let schemaId := obj.ivi.node.signature.name
+    let sc : SchemaContext :=
+      { schema := schemaId
+      , concept := schemaId
+      , direction := dir
+      , intensity := dirNorm dir }
+    ctx.law.chooseTheta sc
+  let demoWillCtx : WillCtx := { bounds := defaultBounds, law := SchemaLaw.default }
+  let demoWill : Will :=
+    { selectSchema := fun _ obj => obj.ivi.node.signature.name
+    , chooseTheta := fun ctx obj => computeTheta ctx obj
+    , apply := fun ctx obj =>
+        let θ := computeTheta ctx obj
+        { obj with ivi := { obj.ivi with θChoice := θ } }
+    , respectsGuard := fun _ _ => True }
   let runDiagnostics
       (label : String) (τGrain τIntuition τStick : Float)
       (doms₀ : List DomainSignature) : IO Unit := do
@@ -178,6 +199,7 @@ def main : IO Unit := do
           let collapsePrev := kLayer.collapseScore
           let collapseFlag := kLayer.collapseExceededBool
           let witness := KakeyaBounds.buildContract (itrans.stepE) doms layerPrev.nodes
+            demoWillCtx demoWill
           let layerNext : FractalLayer := { depth := layerPrev.depth + 1, nodes := witness.nextNodes }
           let SNext := resonanceMatrixW defaultWeighting witness.nextNodes
           let grainNext := graininessScore SNext
@@ -200,6 +222,8 @@ def main : IO Unit := do
           IO.println s!"  zoom {idx}→{idx+1}: grain={grainPrev}→{grainNext}, stick={(stickinessScoreEval SPrev SNext)}"
           IO.println s!"    pack Δgrain={deltaPack.grainDiff}, ΔH={deltaPack.entropyDiff}, Δλ={deltaPack.lambdaDiff}, θMax={deltaPack.θMax}"
           IO.println s!"    |Δ| pack={deltaPack.Δgrain}, {deltaPack.Δentropy}, {deltaPack.Δlambda}"
+          IO.println s!"    pre-schema labels={witness.preObjs.map (·.kant.recognition.label)}"
+          IO.println s!"    chosen θ={witness.nextObjs.map (·.ivi.θChoice)}"
           IO.println s!"    measured Δgrain={ΔgrainMeasured}, ΔH={ΔHMeasured}, Δλ={ΔλMeasured}, θMax={θMaxMeasured}"
           IO.println s!"    contract: Cg={witness.contract.Cg}, Ce={witness.contract.Ce}, Cl={witness.contract.Cl}, θMax={witness.contract.θMax}"
           if collapseFlag then

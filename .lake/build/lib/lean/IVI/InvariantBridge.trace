@@ -1,0 +1,31 @@
+{"synthetic": false,
+ "outputs":
+ {"o": ["8918699294069807286"],
+  "i": "11113169277315705311",
+  "c": "2686770187476316720"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/Users/harryscott/Kantian-IVI/.lake/build/lib/lean /Users/harryscott/.elan/toolchains/leanprover--lean4---v4.23.0/bin/lean /Users/harryscott/Kantian-IVI/IVI/InvariantBridge.lean -o /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/InvariantBridge.olean -i /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/InvariantBridge.ilean -c /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/InvariantBridge.c --setup /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/InvariantBridge.setup.json --json",
+   "level": "trace"}],
+ "inputs":
+ [["IVI.InvariantBridge:deps",
+   [["deps",
+     [["ivi/IVI:extraDep", [["@ivi:extraDep", "1723"]]],
+      ["imports",
+       [["IVI.KakeyaBounds transitive imports (legacy)",
+         "16507694439156314996"],
+        ["IVI.KakeyaBounds:importAllArts", "12404322220200890540"],
+        ["IVI.Invariant transitive imports (legacy)", "16455706825858143466"],
+        ["IVI.Invariant:importAllArts", "6202212656711103309"]]]]],
+    ["libs",
+     [["import dynlibs", "1723"],
+      ["package external libraries", "1723"],
+      ["module dynlibs", "1723"],
+      ["module plugins", "1723"]]]]],
+  ["Lean 4.23.0, commit 50aaf682e9b74ab92880292a25c68baa1cc81c87",
+   "5786258275165720599"],
+  ["/Users/harryscott/Kantian-IVI/IVI/InvariantBridge.lean",
+   "3553504362378013391"],
+  ["options", "1723"],
+  ["Module.leanArgs: #[]", "1723"]],
+ "depHash": "7283299461617861045"}

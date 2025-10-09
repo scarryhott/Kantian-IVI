@@ -31,6 +31,8 @@
   ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Kakeya/Core.olean"],
   "IVI.Kakeya":
   ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Kakeya.olean"],
+  "IVI.InvariantBridge":
+  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/InvariantBridge.olean"],
   "IVI.Invariant":
   ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Invariant.olean"],
   "IVI.Intangible":

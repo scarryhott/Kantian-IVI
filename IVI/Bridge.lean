@@ -13,6 +13,10 @@ import IVI.Invariant
 import IVI.FixedPoint
 import IVI.Intangible
 import IVI.SchematismSpec
+import IVI.KakeyaBounds
+import IVI.Will
+import IVI.SVObj
+import IVI.KakeyaBridge
 
 namespace IVI
 
@@ -81,36 +85,52 @@ If `Kant` is a closure of the axioms A1–A12 (with syntheses, schematism), show
 embedding into IVI (without collapse) preserves verification.
 -/
 
-def soundness
+noncomputable def soundness
   (cfgInv : InvariantCfg)
-  (step : List DomainSignature → List DomainNode →
-          (List DomainSignature × List DomainNode × StepEvidence))
+  (stepE : StepE)
   (domains : List DomainSignature)
-  (nodes : List DomainNode) : InvariantProps :=
-  let (doms₁, nodes₁, ev) := step domains nodes
-  let prevλ := spectralInvariantW cfgInv.W nodes
-  let curλ  := spectralInvariantW cfgInv.W nodes₁
-  invariantProps cfgInv prevλ curλ nodes nodes₁ ev
+  (nodes : List DomainNode)
+  (ctx : WillCtx := {})
+  (will : Will := Will.idle) : InvariantProps :=
+  (soundnessBridge cfgInv stepE domains nodes ctx will).invariant.invProps
+
+@[simp] noncomputable def soundnessUnity
+  (cfgInv : InvariantCfg)
+  (stepE : StepE)
+  (domains : List DomainSignature)
+  (nodes : List DomainNode)
+  (ctx : WillCtx := {})
+  (will : Will := Will.idle) : Prop :=
+  let bridge := soundnessBridge cfgInv stepE domains nodes ctx will
+  unityProgress cfgInv bridge.unityPrev bridge.unityNext
 
 /-!
 ### Completeness
-Given an IVI run that reaches a fixed point, reconstruct a Kantian recognition
-under the schematism/categorical apparatus.
+Iterate Kakeya bridge frames for a given fuel, providing the data needed to
+reconstruct Kantian recognitions once fixed-point conditions are met.
 -/
 
-def completeness
-  (cfgFix : FixedCfg)
+noncomputable def completenessBridge
   (cfgInv : InvariantCfg)
-  (seed : List DomainSignature)
+  (stepE : StepE)
+  (fuel : Nat)
   (domains : List DomainSignature)
   (nodes : List DomainNode)
-  (step : List DomainSignature → List DomainNode →
-          (List DomainSignature × List DomainNode))
-  (toKant : List DomainSignature → List DomainNode → Recognition C3State Nat)
-  : Recognition C3State Nat × Float :=
-  let witness := runToFixedPoint cfgFix step seed domains nodes
-  let lam := spectralInvariantW cfgInv.W witness.nodes
-  (toKant witness.domains witness.nodes, lam)
+  (ctx : WillCtx := {})
+  (will : Will := Will.idle) :
+  List (BridgeFrame cfgInv stepE) :=
+  (iterateBridge cfgInv stepE fuel domains nodes ctx will).fst
+
+noncomputable def completenessFinalState
+  (cfgInv : InvariantCfg)
+  (stepE : StepE)
+  (fuel : Nat)
+  (domains : List DomainSignature)
+  (nodes : List DomainNode)
+  (ctx : WillCtx := {})
+  (will : Will := Will.idle) :
+  List DomainSignature × List DomainNode :=
+  (iterateBridge cfgInv stepE fuel domains nodes ctx will).snd
 
 /-!
 ### Minimality
@@ -125,5 +145,31 @@ def minimality_reciprocity (contra : False) : False := contra
 def minimality_schematism (contra : False) : False := contra
 
 -- Add analogous lemmas for other axioms as needed.
+
+end IVI
+
+section BridgeInvariants
+
+variable (cfgInv : InvariantCfg)
+variable {stepE : StepE} {doms : List DomainSignature} {nodes : List DomainNode}
+
+noncomputable def bridgeInvariantFromWitness
+  (ctx : WillCtx := {}) (will : Will := Will.idle)
+  (w : KakeyaBounds.ContractWitness stepE doms nodes) : BridgeInvariant :=
+bridgeFromWitness cfgInv w
+
+end BridgeInvariants
+
+end IVI
+
+/-- Bridge corollary: extracting invariants from one Kakeya step. -/
+noncomputable def bridgeStep
+  (cfgInv : InvariantCfg)
+  (stepE : StepE)
+  (doms : List DomainSignature)
+  (nodes : List DomainNode)
+  (ctx : WillCtx := {})
+  (will : Will := Will.idle) : KakeyaBridge cfgInv (stepE := stepE) doms nodes :=
+  mkKakeyaBridge cfgInv ctx will stepE doms nodes
 
 end IVI
