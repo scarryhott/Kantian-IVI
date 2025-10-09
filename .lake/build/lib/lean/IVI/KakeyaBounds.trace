@@ -1,18 +1,12 @@
 {"synthetic": false,
  "outputs":
- {"o": ["17482604522003248847"],
-  "i": "16904221674764650226",
-  "c": "14133561181709345233"},
+ {"o": ["4630803806123021124"],
+  "i": "17032078430912466851",
+  "c": "14581969189556489452"},
  "log":
  [{"message":
    ".> LEAN_PATH=/Users/harryscott/Kantian-IVI/.lake/build/lib/lean /Users/harryscott/.elan/toolchains/leanprover--lean4---v4.23.0/bin/lean /Users/harryscott/Kantian-IVI/IVI/KakeyaBounds.lean -o /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/KakeyaBounds.olean -i /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/KakeyaBounds.ilean -c /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/KakeyaBounds.c --setup /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/KakeyaBounds.setup.json --json",
-   "level": "trace"},
-  {"message": "IVI/KakeyaBounds.lean:49:18: declaration uses 'sorry'",
-   "level": "warning"},
-  {"message": "IVI/KakeyaBounds.lean:49:18: declaration uses 'sorry'",
-   "level": "warning"},
-  {"message": "IVI/KakeyaBounds.lean:49:18: declaration uses 'sorry'",
-   "level": "warning"}],
+   "level": "trace"}],
  "inputs":
  [["IVI.KakeyaBounds:deps",
    [["deps",
@@ -28,7 +22,7 @@
   ["Lean 4.23.0, commit 50aaf682e9b74ab92880292a25c68baa1cc81c87",
    "5786258275165720599"],
   ["/Users/harryscott/Kantian-IVI/IVI/KakeyaBounds.lean",
-   "7366288541686156980"],
+   "15086931224019910880"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "9920492684729201793"}
+ "depHash": "6522370431956805833"}

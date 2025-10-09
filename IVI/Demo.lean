@@ -16,10 +16,12 @@ import IVI.Intangible
 import IVI.Invariant
 import IVI.Harmonics
 import IVI.Fractal
+import IVI.KakeyaBounds
 
 open IVI
 open Intangible
 open Invariant
+open KakeyaBounds
 
 set_option autoImplicit true
 
@@ -123,7 +125,8 @@ def main : IO Unit := do
   let itrans : ITranslation := { k := k, pairs := interactions }
   let maxZooms : Nat := 4
   let runDiagnostics
-      (label : String) (τGrain τIntuition τStick : Float) : IO Unit := do
+      (label : String) (τGrain τIntuition τStick : Float)
+      (doms₀ : List DomainSignature) : IO Unit := do
     IO.println label
     let dedupNat (xs : List Nat) : List Nat :=
       let acc := xs.foldl
@@ -166,20 +169,42 @@ def main : IO Unit := do
     let grainInit := graininessScore (resonanceMatrixW defaultWeighting layer0.nodes)
     let collapseInit := (baseField.withLayer layer0).collapseScore
     IO.println s!"  layer 0: grain={grainInit}, collapseScore={collapseInit}, safe={(baseField.withLayer layer0).collapseOK}"
-    let rec logZooms : Nat → Nat → FractalLayer → IO Unit
-      | 0, _, _ => pure ()
-      | Nat.succ remaining, idx, layerPrev => do
+    let rec logZooms : Nat → Nat → List DomainSignature → FractalLayer → IO Unit
+      | 0, _, _, _ => pure ()
+      | Nat.succ remaining, idx, doms, layerPrev => do
           let SPrev := resonanceMatrixW defaultWeighting layerPrev.nodes
           let grainPrev := graininessScore SPrev
           let kLayer := baseField.withLayer layerPrev
           let collapsePrev := kLayer.collapseScore
           let collapseFlag := kLayer.collapseExceededBool
+          let witness := KakeyaBounds.buildContract (itrans.stepE) doms layerPrev.nodes
+          let layerNext : FractalLayer := { depth := layerPrev.depth + 1, nodes := witness.nextNodes }
+          let SNext := resonanceMatrixW defaultWeighting witness.nextNodes
+          let grainNext := graininessScore SNext
+          let HPrev := rowEntropy (symmetriseLL SPrev)
+          let HNext := rowEntropy (symmetriseLL SNext)
+          let λPrev := spectralInvariant layerPrev.nodes
+          let λNext := spectralInvariant witness.nextNodes
+          let deltaPack := witness.deltas
+          let ΔgrainMeasured := grainNext - grainPrev
+          let ΔHMeasured := HNext - HPrev
+          let ΔλMeasured := λNext - λPrev
+          let θMaxMeasured :=
+            (layerPrev.nodes.zip witness.nextNodes).foldl
+              (fun acc pair =>
+                let θPrev := pair.fst.state.time.theta
+                let θNext := pair.snd.state.time.theta
+                let δ := Float.abs (θNext - θPrev)
+                if acc < δ then δ else acc)
+              0.0
+          IO.println s!"  zoom {idx}→{idx+1}: grain={grainPrev}→{grainNext}, stick={(stickinessScoreEval SPrev SNext)}"
+          IO.println s!"    pack Δgrain={deltaPack.grainDiff}, ΔH={deltaPack.entropyDiff}, Δλ={deltaPack.lambdaDiff}, θMax={deltaPack.θMax}"
+          IO.println s!"    |Δ| pack={deltaPack.Δgrain}, {deltaPack.Δentropy}, {deltaPack.Δlambda}"
+          IO.println s!"    measured Δgrain={ΔgrainMeasured}, ΔH={ΔHMeasured}, Δλ={ΔλMeasured}, θMax={θMaxMeasured}"
+          IO.println s!"    contract: Cg={witness.contract.Cg}, Ce={witness.contract.Ce}, Cl={witness.contract.Cl}, θMax={witness.contract.θMax}"
           if collapseFlag then
-            IO.println s!"  zoom halt at {idx}: grain={grainPrev}, collapseScore={collapsePrev} (exceeds τ={τGrain})"
+            IO.println s!"    collapseScore={collapsePrev} (exceeds τ={τGrain}); halting zooms"
           else
-            let (layerNext, _) := itrans.zoomE layerPrev
-            let SNext := resonanceMatrixW defaultWeighting layerNext.nodes
-            let grainNext := graininessScore SNext
             let stickPrev := stickinessScoreEval SPrev SNext
             let boundedFlag : Bool := grainNext ≤ τIntuition
             let schematismFlag : Bool := stickPrev ≥ τStick
@@ -187,11 +212,11 @@ def main : IO Unit := do
               if collapsePrev ≤ baseField.collapseCfg.τGrain then true else false
             let unityFlag : Bool := Float.abs (grainNext - grainPrev) ≤ 1e-3
             let selfSimFlag : Bool := boundedFlag ∧ schematismFlag ∧ unityFlag
-            IO.println s!"  zoom {idx}→{idx+1}: grain={grainPrev}→{grainNext}, stick={stickPrev}, collapseScore={collapsePrev}, Kant*(b={boundedFlag}, s={schematismFlag}, n={noumenalFlag}, u={unityFlag}), self-sim≈{selfSimFlag}"
-            logZooms remaining (idx + 1) layerNext
-    logZooms maxZooms 0 layer0
-  runDiagnostics "Intangible Kakeya (τ=0.6)" 0.6 0.6 0.7
-  runDiagnostics "Strict Kakeya (τ=0.0005)" 0.0005 0.6 0.7
+            IO.println s!"    collapseScore={collapsePrev}, Kant*(b={boundedFlag}, s={schematismFlag}, n={noumenalFlag}, u={unityFlag}), self-sim≈{selfSimFlag}"
+            logZooms remaining (idx + 1) witness.nextDomains layerNext
+    logZooms maxZooms 0 doms₀ layer0
+  runDiagnostics "Intangible Kakeya (τ=0.6)" 0.6 0.6 0.7 domainsList
+  runDiagnostics "Strict Kakeya (τ=0.0005)" 0.0005 0.6 0.7 domainsList
 
   -- Reference to future theorem work (placeholders compile today).
   let _ : True := T4_practical_aperture_unique
