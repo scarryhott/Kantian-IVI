@@ -113,7 +113,7 @@ noncomputable def soundness
   let bridge := soundnessBridge cfgInv stepE domains nodes ctx will
   unityProgress cfgInv bridge.unityPrev bridge.unityNext
 
-@[simp] theorem soundnessUnity_of_bounds
+@[simp] theorem soundnessUnity_of_lambdaBound
   (cfgInv : InvariantCfg)
   (stepE : StepE)
   (domains : List DomainSignature)
@@ -125,8 +125,8 @@ noncomputable def soundness
         (soundnessBridge cfgInv stepE domains nodes ctx will).unityNext.nodes)
       cfgInv.epsUnity)
   (hLam : Float.abs
-      ((soundnessBridge cfgInv stepE domains nodes ctx will).unityNext.lam -
-        (soundnessBridge cfgInv stepE domains nodes ctx will).unityPrev.lam)
+      ((soundnessBridge cfgInv stepE domains nodes ctx will).lamNext -
+        (soundnessBridge cfgInv stepE domains nodes ctx will).lamPrev)
       ≤ cfgInv.epsUnity) :
   soundnessUnity cfgInv stepE domains nodes ctx will :=
 by
@@ -135,8 +135,9 @@ by
       lambdaHeadStable (lambdaVector cfgInv.ncfg.levels cfgInv.W bridge.unityNext.nodes)
         cfgInv.epsUnity := by simpa [bridge] using hHead
   have hLam' :
-      Float.abs (bridge.unityNext.lam - bridge.unityPrev.lam) ≤ cfgInv.epsUnity :=
-    by simpa [bridge] using hLam
+      Float.abs (bridge.unityNext.lam - bridge.unityPrev.lam) ≤ cfgInv.epsUnity := by
+    simpa [bridge, KakeyaBridge.unityNext_lam, KakeyaBridge.unityPrev_lam]
+      using hLam
   simpa [soundnessUnity, bridge, unityProgress] using And.intro hHead' hLam'
 
 /-!

@@ -27,6 +27,18 @@ structure KakeyaBridge where
   lamNext   : Float
   preserves : preservesKakeya witness.K stepE doms nodes
 
+@[simp] theorem unityPrev_lam
+  {cfgInv : InvariantCfg} {stepE : StepE}
+  {doms : List DomainSignature} {nodes : List DomainNode}
+  (B : KakeyaBridge cfgInv (stepE := stepE) doms nodes) :
+  B.unityPrev.lam = B.lamPrev := by cases B; rfl
+
+@[simp] theorem unityNext_lam
+  {cfgInv : InvariantCfg} {stepE : StepE}
+  {doms : List DomainSignature} {nodes : List DomainNode}
+  (B : KakeyaBridge cfgInv (stepE := stepE) doms nodes) :
+  B.unityNext.lam = B.lamNext := by cases B; rfl
+
 variable (cfgInv : InvariantCfg)
 variable (ctx : WillCtx := {}) (will : Will := Will.idle)
 
