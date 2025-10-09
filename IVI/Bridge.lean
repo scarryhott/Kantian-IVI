@@ -79,11 +79,20 @@ structure IVIToKant where
   objMap : DomainNode → SVO C3State
   stepMap : List DomainSignature → List DomainNode → Recognition C3State Nat
 
-/-!
+/--
 ### Soundness
 If `Kant` is a closure of the axioms A1–A12 (with syntheses, schematism), show
 embedding into IVI (without collapse) preserves verification.
 -/
+
+noncomputable def soundnessBridge
+  (cfgInv : InvariantCfg)
+  (stepE : StepE)
+  (domains : List DomainSignature)
+  (nodes : List DomainNode)
+  (ctx : WillCtx := {})
+  (will : Will := Will.idle) : KakeyaBridge cfgInv (stepE := stepE) domains nodes :=
+  bridgeStep cfgInv stepE domains nodes ctx will
 
 noncomputable def soundness
   (cfgInv : InvariantCfg)
@@ -103,6 +112,32 @@ noncomputable def soundness
   (will : Will := Will.idle) : Prop :=
   let bridge := soundnessBridge cfgInv stepE domains nodes ctx will
   unityProgress cfgInv bridge.unityPrev bridge.unityNext
+
+@[simp] theorem soundnessUnity_of_bounds
+  (cfgInv : InvariantCfg)
+  (stepE : StepE)
+  (domains : List DomainSignature)
+  (nodes : List DomainNode)
+  (ctx : WillCtx := {})
+  (will : Will := Will.idle)
+  (hHead : lambdaHeadStable
+      (lambdaVector cfgInv.ncfg.levels cfgInv.W
+        (soundnessBridge cfgInv stepE domains nodes ctx will).unityNext.nodes)
+      cfgInv.epsUnity)
+  (hLam : Float.abs
+      ((soundnessBridge cfgInv stepE domains nodes ctx will).unityNext.lam -
+        (soundnessBridge cfgInv stepE domains nodes ctx will).unityPrev.lam)
+      ≤ cfgInv.epsUnity) :
+  soundnessUnity cfgInv stepE domains nodes ctx will :=
+by
+  set bridge := soundnessBridge cfgInv stepE domains nodes ctx will
+  have hHead' :
+      lambdaHeadStable (lambdaVector cfgInv.ncfg.levels cfgInv.W bridge.unityNext.nodes)
+        cfgInv.epsUnity := by simpa [bridge] using hHead
+  have hLam' :
+      Float.abs (bridge.unityNext.lam - bridge.unityPrev.lam) ≤ cfgInv.epsUnity :=
+    by simpa [bridge] using hLam
+  simpa [soundnessUnity, bridge, unityProgress] using And.intro hHead' hLam'
 
 /-!
 ### Completeness
@@ -206,5 +241,29 @@ end IVI
   (will : Will := Will.idle) : UnityState × UnityState :=
   let bridge := soundnessBridge cfgInv stepE domains nodes ctx will
   (bridge.unityPrev, bridge.unityNext)
+
+end IVI
+
+/-- Extract invariants for every frame in the completeness bridge run. -/
+@[simp] noncomputable def completenessInvariants
+  (cfgInv : InvariantCfg)
+  (stepE : StepE)
+  (fuel : Nat)
+  (domains : List DomainSignature)
+  (nodes : List DomainNode)
+  (ctx : WillCtx := {})
+  (will : Will := Will.idle) : List BridgeInvariant :=
+  (completenessBridge cfgInv stepE fuel domains nodes ctx will).map (·.bridge.invariant)
+
+@[simp] noncomputable def completenessUnityStates
+  (cfgInv : InvariantCfg)
+  (stepE : StepE)
+  (fuel : Nat)
+  (domains : List DomainSignature)
+  (nodes : List DomainNode)
+  (ctx : WillCtx := {})
+  (will : Will := Will.idle) : List (UnityState × UnityState) :=
+  (completenessBridge cfgInv stepE fuel domains nodes ctx will).map
+    (fun frame => (frame.bridge.unityPrev, frame.bridge.unityNext))
 
 end IVI
