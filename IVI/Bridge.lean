@@ -140,6 +140,50 @@ by
       using hLam
   simpa [soundnessUnity, bridge, unityProgress] using And.intro hHead' hLam'
 
+@[simp] theorem soundnessUnity_from_deltas
+  (cfgInv : InvariantCfg)
+  (stepE : StepE)
+  (domains : List DomainSignature)
+  (nodes : List DomainNode)
+  (ctx : WillCtx := {})
+  (will : Will := Will.idle)
+  (hHead : lambdaHeadStable
+      (lambdaVector cfgInv.ncfg.levels cfgInv.W
+        (soundnessBridge cfgInv stepE domains nodes ctx will).unityNext.nodes)
+      cfgInv.epsUnity)
+  (hBound : Float.abs ((soundnessBridge cfgInv stepE domains nodes ctx will).deltas.lambdaDiff) ≤
+      cfgInv.epsUnity) :
+  soundnessUnity cfgInv stepE domains nodes ctx will :=
+by
+  have hLam := hBound
+  simpa using soundnessUnity_of_lambdaBound cfgInv stepE domains nodes ctx will hHead hLam
+
+@[simp] theorem soundnessUnity_from_contractBound
+  (cfgInv : InvariantCfg)
+  (stepE : StepE)
+  (domains : List DomainSignature)
+  (nodes : List DomainNode)
+  (ctx : WillCtx := {})
+  (will : Will := Will.idle)
+  (hHead : lambdaHeadStable
+      (lambdaVector cfgInv.ncfg.levels cfgInv.W
+        (soundnessBridge cfgInv stepE domains nodes ctx will).unityNext.nodes)
+      cfgInv.epsUnity)
+  (hBound : (soundnessBridge cfgInv stepE domains nodes ctx will).contract.Cl ≤ cfgInv.epsUnity) :
+  soundnessUnity cfgInv stepE domains nodes ctx will :=
+by
+  have hEq :
+      Float.abs ((soundnessBridge cfgInv stepE domains nodes ctx will).deltas.lambdaDiff) =
+        (soundnessBridge cfgInv stepE domains nodes ctx will).contract.Cl := by
+    simp [soundnessBridge, bridgeStep, mkKakeyaBridge,
+          KakeyaBounds.DeltaPack.contract_Cl_of_theta]
+  have hDelta :
+      Float.abs ((soundnessBridge cfgInv stepE domains nodes ctx will).deltas.lambdaDiff)
+        ≤ cfgInv.epsUnity := by
+    simpa [hEq]
+    using hBound
+  exact soundnessUnity_from_deltas cfgInv stepE domains nodes ctx will hHead hDelta
+
 /-!
 ### Completeness
 Iterate Kakeya bridge frames for a given fuel, providing the data needed to

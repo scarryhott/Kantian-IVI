@@ -242,6 +242,15 @@ def ContractWitness.relax
     , entropyWitness := w.deltas.relaxEntropy hCe
     , lamWitness := w.deltas.relaxLambda hCl }
 
+namespace DeltaPack
+
+@[simp] theorem contract_Cl_of_theta
+    (d : DeltaPack) (θ : Float) :
+    ({ (d.assemble) with θMax := θ }).Cl = d.Δlambda := by
+  simp [DeltaPack.assemble]
+
+end DeltaPack
+
 end KakeyaBounds
 
 end IVI
