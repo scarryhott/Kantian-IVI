@@ -29,6 +29,15 @@ theorem VWM_symm
   · exact R.symm hR
   · exact And.intro hy hx
 
+/-- `VWM` is reflexive when the base relation and rule witness the subject. -/
+theorem VWM_refl
+  (R : Reciprocity α) (rec : Recognition α τ)
+  (x : SVO α)
+  (hR : R.relates x.repr x.repr)
+  (hx : rec.rule.applies x.repr)
+  : VWM R rec x x := by
+  exact ⟨hR, hx, hx⟩
+
 /-- The bridge lemma in both directions, as a named theorem. -/
 @[simp] theorem compatible_iff_VWM
   (R : Reciprocity α) (rec : Recognition α τ)
@@ -76,5 +85,58 @@ theorem closedUnderIVI_cons
   · intro b hb
     exact hall b hb
   · exact hpair
+
+/-- `compatible` inherits the symmetry of the underlying `Reciprocity`. -/
+theorem compatible_symm
+  (R : Reciprocity α) (rec : Recognition α τ)
+  (x y : SVO α)
+  : compatible R rec x y → compatible R rec y x := by
+  intro h
+  have hVWM : VWM R rec x y := (VWM_iff_compatible R rec x y).mp h
+  exact (VWM_iff_compatible R rec y x).mpr (VWM_symm R rec x y hVWM)
+
+/-- Pulls out the head-side compatibility guaranteed by `closedUnderIVI`. -/
+theorem closedUnderIVI_head_rel
+  (S : System α τ)
+  {x : SVO α} {xs : List (SVO α)}
+  (h : closedUnderIVI S (x :: xs))
+  {rec : Recognition α τ}
+  (hRec : rec ∈ S.recs)
+  {y : SVO α}
+  (hy : y ∈ xs) :
+  VWM S.R rec x y := by
+  rcases h with ⟨hHead, _⟩
+  exact hHead y hy rec hRec
+
+/-- Pulls out the tail-side compatibility guaranteed by `closedUnderIVI`. -/
+theorem closedUnderIVI_tail_rel
+  (S : System α τ)
+  {x : SVO α} {xs : List (SVO α)}
+  (h : closedUnderIVI S (x :: xs))
+  {rec : Recognition α τ}
+  (hRec : rec ∈ S.recs)
+  {a b : SVO α}
+  (ha : a ∈ xs) (hb : b ∈ xs)
+  (hne : a ≠ b) :
+  VWM S.R rec a b := by
+  rcases h with ⟨_, hTail⟩
+  exact hTail a ha b hb hne rec hRec
+
+/-- Harmonization over a closed nonempty list always returns the head representative. -/
+@[simp] theorem harmonizeIfClosed_cons
+  (S : System α τ)
+  (x : SVO α) (xs : List (SVO α))
+  (h : closedUnderIVI S (x :: xs)) :
+  harmonizeIfClosed S (x :: xs) h = some x := by
+  cases S.recs with
+  | nil => simp [harmonizeIfClosed]
+  | cons _ _ => simp [harmonizeIfClosed]
+
+/-- Harmonization over the empty list produces no representative. -/
+@[simp] theorem harmonizeIfClosed_nil
+  (S : System α τ)
+  (h : closedUnderIVI S ([] : List (SVO α))) :
+  harmonizeIfClosed S [] h = none := by
+  simp [harmonizeIfClosed]
 
 end IVI
