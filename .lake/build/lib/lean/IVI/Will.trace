@@ -1,8 +1,8 @@
 {"synthetic": false,
  "outputs":
- {"o": ["2118465207260952292"],
-  "i": "6755539866473629153",
-  "c": "13530057540029352287"},
+ {"o": ["4716338203609420279"],
+  "i": "2973561219503166373",
+  "c": "2379068982244533384"},
  "log":
  [{"message":
    ".> LEAN_PATH=/Users/harryscott/Kantian-IVI/.lake/build/lib/lean /Users/harryscott/.elan/toolchains/leanprover--lean4---v4.23.0/bin/lean /Users/harryscott/Kantian-IVI/IVI/Will.lean -o /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Will.olean -i /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Will.ilean -c /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Will.c --setup /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Will.setup.json --json",
@@ -25,7 +25,7 @@
       ["module plugins", "1723"]]]]],
   ["Lean 4.23.0, commit 50aaf682e9b74ab92880292a25c68baa1cc81c87",
    "5786258275165720599"],
-  ["/Users/harryscott/Kantian-IVI/IVI/Will.lean", "17581658747869111552"],
+  ["/Users/harryscott/Kantian-IVI/IVI/Will.lean", "5274356079820564270"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "16303185159599470915"}
+ "depHash": "10693817572472502530"}

@@ -14,6 +14,16 @@ namespace IVI
 set_option autoImplicit true
 set_option maxHeartbeats 400000
 
+/-- Lipschitz data used to bound the spectral perturbation. -/
+structure SpectralBudget where
+  kernelLip : Float := 0.0
+  stepLip   : Float := 0.0
+  degBound  : Float := 0.0
+  deriving Repr, Inhabited
+
+@[simp] def SpectralBudget.eps (B : SpectralBudget) (θMax : Float) : Float :=
+  B.kernelLip * B.stepLip * θMax * B.degBound
+
 /--
 Environment data the will may consult when making choices.  Currently this is
 just the Kakeya bounds, but more analytic witnesses can be added later.
@@ -21,6 +31,7 @@ just the Kakeya bounds, but more analytic witnesses can be added later.
 structure WillCtx where
   bounds : Bounds := defaultBounds
   law    : SchemaLaw := SchemaLaw.default
+  spectral : SpectralBudget := {}
 
 /--
 Abstract will operator.  Supplies:

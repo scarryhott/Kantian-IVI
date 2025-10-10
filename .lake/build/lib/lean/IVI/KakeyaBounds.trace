@@ -1,8 +1,8 @@
 {"synthetic": false,
  "outputs":
- {"o": ["9683576817709844949"],
-  "i": "18138921749506320312",
-  "c": "15837921246116028475"},
+ {"o": ["8216691989462069813"],
+  "i": "2360432900740129900",
+  "c": "9699771713233158252"},
  "log":
  [{"message":
    ".> LEAN_PATH=/Users/harryscott/Kantian-IVI/.lake/build/lib/lean /Users/harryscott/.elan/toolchains/leanprover--lean4---v4.23.0/bin/lean /Users/harryscott/Kantian-IVI/IVI/KakeyaBounds.lean -o /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/KakeyaBounds.olean -i /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/KakeyaBounds.ilean -c /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/KakeyaBounds.c --setup /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/KakeyaBounds.setup.json --json",
@@ -17,7 +17,7 @@
         ["IVI.SVObj transitive imports (legacy)", "1132310917149315465"],
         ["IVI.SVObj:importAllArts", "9360616289091170371"],
         ["IVI.Will transitive imports (legacy)", "14342350051768402180"],
-        ["IVI.Will:importAllArts", "7327294481807090206"],
+        ["IVI.Will:importAllArts", "17428717513896585461"],
         ["IVI.Bounds transitive imports (legacy)", "1723"],
         ["IVI.Bounds:importAllArts", "8128756869966731433"]]]]],
     ["libs",
@@ -28,7 +28,7 @@
   ["Lean 4.23.0, commit 50aaf682e9b74ab92880292a25c68baa1cc81c87",
    "5786258275165720599"],
   ["/Users/harryscott/Kantian-IVI/IVI/KakeyaBounds.lean",
-   "6474244048922337514"],
+   "15056160179560014790"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "6182413703350635769"}
+ "depHash": "5384566371662561992"}

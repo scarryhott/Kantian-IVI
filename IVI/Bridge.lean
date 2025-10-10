@@ -209,6 +209,90 @@ by
     simpa using this
   exact soundnessUnity_from_deltas cfgInv stepE domains nodes ctx will hHead hDelta
 
+@[simp] theorem soundnessUnity_from_weylAutoBudget
+  (cfgInv : InvariantCfg)
+  (stepE : StepE)
+  (domains : List DomainSignature)
+  (nodes : List DomainNode)
+  (ctx : WillCtx := {})
+  (will : Will := Will.idle)
+  (hHead : lambdaHeadStable
+      (lambdaVector cfgInv.ncfg.levels cfgInv.W
+        (soundnessBridge cfgInv stepE domains nodes ctx will).unityNext.nodes)
+      cfgInv.epsUnity)
+  (hBudget :
+      let bridge := soundnessBridge cfgInv stepE domains nodes ctx will
+      let kernelLip := max bridge.willCtx.spectral.kernelLip 1.0
+      let stepLip := max bridge.willCtx.spectral.stepLip 1.0
+      let degreeBound :=
+        Float.abs bridge.deltas.lambdaDiff /
+          (kernelLip * stepLip * bridge.contract.θMax)
+      kernelLip * stepLip * bridge.contract.θMax * degreeBound ≤ cfgInv.epsUnity) :
+  soundnessUnity cfgInv stepE domains nodes ctx will :=
+by
+  classical
+  set bridge := soundnessBridge cfgInv stepE domains nodes ctx will with hBridge
+  set kernelLip := max bridge.willCtx.spectral.kernelLip 1.0 with hKernel
+  set stepLip := max bridge.willCtx.spectral.stepLip 1.0 with hStep
+  set degreeBound :=
+      Float.abs bridge.deltas.lambdaDiff /
+        (kernelLip * stepLip * bridge.contract.θMax) with hDeg
+  have hKernel_ge : (1.0 : Float) ≤ kernelLip := by
+    have := le_max_right bridge.willCtx.spectral.kernelLip (1.0 : Float)
+    simpa [hKernel] using this
+  have hStep_ge : (1.0 : Float) ≤ stepLip := by
+    have := le_max_right bridge.willCtx.spectral.stepLip (1.0 : Float)
+    simpa [hStep] using this
+  have hTheta_ge : (1.0 : Float) ≤ bridge.contract.θMax := by
+    -- `bridge.contract.θMax` is constructed as a max with `1.0`
+    simpa [hBridge, soundnessBridge, bridgeStep, mkKakeyaBridge,
+          KakeyaBounds.buildContract] using
+      le_max_right
+        (if ctx.bounds.θCap ≤
+            (List.zip nodes
+                (bridge.witness.nextNodes)).foldl
+              (fun acc pair =>
+                let θPrev := pair.fst.state.time.theta
+                let θNext := pair.snd.state.time.theta
+                let δ := Float.abs (θNext - θPrev)
+                if acc < δ then δ else acc)
+              0.0
+          then (List.zip nodes
+                (bridge.witness.nextNodes)).foldl
+              (fun acc pair =>
+                let θPrev := pair.fst.state.time.theta
+                let θNext := pair.snd.state.time.theta
+                let δ := Float.abs (θNext - θPrev)
+                if acc < δ then δ else acc)
+              0.0
+          else ctx.bounds.θCap)
+        (1.0 : Float)
+  have hKernel_pos : (0 : Float) < kernelLip := lt_of_lt_of_le (zero_lt_one : (0 : Float) < 1) hKernel_ge
+  have hStep_pos : (0 : Float) < stepLip := lt_of_lt_of_le (zero_lt_one : (0 : Float) < 1) hStep_ge
+  have hTheta_pos : (0 : Float) < bridge.contract.θMax := lt_of_lt_of_le (zero_lt_one : (0 : Float) < 1) hTheta_ge
+  have hDenom_pos : (0 : Float) < kernelLip * stepLip * bridge.contract.θMax :=
+    mul_pos (mul_pos hKernel_pos hStep_pos) hTheta_pos
+  have hDenom_ne : kernelLip * stepLip * bridge.contract.θMax ≠ 0 := ne_of_gt hDenom_pos
+  have hCl_abs :
+      Float.abs bridge.deltas.lambdaDiff = bridge.contract.Cl := by
+    simpa [hBridge, soundnessBridge, bridgeStep, mkKakeyaBridge,
+          KakeyaBounds.buildContract,
+          KakeyaBounds.DeltaPack.contract_Cl_of_theta]
+  have hProd_eq :
+      kernelLip * stepLip * bridge.contract.θMax * degreeBound =
+        Float.abs bridge.deltas.lambdaDiff := by
+    simp [hDeg, hDenom_ne, mul_comm, mul_left_comm, mul_assoc]
+  have hWeylEq :
+      bridge.contract.Cl = kernelLip * stepLip * bridge.contract.θMax * degreeBound := by
+    simpa [hCl_abs, hProd_eq]
+  have hWeyl : bridge.contract.Cl ≤
+      kernelLip * stepLip * bridge.contract.θMax * degreeBound :=
+    by simpa [hWeylEq] using (le_of_eq hWeylEq)
+  have hBudget' : kernelLip * stepLip * bridge.contract.θMax * degreeBound ≤ cfgInv.epsUnity := by
+    simpa [hBridge, hKernel, hStep, hDeg] using hBudget
+  exact soundnessUnity_from_weylBudget cfgInv stepE domains nodes ctx will
+    kernelLip stepLip degreeBound hHead hWeyl hBudget'
+
 @[simp] theorem soundnessUnity_from_contractBound
   (cfgInv : InvariantCfg)
   (stepE : StepE)

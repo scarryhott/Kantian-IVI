@@ -112,6 +112,9 @@ structure ContractWitness
   nodesAligned : K.nodes = nextNodes
   deltas : DeltaPack
   contract : KakeyaContract
+  kernelLip : Float
+  stepLip : Float
+  degBound : Float
   grainWitness : contract.grain_ok
   entropyWitness : contract.entropy_ok
   lamWitness : contract.lam_ok
@@ -162,8 +165,9 @@ by
         let δ := Float.abs (θNext - θPrev)
         if acc < δ then δ else acc)
       0.0
-  let thetaBound :=
+  let thetaSoftBound :=
     if ctx.bounds.θCap ≤ thetaMeasured then thetaMeasured else ctx.bounds.θCap
+  let thetaBound := max thetaSoftBound 1.0
   let deltas : DeltaPack :=
     { grainDiff := grainDiff
     , entropyDiff := entropyDiff
@@ -171,6 +175,11 @@ by
     , θMax := thetaMeasured }
   let lamPrev := spectralInvariantW defaultWeighting nodes
   let lamNext := spectralInvariantW defaultWeighting nodes₁
+  let spectral := ctx.spectral
+  let kernelLip := max spectral.kernelLip 1.0
+  let stepLip := max spectral.stepLip 1.0
+  let denom := kernelLip * stepLip * thetaBound
+  let degBound := Float.abs lambdaDiff / denom
   let preObjs :=
     nodes₁.map fun n =>
       let dir := headingOf n
@@ -209,6 +218,9 @@ by
     , nodesAligned := rfl
     , deltas := deltas
     , contract := contract
+    , kernelLip := kernelLip
+    , stepLip := stepLip
+    , degBound := degBound
     , grainWitness := ?_
     , entropyWitness := ?_
     , lamWitness := ?_ }
@@ -230,14 +242,20 @@ def ContractWitness.relax
     (hCe : w.deltas.Δentropy ≤ Ce)
     (hCl : w.deltas.Δlambda ≤ Cl) :
     ContractWitness stepE doms nodes :=
+  let thetaBound := max θMax 1.0
+  let denom := w.kernelLip * w.stepLip * thetaBound
+  let degBound := Float.abs w.deltas.lambdaDiff / denom
   { w with
-    contract := w.deltas.relaxedContract Cg Ce Cl θMax
+    contract := w.deltas.relaxedContract Cg Ce Cl thetaBound
     , nextObjs := w.nextObjs
     , ctx := w.ctx
     , will := w.will
     , preObjs := w.preObjs
     , lamPrev := w.lamPrev
     , lamNext := w.lamNext
+    , degBound := degBound
+    , kernelLip := w.kernelLip
+    , stepLip := w.stepLip
     , grainWitness := w.deltas.relaxGrain hCg
     , entropyWitness := w.deltas.relaxEntropy hCe
     , lamWitness := w.deltas.relaxLambda hCl }

@@ -15,10 +15,12 @@ extern "C" {
 #endif
 lean_object* l_Float_repr(double, lean_object*);
 LEAN_EXPORT lean_object* l_IVI_KakeyaBounds_ContractWitness_relax___redArg___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+double lean_float_mul(double, double);
 static lean_object* l_IVI_KakeyaBounds_reprDeltaPack___redArg___closed__8____x40_IVI_KakeyaBounds___hyg_50_;
 static lean_object* l_IVI_KakeyaBounds_reprDeltaPack___redArg___closed__6____x40_IVI_KakeyaBounds___hyg_50_;
 LEAN_EXPORT lean_object* l_IVI_KakeyaBounds_DeltaPack__u0394entropy___boxed(lean_object*);
 LEAN_EXPORT lean_object* l_IVI_KakeyaBounds_DeltaPack_assemble(lean_object*);
+double lean_float_div(double, double);
 LEAN_EXPORT lean_object* l_IVI_KakeyaBounds_DeltaPack_relaxedContract___redArg___boxed(lean_object*, lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_IVI_KakeyaBounds_DeltaPack__u0394lambda___boxed(lean_object*);
 static lean_object* l_IVI_KakeyaBounds_reprDeltaPack___redArg___closed__18____x40_IVI_KakeyaBounds___hyg_50_;
@@ -38,6 +40,7 @@ static lean_object* l_IVI_KakeyaBounds_reprDeltaPack___redArg___closed__22____x4
 LEAN_EXPORT lean_object* l_IVI_KakeyaBounds_reprDeltaPack___redArg____x40_IVI_KakeyaBounds___hyg_50____boxed(lean_object*);
 LEAN_EXPORT lean_object* l_IVI_KakeyaBounds_reprDeltaPack___redArg____x40_IVI_KakeyaBounds___hyg_50_(lean_object*);
 LEAN_EXPORT lean_object* l_IVI_KakeyaBounds_DeltaPack_relaxedContract___redArg(double, double, double, double);
+double l_Float_ofScientific(lean_object*, uint8_t, lean_object*);
 static lean_object* l_IVI_KakeyaBounds_reprDeltaPack___redArg___closed__13____x40_IVI_KakeyaBounds___hyg_50_;
 LEAN_EXPORT double l_IVI_KakeyaBounds_DeltaPack__u0394entropy(lean_object*);
 static lean_object* l_IVI_KakeyaBounds_reprDeltaPack___redArg___closed__16____x40_IVI_KakeyaBounds___hyg_50_;
@@ -47,6 +50,7 @@ LEAN_EXPORT lean_object* l_IVI_KakeyaBounds_DeltaPack_relaxedContract(lean_objec
 static lean_object* l_IVI_KakeyaBounds_reprDeltaPack___redArg___closed__1____x40_IVI_KakeyaBounds___hyg_50_;
 static lean_object* l_IVI_KakeyaBounds_reprDeltaPack___redArg___closed__4____x40_IVI_KakeyaBounds___hyg_50_;
 static lean_object* l_IVI_KakeyaBounds_reprDeltaPack___redArg___closed__11____x40_IVI_KakeyaBounds___hyg_50_;
+uint8_t lean_float_decLe(double, double);
 static lean_object* l_IVI_KakeyaBounds_reprDeltaPack___redArg___closed__20____x40_IVI_KakeyaBounds___hyg_50_;
 static lean_object* l_IVI_KakeyaBounds_reprDeltaPack___redArg___closed__19____x40_IVI_KakeyaBounds___hyg_50_;
 LEAN_EXPORT lean_object* l_IVI_KakeyaBounds_reprDeltaPack____x40_IVI_KakeyaBounds___hyg_50_(lean_object*, lean_object*);
@@ -60,6 +64,7 @@ LEAN_EXPORT lean_object* l_IVI_KakeyaBounds_DeltaPack__u0394grain___boxed(lean_o
 LEAN_EXPORT lean_object* l_IVI_KakeyaBounds_instReprDeltaPack;
 LEAN_EXPORT lean_object* l_IVI_KakeyaBounds_ContractWitness_relax___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT double l_IVI_KakeyaBounds_DeltaPack__u0394lambda(lean_object*);
+static double l_IVI_KakeyaBounds_ContractWitness_relax___redArg___closed__0;
 static lean_object* _init_l_IVI_KakeyaBounds_reprDeltaPack___redArg___closed__0____x40_IVI_KakeyaBounds___hyg_50_() {
 _start:
 {
@@ -574,66 +579,112 @@ lean_dec_ref(x_1);
 return x_10;
 }
 }
+static double _init_l_IVI_KakeyaBounds_ContractWitness_relax___redArg___closed__0() {
+_start:
+{
+lean_object* x_1; uint8_t x_2; lean_object* x_3; double x_4; 
+x_1 = lean_unsigned_to_nat(1u);
+x_2 = 1;
+x_3 = lean_unsigned_to_nat(10u);
+x_4 = l_Float_ofScientific(x_3, x_2, x_1);
+return x_4;
+}
+}
 LEAN_EXPORT lean_object* l_IVI_KakeyaBounds_ContractWitness_relax___redArg(lean_object* x_1, double x_2, double x_3, double x_4, double x_5) {
 _start:
 {
-uint8_t x_6; 
-x_6 = !lean_is_exclusive(x_1);
-if (x_6 == 0)
+double x_6; double x_39; uint8_t x_40; 
+x_39 = l_IVI_KakeyaBounds_ContractWitness_relax___redArg___closed__0;
+x_40 = lean_float_decLe(x_5, x_39);
+if (x_40 == 0)
 {
-lean_object* x_7; lean_object* x_8; 
-x_7 = lean_ctor_get(x_1, 8);
-lean_dec(x_7);
-x_8 = lean_alloc_ctor(0, 0, 32);
-lean_ctor_set_float(x_8, 0, x_2);
-lean_ctor_set_float(x_8, 8, x_3);
-lean_ctor_set_float(x_8, 16, x_4);
-lean_ctor_set_float(x_8, 24, x_5);
-lean_ctor_set(x_1, 8, x_8);
+x_6 = x_5;
+goto block_38;
+}
+else
+{
+x_6 = x_39;
+goto block_38;
+}
+block_38:
+{
+uint8_t x_7; 
+x_7 = !lean_is_exclusive(x_1);
+if (x_7 == 0)
+{
+lean_object* x_8; double x_9; double x_10; lean_object* x_11; double x_12; double x_13; double x_14; double x_15; double x_16; lean_object* x_17; 
+x_8 = lean_ctor_get(x_1, 7);
+x_9 = lean_ctor_get_float(x_1, sizeof(void*)*9 + 16);
+x_10 = lean_ctor_get_float(x_1, sizeof(void*)*9 + 24);
+x_11 = lean_ctor_get(x_1, 8);
+lean_dec(x_11);
+x_12 = lean_ctor_get_float(x_8, 16);
+x_13 = lean_float_mul(x_9, x_10);
+x_14 = lean_float_mul(x_13, x_6);
+x_15 = fabs(x_12);
+x_16 = lean_float_div(x_15, x_14);
+x_17 = lean_alloc_ctor(0, 0, 32);
+lean_ctor_set_float(x_17, 0, x_2);
+lean_ctor_set_float(x_17, 8, x_3);
+lean_ctor_set_float(x_17, 16, x_4);
+lean_ctor_set_float(x_17, 24, x_6);
+lean_ctor_set(x_1, 8, x_17);
+lean_ctor_set_float(x_1, sizeof(void*)*9 + 32, x_16);
 return x_1;
 }
 else
 {
-lean_object* x_9; lean_object* x_10; lean_object* x_11; lean_object* x_12; lean_object* x_13; lean_object* x_14; lean_object* x_15; double x_16; double x_17; uint8_t x_18; lean_object* x_19; lean_object* x_20; lean_object* x_21; 
-x_9 = lean_ctor_get(x_1, 0);
-x_10 = lean_ctor_get(x_1, 1);
-x_11 = lean_ctor_get(x_1, 2);
-x_12 = lean_ctor_get(x_1, 3);
-x_13 = lean_ctor_get(x_1, 4);
-x_14 = lean_ctor_get(x_1, 5);
-x_15 = lean_ctor_get(x_1, 6);
-x_16 = lean_ctor_get_float(x_1, sizeof(void*)*9);
-x_17 = lean_ctor_get_float(x_1, sizeof(void*)*9 + 8);
-x_18 = lean_ctor_get_uint8(x_1, sizeof(void*)*9 + 16);
-x_19 = lean_ctor_get(x_1, 7);
+lean_object* x_18; lean_object* x_19; lean_object* x_20; lean_object* x_21; lean_object* x_22; lean_object* x_23; lean_object* x_24; lean_object* x_25; double x_26; double x_27; uint8_t x_28; double x_29; double x_30; double x_31; double x_32; double x_33; double x_34; double x_35; lean_object* x_36; lean_object* x_37; 
+x_18 = lean_ctor_get(x_1, 7);
+x_19 = lean_ctor_get(x_1, 0);
+x_20 = lean_ctor_get(x_1, 1);
+x_21 = lean_ctor_get(x_1, 2);
+x_22 = lean_ctor_get(x_1, 3);
+x_23 = lean_ctor_get(x_1, 4);
+x_24 = lean_ctor_get(x_1, 5);
+x_25 = lean_ctor_get(x_1, 6);
+x_26 = lean_ctor_get_float(x_1, sizeof(void*)*9);
+x_27 = lean_ctor_get_float(x_1, sizeof(void*)*9 + 8);
+x_28 = lean_ctor_get_uint8(x_1, sizeof(void*)*9 + 40);
+x_29 = lean_ctor_get_float(x_1, sizeof(void*)*9 + 16);
+x_30 = lean_ctor_get_float(x_1, sizeof(void*)*9 + 24);
+lean_inc(x_18);
+lean_inc(x_25);
+lean_inc(x_24);
+lean_inc(x_23);
+lean_inc(x_22);
+lean_inc(x_21);
+lean_inc(x_20);
 lean_inc(x_19);
-lean_inc(x_15);
-lean_inc(x_14);
-lean_inc(x_13);
-lean_inc(x_12);
-lean_inc(x_11);
-lean_inc(x_10);
-lean_inc(x_9);
 lean_dec(x_1);
-x_20 = lean_alloc_ctor(0, 0, 32);
-lean_ctor_set_float(x_20, 0, x_2);
-lean_ctor_set_float(x_20, 8, x_3);
-lean_ctor_set_float(x_20, 16, x_4);
-lean_ctor_set_float(x_20, 24, x_5);
-x_21 = lean_alloc_ctor(0, 9, 17);
-lean_ctor_set(x_21, 0, x_9);
-lean_ctor_set(x_21, 1, x_10);
-lean_ctor_set(x_21, 2, x_11);
-lean_ctor_set(x_21, 3, x_12);
-lean_ctor_set(x_21, 4, x_13);
-lean_ctor_set(x_21, 5, x_14);
-lean_ctor_set(x_21, 6, x_15);
-lean_ctor_set(x_21, 7, x_19);
-lean_ctor_set(x_21, 8, x_20);
-lean_ctor_set_float(x_21, sizeof(void*)*9, x_16);
-lean_ctor_set_float(x_21, sizeof(void*)*9 + 8, x_17);
-lean_ctor_set_uint8(x_21, sizeof(void*)*9 + 16, x_18);
-return x_21;
+x_31 = lean_ctor_get_float(x_18, 16);
+x_32 = lean_float_mul(x_29, x_30);
+x_33 = lean_float_mul(x_32, x_6);
+x_34 = fabs(x_31);
+x_35 = lean_float_div(x_34, x_33);
+x_36 = lean_alloc_ctor(0, 0, 32);
+lean_ctor_set_float(x_36, 0, x_2);
+lean_ctor_set_float(x_36, 8, x_3);
+lean_ctor_set_float(x_36, 16, x_4);
+lean_ctor_set_float(x_36, 24, x_6);
+x_37 = lean_alloc_ctor(0, 9, 41);
+lean_ctor_set(x_37, 0, x_19);
+lean_ctor_set(x_37, 1, x_20);
+lean_ctor_set(x_37, 2, x_21);
+lean_ctor_set(x_37, 3, x_22);
+lean_ctor_set(x_37, 4, x_23);
+lean_ctor_set(x_37, 5, x_24);
+lean_ctor_set(x_37, 6, x_25);
+lean_ctor_set(x_37, 7, x_18);
+lean_ctor_set(x_37, 8, x_36);
+lean_ctor_set_float(x_37, sizeof(void*)*9, x_26);
+lean_ctor_set_float(x_37, sizeof(void*)*9 + 8, x_27);
+lean_ctor_set_uint8(x_37, sizeof(void*)*9 + 40, x_28);
+lean_ctor_set_float(x_37, sizeof(void*)*9 + 16, x_29);
+lean_ctor_set_float(x_37, sizeof(void*)*9 + 24, x_30);
+lean_ctor_set_float(x_37, sizeof(void*)*9 + 32, x_35);
+return x_37;
+}
 }
 }
 }
@@ -755,6 +806,7 @@ l_IVI_KakeyaBounds_instReprDeltaPack___closed__0 = _init_l_IVI_KakeyaBounds_inst
 lean_mark_persistent(l_IVI_KakeyaBounds_instReprDeltaPack___closed__0);
 l_IVI_KakeyaBounds_instReprDeltaPack = _init_l_IVI_KakeyaBounds_instReprDeltaPack();
 lean_mark_persistent(l_IVI_KakeyaBounds_instReprDeltaPack);
+l_IVI_KakeyaBounds_ContractWitness_relax___redArg___closed__0 = _init_l_IVI_KakeyaBounds_ContractWitness_relax___redArg___closed__0();
 return lean_io_result_mk_ok(lean_box(0));
 }
 #ifdef __cplusplus
