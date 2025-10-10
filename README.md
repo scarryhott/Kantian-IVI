@@ -74,19 +74,20 @@ See [CHANGELOG.md](CHANGELOG.md) for architecture evolution.
 
 ### 📋 Axiom Inventory
 
-**Core Axioms (24)**:
+**Core Axioms (21)**:
 - **12 Kantian** (A1-A12 in `IVI/Pure.lean`) - Transcendental foundations
 - **4 Weyl bounds** (`IVI/WeylBounds.lean`) - Spectral theory
-- **3 Float arithmetic** (`IVI/WeylBounds.lean`) - ⚠️ DEPRECATED (use SafeFloat)
 - **3 Power iteration** (`IVI/Invariant.lean`) - Need Perron-Frobenius
 - **2 SafeFloat** (`IVI/SafeFloat.lean`) - NaN-safe arithmetic
 - **1 T2_v3** (`IVI/Theorems.lean`) - Needs stronger Kakeya bounds
+
+Note: Deprecated Float axioms were removed entirely.
 
 **RealSpec Placeholders (21)**:
 - `IVI/RealSpec.lean` - Would be imported from mathlib
 - Real arithmetic, matrix norms, spectral theory
 
-**Total: 45 axioms** (24 core + 21 placeholders)
+**Total: 42 axioms** (21 core + 21 placeholders)
 
 See [THEOREM_INDEX.md](THEOREM_INDEX.md) for complete inventory.
 
@@ -144,7 +145,7 @@ See [THEOREM_INDEX.md](THEOREM_INDEX.md) for complete inventory.
 | Category | Count | Notes |
 |----------|-------|-------|
 | **Fully Proven** | 31 | No `sorry` statements |
-| **Core Axioms** | 24 | 12 Kantian + 12 analytic |
+| **Core Axioms** | 21 | 12 Kantian + 9 analytic |
 | **RealSpec Placeholders** | 21 | Would import from mathlib |
 | **Compilation** | ✅ Success | 29 jobs, no errors |
 | **Demo** | ✅ Works | `lake exe ivi-demo` runs |

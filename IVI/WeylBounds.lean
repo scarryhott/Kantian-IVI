@@ -38,25 +38,13 @@ with formal proofs using mathlib's spectral theory.
 -/
 
 /-!
-## DEPRECATED: Float Arithmetic Axioms
+## Float Arithmetic Axioms (Removed)
 
-WARNING: These axioms are UNSAFE because Float has NaN and signed zero.
-They are kept for backward compatibility but should not be used in new code.
-
-Use SafeFloat or RealSpec instead.
+NOTE: Previously, this file contained deprecated Float arithmetic axioms
+(`Float.le_trans`, `Float.add_le_add`, `Float.zero_le`). These were removed
+entirely due to IEEE-754 NaN/signed zero hazards. Use `IVI/SafeFloat.lean`
+or the Real specification in `IVI/RealSpec.lean` instead.
 -/
-
-/-- DEPRECATED: Use SafeFloat.le_trans instead. -/
-@[deprecated SafeFloat.le_trans]
-axiom Float.le_trans (a b c : Float) : a ≤ b → b ≤ c → a ≤ c
-
-/-- DEPRECATED: Use SafeFloat.add_le_add instead. -/
-@[deprecated SafeFloat.add_le_add]
-axiom Float.add_le_add (a b c d : Float) : a ≤ b → c ≤ d → a + c ≤ b + d
-
-/-- DEPRECATED: Tautology, do not use. -/
-@[deprecated]
-axiom Float.zero_le (a : Float) : 0.0 ≤ a → 0.0 ≤ a
 
 /-!
 ## Matrix Norms and Perturbation Theory

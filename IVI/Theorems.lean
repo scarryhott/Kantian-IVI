@@ -118,7 +118,7 @@ theorem T2_liminal_persistence_monotonic
   graininessScore (resonanceMatrixW W nodes') ≤ cfg.tau := by
   unfold ICollapseCfg.grainSafe at h_safe
   -- If S ≤ τ and S' ≤ S, then S' ≤ τ by transitivity
-  exact WeylBounds.Float.le_trans _ _ _ h_mono h_safe
+  exact le_trans h_mono h_safe
 
 /-- T3_v2: Reciprocity is symmetric (already correct, just restated). -/
 theorem T3_reciprocity_topology_v2
