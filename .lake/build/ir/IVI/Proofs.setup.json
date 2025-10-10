@@ -2,5 +2,13 @@
  "options": {},
  "name": "IVI.Proofs",
  "isModule": false,
- "importArts": {},
+ "importArts":
+ {"IVI.System":
+  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/System.olean"],
+  "IVI.Operators":
+  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Operators.olean"],
+  "IVI.Logic":
+  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Logic.olean"],
+  "IVI.Core":
+  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Core.olean"]},
  "dynlibs": []}

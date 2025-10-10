@@ -33,10 +33,10 @@
        [["IVI.Intangible transitive imports (legacy)", "18366831339449116832"],
         ["IVI.Intangible:importAllArts", "1307306836415668194"],
         ["IVI.Invariant transitive imports (legacy)", "16455706825858143466"],
-        ["IVI.Invariant:importAllArts", "6202212656711103309"],
-        ["IVI.Harmonics transitive imports (legacy)", "6113991185488242431"],
+        ["IVI.Invariant:importAllArts", "11934155774274239102"],
+        ["IVI.Harmonics transitive imports (legacy)", "858609538366743716"],
         ["IVI.Harmonics:importAllArts", "10174937585595110126"],
-        ["IVI.Collapse transitive imports (legacy)", "7710953080240532413"],
+        ["IVI.Collapse transitive imports (legacy)", "12560393634248877632"],
         ["IVI.Collapse:importAllArts", "13664618344916580060"],
         ["IVI.SchematismEvidence transitive imports (legacy)", "1723"],
         ["IVI.SchematismEvidence:importAllArts", "16712961853345461743"]]]]],
@@ -51,4 +51,4 @@
    "18056098471612581447"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "1863720599935130768"}
+ "depHash": "1361308850268102640"}

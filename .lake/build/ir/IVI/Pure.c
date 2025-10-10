@@ -21,6 +21,7 @@ LEAN_EXPORT lean_object* l_IVI_reprSubject____x40_IVI_Pure___hyg_15_(lean_object
 LEAN_EXPORT lean_object* l_IVI_FromIThink_Thread_reciprocity___redArg(lean_object*);
 lean_object* lean_nat_to_int(lean_object*);
 static lean_object* l_IVI_reprSubject___closed__2____x40_IVI_Pure___hyg_15_;
+LEAN_EXPORT lean_object* l_IVI_DerivedAxioms_reciprocityFromSymmetry(lean_object*, lean_object*, lean_object*);
 static lean_object* l_IVI_reprSubject___closed__7____x40_IVI_Pure___hyg_15_;
 LEAN_EXPORT lean_object* l_IVI_instReprSubject(lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_IVI_instReprSubject___redArg(lean_object*, lean_object*);
@@ -169,6 +170,14 @@ _start:
 lean_object* x_2; 
 x_2 = lean_box(0);
 return x_2;
+}
+}
+LEAN_EXPORT lean_object* l_IVI_DerivedAxioms_reciprocityFromSymmetry(lean_object* x_1, lean_object* x_2, lean_object* x_3) {
+_start:
+{
+lean_object* x_4; 
+x_4 = lean_box(0);
+return x_4;
 }
 }
 LEAN_EXPORT lean_object* l_IVI_FromIThink_Thread_reciprocity___redArg(lean_object* x_1) {

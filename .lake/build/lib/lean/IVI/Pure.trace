@@ -1,20 +1,23 @@
 {"synthetic": false,
  "outputs":
- {"o": ["3430230363815535494"],
-  "i": "7086495006185538255",
-  "c": "15545343809160290193"},
+ {"o": ["15116204586249111969"],
+  "i": "15605001506831972178",
+  "c": "3634797633362987255"},
  "log":
  [{"message":
    ".> LEAN_PATH=/Users/harryscott/Kantian-IVI/.lake/build/lib/lean /Users/harryscott/.elan/toolchains/leanprover--lean4---v4.23.0/bin/lean /Users/harryscott/Kantian-IVI/IVI/Pure.lean -o /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Pure.olean -i /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Pure.ilean -c /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Pure.c --setup /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Pure.setup.json --json",
    "level": "trace"},
   {"message":
-   "IVI/Pure.lean:19:42: unused variable `s`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "IVI/Pure.lean:105:60: unused variable `s`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "IVI/Pure.lean:23:25: unused variable `any`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "IVI/Pure.lean:106:7: unused variable `ordering`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "IVI/Pure.lean:97:29: unused variable `any`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "IVI/Pure.lean:111:7: unused variable `t`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "IVI/Pure.lean:133:38: unused variable `α`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"}],
  "inputs":
  [["IVI.Pure:deps",
@@ -30,7 +33,7 @@
       ["module plugins", "1723"]]]]],
   ["Lean 4.23.0, commit 50aaf682e9b74ab92880292a25c68baa1cc81c87",
    "5786258275165720599"],
-  ["/Users/harryscott/Kantian-IVI/IVI/Pure.lean", "1210337904923251511"],
+  ["/Users/harryscott/Kantian-IVI/IVI/Pure.lean", "14925859471902588238"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "11276595643238276656"}
+ "depHash": "17453382427999138683"}
