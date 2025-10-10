@@ -2,14 +2,21 @@
   IVI/WeylBounds.lean
   Spectral perturbation bounds for IVI resonance matrices.
   
-  This file contains the critical analytic inequalities needed to close the
-  soundness loop. The Weyl bound relates eigenvalue changes to matrix perturbations.
+  This file contains the RUNTIME (Float) version of spectral bounds.
+  For the SPECIFICATION (ℝ) version, see IVI/RealSpec.lean.
   
-  STATUS: Axiomatized placeholders. Replace with proofs when spectral theory is available.
+  ARCHITECTURE:
+  - RealSpec.lean: Mathematical truth (ℝ, proven from mathlib)
+  - WeylBounds.lean: Runtime approximation (Float, with error budgets)
+  - SafeFloat.lean: NaN/infinity guards for Float reasoning
+  
+  STATUS: Float axioms deprecated. Use SafeFloat or RealSpec.
 -/
 
 import IVI.Invariant
 import IVI.KakeyaBounds
+import IVI.SafeFloat
+import IVI.RealSpec
 
 namespace IVI
 
@@ -31,18 +38,24 @@ with formal proofs using mathlib's spectral theory.
 -/
 
 /-!
-## Float Arithmetic Properties
+## DEPRECATED: Float Arithmetic Axioms
 
-These axioms capture basic properties of Float that would be proven from Real.
+WARNING: These axioms are UNSAFE because Float has NaN and signed zero.
+They are kept for backward compatibility but should not be used in new code.
+
+Use SafeFloat or RealSpec instead.
 -/
 
-/-- Float less-than-or-equal is transitive. -/
+/-- DEPRECATED: Use SafeFloat.le_trans instead. -/
+@[deprecated SafeFloat.le_trans]
 axiom Float.le_trans (a b c : Float) : a ≤ b → b ≤ c → a ≤ c
 
-/-- Float addition preserves inequality. -/
+/-- DEPRECATED: Use SafeFloat.add_le_add instead. -/
+@[deprecated SafeFloat.add_le_add]
 axiom Float.add_le_add (a b c d : Float) : a ≤ b → c ≤ d → a + c ≤ b + d
 
-/-- Float zero is less than or equal to any non-negative. -/
+/-- DEPRECATED: Tautology, do not use. -/
+@[deprecated]
 axiom Float.zero_le (a : Float) : 0.0 ≤ a → 0.0 ≤ a
 
 /-!

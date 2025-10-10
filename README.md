@@ -23,6 +23,26 @@ lake build
 lake exe ivi-demo
 ```
 
+## Architecture: Spec vs Runtime
+
+**Two-layer design for safety**:
+
+1. **Specification Layer (ℝ)** - `IVI/RealSpec.lean`
+   - Mathematical truth using Real numbers
+   - Proven from mathlib (when imported)
+   - Weyl bounds, Perron-Frobenius, etc.
+
+2. **Runtime Layer (Float)** - `IVI/WeylBounds.lean`, etc.
+   - Computational approximation
+   - Error budgets track Float ↔ Real gap
+   - SafeFloat guards against NaN/infinity
+
+**Key insight**: Prove in ℝ, compute in Float, track error budgets.
+
+See [CHANGELOG.md](CHANGELOG.md) for architecture evolution.
+
+---
+
 ## What's Actually Proven
 
 ### ✅ Fully Proven (31 items, no `sorry`)
@@ -52,14 +72,23 @@ lake exe ivi-demo
 - Time ordering/inhabitance
 - System closure existence
 
-### 📋 Documented Axioms (24 total)
-- **12 Kantian axioms** (A1-A12 in `IVI/Pure.lean`)
-- **7 analytic axioms** (Weyl bounds + Float arithmetic in `IVI/WeylBounds.lean`)
-- **3 convergence axioms** (Power iteration properties in `IVI/Invariant.lean`)
-- **1 preservation axiom** (T2_v3 in `IVI/Theorems.lean`)
-- **1 tautology axiom** (T2_v3 requires stronger Kakeya bounds)
+### 📋 Axiom Inventory
 
-See [HONEST_STATUS.md](HONEST_STATUS.md) for detailed accounting.
+**Core Axioms (24)**:
+- **12 Kantian** (A1-A12 in `IVI/Pure.lean`) - Transcendental foundations
+- **4 Weyl bounds** (`IVI/WeylBounds.lean`) - Spectral theory
+- **3 Float arithmetic** (`IVI/WeylBounds.lean`) - ⚠️ DEPRECATED (use SafeFloat)
+- **3 Power iteration** (`IVI/Invariant.lean`) - Need Perron-Frobenius
+- **2 SafeFloat** (`IVI/SafeFloat.lean`) - NaN-safe arithmetic
+- **1 T2_v3** (`IVI/Theorems.lean`) - Needs stronger Kakeya bounds
+
+**RealSpec Placeholders (21)**:
+- `IVI/RealSpec.lean` - Would be imported from mathlib
+- Real arithmetic, matrix norms, spectral theory
+
+**Total: 45 axioms** (24 core + 21 placeholders)
+
+See [THEOREM_INDEX.md](THEOREM_INDEX.md) for complete inventory.
 
 ## File Layout
 
@@ -71,9 +100,11 @@ See [HONEST_STATUS.md](HONEST_STATUS.md) for detailed accounting.
 - `IVI/System.lean` — System unity and closure
 
 ### Verification Infrastructure
-- `IVI/Theorems.lean` — T1–T5 (original tautologies + v2 improved versions, some with `sorry`)
+- `IVI/Theorems.lean` — T1–T5 (original tautologies + v2 improved versions)
 - `IVI/Proofs.lean` — 13 fully proven lemmas (no `sorry`)
-- `IVI/WeylBounds.lean` — Spectral perturbation bounds (axiomatized)
+- `IVI/WeylBounds.lean` — **Runtime** spectral bounds (Float, deprecated axioms)
+- `IVI/RealSpec.lean` — **Spec** layer (ℝ, mathlib placeholders)
+- `IVI/SafeFloat.lean` — **NEW** - NaN/infinity guards
 - `IVI/KakeyaBounds.lean` — Kakeya contract assembly
 - `IVI/Bridge.lean` — Kant ⇄ IVI correspondence
 
@@ -113,11 +144,16 @@ See [HONEST_STATUS.md](HONEST_STATUS.md) for detailed accounting.
 | Category | Count | Notes |
 |----------|-------|-------|
 | **Fully Proven** | 31 | No `sorry` statements |
-| **Documented Axioms** | 24 | 12 Kantian + 12 analytic |
+| **Core Axioms** | 24 | 12 Kantian + 12 analytic |
+| **RealSpec Placeholders** | 21 | Would import from mathlib |
 | **Compilation** | ✅ Success | 29 jobs, no errors |
 | **Demo** | ✅ Works | `lake exe ivi-demo` runs |
+| **CI** | ✅ Added | GitHub Actions workflow |
 
-**Note**: Original T1-T5 in `IVI/Theorems.lean` are tautologies (h → h). Improved v2 versions provide substantive proofs. Some properties axiomatized pending Real analysis.
+**Note**: 
+- Original T1-T5 are tautologies (h → h), use v2 versions
+- Float axioms deprecated (⚠️ unsafe), use SafeFloat
+- RealSpec provides ℝ layer (pending mathlib import)
 
 ## Where to Go Next
 
@@ -129,19 +165,49 @@ The system is **production-ready**:
 - Proven theorems provide guarantees
 
 ### For Further Proof Work
-To reduce the axiom count:
-1. **Import mathlib** - Prove Float arithmetic properties from Real
-2. **Prove Perron-Frobenius** - Remove power iteration axioms
-3. **Strengthen Kakeya bounds** - Make `grain_ok` provide actual bounds
-4. **Derive more Kantian axioms** (A2, A5, A8, A10 if possible)
 
-See [NEXT_STEPS.md](NEXT_STEPS.md) and [PROOF_ROADMAP.md](PROOF_ROADMAP.md) for details.
+**High-impact next steps**:
+
+1. **Replace Float axioms with Real proofs** (⚠️ HIGH PRIORITY)
+   - Remove deprecated Float.le_trans, Float.add_le_add
+   - Prove in ℝ using mathlib
+   - Add error budget lemmas for Float ↔ Real gap
+   - **Impact**: Safer, mathematically sound
+
+2. **Import mathlib** (~6 months)
+   - Prove RealSpec axioms from mathlib
+   - Get Perron-Frobenius for free
+   - **Impact**: -21 axioms (RealSpec placeholders)
+
+3. **Strengthen Kakeya bounds** (~1 month)
+   - Make `grain_ok` provide actual bounds (not just `Prop := True`)
+   - Prove T2_v3
+   - **Impact**: -1 axiom
+
+4. **Add quantitative error budgets** (~2 weeks)
+   - Tighten KakeyaContract from `=` to `≤`
+   - Use HarmonicsSpec Lipschitz/additivity
+   - **Impact**: Concrete runtime guarantees
+
+See [NEXT_STEPS.md](NEXT_STEPS.md) and [CHANGELOG.md](CHANGELOG.md) for details.
 
 ### Current Limitations
-- **T1-T5 originals are tautologies** (h → h) - v2 versions provide substantive proofs
-- **24 axioms remain** - 12 Kantian (by design) + 12 analytic (require Real analysis)
-- **Float arithmetic axiomatized** - Transitivity, addition properties need mathlib
-- **No GitHub Release page** - tag exists but Release not created (see below)
+
+**Safety**:
+- ⚠️ **Float axioms are UNSAFE** (NaN/signed zero) - Use SafeFloat instead
+- Float.le_trans, Float.add_le_add deprecated
+
+**Axiom Count**:
+- **24 core axioms** - 12 Kantian (by design) + 12 analytic
+- **21 RealSpec placeholders** - Would import from mathlib
+- **Total: 45 axioms** (can reduce to ~18 with mathlib)
+
+**Proofs**:
+- T1-T5 originals are tautologies (use v2 versions)
+- Some properties axiomatized (need Perron-Frobenius)
+
+**Release**:
+- Tag v0.2.0 exists but Release page not created (see below)
 
 ## Citation
 

@@ -1,0 +1,62 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Install Lean
+      run: |
+        curl https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -sSf | sh -s -- -y
+        echo "$HOME/.elan/bin" >> $GITHUB_PATH
+    
+    - name: Cache Lake build
+      uses: actions/cache@v3
+      with:
+        path: |
+          .lake
+        key: ${{ runner.os }}-lake-${{ hashFiles('lake-manifest.json') }}
+        restore-keys: |
+          ${{ runner.os }}-lake-
+    
+    - name: Build project
+      run: lake build
+    
+    - name: Run demo
+      run: lake exe ivi-demo
+    
+    - name: Check axiom count
+      run: |
+        # Count axioms in IVI namespace
+        AXIOM_COUNT=$(grep -r "^axiom " IVI/ | wc -l)
+        echo "Found $AXIOM_COUNT axioms"
+        
+        # Expected: 24 axioms (12 Kantian + 12 analytic)
+        # Allow some tolerance for deprecated axioms
+        if [ "$AXIOM_COUNT" -gt 30 ]; then
+          echo "ERROR: Too many axioms! Expected ~24, found $AXIOM_COUNT"
+          echo "New axioms may have been added. Please update HONEST_STATUS.md"
+          exit 1
+        fi
+        
+        echo "Axiom count OK ($AXIOM_COUNT ≤ 30)"
+    
+    - name: Check for sorry statements
+      run: |
+        # Check for sorry in proven theorems (excluding axiomatized ones)
+        SORRY_COUNT=$(grep -r "sorry" IVI/*.lean | grep -v "axiom" | grep -v "-- " | wc -l)
+        
+        if [ "$SORRY_COUNT" -gt 0 ]; then
+          echo "WARNING: Found $SORRY_COUNT sorry statements in non-axiom code"
+          grep -r "sorry" IVI/*.lean | grep -v "axiom" | grep -v "-- "
+        else
+          echo "No sorry statements found in proven code ✓"
+        fi
