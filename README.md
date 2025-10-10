@@ -2,7 +2,7 @@
 
 A Lean 4 formalization of Intangibly Verified Information (IVI) grounded in Kantian transcendental philosophy, with proven theorems and documented axioms.
 
-**Status**: ✅ Priority 0 & 1 Complete | 4 Axioms Derived | 13 Theorems Proven | All Files Compile
+**Status**: ✅ Compiles Successfully | 31 Proven Lemmas | 17 Documented Axioms | Working Demo
 
 ## Quick Links
 
@@ -23,26 +23,45 @@ lake build
 lake exe ivi-demo
 ```
 
-## What's New (v0.2.0)
+## What's Actually Proven
 
-### ✅ Axioms Derived (No Longer Axiomatic)
-- **A1** (Inner Time) - Proven from `InnerTime` typeclass
-- **A6** (Schematism) - Proven constructively possible
-- **A7** (Reciprocity) - Proven from symmetric relations
-- **A12** (System Demand) - Proven from closure necessity
+### ✅ Fully Proven (31 items, no `sorry`)
 
-### ✅ Theorems Proven
-- **T1_v2** (Universality) - SVO representation exists
-- **T2_v2-v5** (Non-Collapse) - Multiple preservation versions
-- **T3_v3** (Reciprocity) - Equivalence relation properties
-- **Power Iteration** - Termination, well-definedness, stability
+**Core Lemmas** (`IVI/Proofs.lean` - 13 lemmas):
+- VWM symmetry, reflexivity, compatibility equivalence
+- Harmonization and resuperposition properties
+- System closure properties
 
-### ✅ Infrastructure
-- **WeylBounds.lean** - Spectral perturbation theory (axiomatized with references)
-- **Improved Theorems** - All T1-T5 have substantive v2 versions
-- **Convergence Properties** - Formal guarantees for spectral invariants
+**Improved Theorems** (`IVI/Theorems.lean` - 7 theorems):
+- T1_v2: SVO representation exists
+- T2_v4: Reflexive grain safety
+- T3_v2, T3_v3: Reciprocity properties
+- T4_v2, T5_v2: Practical/reflective judgment
+- T2_implies_nonCollapse: Soundness connection
 
-See [SESSION_SUMMARY.md](SESSION_SUMMARY.md) for complete details.
+**Convergence Properties** (`IVI/Invariant.lean` - 3 theorems):
+- Power iteration termination
+- Spectral invariant well-defined
+- Lambda stability convergence
+
+**Infrastructure** (`IVI/WeylBounds.lean` - 2 lemmas):
+- Matrix norm properties
+
+**Derived Properties** (`IVI/Pure.lean` - 6 theorems):
+- Reciprocity construction
+- Time ordering/inhabitance
+- System closure existence
+
+### ⚠️ In Progress (5 theorems with `sorry`)
+- T2_v2, T2_v3, T2_v5: Grain safety variations
+- Power iteration normalization/non-negativity
+
+### 📋 Documented Axioms (17 total)
+- **12 Kantian axioms** (A1-A12 in `IVI/Pure.lean`)
+- **4 analytic axioms** (Weyl bounds in `IVI/WeylBounds.lean`)
+- **1 convergence axiom** (`powerIter_converges` in `IVI/Invariant.lean`)
+
+See [HONEST_STATUS.md](HONEST_STATUS.md) for detailed accounting.
 
 ## File Layout
 
@@ -54,9 +73,9 @@ See [SESSION_SUMMARY.md](SESSION_SUMMARY.md) for complete details.
 - `IVI/System.lean` — System unity and closure
 
 ### Verification Infrastructure
-- `IVI/Theorems.lean` — Canonical theorems T1–T5 (original + **v2 improved versions**)
-- `IVI/Proofs.lean` — 13 proven lemmas
-- `IVI/WeylBounds.lean` — **NEW** - Spectral perturbation bounds
+- `IVI/Theorems.lean` — T1–T5 (original tautologies + v2 improved versions, some with `sorry`)
+- `IVI/Proofs.lean` — 13 fully proven lemmas (no `sorry`)
+- `IVI/WeylBounds.lean` — Spectral perturbation bounds (axiomatized)
 - `IVI/KakeyaBounds.lean` — Kakeya contract assembly
 - `IVI/Bridge.lean` — Kant ⇄ IVI correspondence
 
@@ -87,22 +106,22 @@ See [SESSION_SUMMARY.md](SESSION_SUMMARY.md) for complete details.
 - **Harmonic Diagnostics**: Graininess and stickiness metrics
 
 ### Formal Guarantees
-- **13 Original Lemmas**: Fully proven in `IVI/Proofs.lean`
-- **13 New Theorems**: Substantive versions of T1-T5 + convergence
-- **4 Derived Axioms**: A1, A6, A7, A12 proven from primitives
-- **5 Documented Axioms**: Weyl bounds with mathematical references
+- **31 Proven Items**: No `sorry` statements
+- **17 Documented Axioms**: Clear foundational assumptions
+- **5 In Progress**: Theorems with `sorry` (gaps identified)
+- **Working System**: Runtime validation + formal properties
 
-## Proof Status
+## Current Status
 
-| Category | Status | Count |
-|----------|--------|-------|
-| **Axioms Derived** | ✅ Complete | 4 (A1, A6, A7, A12) |
-| **Theorems Proven** | ✅ Complete | 13 new + 13 original |
-| **Priority 0** | ✅ Complete | Weyl bounds, T2, soundness |
-| **Priority 1** | ✅ Complete | Derived axioms, convergence |
-| **Priority 2-3** | ⚠️ Pending | See roadmap |
+| Category | Count | Notes |
+|----------|-------|-------|
+| **Fully Proven** | 31 | No `sorry` statements |
+| **In Progress** | 5 | Contain `sorry` (T2 variations, power iteration) |
+| **Documented Axioms** | 17 | 12 Kantian + 4 analytic + 1 convergence |
+| **Compilation** | ✅ Success | 29 jobs, no errors |
+| **Demo** | ✅ Works | `lake exe ivi-demo` runs |
 
-**Compilation**: ✅ All files build successfully (29 jobs, no errors)
+**Note**: Original T1-T5 in `IVI/Theorems.lean` are tautologies (h → h). Improved v2 versions added, some still contain `sorry`.
 
 ## Where to Go Next
 
@@ -114,18 +133,19 @@ The system is **production-ready**:
 - Proven theorems provide guarantees
 
 ### For Further Proof Work
-Follow [NEXT_STEPS.md](NEXT_STEPS.md):
-1. Derive remaining axioms (A2, A5, A8, A10)
-2. Prove power iteration convergence
-3. Prove fixed-point existence
-4. Complete T2 proofs (remove `sorry`)
+To complete the formal verification:
+1. **Remove `sorry` from T2 variations** (T2_v2, T2_v3, T2_v5)
+2. **Prove power iteration properties** (normalization, non-negativity)
+3. **Replace T1-T5 tautologies** with substantive proofs
+4. **Derive more axioms** (A2, A5, A8, A10 if possible)
 
-### For Research/Publication
-Current state is **publishable** with:
-- Clear axiom/theorem separation
-- Documented analytic assumptions
-- Computational soundness demonstrated
-- Path to full formalization outlined
+See [NEXT_STEPS.md](NEXT_STEPS.md) and [PROOF_ROADMAP.md](PROOF_ROADMAP.md) for details.
+
+### Current Limitations
+- **T1-T5 originals are tautologies** (h → h) - v2 versions improve this
+- **5 theorems contain `sorry`** - proofs incomplete
+- **17 axioms remain axiomatic** - foundational assumptions
+- **No GitHub Release** - tag exists but Release page not created
 
 ## Citation
 
