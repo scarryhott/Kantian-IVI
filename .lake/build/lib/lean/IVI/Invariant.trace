@@ -1,24 +1,20 @@
 {"synthetic": false,
  "outputs":
- {"o": ["14069054437453012741"],
-  "i": "808281294245940798",
+ {"o": ["16374285683091458634"],
+  "i": "11462772495108236585",
   "c": "9368919049436204994"},
  "log":
  [{"message":
    ".> LEAN_PATH=/Users/harryscott/Kantian-IVI/.lake/build/lib/lean /Users/harryscott/.elan/toolchains/leanprover--lean4---v4.23.0/bin/lean /Users/harryscott/Kantian-IVI/IVI/Invariant.lean -o /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Invariant.olean -i /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Invariant.ilean -c /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Invariant.c --setup /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Invariant.setup.json --json",
    "level": "trace"},
-  {"message": "IVI/Invariant.lean:398:8: declaration uses 'sorry'",
-   "level": "warning"},
-  {"message": "IVI/Invariant.lean:405:8: declaration uses 'sorry'",
+  {"message":
+   "IVI/Invariant.lean:421:14: unused variable `v`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "IVI/Invariant.lean:422:14: unused variable `v`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "IVI/Invariant.lean:433:5: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "IVI/Invariant.lean:434:5: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
-   "level": "warning"},
-  {"message":
-   "IVI/Invariant.lean:436:7: unused variable `lam`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "IVI/Invariant.lean:435:7: unused variable `lam`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"}],
  "inputs":
  [["IVI.Invariant:deps",
@@ -36,7 +32,7 @@
       ["module plugins", "1723"]]]]],
   ["Lean 4.23.0, commit 50aaf682e9b74ab92880292a25c68baa1cc81c87",
    "5786258275165720599"],
-  ["/Users/harryscott/Kantian-IVI/IVI/Invariant.lean", "6120386194505080709"],
+  ["/Users/harryscott/Kantian-IVI/IVI/Invariant.lean", "6818767328693925297"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "14892252537033482514"}
+ "depHash": "16210786994462828530"}

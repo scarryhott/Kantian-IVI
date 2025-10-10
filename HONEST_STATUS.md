@@ -88,13 +88,12 @@
 
 **Total: 31 proven items** (not 26 as claimed)
 
-### Contains `sorry` (Incomplete)
+### Axiomatized (Requires Real Analysis)
 
-1. `T2_liminal_persistence_v2` - Grain safety bounded perturbation
-2. `T2_liminal_persistence_v3` - Contract preservation
-3. `T2_liminal_persistence_monotonic` - Monotonic preservation
-4. `powerIter_normalized` - Normalization property
-5. `powerIter_nonneg_eigenvalue` - Non-negative eigenvalue
+1. `T2_liminal_persistence_v3` - Contract preservation (needs stronger Kakeya bounds)
+2. `powerIter_normalized` - Normalization property (needs Float arithmetic)
+3. `powerIter_nonneg_eigenvalue` - Non-negative eigenvalue (needs Perron-Frobenius)
+4. `Float.le_trans`, `Float.add_le_add`, `Float.zero_le` - Float arithmetic axioms
 
 ### Tautologies (Not Real Proofs)
 
@@ -124,16 +123,24 @@
 - A11: `verificationWithoutCollapse` - Asserts `True`
 - A12: `demandForSystem` - Asserts `True`
 
-**In IVI/WeylBounds.lean** (4 axioms):
+**In IVI/WeylBounds.lean** (7 axioms):
 - `weyl_eigenvalue_bound` - Spectral perturbation
 - `graininess_lipschitz` - Grain continuity
 - `entropy_lipschitz` - Entropy continuity
 - `step_matrix_perturbation` - Step perturbation
+- `Float.le_trans` - Float transitivity
+- `Float.add_le_add` - Float addition preserves inequality
+- `Float.zero_le` - Float zero property
 
-**In IVI/Invariant.lean** (1 axiom):
+**In IVI/Invariant.lean** (3 axioms):
 - `powerIter_converges` - Convergence with fuel
+- `powerIter_normalized` - Normalization property
+- `powerIter_nonneg_eigenvalue` - Non-negative eigenvalue
 
-**Total: 17 axioms**
+**In IVI/Theorems.lean** (1 axiom):
+- `T2_liminal_persistence_v3` - Contract preservation
+
+**Total: 24 axioms** (12 Kantian + 12 analytic)
 
 ### "Derived" Axioms (Misleading)
 

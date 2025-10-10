@@ -13,7 +13,7 @@
      [["ivi/IVI:extraDep", [["@ivi:extraDep", "1723"]]],
       ["imports",
        [["IVI.Invariant transitive imports (legacy)", "16455706825858143466"],
-        ["IVI.Invariant:importAllArts", "11934155774274239102"]]]]],
+        ["IVI.Invariant:importAllArts", "15315141498073337451"]]]]],
     ["libs",
      [["import dynlibs", "1723"],
       ["package external libraries", "1723"],
@@ -24,4 +24,4 @@
   ["/Users/harryscott/Kantian-IVI/IVI/FixedPoint.lean", "7047540458137328868"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "14576562661956750279"}
+ "depHash": "11146798976723551670"}

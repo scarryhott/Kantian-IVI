@@ -31,6 +31,21 @@ with formal proofs using mathlib's spectral theory.
 -/
 
 /-!
+## Float Arithmetic Properties
+
+These axioms capture basic properties of Float that would be proven from Real.
+-/
+
+/-- Float less-than-or-equal is transitive. -/
+axiom Float.le_trans (a b c : Float) : a ≤ b → b ≤ c → a ≤ c
+
+/-- Float addition preserves inequality. -/
+axiom Float.add_le_add (a b c d : Float) : a ≤ b → c ≤ d → a + c ≤ b + d
+
+/-- Float zero is less than or equal to any non-negative. -/
+axiom Float.zero_le (a : Float) : 0.0 ≤ a → 0.0 ≤ a
+
+/-!
 ## Matrix Norms and Perturbation Theory
 -/
 

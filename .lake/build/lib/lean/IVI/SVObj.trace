@@ -14,7 +14,7 @@
       ["imports",
        [["IVI.Domain transitive imports (legacy)", "17849264653420357201"],
         ["IVI.Domain:importAllArts", "17799345751516240756"],
-        ["IVI.Kakeya.Core transitive imports (legacy)", "2211176217470006210"],
+        ["IVI.Kakeya.Core transitive imports (legacy)", "10275108471666556597"],
         ["IVI.Kakeya.Core:importAllArts", "2116020674087704044"]]]]],
     ["libs",
      [["import dynlibs", "1723"],
@@ -26,4 +26,4 @@
   ["/Users/harryscott/Kantian-IVI/IVI/SVObj.lean", "5645367260933088495"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "12020310972992535239"}
+ "depHash": "12237993683333348102"}

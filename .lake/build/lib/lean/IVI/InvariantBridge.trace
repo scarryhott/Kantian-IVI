@@ -12,10 +12,11 @@
    [["deps",
      [["ivi/IVI:extraDep", [["@ivi:extraDep", "1723"]]],
       ["imports",
-       [["IVI.KakeyaBounds transitive imports (legacy)", "3912063831042403781"],
+       [["IVI.KakeyaBounds transitive imports (legacy)",
+         "11140189933141076042"],
         ["IVI.KakeyaBounds:importAllArts", "2538991580368955022"],
         ["IVI.Invariant transitive imports (legacy)", "16455706825858143466"],
-        ["IVI.Invariant:importAllArts", "11934155774274239102"]]]]],
+        ["IVI.Invariant:importAllArts", "15315141498073337451"]]]]],
     ["libs",
      [["import dynlibs", "1723"],
       ["package external libraries", "1723"],
@@ -27,4 +28,4 @@
    "3553504362378013391"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "1505739685223548974"}
+ "depHash": "5005217351150915112"}
