@@ -237,6 +237,25 @@ theorem entrywiseBounded_transpose {n : Nat} (M : RealMatrixN n) (c : ℝ)
   exact h j i
 
 /-- 
+If M is entrywise bounded by c and c ≤ c', then M is entrywise bounded by c'.
+-/
+theorem entrywiseBounded_mono {n : Nat} (M : RealMatrixN n) (c c' : ℝ)
+  (h : entrywiseBounded M c) (hcc' : c ≤ c') :
+  entrywiseBounded M c' := by
+  intro i j
+  unfold entrywiseBounded at h
+  exact le_trans (h i j) hcc'
+
+/-- 
+The zero matrix is entrywise bounded by any non-negative c.
+-/
+theorem entrywiseBounded_zero {n : Nat} (c : ℝ) (hc : 0 ≤ c) :
+  entrywiseBounded (0 : RealMatrixN n) c := by
+  intro i j
+  simp
+  exact hc
+
+/-- 
 Row sparsity: each row has at most d non-zero entries.
 -/
 def rowSparsity {n : Nat} (M : RealMatrixN n) (d : Nat) : Prop :=
