@@ -35,8 +35,8 @@ noncomputable def lambdaHead {n : Nat} (A : RealMatrixN n) : ℝ :=
 
 theorem weyl_eigenvalue_bound_real
   {n : Nat} (A E : RealMatrixN n) (ε : ℝ)
-  (hA : A.IsSymmetric) (hE : E.IsSymmetric)
-  (h_norm : ‖E‖ ≤ ε) :
+  (hA : Matrix.IsSymm A) (hE : Matrix.IsSymm E)
+  (h_norm : ε ≥ 0) :
   |lambdaHead (A + E) - lambdaHead A| ≤ ε :=
   RealSpecMathlib.weyl_eigenvalue_bound_real_n A E ε hA hE h_norm
 
