@@ -11,38 +11,6 @@
 ### Current Status: 🚧 In Progress
 
 **Target**: Replace Weyl axiom with mathlib-backed proof.
-
-### What's Done ✅
-
-1. **Mathlib Integration**
-   - ✅ Added mathlib dependency to `lakefile.lean`
-   - ✅ Aligned toolchain to mathlib's Lean version
-   - ✅ Successfully fetched and built with mathlib
-
-2. **Type Refactor**
-   - ✅ Refactored `IVI/RealSpec.lean` to use mathlib's `ℝ`
-   - ✅ Introduced `RealMatrixN n := Matrix (Fin n) (Fin n) ℝ`
-   - ✅ Removed placeholder Real axioms
-
-3. **Hermitian Specialization**
-   - ✅ Tightened Weyl statement to symmetric (Hermitian) matrices
-   - ✅ Added `A.IsSymmetric`, `E.IsSymmetric` hypotheses
-   - ✅ Documented standard Weyl inequality for Hermitian matrices
-
-4. **lambdaHead Definition**
-   - ✅ Changed from `axiom` to `def`
-   - ✅ Documented correct implementation path
-   - ⚠️ Currently uses `Classical.choice ⟨0⟩` placeholder
-   - 📋 TODO: Replace with `Finset.univ.sup' eigenvalues`
-
-5. **Float-to-Real Bridge**
-   - ✅ Created `toRealMatN {n} : List (List Float) → RealMatrixN n`
-   - ✅ Defined `lambdaHead_float` for Float matrices
-   - ✅ Scaffolded `weyl_error_budget_inf` for error-budget bridge
-
-### What's Left 🚧
-
-1. **Complete lambdaHead Implementation**
    - Replace `Classical.choice ⟨0⟩` with actual eigenvalue computation
    - Use mathlib's `Matrix.IsHermitian.eigenvalues` (when available)
    - Or implement via characteristic polynomial and spectral theorem
@@ -83,15 +51,21 @@
 
 ## Phase 1.2: Operator Norm Bounds
 
-### Status: 📋 Pending
+### Status: ✅ Scaffolded
 
-**Target**: Prove `‖M‖ ≤ c·d` for entrywise bounded, sparse matrices.
+**Target**: Prove `‖M‖ ≤ c√(nd)` for entrywise bounded, sparse matrices.
 
-**Tasks**:
-- Define entrywise bound: `∀ i j, |M i j| ≤ c`
-- Define sparsity: `∀ i, (row i).nnz ≤ d`
-- Prove operator norm bound using mathlib
-- **Impact**: Concrete bounds for runtime matrices
+**What's Done**:
+- ✅ Defined `entrywiseBounded`: `∀ i j, |M i j| ≤ c`
+- ✅ Defined `rowSparsity`: `∀ i, (row i).nnz ≤ d`
+- ✅ Axiomatized `operator_norm_bound`: `‖M‖ ≤ c√(nd)`
+- ✅ Documented application to IVI resonance matrices
+
+**What's Left**:
+- 🚧 Prove using Gershgorin circle theorem or direct norm calculation
+- 🚧 Replace axiom with theorem
+
+**Impact**: Concrete error budgets for Float computations
 
 **Estimated Time**: ~3 days
 
@@ -99,15 +73,22 @@
 
 ## Phase 1.3: Power Iteration Convergence
 
-### Status: 📋 Pending
+### Status: ✅ Scaffolded
 
 **Target**: Prove power iteration properties for symmetric nonnegative matrices.
 
-**Tasks**:
-- Prove `powerIter_converges` using Perron-Frobenius
-- Prove `powerIter_normalized` from normalization definition
-- Prove `powerIter_nonneg_eigenvalue` from Perron-Frobenius
-- **Impact**: -3 axioms
+**What's Done**:
+- ✅ Defined `nonNegative`: `∀ i j, M i j ≥ 0`
+- ✅ Axiomatized `powerIter_converges` (Perron-Frobenius)
+- ✅ Axiomatized `powerIter_normalized` (normalization by construction)
+- ✅ Axiomatized `powerIter_nonneg_eigenvalue` (λ₁ ≥ 0)
+- ✅ Documented application to IVI resonance modes
+
+**What's Left**:
+- 🚧 Prove using Perron-Frobenius theorem from mathlib
+- 🚧 Replace 3 axioms with theorems
+
+**Impact**: -3 axioms when proven
 
 **Estimated Time**: ~1 week
 
@@ -115,14 +96,20 @@
 
 ## Phase 1.4: Lipschitz Continuity
 
-### Status: 📋 Pending
+### Status: ✅ Scaffolded
 
 **Target**: Prove graininess and entropy are Lipschitz continuous.
 
-**Tasks**:
-- Prove `graininess_lipschitz` using standard real analysis
-- Prove `entropy_lipschitz` using standard real analysis
-- **Impact**: -2 axioms
+**What's Done**:
+- ✅ Axiomatized `graininess_lipschitz`
+- ✅ Axiomatized `entropy_lipschitz`
+- ✅ Documented application to Kakeya bounds and liminal persistence (A11)
+
+**What's Left**:
+- 🚧 Prove using standard real analysis
+- 🚧 Replace 2 axioms with theorems
+
+**Impact**: -2 axioms when proven
 
 **Estimated Time**: ~3 days
 
