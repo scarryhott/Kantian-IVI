@@ -10,6 +10,7 @@
 
 import Mathlib.Data.Matrix.Basic
 import Mathlib.Data.Real.Basic
+import Mathlib.Data.Real.Sqrt
 
 namespace IVI
 
@@ -226,6 +227,16 @@ def entrywiseBounded {n : Nat} (M : RealMatrixN n) (c : ℝ) : Prop :=
   ∀ i j, |M i j| ≤ c
 
 /-- 
+If M is entrywise bounded by c, then so is its transpose.
+-/
+theorem entrywiseBounded_transpose {n : Nat} (M : RealMatrixN n) (c : ℝ)
+  (h : entrywiseBounded M c) :
+  entrywiseBounded Mᵀ c := by
+  intro i j
+  unfold entrywiseBounded at h
+  exact h j i
+
+/-- 
 Row sparsity: each row has at most d non-zero entries.
 -/
 def rowSparsity {n : Nat} (M : RealMatrixN n) (d : Nat) : Prop :=
@@ -237,10 +248,17 @@ Operator norm bound for entrywise bounded, sparse matrices.
 For a matrix M with |M i j| ≤ c and at most d non-zero entries per row,
 the operator norm satisfies ‖M‖ ≤ c√(nd).
 
-This is a standard result in matrix analysis. For now, we axiomatize it
-pending full mathlib matrix norm infrastructure.
+This is a standard result in matrix analysis. The proof uses the fact that
+for any vector v with ‖v‖ = 1, we have:
+  ‖Mv‖² ≤ Σᵢ (Σⱼ |M i j| |v j|)²
+        ≤ Σᵢ (c·√d·‖v‖)²  (by Cauchy-Schwarz and sparsity)
+        ≤ n·c²·d
 
-TODO: Prove using Gershgorin circle theorem or direct norm calculation.
+Thus ‖M‖ ≤ c√(nd).
+
+For now, we axiomatize pending full mathlib matrix norm infrastructure.
+
+TODO: Prove using Cauchy-Schwarz and direct norm calculation once norms available.
 -/
 axiom operator_norm_bound
   {n : Nat} (M : RealMatrixN n) (c : ℝ) (d : Nat)
