@@ -56,3 +56,29 @@ axiom weyl_eigenvalue_bound_real_mathlib
   |lambdaMax_emb (matrixAdd A E) - lambdaMax_emb A| ≤ ε
 
 end IVI
+
+namespace IVI.RealSpecMathlib
+
+open Matrix Complex Real
+
+/-!
+Parametric Real matrices using mathlib proper.
+-/
+
+abbrev RealMatrixN (n : Nat) := Matrix (Fin n) (Fin n) Real
+
+/-- Placeholder for dominant eigenvalue (largest real eigenvalue) of a real matrix.
+For symmetric matrices, this agrees with the spectral radius. -/
+noncomputable axioms
+
+axiom lambdaHead {n : Nat} (A : RealMatrixN n) : Real
+
+/-- Weyl-style perturbation bound over mathlib matrices. -/
+axiom weyl_eigenvalue_bound_real_n
+  {n : Nat} (A E : RealMatrixN n) (ε : Real)
+  (hA : A.IsSymmetric)
+  (hE : E.IsSymmetric)
+  (h : ‖E‖ ≤ ε) :
+  |lambdaHead (A + E) - lambdaHead A| ≤ ε
+
+end IVI.RealSpecMathlib
