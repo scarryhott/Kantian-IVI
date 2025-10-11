@@ -73,6 +73,8 @@
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Util/TermReduce.olean"],
   "Mathlib.Util.Tactic":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Util/Tactic.olean"],
+  "Mathlib.Util.SynthesizeUsing":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Util/SynthesizeUsing.olean"],
   "Mathlib.Util.Qq":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Util/Qq.olean"],
   "Mathlib.Util.PrintSorries":
@@ -83,12 +85,16 @@
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Util/Notation3.olean"],
   "Mathlib.Util.MemoFix":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Util/MemoFix.olean"],
+  "Mathlib.Util.DischargerAsTactic":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Util/DischargerAsTactic.olean"],
   "Mathlib.Util.Delaborators":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Util/Delaborators.olean"],
   "Mathlib.Util.CountHeartbeats":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Util/CountHeartbeats.olean"],
   "Mathlib.Util.CompileInductive":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Util/CompileInductive.olean"],
+  "Mathlib.Util.AtomM.Recurse":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Util/AtomM/Recurse.olean"],
   "Mathlib.Util.AtomM":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Util/AtomM.olean"],
   "Mathlib.Util.AtLocation":
@@ -97,6 +103,236 @@
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Util/AssertExistsExt.olean"],
   "Mathlib.Util.AssertExists":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Util/AssertExists.olean"],
+  "Mathlib.Topology.UniformSpace.UniformEmbedding":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/UniformSpace/UniformEmbedding.olean"],
+  "Mathlib.Topology.UniformSpace.UniformConvergence":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/UniformSpace/UniformConvergence.olean"],
+  "Mathlib.Topology.UniformSpace.Separation":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/UniformSpace/Separation.olean"],
+  "Mathlib.Topology.UniformSpace.Real":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/UniformSpace/Real.olean"],
+  "Mathlib.Topology.UniformSpace.Pi":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/UniformSpace/Pi.olean"],
+  "Mathlib.Topology.UniformSpace.OfFun":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/UniformSpace/OfFun.olean"],
+  "Mathlib.Topology.UniformSpace.LocallyUniformConvergence":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/UniformSpace/LocallyUniformConvergence.olean"],
+  "Mathlib.Topology.UniformSpace.DiscreteUniformity":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/UniformSpace/DiscreteUniformity.olean"],
+  "Mathlib.Topology.UniformSpace.Defs":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/UniformSpace/Defs.olean"],
+  "Mathlib.Topology.UniformSpace.Compact":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/UniformSpace/Compact.olean"],
+  "Mathlib.Topology.UniformSpace.Cauchy":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/UniformSpace/Cauchy.olean"],
+  "Mathlib.Topology.UniformSpace.Basic":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/UniformSpace/Basic.olean"],
+  "Mathlib.Topology.Ultrafilter":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Ultrafilter.olean"],
+  "Mathlib.Topology.Separation.SeparatedNhds":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Separation/SeparatedNhds.olean"],
+  "Mathlib.Topology.Separation.Regular":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Separation/Regular.olean"],
+  "Mathlib.Topology.Separation.Hausdorff":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Separation/Hausdorff.olean"],
+  "Mathlib.Topology.Separation.Basic":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Separation/Basic.olean"],
+  "Mathlib.Topology.Piecewise":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Piecewise.olean"],
+  "Mathlib.Topology.Order.T5":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Order/T5.olean"],
+  "Mathlib.Topology.Order.Real":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Order/Real.olean"],
+  "Mathlib.Topology.Order.OrderClosed":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Order/OrderClosed.olean"],
+  "Mathlib.Topology.Order.MonotoneConvergence":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Order/MonotoneConvergence.olean"],
+  "Mathlib.Topology.Order.MonotoneContinuity":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Order/MonotoneContinuity.olean"],
+  "Mathlib.Topology.Order.Monotone":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Order/Monotone.olean"],
+  "Mathlib.Topology.Order.LocalExtr":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Order/LocalExtr.olean"],
+  "Mathlib.Topology.Order.LeftRightNhds":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Order/LeftRightNhds.olean"],
+  "Mathlib.Topology.Order.LeftRight":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Order/LeftRight.olean"],
+  "Mathlib.Topology.Order.IsLUB":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Order/IsLUB.olean"],
+  "Mathlib.Topology.Order.IntermediateValue":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Order/IntermediateValue.olean"],
+  "Mathlib.Topology.Order.DenselyOrdered":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Order/DenselyOrdered.olean"],
+  "Mathlib.Topology.Order.Compact":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Order/Compact.olean"],
+  "Mathlib.Topology.Order.Bornology":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Order/Bornology.olean"],
+  "Mathlib.Topology.Order.Basic":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Order/Basic.olean"],
+  "Mathlib.Topology.Order":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Order.olean"],
+  "Mathlib.Topology.NhdsSet":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/NhdsSet.olean"],
+  "Mathlib.Topology.Neighborhoods":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Neighborhoods.olean"],
+  "Mathlib.Topology.MetricSpace.Pseudo.Pi":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/MetricSpace/Pseudo/Pi.olean"],
+  "Mathlib.Topology.MetricSpace.Pseudo.Lemmas":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/MetricSpace/Pseudo/Lemmas.olean"],
+  "Mathlib.Topology.MetricSpace.Pseudo.Defs":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/MetricSpace/Pseudo/Defs.olean"],
+  "Mathlib.Topology.MetricSpace.Pseudo.Constructions":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/MetricSpace/Pseudo/Constructions.olean"],
+  "Mathlib.Topology.MetricSpace.Pseudo.Basic":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/MetricSpace/Pseudo/Basic.olean"],
+  "Mathlib.Topology.MetricSpace.ProperSpace":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/MetricSpace/ProperSpace.olean"],
+  "Mathlib.Topology.MetricSpace.Defs":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/MetricSpace/Defs.olean"],
+  "Mathlib.Topology.MetricSpace.Cauchy":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/MetricSpace/Cauchy.olean"],
+  "Mathlib.Topology.MetricSpace.Bounded":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/MetricSpace/Bounded.olean"],
+  "Mathlib.Topology.MetricSpace.Basic":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/MetricSpace/Basic.olean"],
+  "Mathlib.Topology.Maps.OpenQuotient":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Maps/OpenQuotient.olean"],
+  "Mathlib.Topology.Maps.Basic":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Maps/Basic.olean"],
+  "Mathlib.Topology.LocallyFinite":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/LocallyFinite.olean"],
+  "Mathlib.Topology.Irreducible":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Irreducible.olean"],
+  "Mathlib.Topology.Instances.NNReal.Lemmas":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Instances/NNReal/Lemmas.olean"],
+  "Mathlib.Topology.Instances.Int":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Instances/Int.olean"],
+  "Mathlib.Topology.Instances.Discrete":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Instances/Discrete.olean"],
+  "Mathlib.Topology.Inseparable":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Inseparable.olean"],
+  "Mathlib.Topology.Homeomorph.Lemmas":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Homeomorph/Lemmas.olean"],
+  "Mathlib.Topology.Homeomorph.Defs":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Homeomorph/Defs.olean"],
+  "Mathlib.Topology.EMetricSpace.Pi":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/EMetricSpace/Pi.olean"],
+  "Mathlib.Topology.EMetricSpace.Diam":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/EMetricSpace/Diam.olean"],
+  "Mathlib.Topology.EMetricSpace.Defs":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/EMetricSpace/Defs.olean"],
+  "Mathlib.Topology.EMetricSpace.Basic":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/EMetricSpace/Basic.olean"],
+  "Mathlib.Topology.DenseEmbedding":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/DenseEmbedding.olean"],
+  "Mathlib.Topology.Defs.Ultrafilter":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Defs/Ultrafilter.olean"],
+  "Mathlib.Topology.Defs.Induced":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Defs/Induced.olean"],
+  "Mathlib.Topology.Defs.Filter":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Defs/Filter.olean"],
+  "Mathlib.Topology.Defs.Basic":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Defs/Basic.olean"],
+  "Mathlib.Topology.ContinuousOn":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/ContinuousOn.olean"],
+  "Mathlib.Topology.ContinuousMap.Defs":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/ContinuousMap/Defs.olean"],
+  "Mathlib.Topology.ContinuousMap.Basic":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/ContinuousMap/Basic.olean"],
+  "Mathlib.Topology.Continuous":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Continuous.olean"],
+  "Mathlib.Topology.Constructions.SumProd":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Constructions/SumProd.olean"],
+  "Mathlib.Topology.Constructions":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Constructions.olean"],
+  "Mathlib.Topology.Connected.TotallyDisconnected":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Connected/TotallyDisconnected.olean"],
+  "Mathlib.Topology.Connected.LocallyConnected":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Connected/LocallyConnected.olean"],
+  "Mathlib.Topology.Connected.Clopen":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Connected/Clopen.olean"],
+  "Mathlib.Topology.Connected.Basic":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Connected/Basic.olean"],
+  "Mathlib.Topology.Compactness.SigmaCompact":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Compactness/SigmaCompact.olean"],
+  "Mathlib.Topology.Compactness.LocallyFinite":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Compactness/LocallyFinite.olean"],
+  "Mathlib.Topology.Compactness.LocallyCompact":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Compactness/LocallyCompact.olean"],
+  "Mathlib.Topology.Compactness.Lindelof":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Compactness/Lindelof.olean"],
+  "Mathlib.Topology.Compactness.Compact":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Compactness/Compact.olean"],
+  "Mathlib.Topology.ClusterPt":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/ClusterPt.olean"],
+  "Mathlib.Topology.Closure":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Closure.olean"],
+  "Mathlib.Topology.Clopen":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Clopen.olean"],
+  "Mathlib.Topology.Bornology.Real":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Bornology/Real.olean"],
+  "Mathlib.Topology.Bornology.Constructions":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Bornology/Constructions.olean"],
+  "Mathlib.Topology.Bornology.Basic":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Bornology/Basic.olean"],
+  "Mathlib.Topology.Basic":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Basic.olean"],
+  "Mathlib.Topology.Bases":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Bases.olean"],
+  "Mathlib.Topology.Algebra.Support":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Algebra/Support.olean"],
+  "Mathlib.Topology.Algebra.Star":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Algebra/Star.olean"],
+  "Mathlib.Topology.Algebra.Ring.Real":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Algebra/Ring/Real.olean"],
+  "Mathlib.Topology.Algebra.Ring.Basic":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Algebra/Ring/Basic.olean"],
+  "Mathlib.Topology.Algebra.Order.Group":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Algebra/Order/Group.olean"],
+  "Mathlib.Topology.Algebra.Order.Field":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Algebra/Order/Field.olean"],
+  "Mathlib.Topology.Algebra.MulAction":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Algebra/MulAction.olean"],
+  "Mathlib.Topology.Algebra.Monoid.Defs":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Algebra/Monoid/Defs.olean"],
+  "Mathlib.Topology.Algebra.Monoid":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Algebra/Monoid.olean"],
+  "Mathlib.Topology.Algebra.IsUniformGroup.Defs":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Algebra/IsUniformGroup/Defs.olean"],
+  "Mathlib.Topology.Algebra.InfiniteSum.SummationFilter":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Algebra/InfiniteSum/SummationFilter.olean"],
+  "Mathlib.Topology.Algebra.InfiniteSum.Ring":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Algebra/InfiniteSum/Ring.olean"],
+  "Mathlib.Topology.Algebra.InfiniteSum.Order":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Algebra/InfiniteSum/Order.olean"],
+  "Mathlib.Topology.Algebra.InfiniteSum.NatInt":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Algebra/InfiniteSum/NatInt.olean"],
+  "Mathlib.Topology.Algebra.InfiniteSum.Group":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Algebra/InfiniteSum/Group.olean"],
+  "Mathlib.Topology.Algebra.InfiniteSum.Defs":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Algebra/InfiniteSum/Defs.olean"],
+  "Mathlib.Topology.Algebra.InfiniteSum.Constructions":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Algebra/InfiniteSum/Constructions.olean"],
+  "Mathlib.Topology.Algebra.InfiniteSum.Basic":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Algebra/InfiniteSum/Basic.olean"],
+  "Mathlib.Topology.Algebra.GroupWithZero":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Algebra/GroupWithZero.olean"],
+  "Mathlib.Topology.Algebra.Group.Pointwise":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Algebra/Group/Pointwise.olean"],
+  "Mathlib.Topology.Algebra.Group.GroupTopology":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Algebra/Group/GroupTopology.olean"],
+  "Mathlib.Topology.Algebra.Group.Defs":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Algebra/Group/Defs.olean"],
+  "Mathlib.Topology.Algebra.Group.Basic":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Algebra/Group/Basic.olean"],
+  "Mathlib.Topology.Algebra.Field":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Algebra/Field.olean"],
+  "Mathlib.Topology.Algebra.Constructions":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Algebra/Constructions.olean"],
+  "Mathlib.Topology.Algebra.ConstMulAction":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Algebra/ConstMulAction.olean"],
+  "Mathlib.Tactic.Zify":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/Zify.olean"],
   "Mathlib.Tactic.WithoutCDot":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/WithoutCDot.olean"],
   "Mathlib.Tactic.Widget.SelectPanelUtils":
@@ -125,6 +361,8 @@
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/TypeStar.olean"],
   "Mathlib.Tactic.TypeCheck":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/TypeCheck.olean"],
+  "Mathlib.Tactic.TryThis":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/TryThis.olean"],
   "Mathlib.Tactic.Trace":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/Trace.olean"],
   "Mathlib.Tactic.ToLevel":
@@ -181,6 +419,14 @@
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/ScopedNS.olean"],
   "Mathlib.Tactic.Says":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/Says.olean"],
+  "Mathlib.Tactic.Ring.RingNF":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/Ring/RingNF.olean"],
+  "Mathlib.Tactic.Ring.PNat":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/Ring/PNat.olean"],
+  "Mathlib.Tactic.Ring.Basic":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/Ring/Basic.olean"],
+  "Mathlib.Tactic.Ring":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/Ring.olean"],
   "Mathlib.Tactic.RenameBVar":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/RenameBVar.olean"],
   "Mathlib.Tactic.Rename":
@@ -199,8 +445,20 @@
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/Propose.olean"],
   "Mathlib.Tactic.Positivity.Core":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/Positivity/Core.olean"],
+  "Mathlib.Tactic.Positivity.Basic":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/Positivity/Basic.olean"],
   "Mathlib.Tactic.PPWithUniv":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/PPWithUniv.olean"],
+  "Mathlib.Tactic.Order.Preprocessing":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/Order/Preprocessing.olean"],
+  "Mathlib.Tactic.Order.Graph.Tarjan":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/Order/Graph/Tarjan.olean"],
+  "Mathlib.Tactic.Order.Graph.Basic":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/Order/Graph/Basic.olean"],
+  "Mathlib.Tactic.Order.CollectFacts":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/Order/CollectFacts.olean"],
+  "Mathlib.Tactic.Order":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/Order.olean"],
   "Mathlib.Tactic.OfNat":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/OfNat.olean"],
   "Mathlib.Tactic.Observe":
@@ -209,12 +467,32 @@
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/NthRewrite.olean"],
   "Mathlib.Tactic.NormNum.Result":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/NormNum/Result.olean"],
+  "Mathlib.Tactic.NormNum.Pow":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/NormNum/Pow.olean"],
+  "Mathlib.Tactic.NormNum.OfScientific":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/NormNum/OfScientific.olean"],
+  "Mathlib.Tactic.NormNum.Inv":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/NormNum/Inv.olean"],
+  "Mathlib.Tactic.NormNum.Ineq":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/NormNum/Ineq.olean"],
+  "Mathlib.Tactic.NormNum.Eq":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/NormNum/Eq.olean"],
+  "Mathlib.Tactic.NormNum.DivMod":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/NormNum/DivMod.olean"],
   "Mathlib.Tactic.NormNum.Core":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/NormNum/Core.olean"],
+  "Mathlib.Tactic.NormNum.Basic":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/NormNum/Basic.olean"],
+  "Mathlib.Tactic.NormNum.Abs":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/NormNum/Abs.olean"],
+  "Mathlib.Tactic.NormNum":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/NormNum.olean"],
   "Mathlib.Tactic.Nontriviality.Core":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/Nontriviality/Core.olean"],
   "Mathlib.Tactic.Nontriviality":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/Nontriviality.olean"],
+  "Mathlib.Tactic.Monotonicity.Basic":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/Monotonicity/Basic.olean"],
   "Mathlib.Tactic.Monotonicity.Attr":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/Monotonicity/Attr.olean"],
   "Mathlib.Tactic.MkIffOfInductiveProp":
@@ -263,6 +541,30 @@
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/Linter/CommandStart.olean"],
   "Mathlib.Tactic.Linter":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/Linter.olean"],
+  "Mathlib.Tactic.Linarith.Verification":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/Linarith/Verification.olean"],
+  "Mathlib.Tactic.Linarith.Preprocessing":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/Linarith/Preprocessing.olean"],
+  "Mathlib.Tactic.Linarith.Parsing":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/Linarith/Parsing.olean"],
+  "Mathlib.Tactic.Linarith.Oracle.SimplexAlgorithm.SimplexAlgorithm":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/Linarith/Oracle/SimplexAlgorithm/SimplexAlgorithm.olean"],
+  "Mathlib.Tactic.Linarith.Oracle.SimplexAlgorithm.PositiveVector":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/Linarith/Oracle/SimplexAlgorithm/PositiveVector.olean"],
+  "Mathlib.Tactic.Linarith.Oracle.SimplexAlgorithm.Gauss":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/Linarith/Oracle/SimplexAlgorithm/Gauss.olean"],
+  "Mathlib.Tactic.Linarith.Oracle.SimplexAlgorithm.Datatypes":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/Linarith/Oracle/SimplexAlgorithm/Datatypes.olean"],
+  "Mathlib.Tactic.Linarith.Oracle.SimplexAlgorithm":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/Linarith/Oracle/SimplexAlgorithm.olean"],
+  "Mathlib.Tactic.Linarith.Lemmas":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/Linarith/Lemmas.olean"],
+  "Mathlib.Tactic.Linarith.Frontend":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/Linarith/Frontend.olean"],
+  "Mathlib.Tactic.Linarith.Datatypes":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/Linarith/Datatypes.olean"],
+  "Mathlib.Tactic.Linarith":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/Linarith.olean"],
   "Mathlib.Tactic.Lift":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/Lift.olean"],
   "Mathlib.Tactic.Lemma":
@@ -321,8 +623,18 @@
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/FunProp.olean"],
   "Mathlib.Tactic.Finiteness.Attr":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/Finiteness/Attr.olean"],
+  "Mathlib.Tactic.Finiteness":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/Finiteness.olean"],
   "Mathlib.Tactic.Find":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/Find.olean"],
+  "Mathlib.Tactic.FieldSimp.Lemmas":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/FieldSimp/Lemmas.olean"],
+  "Mathlib.Tactic.FieldSimp.Discharger":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/FieldSimp/Discharger.olean"],
+  "Mathlib.Tactic.FieldSimp.Attr":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/FieldSimp/Attr.olean"],
+  "Mathlib.Tactic.FieldSimp":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/FieldSimp.olean"],
   "Mathlib.Tactic.FastInstance":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/FastInstance.olean"],
   "Mathlib.Tactic.FailIfNoProgress":
@@ -353,6 +665,10 @@
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/Conv.olean"],
   "Mathlib.Tactic.Contrapose":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/Contrapose.olean"],
+  "Mathlib.Tactic.Continuity.Init":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/Continuity/Init.olean"],
+  "Mathlib.Tactic.Continuity":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/Continuity.olean"],
   "Mathlib.Tactic.Constructor":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/Constructor.olean"],
   "Mathlib.Tactic.CongrM":
@@ -375,6 +691,8 @@
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/Check.olean"],
   "Mathlib.Tactic.CasesM":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/CasesM.olean"],
+  "Mathlib.Tactic.CancelDenoms.Core":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/CancelDenoms/Core.olean"],
   "Mathlib.Tactic.ByContra":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/ByContra.olean"],
   "Mathlib.Tactic.Bound.Init":
@@ -397,18 +715,50 @@
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/ApplyAt.olean"],
   "Mathlib.Tactic.AdaptationNote":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/AdaptationNote.olean"],
+  "Mathlib.Tactic.Abel":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/Abel.olean"],
+  "Mathlib.SetTheory.Cardinal.ToNat":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/SetTheory/Cardinal/ToNat.olean"],
+  "Mathlib.SetTheory.Cardinal.SchroederBernstein":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/SetTheory/Cardinal/SchroederBernstein.olean"],
+  "Mathlib.SetTheory.Cardinal.Order":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/SetTheory/Cardinal/Order.olean"],
+  "Mathlib.SetTheory.Cardinal.Finite":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/SetTheory/Cardinal/Finite.olean"],
+  "Mathlib.SetTheory.Cardinal.ENat":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/SetTheory/Cardinal/ENat.olean"],
+  "Mathlib.SetTheory.Cardinal.Defs":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/SetTheory/Cardinal/Defs.olean"],
+  "Mathlib.SetTheory.Cardinal.Basic":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/SetTheory/Cardinal/Basic.olean"],
   "Mathlib.RingTheory.NonUnitalSubsemiring.Defs":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/RingTheory/NonUnitalSubsemiring/Defs.olean"],
   "Mathlib.RingTheory.NonUnitalSubsemiring.Basic":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/RingTheory/NonUnitalSubsemiring/Basic.olean"],
   "Mathlib.RingTheory.NonUnitalSubring.Defs":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/RingTheory/NonUnitalSubring/Defs.olean"],
+  "Mathlib.Order.ZornAtoms":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/ZornAtoms.olean"],
   "Mathlib.Order.Zorn":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Zorn.olean"],
   "Mathlib.Order.WithBot":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/WithBot.olean"],
+  "Mathlib.Order.WellQuasiOrder":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/WellQuasiOrder.olean"],
+  "Mathlib.Order.WellFoundedSet":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/WellFoundedSet.olean"],
   "Mathlib.Order.WellFounded":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/WellFounded.olean"],
+  "Mathlib.Order.UpperLower.Principal":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/UpperLower/Principal.olean"],
+  "Mathlib.Order.UpperLower.Fibration":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/UpperLower/Fibration.olean"],
+  "Mathlib.Order.UpperLower.CompleteLattice":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/UpperLower/CompleteLattice.olean"],
+  "Mathlib.Order.UpperLower.Closure":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/UpperLower/Closure.olean"],
+  "Mathlib.Order.UpperLower.Basic":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/UpperLower/Basic.olean"],
   "Mathlib.Order.ULift":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/ULift.olean"],
   "Mathlib.Order.TypeTags":
@@ -421,8 +771,20 @@
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/SupIndep.olean"],
   "Mathlib.Order.SupClosed":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/SupClosed.olean"],
+  "Mathlib.Order.SuccPred.WithBot":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/SuccPred/WithBot.olean"],
+  "Mathlib.Order.SuccPred.Relation":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/SuccPred/Relation.olean"],
+  "Mathlib.Order.SuccPred.LinearLocallyFinite":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/SuccPred/LinearLocallyFinite.olean"],
+  "Mathlib.Order.SuccPred.Limit":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/SuccPred/Limit.olean"],
+  "Mathlib.Order.SuccPred.CompleteLinearOrder":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/SuccPred/CompleteLinearOrder.olean"],
   "Mathlib.Order.SuccPred.Basic":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/SuccPred/Basic.olean"],
+  "Mathlib.Order.SuccPred.Archimedean":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/SuccPred/Archimedean.olean"],
   "Mathlib.Order.SetNotation":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/SetNotation.olean"],
   "Mathlib.Order.ScottContinuity":
@@ -443,6 +805,8 @@
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Part.olean"],
   "Mathlib.Order.OrderIsoNat":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/OrderIsoNat.olean"],
+  "Mathlib.Order.OrdContinuous":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/OrdContinuous.olean"],
   "Mathlib.Order.OmegaCompletePartialOrder":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/OmegaCompletePartialOrder.olean"],
   "Mathlib.Order.Notation":
@@ -461,6 +825,8 @@
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/MinMax.olean"],
   "Mathlib.Order.Max":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Max.olean"],
+  "Mathlib.Order.LiminfLimsup":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/LiminfLimsup.olean"],
   "Mathlib.Order.LatticeIntervals":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/LatticeIntervals.olean"],
   "Mathlib.Order.Lattice":
@@ -473,16 +839,22 @@
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Interval/Set/UnorderedInterval.olean"],
   "Mathlib.Order.Interval.Set.SuccPred":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Interval/Set/SuccPred.olean"],
+  "Mathlib.Order.Interval.Set.Pi":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Interval/Set/Pi.olean"],
   "Mathlib.Order.Interval.Set.OrderIso":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Interval/Set/OrderIso.olean"],
   "Mathlib.Order.Interval.Set.OrderEmbedding":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Interval/Set/OrderEmbedding.olean"],
+  "Mathlib.Order.Interval.Set.OrdConnectedComponent":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Interval/Set/OrdConnectedComponent.olean"],
   "Mathlib.Order.Interval.Set.OrdConnected":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Interval/Set/OrdConnected.olean"],
   "Mathlib.Order.Interval.Set.LinearOrder":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Interval/Set/LinearOrder.olean"],
   "Mathlib.Order.Interval.Set.Image":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Interval/Set/Image.olean"],
+  "Mathlib.Order.Interval.Set.Disjoint":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Interval/Set/Disjoint.olean"],
   "Mathlib.Order.Interval.Set.Defs":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Interval/Set/Defs.olean"],
   "Mathlib.Order.Interval.Set.Basic":
@@ -497,10 +869,16 @@
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Interval/Finset/Defs.olean"],
   "Mathlib.Order.Interval.Finset.Basic":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Interval/Finset/Basic.olean"],
+  "Mathlib.Order.InitialSeg":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/InitialSeg.olean"],
   "Mathlib.Order.Hom.WithTopBot":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Hom/WithTopBot.olean"],
   "Mathlib.Order.Hom.Set":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Hom/Set.olean"],
+  "Mathlib.Order.Hom.Order":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Hom/Order.olean"],
+  "Mathlib.Order.Hom.Lex":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Hom/Lex.olean"],
   "Mathlib.Order.Hom.Lattice":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Hom/Lattice.olean"],
   "Mathlib.Order.Hom.CompleteLattice":
@@ -517,8 +895,88 @@
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/GaloisConnection/Defs.olean"],
   "Mathlib.Order.GaloisConnection.Basic":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/GaloisConnection/Basic.olean"],
+  "Mathlib.Order.FixedPoints":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/FixedPoints.olean"],
   "Mathlib.Order.Fin.Basic":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Fin/Basic.olean"],
+  "Mathlib.Order.Filter.Ultrafilter.Defs":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Filter/Ultrafilter/Defs.olean"],
+  "Mathlib.Order.Filter.Ultrafilter.Basic":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Filter/Ultrafilter/Basic.olean"],
+  "Mathlib.Order.Filter.Tendsto":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Filter/Tendsto.olean"],
+  "Mathlib.Order.Filter.SmallSets":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Filter/SmallSets.olean"],
+  "Mathlib.Order.Filter.Prod":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Filter/Prod.olean"],
+  "Mathlib.Order.Filter.Pointwise":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Filter/Pointwise.olean"],
+  "Mathlib.Order.Filter.Pi":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Filter/Pi.olean"],
+  "Mathlib.Order.Filter.NAry":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Filter/NAry.olean"],
+  "Mathlib.Order.Filter.Map":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Filter/Map.olean"],
+  "Mathlib.Order.Filter.Lift":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Filter/Lift.olean"],
+  "Mathlib.Order.Filter.Ker":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Filter/Ker.olean"],
+  "Mathlib.Order.Filter.IsBounded":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Filter/IsBounded.olean"],
+  "Mathlib.Order.Filter.Interval":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Filter/Interval.olean"],
+  "Mathlib.Order.Filter.Finite":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Filter/Finite.olean"],
+  "Mathlib.Order.Filter.Extr":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Filter/Extr.olean"],
+  "Mathlib.Order.Filter.Defs":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Filter/Defs.olean"],
+  "Mathlib.Order.Filter.Curry":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Filter/Curry.olean"],
+  "Mathlib.Order.Filter.CountablyGenerated":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Filter/CountablyGenerated.olean"],
+  "Mathlib.Order.Filter.CountableInter":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Filter/CountableInter.olean"],
+  "Mathlib.Order.Filter.Cofinite":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Filter/Cofinite.olean"],
+  "Mathlib.Order.Filter.Basic":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Filter/Basic.olean"],
+  "Mathlib.Order.Filter.Bases.Finite":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Filter/Bases/Finite.olean"],
+  "Mathlib.Order.Filter.Bases.Basic":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Filter/Bases/Basic.olean"],
+  "Mathlib.Order.Filter.AtTopBot.Tendsto":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Filter/AtTopBot/Tendsto.olean"],
+  "Mathlib.Order.Filter.AtTopBot.Ring":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Filter/AtTopBot/Ring.olean"],
+  "Mathlib.Order.Filter.AtTopBot.Prod":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Filter/AtTopBot/Prod.olean"],
+  "Mathlib.Order.Filter.AtTopBot.Monoid":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Filter/AtTopBot/Monoid.olean"],
+  "Mathlib.Order.Filter.AtTopBot.Map":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Filter/AtTopBot/Map.olean"],
+  "Mathlib.Order.Filter.AtTopBot.Group":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Filter/AtTopBot/Group.olean"],
+  "Mathlib.Order.Filter.AtTopBot.Finset":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Filter/AtTopBot/Finset.olean"],
+  "Mathlib.Order.Filter.AtTopBot.Finite":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Filter/AtTopBot/Finite.olean"],
+  "Mathlib.Order.Filter.AtTopBot.Field":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Filter/AtTopBot/Field.olean"],
+  "Mathlib.Order.Filter.AtTopBot.Disjoint":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Filter/AtTopBot/Disjoint.olean"],
+  "Mathlib.Order.Filter.AtTopBot.Defs":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Filter/AtTopBot/Defs.olean"],
+  "Mathlib.Order.Filter.AtTopBot.CountablyGenerated":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Filter/AtTopBot/CountablyGenerated.olean"],
+  "Mathlib.Order.Filter.AtTopBot.CompleteLattice":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Filter/AtTopBot/CompleteLattice.olean"],
+  "Mathlib.Order.Filter.AtTopBot.BigOperators":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Filter/AtTopBot/BigOperators.olean"],
+  "Mathlib.Order.Filter.AtTopBot.Basic":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Filter/AtTopBot/Basic.olean"],
+  "Mathlib.Order.Filter.AtTopBot.Archimedean":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Filter/AtTopBot/Archimedean.olean"],
   "Mathlib.Order.Disjoint":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Disjoint.olean"],
   "Mathlib.Order.Directed":
@@ -533,6 +991,8 @@
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Cover.olean"],
   "Mathlib.Order.ConditionallyCompleteLattice.Indexed":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/ConditionallyCompleteLattice/Indexed.olean"],
+  "Mathlib.Order.ConditionallyCompleteLattice.Group":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/ConditionallyCompleteLattice/Group.olean"],
   "Mathlib.Order.ConditionallyCompleteLattice.Finset":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/ConditionallyCompleteLattice/Finset.olean"],
   "Mathlib.Order.ConditionallyCompleteLattice.Defs":
@@ -587,8 +1047,16 @@
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Antisymmetrization.olean"],
   "Mathlib.Order.Antichain":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Antichain.olean"],
+  "Mathlib.Logic.UnivLE":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Logic/UnivLE.olean"],
   "Mathlib.Logic.Unique":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Logic/Unique.olean"],
+  "Mathlib.Logic.Small.Set":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Logic/Small/Set.olean"],
+  "Mathlib.Logic.Small.Defs":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Logic/Small/Defs.olean"],
+  "Mathlib.Logic.Small.Basic":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Logic/Small/Basic.olean"],
   "Mathlib.Logic.Relator":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Logic/Relator.olean"],
   "Mathlib.Logic.Relation":
@@ -631,12 +1099,16 @@
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Logic/Equiv/Option.olean"],
   "Mathlib.Logic.Equiv.Nat":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Logic/Equiv/Nat.olean"],
+  "Mathlib.Logic.Equiv.List":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Logic/Equiv/List.olean"],
   "Mathlib.Logic.Equiv.Fin.Basic":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Logic/Equiv/Fin/Basic.olean"],
   "Mathlib.Logic.Equiv.Defs":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Logic/Equiv/Defs.olean"],
   "Mathlib.Logic.Equiv.Basic":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Logic/Equiv/Basic.olean"],
+  "Mathlib.Logic.Encodable.Lattice":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Logic/Encodable/Lattice.olean"],
   "Mathlib.Logic.Encodable.Basic":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Logic/Encodable/Basic.olean"],
   "Mathlib.Logic.Embedding.Set":
@@ -661,6 +1133,8 @@
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Lean/PrettyPrinter/Delaborator.olean"],
   "Mathlib.Lean.Name":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Lean/Name.olean"],
+  "Mathlib.Lean.Meta.Tactic.Rewrite":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Lean/Meta/Tactic/Rewrite.olean"],
   "Mathlib.Lean.Meta.Simp":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Lean/Meta/Simp.olean"],
   "Mathlib.Lean.Meta.RefinedDiscrTree.Lookup":
@@ -709,6 +1183,10 @@
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/GroupTheory/Submonoid/Centralizer.olean"],
   "Mathlib.GroupTheory.Submonoid.Center":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/GroupTheory/Submonoid/Center.olean"],
+  "Mathlib.GroupTheory.Subgroup.Centralizer":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/GroupTheory/Subgroup/Centralizer.olean"],
+  "Mathlib.GroupTheory.Subgroup.Center":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/GroupTheory/Subgroup/Center.olean"],
   "Mathlib.GroupTheory.GroupAction.SubMulAction":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/GroupTheory/GroupAction/SubMulAction.olean"],
   "Mathlib.GroupTheory.GroupAction.Ring":
@@ -719,32 +1197,46 @@
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/GroupTheory/GroupAction/DomAct/Basic.olean"],
   "Mathlib.GroupTheory.GroupAction.Defs":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/GroupTheory/GroupAction/Defs.olean"],
+  "Mathlib.GroupTheory.GroupAction.ConjAct":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/GroupTheory/GroupAction/ConjAct.olean"],
   "Mathlib.Dynamics.FixedPoints.Basic":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Dynamics/FixedPoints/Basic.olean"],
+  "Mathlib.Data.ZMod.Defs":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/ZMod/Defs.olean"],
   "Mathlib.Data.Vector.Defs":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Vector/Defs.olean"],
   "Mathlib.Data.Vector.Basic":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Vector/Basic.olean"],
   "Mathlib.Data.ULift":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/ULift.olean"],
+  "Mathlib.Data.Tree.Basic":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Tree/Basic.olean"],
   "Mathlib.Data.Sym.Basic":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Sym/Basic.olean"],
+  "Mathlib.Data.Sum.Order":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Sum/Order.olean"],
   "Mathlib.Data.Sum.Basic":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Sum/Basic.olean"],
   "Mathlib.Data.Subtype":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Subtype.olean"],
   "Mathlib.Data.String.Defs":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/String/Defs.olean"],
+  "Mathlib.Data.Sigma.Lex":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Sigma/Lex.olean"],
   "Mathlib.Data.Sigma.Basic":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Sigma/Basic.olean"],
   "Mathlib.Data.Setoid.Basic":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Setoid/Basic.olean"],
   "Mathlib.Data.SetLike.Basic":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/SetLike/Basic.olean"],
+  "Mathlib.Data.Set.UnionLift":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Set/UnionLift.olean"],
   "Mathlib.Data.Set.SymmDiff":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Set/SymmDiff.olean"],
   "Mathlib.Data.Set.Subsingleton":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Set/Subsingleton.olean"],
+  "Mathlib.Data.Set.Subset":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Set/Subset.olean"],
   "Mathlib.Data.Set.Sigma":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Set/Sigma.olean"],
   "Mathlib.Data.Set.Restrict":
@@ -781,12 +1273,16 @@
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Set/Inclusion.olean"],
   "Mathlib.Data.Set.Image":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Set/Image.olean"],
+  "Mathlib.Data.Set.Functor":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Set/Functor.olean"],
   "Mathlib.Data.Set.Function":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Set/Function.olean"],
   "Mathlib.Data.Set.Finite.Range":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Set/Finite/Range.olean"],
   "Mathlib.Data.Set.Finite.Powerset":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Set/Finite/Powerset.olean"],
+  "Mathlib.Data.Set.Finite.Lemmas":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Set/Finite/Lemmas.olean"],
   "Mathlib.Data.Set.Finite.Lattice":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Set/Finite/Lattice.olean"],
   "Mathlib.Data.Set.Finite.Basic":
@@ -795,30 +1291,54 @@
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Set/Disjoint.olean"],
   "Mathlib.Data.Set.Defs":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Set/Defs.olean"],
+  "Mathlib.Data.Set.Countable":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Set/Countable.olean"],
+  "Mathlib.Data.Set.Constructions":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Set/Constructions.olean"],
   "Mathlib.Data.Set.CoeSort":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Set/CoeSort.olean"],
   "Mathlib.Data.Set.BooleanAlgebra":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Set/BooleanAlgebra.olean"],
+  "Mathlib.Data.Set.BoolIndicator":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Set/BoolIndicator.olean"],
   "Mathlib.Data.Set.Basic":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Set/Basic.olean"],
   "Mathlib.Data.Set.Accumulate":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Set/Accumulate.olean"],
   "Mathlib.Data.SProd":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/SProd.olean"],
+  "Mathlib.Data.Rel":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Rel.olean"],
+  "Mathlib.Data.Real.Sqrt":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Real/Sqrt.olean"],
+  "Mathlib.Data.Real.Pointwise":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Real/Pointwise.olean"],
   "Mathlib.Data.Real.Basic":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Real/Basic.olean"],
+  "Mathlib.Data.Real.Archimedean":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Real/Archimedean.olean"],
   "Mathlib.Data.Rat.Lemmas":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Rat/Lemmas.olean"],
   "Mathlib.Data.Rat.Init":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Rat/Init.olean"],
+  "Mathlib.Data.Rat.Floor":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Rat/Floor.olean"],
   "Mathlib.Data.Rat.Defs":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Rat/Defs.olean"],
+  "Mathlib.Data.Rat.Cast.Order":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Rat/Cast/Order.olean"],
+  "Mathlib.Data.Rat.Cast.Lemmas":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Rat/Cast/Lemmas.olean"],
   "Mathlib.Data.Rat.Cast.Defs":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Rat/Cast/Defs.olean"],
+  "Mathlib.Data.Rat.Cast.CharZero":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Rat/Cast/CharZero.olean"],
   "Mathlib.Data.Quot":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Quot.olean"],
   "Mathlib.Data.Prod.PProd":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Prod/PProd.olean"],
+  "Mathlib.Data.Prod.Lex":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Prod/Lex.olean"],
   "Mathlib.Data.Prod.Basic":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Prod/Basic.olean"],
   "Mathlib.Data.Part":
@@ -829,6 +1349,8 @@
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/PNat/Equiv.olean"],
   "Mathlib.Data.PNat.Defs":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/PNat/Defs.olean"],
+  "Mathlib.Data.PNat.Basic":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/PNat/Basic.olean"],
   "Mathlib.Data.Ordering.Basic":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Ordering/Basic.olean"],
   "Mathlib.Data.Option.NAry":
@@ -837,6 +1359,8 @@
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Option/Defs.olean"],
   "Mathlib.Data.Option.Basic":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Option/Basic.olean"],
+  "Mathlib.Data.Nat.SuccPred":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Nat/SuccPred.olean"],
   "Mathlib.Data.Nat.Sqrt":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Nat/Sqrt.olean"],
   "Mathlib.Data.Nat.Set":
@@ -847,10 +1371,14 @@
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Nat/Order/Lemmas.olean"],
   "Mathlib.Data.Nat.Notation":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Nat/Notation.olean"],
+  "Mathlib.Data.Nat.ModEq":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Nat/ModEq.olean"],
   "Mathlib.Data.Nat.Lattice":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Nat/Lattice.olean"],
   "Mathlib.Data.Nat.Init":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Nat/Init.olean"],
+  "Mathlib.Data.Nat.GCD.Basic":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Nat/GCD/Basic.olean"],
   "Mathlib.Data.Nat.Find":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Nat/Find.olean"],
   "Mathlib.Data.Nat.Factorial.Basic":
@@ -877,6 +1405,12 @@
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Nat/BinaryRec.olean"],
   "Mathlib.Data.Nat.Basic":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Nat/Basic.olean"],
+  "Mathlib.Data.NNReal.Defs":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/NNReal/Defs.olean"],
+  "Mathlib.Data.NNReal.Basic":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/NNReal/Basic.olean"],
+  "Mathlib.Data.NNRat.Order":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/NNRat/Order.olean"],
   "Mathlib.Data.NNRat.Defs":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/NNRat/Defs.olean"],
   "Mathlib.Data.Multiset.ZeroCons":
@@ -897,6 +1431,8 @@
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Multiset/Pi.olean"],
   "Mathlib.Data.Multiset.OrderedMonoid":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Multiset/OrderedMonoid.olean"],
+  "Mathlib.Data.Multiset.NatAntidiagonal":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Multiset/NatAntidiagonal.olean"],
   "Mathlib.Data.Multiset.MapFold":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Multiset/MapFold.olean"],
   "Mathlib.Data.Multiset.Lattice":
@@ -961,6 +1497,8 @@
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/List/NodupEquivFin.olean"],
   "Mathlib.Data.List.Nodup":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/List/Nodup.olean"],
+  "Mathlib.Data.List.NatAntidiagonal":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/List/NatAntidiagonal.olean"],
   "Mathlib.Data.List.Monad":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/List/Monad.olean"],
   "Mathlib.Data.List.MinMax":
@@ -999,12 +1537,18 @@
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Int/Order/Basic.olean"],
   "Mathlib.Data.Int.Notation":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Int/Notation.olean"],
+  "Mathlib.Data.Int.LeastGreatest":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Int/LeastGreatest.olean"],
+  "Mathlib.Data.Int.Interval":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Int/Interval.olean"],
   "Mathlib.Data.Int.Init":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Int/Init.olean"],
   "Mathlib.Data.Int.GCD":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Int/GCD.olean"],
   "Mathlib.Data.Int.DivMod":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Int/DivMod.olean"],
+  "Mathlib.Data.Int.ConditionallyCompleteOrder":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Int/ConditionallyCompleteOrder.olean"],
   "Mathlib.Data.Int.CharZero":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Int/CharZero.olean"],
   "Mathlib.Data.Int.Cast.Prod":
@@ -1021,6 +1565,8 @@
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Int/Cast/Basic.olean"],
   "Mathlib.Data.Int.Basic":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Int/Basic.olean"],
+  "Mathlib.Data.Ineq":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Ineq.olean"],
   "Mathlib.Data.FunLike.Equiv":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/FunLike/Equiv.olean"],
   "Mathlib.Data.FunLike.Embedding":
@@ -1039,6 +1585,8 @@
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Fintype/Prod.olean"],
   "Mathlib.Data.Fintype.Powerset":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Fintype/Powerset.olean"],
+  "Mathlib.Data.Fintype.Pigeonhole":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Fintype/Pigeonhole.olean"],
   "Mathlib.Data.Fintype.Pi":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Fintype/Pi.olean"],
   "Mathlib.Data.Fintype.Option":
@@ -1085,6 +1633,10 @@
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Finset/Option.olean"],
   "Mathlib.Data.Finset.NoncommProd":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Finset/NoncommProd.olean"],
+  "Mathlib.Data.Finset.NatAntidiagonal":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Finset/NatAntidiagonal.olean"],
+  "Mathlib.Data.Finset.NAry":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Finset/NAry.olean"],
   "Mathlib.Data.Finset.Max":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Finset/Max.olean"],
   "Mathlib.Data.Finset.Lattice.Union":
@@ -1111,6 +1663,8 @@
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Finset/Empty.olean"],
   "Mathlib.Data.Finset.Disjoint":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Finset/Disjoint.olean"],
+  "Mathlib.Data.Finset.Density":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Finset/Density.olean"],
   "Mathlib.Data.Finset.Defs":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Finset/Defs.olean"],
   "Mathlib.Data.Finset.Dedup":
@@ -1143,8 +1697,32 @@
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Fin/Embedding.olean"],
   "Mathlib.Data.Fin.Basic":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Fin/Basic.olean"],
+  "Mathlib.Data.EReal.Operations":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/EReal/Operations.olean"],
+  "Mathlib.Data.EReal.Basic":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/EReal/Basic.olean"],
+  "Mathlib.Data.ENat.Pow":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/ENat/Pow.olean"],
+  "Mathlib.Data.ENat.Defs":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/ENat/Defs.olean"],
+  "Mathlib.Data.ENat.Basic":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/ENat/Basic.olean"],
+  "Mathlib.Data.ENNReal.Real":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/ENNReal/Real.olean"],
+  "Mathlib.Data.ENNReal.Operations":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/ENNReal/Operations.olean"],
+  "Mathlib.Data.ENNReal.Lemmas":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/ENNReal/Lemmas.olean"],
+  "Mathlib.Data.ENNReal.Inv":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/ENNReal/Inv.olean"],
+  "Mathlib.Data.ENNReal.Basic":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/ENNReal/Basic.olean"],
+  "Mathlib.Data.Countable.Small":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Countable/Small.olean"],
   "Mathlib.Data.Countable.Defs":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Countable/Defs.olean"],
+  "Mathlib.Data.Countable.Basic":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Countable/Basic.olean"],
   "Mathlib.Data.Bracket":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Bracket.olean"],
   "Mathlib.Data.Bool.Set":
@@ -1169,6 +1747,8 @@
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Control/Basic.olean"],
   "Mathlib.Control.Applicative":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Control/Applicative.olean"],
+  "Mathlib.Algebra.Star.Basic":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Star/Basic.olean"],
   "Mathlib.Algebra.Ring.Units":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Ring/Units.olean"],
   "Mathlib.Algebra.Ring.ULift":
@@ -1189,6 +1769,8 @@
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Ring/Rat.olean"],
   "Mathlib.Algebra.Ring.Prod":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Ring/Prod.olean"],
+  "Mathlib.Algebra.Ring.Pointwise.Set":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Ring/Pointwise/Set.olean"],
   "Mathlib.Algebra.Ring.Pi":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Ring/Pi.olean"],
   "Mathlib.Algebra.Ring.Parity":
@@ -1231,6 +1813,8 @@
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Ring/Center.olean"],
   "Mathlib.Algebra.Ring.Basic":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Ring/Basic.olean"],
+  "Mathlib.Algebra.Ring.Aut":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Ring/Aut.olean"],
   "Mathlib.Algebra.Ring.Action.Subobjects":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Ring/Action/Subobjects.olean"],
   "Mathlib.Algebra.Ring.Action.Rat":
@@ -1247,30 +1831,56 @@
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Regular/Basic.olean"],
   "Mathlib.Algebra.Order.ZeroLEOne":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/ZeroLEOne.olean"],
+  "Mathlib.Algebra.Order.SuccPred":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/SuccPred.olean"],
+  "Mathlib.Algebra.Order.Sub.WithTop":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Sub/WithTop.olean"],
   "Mathlib.Algebra.Order.Sub.Unbundled.Basic":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Sub/Unbundled/Basic.olean"],
   "Mathlib.Algebra.Order.Sub.Defs":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Sub/Defs.olean"],
   "Mathlib.Algebra.Order.Sub.Basic":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Sub/Basic.olean"],
+  "Mathlib.Algebra.Order.Round":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Round.olean"],
+  "Mathlib.Algebra.Order.Ring.WithTop":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Ring/WithTop.olean"],
   "Mathlib.Algebra.Order.Ring.Unbundled.Rat":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Ring/Unbundled/Rat.olean"],
   "Mathlib.Algebra.Order.Ring.Unbundled.Basic":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Ring/Unbundled/Basic.olean"],
   "Mathlib.Algebra.Order.Ring.Rat":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Ring/Rat.olean"],
+  "Mathlib.Algebra.Order.Ring.Pow":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Ring/Pow.olean"],
   "Mathlib.Algebra.Order.Ring.Nat":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Ring/Nat.olean"],
   "Mathlib.Algebra.Order.Ring.Int":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Ring/Int.olean"],
+  "Mathlib.Algebra.Order.Ring.InjSurj":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Ring/InjSurj.olean"],
   "Mathlib.Algebra.Order.Ring.Defs":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Ring/Defs.olean"],
   "Mathlib.Algebra.Order.Ring.Cast":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Ring/Cast.olean"],
+  "Mathlib.Algebra.Order.Ring.Canonical":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Ring/Canonical.olean"],
   "Mathlib.Algebra.Order.Ring.Basic":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Ring/Basic.olean"],
   "Mathlib.Algebra.Order.Ring.Abs":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Ring/Abs.olean"],
+  "Mathlib.Algebra.Order.Positive.Ring":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Positive/Ring.olean"],
+  "Mathlib.Algebra.Order.Nonneg.Ring":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Nonneg/Ring.olean"],
+  "Mathlib.Algebra.Order.Nonneg.Module":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Nonneg/Module.olean"],
+  "Mathlib.Algebra.Order.Nonneg.Lattice":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Nonneg/Lattice.olean"],
+  "Mathlib.Algebra.Order.Nonneg.Floor":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Nonneg/Floor.olean"],
+  "Mathlib.Algebra.Order.Nonneg.Field":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Nonneg/Field.olean"],
   "Mathlib.Algebra.Order.Nonneg.Basic":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Nonneg/Basic.olean"],
   "Mathlib.Algebra.Order.Monoid.WithTop":
@@ -1305,8 +1915,26 @@
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Monoid/Canonical/Defs.olean"],
   "Mathlib.Algebra.Order.Monoid.Basic":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Monoid/Basic.olean"],
+  "Mathlib.Algebra.Order.Module.Pointwise":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Module/Pointwise.olean"],
+  "Mathlib.Algebra.Order.Module.Field":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Module/Field.olean"],
+  "Mathlib.Algebra.Order.Module.Defs":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Module/Defs.olean"],
   "Mathlib.Algebra.Order.Invertible":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Invertible.olean"],
+  "Mathlib.Algebra.Order.Interval.Set.Monoid":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Interval/Set/Monoid.olean"],
+  "Mathlib.Algebra.Order.Interval.Set.Group":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Interval/Set/Group.olean"],
+  "Mathlib.Algebra.Order.Interval.Finset.SuccPred":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Interval/Finset/SuccPred.olean"],
+  "Mathlib.Algebra.Order.Hom.Ring":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Hom/Ring.olean"],
+  "Mathlib.Algebra.Order.Hom.MonoidWithZero":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Hom/MonoidWithZero.olean"],
+  "Mathlib.Algebra.Order.Hom.Monoid":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Hom/Monoid.olean"],
   "Mathlib.Algebra.Order.Hom.Basic":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Hom/Basic.olean"],
   "Mathlib.Algebra.Order.GroupWithZero.Unbundled.OrderIso":
@@ -1315,8 +1943,12 @@
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/GroupWithZero/Unbundled/Defs.olean"],
   "Mathlib.Algebra.Order.GroupWithZero.Unbundled.Basic":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/GroupWithZero/Unbundled/Basic.olean"],
+  "Mathlib.Algebra.Order.GroupWithZero.Synonym":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/GroupWithZero/Synonym.olean"],
   "Mathlib.Algebra.Order.GroupWithZero.Canonical":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/GroupWithZero/Canonical.olean"],
+  "Mathlib.Algebra.Order.GroupWithZero.Action.Synonym":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/GroupWithZero/Action/Synonym.olean"],
   "Mathlib.Algebra.Order.Group.Units":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Group/Units.olean"],
   "Mathlib.Algebra.Order.Group.Unbundled.Int":
@@ -1327,6 +1959,12 @@
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Group/Unbundled/Abs.olean"],
   "Mathlib.Algebra.Order.Group.Synonym":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Group/Synonym.olean"],
+  "Mathlib.Algebra.Order.Group.PosPart":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Group/PosPart.olean"],
+  "Mathlib.Algebra.Order.Group.Pointwise.Interval":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Group/Pointwise/Interval.olean"],
+  "Mathlib.Algebra.Order.Group.Pointwise.Bounds":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Group/Pointwise/Bounds.olean"],
   "Mathlib.Algebra.Order.Group.OrderIso":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Group/OrderIso.olean"],
   "Mathlib.Algebra.Order.Group.Nat":
@@ -1341,20 +1979,44 @@
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Group/Int.olean"],
   "Mathlib.Algebra.Order.Group.Defs":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Group/Defs.olean"],
+  "Mathlib.Algebra.Order.Group.Basic":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Group/Basic.olean"],
   "Mathlib.Algebra.Order.Group.Abs":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Group/Abs.olean"],
+  "Mathlib.Algebra.Order.Floor.Semiring":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Floor/Semiring.olean"],
+  "Mathlib.Algebra.Order.Floor.Ring":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Floor/Ring.olean"],
+  "Mathlib.Algebra.Order.Floor.Defs":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Floor/Defs.olean"],
+  "Mathlib.Algebra.Order.Field.Rat":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Field/Rat.olean"],
+  "Mathlib.Algebra.Order.Field.Defs":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Field/Defs.olean"],
+  "Mathlib.Algebra.Order.Field.Canonical":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Field/Canonical.olean"],
   "Mathlib.Algebra.Order.Field.Basic":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Field/Basic.olean"],
   "Mathlib.Algebra.Order.CauSeq.Completion":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/CauSeq/Completion.olean"],
   "Mathlib.Algebra.Order.CauSeq.Basic":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/CauSeq/Basic.olean"],
+  "Mathlib.Algebra.Order.BigOperators.Ring.Multiset":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/BigOperators/Ring/Multiset.olean"],
+  "Mathlib.Algebra.Order.BigOperators.Ring.List":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/BigOperators/Ring/List.olean"],
+  "Mathlib.Algebra.Order.BigOperators.Ring.Finset":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/BigOperators/Ring/Finset.olean"],
   "Mathlib.Algebra.Order.BigOperators.Group.Multiset":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/BigOperators/Group/Multiset.olean"],
   "Mathlib.Algebra.Order.BigOperators.Group.List":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/BigOperators/Group/List.olean"],
   "Mathlib.Algebra.Order.BigOperators.Group.Finset":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/BigOperators/Group/Finset.olean"],
+  "Mathlib.Algebra.Order.Archimedean.Basic":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Archimedean/Basic.olean"],
+  "Mathlib.Algebra.Order.Antidiag.Prod":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Antidiag/Prod.olean"],
   "Mathlib.Algebra.Order.AddGroupWithTop":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/AddGroupWithTop.olean"],
   "Mathlib.Algebra.Order.AbsoluteValue.Basic":
@@ -1375,6 +2037,8 @@
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Notation/FiniteSupport.olean"],
   "Mathlib.Algebra.Notation.Defs":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Notation/Defs.olean"],
+  "Mathlib.Algebra.Notation":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Notation.olean"],
   "Mathlib.Algebra.NoZeroSMulDivisors.Pi":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/NoZeroSMulDivisors/Pi.olean"],
   "Mathlib.Algebra.NoZeroSMulDivisors.Defs":
@@ -1435,6 +2099,8 @@
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Module/End.olean"],
   "Mathlib.Algebra.Module.Defs":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Module/Defs.olean"],
+  "Mathlib.Algebra.Module.Basic":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Module/Basic.olean"],
   "Mathlib.Algebra.GroupWithZero.WithZero":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/GroupWithZero/WithZero.olean"],
   "Mathlib.Algebra.GroupWithZero.Units.Lemmas":
@@ -1451,6 +2117,8 @@
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/GroupWithZero/Regular.olean"],
   "Mathlib.Algebra.GroupWithZero.Prod":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/GroupWithZero/Prod.olean"],
+  "Mathlib.Algebra.GroupWithZero.Pointwise.Set.Basic":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/GroupWithZero/Pointwise/Set/Basic.olean"],
   "Mathlib.Algebra.GroupWithZero.Pi":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/GroupWithZero/Pi.olean"],
   "Mathlib.Algebra.GroupWithZero.Opposite":
@@ -1463,6 +2131,8 @@
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/GroupWithZero/Invertible.olean"],
   "Mathlib.Algebra.GroupWithZero.InjSurj":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/GroupWithZero/InjSurj.olean"],
+  "Mathlib.Algebra.GroupWithZero.Indicator":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/GroupWithZero/Indicator.olean"],
   "Mathlib.Algebra.GroupWithZero.Hom":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/GroupWithZero/Hom.olean"],
   "Mathlib.Algebra.GroupWithZero.Equiv":
@@ -1481,6 +2151,8 @@
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/GroupWithZero/Action/Units.olean"],
   "Mathlib.Algebra.GroupWithZero.Action.Prod":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/GroupWithZero/Action/Prod.olean"],
+  "Mathlib.Algebra.GroupWithZero.Action.Pointwise.Set":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/GroupWithZero/Action/Pointwise/Set.olean"],
   "Mathlib.Algebra.GroupWithZero.Action.Pi":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/GroupWithZero/Action/Pi.olean"],
   "Mathlib.Algebra.GroupWithZero.Action.Opposite":
@@ -1523,6 +2195,10 @@
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Group/Subsemigroup/Defs.olean"],
   "Mathlib.Algebra.Group.Subsemigroup.Basic":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Group/Subsemigroup/Basic.olean"],
+  "Mathlib.Algebra.Group.Submonoid.Units":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Group/Submonoid/Units.olean"],
+  "Mathlib.Algebra.Group.Submonoid.Pointwise":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Group/Submonoid/Pointwise.olean"],
   "Mathlib.Algebra.Group.Submonoid.Operations":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Group/Submonoid/Operations.olean"],
   "Mathlib.Algebra.Group.Submonoid.MulOpposite":
@@ -1539,6 +2215,14 @@
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Group/Submonoid/BigOperators.olean"],
   "Mathlib.Algebra.Group.Submonoid.Basic":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Group/Submonoid/Basic.olean"],
+  "Mathlib.Algebra.Group.Subgroup.ZPowers.Basic":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Group/Subgroup/ZPowers/Basic.olean"],
+  "Mathlib.Algebra.Group.Subgroup.Pointwise":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Group/Subgroup/Pointwise.olean"],
+  "Mathlib.Algebra.Group.Subgroup.MulOppositeLemmas":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Group/Subgroup/MulOppositeLemmas.olean"],
+  "Mathlib.Algebra.Group.Subgroup.MulOpposite":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Group/Subgroup/MulOpposite.olean"],
   "Mathlib.Algebra.Group.Subgroup.Map":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Group/Subgroup/Map.olean"],
   "Mathlib.Algebra.Group.Subgroup.Lattice":
@@ -1559,8 +2243,16 @@
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Group/Prod.olean"],
   "Mathlib.Algebra.Group.Pointwise.Set.Scalar":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Group/Pointwise/Set/Scalar.olean"],
+  "Mathlib.Algebra.Group.Pointwise.Set.ListOfFn":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Group/Pointwise/Set/ListOfFn.olean"],
+  "Mathlib.Algebra.Group.Pointwise.Set.Lattice":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Group/Pointwise/Set/Lattice.olean"],
+  "Mathlib.Algebra.Group.Pointwise.Set.Finite":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Group/Pointwise/Set/Finite.olean"],
   "Mathlib.Algebra.Group.Pointwise.Set.Basic":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Group/Pointwise/Set/Basic.olean"],
+  "Mathlib.Algebra.Group.Pointwise.Finset.Basic":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Group/Pointwise/Finset/Basic.olean"],
   "Mathlib.Algebra.Group.Pi.Lemmas":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Group/Pi/Lemmas.olean"],
   "Mathlib.Algebra.Group.Pi.Basic":
@@ -1607,6 +2299,8 @@
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Group/Graph.olean"],
   "Mathlib.Algebra.Group.Fin.Tuple":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Group/Fin/Tuple.olean"],
+  "Mathlib.Algebra.Group.Fin.Basic":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Group/Fin/Basic.olean"],
   "Mathlib.Algebra.Group.Even":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Group/Even.olean"],
   "Mathlib.Algebra.Group.Equiv.TypeTags":
@@ -1663,8 +2357,12 @@
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Group/Action/Basic.olean"],
   "Mathlib.Algebra.FreeMonoid.Basic":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/FreeMonoid/Basic.olean"],
+  "Mathlib.Algebra.Field.Subfield.Defs":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Field/Subfield/Defs.olean"],
   "Mathlib.Algebra.Field.Rat":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Field/Rat.olean"],
+  "Mathlib.Algebra.Field.Power":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Field/Power.olean"],
   "Mathlib.Algebra.Field.Defs":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Field/Defs.olean"],
   "Mathlib.Algebra.Field.Basic":
@@ -1689,6 +2387,8 @@
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/BigOperators/Pi.olean"],
   "Mathlib.Algebra.BigOperators.Option":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/BigOperators/Option.olean"],
+  "Mathlib.Algebra.BigOperators.NatAntidiagonal":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/BigOperators/NatAntidiagonal.olean"],
   "Mathlib.Algebra.BigOperators.GroupWithZero.Finset":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/BigOperators/GroupWithZero/Finset.olean"],
   "Mathlib.Algebra.BigOperators.GroupWithZero.Action":
@@ -1705,18 +2405,26 @@
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/BigOperators/Group/List/Basic.olean"],
   "Mathlib.Algebra.BigOperators.Group.Finset.Sigma":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/BigOperators/Group/Finset/Sigma.olean"],
+  "Mathlib.Algebra.BigOperators.Group.Finset.Preimage":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/BigOperators/Group/Finset/Preimage.olean"],
   "Mathlib.Algebra.BigOperators.Group.Finset.Piecewise":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/BigOperators/Group/Finset/Piecewise.olean"],
   "Mathlib.Algebra.BigOperators.Group.Finset.Pi":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/BigOperators/Group/Finset/Pi.olean"],
   "Mathlib.Algebra.BigOperators.Group.Finset.Lemmas":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/BigOperators/Group/Finset/Lemmas.olean"],
+  "Mathlib.Algebra.BigOperators.Group.Finset.Indicator":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/BigOperators/Group/Finset/Indicator.olean"],
   "Mathlib.Algebra.BigOperators.Group.Finset.Defs":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/BigOperators/Group/Finset/Defs.olean"],
   "Mathlib.Algebra.BigOperators.Group.Finset.Basic":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/BigOperators/Group/Finset/Basic.olean"],
   "Mathlib.Algebra.BigOperators.Finprod":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/BigOperators/Finprod.olean"],
+  "Mathlib.Algebra.BigOperators.Expect":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/BigOperators/Expect.olean"],
+  "Mathlib.Algebra.Algebra.Rat":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Algebra/Rat.olean"],
   "Mathlib.Algebra.Algebra.Prod":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Algebra/Prod.olean"],
   "Mathlib.Algebra.Algebra.Pi":
@@ -1731,6 +2439,8 @@
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Algebra/Defs.olean"],
   "Mathlib.Algebra.Algebra.Basic":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Algebra/Basic.olean"],
+  "Mathlib.Algebra.AddTorsor.Defs":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/AddTorsor/Defs.olean"],
   "LeanSearchClient.Syntax":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/LeanSearchClient/.lake/build/lib/lean/LeanSearchClient/Syntax.olean"],
   "LeanSearchClient.LoogleSyntax":

@@ -323,6 +323,61 @@ def nonNegative {n : Nat} (M : RealMatrixN n) : Prop :=
   ∀ i j, M i j ≥ 0
 
 /-- 
+If M is non-negative, then so is its transpose.
+-/
+theorem nonNegative_transpose {n : Nat} (M : RealMatrixN n)
+  (h : nonNegative M) :
+  nonNegative Mᵀ := by
+  intro i j
+  unfold nonNegative at h
+  exact h j i
+
+/-- 
+The zero matrix is non-negative.
+-/
+theorem nonNegative_zero {n : Nat} :
+  nonNegative (0 : RealMatrixN n) := by
+  intro i j
+  simp
+  
+/-- 
+Sum of non-negative matrices is non-negative.
+-/
+theorem nonNegative_add {n : Nat} (M N : RealMatrixN n)
+  (hM : nonNegative M) (hN : nonNegative N) :
+  nonNegative (M + N) := by
+  intro i j
+  unfold nonNegative at hM hN
+  simp [Matrix.add_apply]
+  exact add_nonneg (hM i j) (hN i j)
+
+/-- 
+Scalar multiple of non-negative matrix by non-negative scalar is non-negative.
+-/
+theorem nonNegative_smul {n : Nat} (c : ℝ) (M : RealMatrixN n)
+  (hc : c ≥ 0) (hM : nonNegative M) :
+  nonNegative (c • M) := by
+  intro i j
+  unfold nonNegative at hM
+  simp [Matrix.smul_apply]
+  exact mul_nonneg hc (hM i j)
+
+/-- 
+If M is non-negative and entrywise bounded by c, then c ≥ 0.
+-/
+theorem nonNegative_bound_nonneg {n : Nat} (M : RealMatrixN n) (c : ℝ)
+  (hM : nonNegative M) (hbound : entrywiseBounded M c)
+  (h_nonempty : ∃ i j, M i j > 0) :
+  c ≥ 0 := by
+  obtain ⟨i, j, hij⟩ := h_nonempty
+  unfold entrywiseBounded at hbound
+  unfold nonNegative at hM
+  have h_abs : |M i j| ≤ c := hbound i j
+  have h_nonneg : M i j ≥ 0 := hM i j
+  rw [abs_of_nonneg h_nonneg] at h_abs
+  exact le_trans (le_of_lt hij) h_abs
+
+/-- 
 Power iteration converges for symmetric, non-negative matrices.
 
 This is a consequence of the Perron-Frobenius theorem. For now, we
