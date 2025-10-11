@@ -59,26 +59,81 @@ end IVI
 
 namespace IVI.RealSpecMathlib
 
-open Matrix Complex Real
+open Matrix Real
 
 /-!
-Parametric Real matrices using mathlib proper.
+## Parametric Real matrices using mathlib
+
+We work with `RealMatrixN n := Matrix (Fin n) (Fin n) ℝ` and provide
+a Hermitian (symmetric) Weyl inequality using mathlib's spectral theory.
 -/
 
-abbrev RealMatrixN (n : Nat) := Matrix (Fin n) (Fin n) Real
+abbrev RealMatrixN (n : Nat) := Matrix (Fin n) (Fin n) ℝ
 
-/-- Placeholder for dominant eigenvalue (largest real eigenvalue) of a real matrix.
-For symmetric matrices, this agrees with the spectral radius. -/
-noncomputable axioms
+/-!
+## Dominant Eigenvalue for Symmetric Matrices
 
-axiom lambdaHead {n : Nat} (A : RealMatrixN n) : Real
+For a symmetric real matrix, we define the dominant eigenvalue as the
+largest eigenvalue. This is well-defined via mathlib's Hermitian spectral theory.
 
-/-- Weyl-style perturbation bound over mathlib matrices. -/
+NOTE: Full implementation requires mathlib's `Matrix.IsHermitian.eigenvalues` and
+related lemmas. For now, we axiomatize the definition and the Weyl bound, but
+the structure is correct for a future mathlib-backed proof.
+-/
+
+/-- 
+Dominant eigenvalue (largest eigenvalue) of a symmetric real matrix.
+
+TODO: Implement using mathlib's Hermitian spectral theory:
+- `Matrix.IsHermitian.eigenvalues : Fin n → ℝ`
+- `lambdaHead A = sSup (Set.range (Matrix.IsHermitian.eigenvalues hA))`
+-/
+noncomputable axiom lambdaHead {n : Nat} (A : RealMatrixN n) : ℝ
+
+/-!
+## Weyl's Inequality for Symmetric Matrices
+
+Weyl's inequality states that for symmetric matrices A and E:
+  |λᵢ(A + E) - λᵢ(A)| ≤ ‖E‖
+
+where ‖·‖ is the operator (spectral) norm.
+
+For the dominant eigenvalue (i=1), this gives:
+  |λ₁(A + E) - λ₁(A)| ≤ ‖E‖
+
+This is a standard result in matrix perturbation theory and would be proven
+using mathlib's:
+- `Matrix.IsHermitian` (symmetric matrices are Hermitian over ℝ)
+- Operator norm characterization
+- Spectral theorem for Hermitian matrices
+- Weyl's perturbation inequality
+
+TODO: Replace this axiom with a proof once mathlib's Hermitian spectral
+theory is fully integrated. The statement is correct and the proof is standard.
+-/
 axiom weyl_eigenvalue_bound_real_n
-  {n : Nat} (A E : RealMatrixN n) (ε : Real)
+  {n : Nat} (A E : RealMatrixN n) (ε : ℝ)
   (hA : A.IsSymmetric)
   (hE : E.IsSymmetric)
-  (h : ‖E‖ ≤ ε) :
+  (h_norm : ‖E‖ ≤ ε) :
   |lambdaHead (A + E) - lambdaHead A| ≤ ε
+
+/-!
+## Notes on Implementation
+
+To fully prove `weyl_eigenvalue_bound_real_n` from mathlib, we would:
+
+1. Use `Matrix.IsSymmetric` (already in mathlib)
+2. Convert to `Matrix.IsHermitian` (symmetric ℝ matrices are Hermitian)
+3. Use `Matrix.IsHermitian.eigenvalues` to get eigenvalues
+4. Define `lambdaHead` as the supremum of eigenvalues
+5. Apply Weyl's inequality for Hermitian matrices:
+   - This may require importing or proving a Weyl-type lemma
+   - Standard reference: Horn & Johnson, "Matrix Analysis" (1985), Theorem 6.3.5
+6. Use operator norm properties to conclude
+
+The axiom above is a placeholder for this standard result. The structure
+is correct and ready for a mathlib-backed proof.
+-/
 
 end IVI.RealSpecMathlib
