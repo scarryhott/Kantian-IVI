@@ -13,6 +13,15 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+LEAN_EXPORT lean_object* l_IVI_KantLimit_ctorIdx(lean_object*);
+LEAN_EXPORT lean_object* l_IVI_KantLimit_ctorIdx(lean_object* x_1) {
+_start:
+{
+lean_object* x_2; 
+x_2 = lean_unsigned_to_nat(0u);
+return x_2;
+}
+}
 lean_object* initialize_Init(uint8_t builtin, lean_object*);
 lean_object* initialize_IVI_Invariant(uint8_t builtin, lean_object*);
 lean_object* initialize_IVI_Harmonics(uint8_t builtin, lean_object*);

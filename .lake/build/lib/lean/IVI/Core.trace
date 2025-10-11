@@ -1,11 +1,11 @@
 {"synthetic": false,
  "outputs":
- {"o": ["4891676184280289164"],
-  "i": "2943805470766912617",
-  "c": "5036311831208514801"},
+ {"o": ["10810967823367764980"],
+  "i": "5586139105113071616",
+  "c": "15808201641928314991"},
  "log":
  [{"message":
-   ".> LEAN_PATH=/Users/harryscott/Kantian-IVI/.lake/build/lib/lean /Users/harryscott/.elan/toolchains/leanprover--lean4---v4.23.0/bin/lean /Users/harryscott/Kantian-IVI/IVI/Core.lean -o /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Core.olean -i /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Core.ilean -c /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Core.c --setup /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Core.setup.json --json",
+   ".> LEAN_PATH=/Users/harryscott/Kantian-IVI/.lake/packages/Cli/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/batteries/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/Qq/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/aesop/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/proofwidgets/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/importGraph/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/plausible/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/build/lib/lean /Users/harryscott/.elan/toolchains/leanprover--lean4---v4.24.0-rc1/bin/lean /Users/harryscott/Kantian-IVI/IVI/Core.lean -o /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Core.olean -i /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Core.ilean -c /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Core.c --setup /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Core.setup.json --json",
    "level": "trace"}],
  "inputs":
  [["IVI.Core:deps",
@@ -16,9 +16,9 @@
       ["package external libraries", "1723"],
       ["module dynlibs", "1723"],
       ["module plugins", "1723"]]]]],
-  ["Lean 4.23.0, commit 50aaf682e9b74ab92880292a25c68baa1cc81c87",
-   "5786258275165720599"],
+  ["Lean 4.24.0, commit 919e297292280cdb27598edd4e03437be5850221",
+   "16820442660988836695"],
   ["/Users/harryscott/Kantian-IVI/IVI/Core.lean", "1831290536399635443"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "2952116735647519771"}
+ "depHash": "13540314961589791472"}

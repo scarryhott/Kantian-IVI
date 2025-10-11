@@ -59,15 +59,9 @@ def le (a b : SafeFloat) : Bool :=
 def lt (a b : SafeFloat) : Bool :=
   a.val < b.val
 
-/-- Absolute value (always safe if input is safe). -/
-def abs (a : SafeFloat) : SafeFloat :=
-  ⟨Float.abs a.val, by
-    have := a.isFinite
-    sorry  -- TODO: prove Float.abs preserves finiteness
-  , by
-    have := a.notNaN
-    sorry  -- TODO: prove Float.abs preserves non-NaN
-  ⟩
+/-- Absolute value (safe wrapper). Returns `none` if result isn't finite. -/
+def abs (a : SafeFloat) : Option SafeFloat :=
+  ofFloat? (Float.abs a.val)
 
 instance : ToString SafeFloat where
   toString a := toString a.val

@@ -1,27 +1,27 @@
 {"synthetic": false,
  "outputs":
- {"o": ["1803164965757482891"],
-  "i": "17719986280449433696",
+ {"o": ["5258647327825467434"],
+  "i": "10653607888771042489",
   "c": "6065121343995376141"},
  "log":
  [{"message":
-   ".> LEAN_PATH=/Users/harryscott/Kantian-IVI/.lake/build/lib/lean /Users/harryscott/.elan/toolchains/leanprover--lean4---v4.23.0/bin/lean /Users/harryscott/Kantian-IVI/IVI/Harmonics.lean -o /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Harmonics.olean -i /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Harmonics.ilean -c /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Harmonics.c --setup /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Harmonics.setup.json --json",
+   ".> LEAN_PATH=/Users/harryscott/Kantian-IVI/.lake/packages/Cli/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/batteries/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/Qq/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/aesop/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/proofwidgets/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/importGraph/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/plausible/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/build/lib/lean /Users/harryscott/.elan/toolchains/leanprover--lean4---v4.24.0-rc1/bin/lean /Users/harryscott/Kantian-IVI/IVI/Harmonics.lean -o /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Harmonics.olean -i /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Harmonics.ilean -c /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Harmonics.c --setup /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Harmonics.setup.json --json",
    "level": "trace"}],
  "inputs":
  [["IVI.Harmonics:deps",
    [["deps",
      [["ivi/IVI:extraDep", [["@ivi:extraDep", "1723"]]],
       ["imports",
-       [["IVI.Invariant transitive imports (legacy)", "16455706825858143466"],
-        ["IVI.Invariant:importAllArts", "15315141498073337451"]]]]],
+       [["IVI.Invariant transitive imports (legacy)", "9700060304154019711"],
+        ["IVI.Invariant:importAllArts", "1878660865401756547"]]]]],
     ["libs",
      [["import dynlibs", "1723"],
       ["package external libraries", "1723"],
       ["module dynlibs", "1723"],
       ["module plugins", "1723"]]]]],
-  ["Lean 4.23.0, commit 50aaf682e9b74ab92880292a25c68baa1cc81c87",
-   "5786258275165720599"],
+  ["Lean 4.24.0, commit 919e297292280cdb27598edd4e03437be5850221",
+   "16820442660988836695"],
   ["/Users/harryscott/Kantian-IVI/IVI/Harmonics.lean", "16576466831767859721"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "4988980194141792339"}
+ "depHash": "15711112135928091359"}

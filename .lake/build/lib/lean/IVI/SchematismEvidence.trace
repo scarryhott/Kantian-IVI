@@ -1,11 +1,11 @@
 {"synthetic": false,
  "outputs":
- {"o": ["3136235011175492710"],
-  "i": "8594322906293006875",
-  "c": "10238045771880480784"},
+ {"o": ["13171682675195680360"],
+  "i": "13786903024305162860",
+  "c": "10513226595946586636"},
  "log":
  [{"message":
-   ".> LEAN_PATH=/Users/harryscott/Kantian-IVI/.lake/build/lib/lean /Users/harryscott/.elan/toolchains/leanprover--lean4---v4.23.0/bin/lean /Users/harryscott/Kantian-IVI/IVI/SchematismEvidence.lean -o /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/SchematismEvidence.olean -i /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/SchematismEvidence.ilean -c /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/SchematismEvidence.c --setup /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/SchematismEvidence.setup.json --json",
+   ".> LEAN_PATH=/Users/harryscott/Kantian-IVI/.lake/packages/Cli/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/batteries/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/Qq/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/aesop/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/proofwidgets/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/importGraph/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/plausible/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/build/lib/lean /Users/harryscott/.elan/toolchains/leanprover--lean4---v4.24.0-rc1/bin/lean /Users/harryscott/Kantian-IVI/IVI/SchematismEvidence.lean -o /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/SchematismEvidence.olean -i /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/SchematismEvidence.ilean -c /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/SchematismEvidence.c --setup /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/SchematismEvidence.setup.json --json",
    "level": "trace"}],
  "inputs":
  [["IVI.SchematismEvidence:deps",
@@ -16,10 +16,10 @@
       ["package external libraries", "1723"],
       ["module dynlibs", "1723"],
       ["module plugins", "1723"]]]]],
-  ["Lean 4.23.0, commit 50aaf682e9b74ab92880292a25c68baa1cc81c87",
-   "5786258275165720599"],
+  ["Lean 4.24.0, commit 919e297292280cdb27598edd4e03437be5850221",
+   "16820442660988836695"],
   ["/Users/harryscott/Kantian-IVI/IVI/SchematismEvidence.lean",
    "9029872755403260686"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "4521868798342137566"}
+ "depHash": "7417354602828161213"}

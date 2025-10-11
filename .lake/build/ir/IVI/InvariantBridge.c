@@ -13,6 +13,25 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+LEAN_EXPORT lean_object* l_IVI_BridgeInvariant_ctorIdx(lean_object*);
+LEAN_EXPORT lean_object* l_IVI_BridgeInvariant_ctorIdx___boxed(lean_object*);
+LEAN_EXPORT lean_object* l_IVI_BridgeInvariant_ctorIdx(lean_object* x_1) {
+_start:
+{
+lean_object* x_2; 
+x_2 = lean_unsigned_to_nat(0u);
+return x_2;
+}
+}
+LEAN_EXPORT lean_object* l_IVI_BridgeInvariant_ctorIdx___boxed(lean_object* x_1) {
+_start:
+{
+lean_object* x_2; 
+x_2 = l_IVI_BridgeInvariant_ctorIdx(x_1);
+lean_dec_ref(x_1);
+return x_2;
+}
+}
 lean_object* initialize_Init(uint8_t builtin, lean_object*);
 lean_object* initialize_IVI_KakeyaBounds(uint8_t builtin, lean_object*);
 lean_object* initialize_IVI_Invariant(uint8_t builtin, lean_object*);

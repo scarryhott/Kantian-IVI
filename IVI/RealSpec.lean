@@ -145,21 +145,41 @@ def FloatMatrix.approximates
     norm_diff ≤ budget.epsilon
 
 /-!
-## Runtime Conformance Lemma
+## Runtime Conformance: Minimal Bridge
 
-If Float computation is within error budget, then Weyl bound holds with ε + δ.
+We model how Float computations relate to the Real (ℝ) specification.
+These are placeholders until mathlib is imported; the structure is accurate.
 -/
 
-axiom weyl_bound_with_error
+/-- Convert a Float matrix to a Real matrix (placeholder for Float.toReal). -/
+axiom toRealMat : List (List Float) → RealMatrix
+
+/-- Float-side matrix addition. -/
+def matrixAddF (M N : List (List Float)) : List (List Float) :=
+  (M.zip N).map (fun (rowM, rowN) =>
+    (rowM.zip rowN).map (fun (a, b) => a + b))
+
+/-- toReal commutes with matrix addition (placeholder). -/
+axiom toRealMat_add (M N : List (List Float)) :
+  toRealMat (matrixAddF M N) = (matrixAdd (toRealMat M) (toRealMat N))
+
+/-- Dominant eigenvalue of a Float matrix, interpreted over ℝ. -/
+def lambda_max_float (F : List (List Float)) : ℝ :=
+  lambda_max (toRealMat F)
+
+/--
+Minimal error-budget lemma: if the Real-side Weyl bound holds with ε, and the
+Float matrices approximate the Real matrices within δ in operator norm, then
+the Float-observed dominant eigenvalue change is bounded by ε + δ.
+-/
+axiom weyl_error_budget_inf
   (A_real E_real : RealMatrix)
   (A_float E_float : List (List Float))
   (ε δ : ℝ)
   (h_spec : matrixNormInf_real E_real ≤ ε)
-  (h_approx_A : FloatMatrix.approximates A_float A_real ⟨δ, sorry⟩)
-  (h_approx_E : FloatMatrix.approximates E_float E_real ⟨δ, sorry⟩) :
-  -- Then Float computation satisfies bound with ε + δ
-  ∃ (lam_float_diff : ℝ),
-    lam_float_diff ≤ ε + δ
+  (hA : FloatMatrix.approximates A_float A_real ⟨δ, sorry⟩)
+  (hE : FloatMatrix.approximates E_float E_real ⟨δ, sorry⟩) :
+  |lambda_max_float (matrixAddF A_float E_float) - lambda_max_float A_float| ≤ ε + δ
 
 /-!
 ## Power Iteration (Real Specification)

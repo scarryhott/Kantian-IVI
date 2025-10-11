@@ -13,10 +13,12 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+LEAN_EXPORT lean_object* l_IVI_ResuperposeResult_ctorIdx___boxed(lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_IVI_Encode___redArg(lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_IVI_RotateInnerTime(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_IVI_Encode(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_IVI_RotateInnerTime___redArg(lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_IVI_ResuperposeResult_ctorIdx(lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_IVI_Encode___redArg(lean_object* x_1, lean_object* x_2, lean_object* x_3) {
 _start:
 {
@@ -54,6 +56,23 @@ _start:
 lean_object* x_7; 
 x_7 = l_IVI_Encode___redArg(x_4, x_5, x_6);
 return x_7;
+}
+}
+LEAN_EXPORT lean_object* l_IVI_ResuperposeResult_ctorIdx(lean_object* x_1, lean_object* x_2) {
+_start:
+{
+lean_object* x_3; 
+x_3 = lean_unsigned_to_nat(0u);
+return x_3;
+}
+}
+LEAN_EXPORT lean_object* l_IVI_ResuperposeResult_ctorIdx___boxed(lean_object* x_1, lean_object* x_2) {
+_start:
+{
+lean_object* x_3; 
+x_3 = l_IVI_ResuperposeResult_ctorIdx(x_1, x_2);
+lean_dec_ref(x_2);
+return x_3;
 }
 }
 LEAN_EXPORT lean_object* l_IVI_RotateInnerTime___redArg(lean_object* x_1, lean_object* x_2, lean_object* x_3) {

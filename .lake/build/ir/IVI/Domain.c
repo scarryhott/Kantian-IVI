@@ -15,125 +15,131 @@ extern "C" {
 #endif
 static lean_object* l_IVI_Law_instReprNorm___closed__0;
 LEAN_EXPORT lean_object* l_IVI_Math_stepSchema;
-static lean_object* l_IVI_Physics_reprState___redArg___closed__0____x40_IVI_Domain___hyg_187_;
-static lean_object* l_IVI_Physics_reprState___redArg___closed__2____x40_IVI_Domain___hyg_187_;
+LEAN_EXPORT lean_object* l_IVI_Law_instReprNorm_repr(lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_IVI_Ethics_instReprMaxim_repr___redArg(lean_object*);
+static lean_object* l_IVI_Physics_instReprState_repr___redArg___closed__7;
 LEAN_EXPORT lean_object* l_IVI_Ethics_instReprMaxim;
+static lean_object* l_IVI_Ethics_instReprMaxim_repr___redArg___closed__0;
 static lean_object* l_IVI_Aesthetics_f_u2080___closed__1;
 LEAN_EXPORT lean_object* l_IVI_Law_rec;
-static lean_object* l_IVI_Law_reprNorm___redArg___closed__2____x40_IVI_Domain___hyg_658_;
+static lean_object* l_IVI_Physics_instReprState_repr___redArg___closed__10;
+LEAN_EXPORT lean_object* l_IVI_Aesthetics_instReprForm_repr(lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_IVI_Math_monotoneRule;
-static lean_object* l_IVI_Physics_reprState___redArg___closed__3____x40_IVI_Domain___hyg_187_;
 lean_object* l_String_quote(lean_object*);
 LEAN_EXPORT lean_object* l_IVI_Law_J;
+LEAN_EXPORT lean_object* l_IVI_Aesthetics_Form_ctorIdx___boxed(lean_object*);
+static lean_object* l_IVI_Ethics_instReprMaxim_repr___redArg___closed__2;
+LEAN_EXPORT lean_object* l_IVI_Ethics_instReprMaxim_repr___boxed(lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_IVI_Math_rec;
-LEAN_EXPORT lean_object* l_IVI_Physics_reprState___redArg____x40_IVI_Domain___hyg_187____boxed(lean_object*);
+LEAN_EXPORT lean_object* l_IVI_Aesthetics_instReprForm_repr___redArg(lean_object*);
 LEAN_EXPORT lean_object* l_IVI_Aesthetics_freePlay___lam__0(lean_object*, lean_object*);
-LEAN_EXPORT lean_object* l_IVI_Ethics_reprMaxim____x40_IVI_Domain___hyg_382____boxed(lean_object*, lean_object*);
+static lean_object* l_IVI_Aesthetics_instReprForm_repr___redArg___closed__1;
+static lean_object* l_IVI_Physics_instReprState_repr___redArg___closed__9;
+static lean_object* l_IVI_Physics_instReprState_repr___redArg___closed__0;
 LEAN_EXPORT lean_object* l_IVI_Aesthetics_freePlay;
 LEAN_EXPORT lean_object* l_IVI_Physics_symmetryRule;
 static lean_object* l_IVI_Law_J___closed__0;
+lean_object* lean_string_length(lean_object*);
+LEAN_EXPORT lean_object* l_IVI_Aesthetics_Form_ctorIdx(lean_object*);
 static lean_object* l_IVI_Aesthetics_f_u2080___closed__0;
-LEAN_EXPORT lean_object* l_IVI_Physics_reprState____x40_IVI_Domain___hyg_187____boxed(lean_object*, lean_object*);
+static lean_object* l_IVI_Physics_instReprState_repr___redArg___closed__5;
 static lean_object* l_IVI_Physics_s_u2081___closed__0;
-static lean_object* l_IVI_Aesthetics_reprForm___redArg___closed__1____x40_IVI_Domain___hyg_509_;
 LEAN_EXPORT lean_object* l_IVI_Physics_s_u2082;
 static lean_object* l_IVI_Physics_evolve___lam__0___closed__0;
-LEAN_EXPORT lean_object* l_IVI_Law_reprNorm____x40_IVI_Domain___hyg_658_(lean_object*, lean_object*);
+static lean_object* l_IVI_Aesthetics_instReprForm_repr___redArg___closed__4;
 static lean_object* l_IVI_Physics_instReprState___closed__0;
 static lean_object* l_IVI_Ethics_rec___closed__0;
 static lean_object* l_IVI_Aesthetics_instReprForm___closed__0;
 lean_object* l_Nat_reprFast(lean_object*);
 LEAN_EXPORT lean_object* l_IVI_Ethics_rec;
 LEAN_EXPORT lean_object* l_IVI_Physics_recips;
-static lean_object* l_IVI_Physics_reprState___redArg___closed__8____x40_IVI_Domain___hyg_187_;
+static lean_object* l_IVI_Law_instReprNorm_repr___redArg___closed__0;
+static lean_object* l_IVI_Physics_instReprState_repr___redArg___closed__4;
+static lean_object* l_IVI_Ethics_instReprMaxim_repr___redArg___closed__1;
 LEAN_EXPORT lean_object* l_IVI_Math_recips;
 LEAN_EXPORT lean_object* l_IVI_Ethics_CI;
+static lean_object* l_IVI_Law_instReprNorm_repr___redArg___closed__1;
 LEAN_EXPORT lean_object* l_IVI_Aesthetics_f_u2080;
 LEAN_EXPORT lean_object* l_IVI_Law_instReprNorm;
 LEAN_EXPORT lean_object* l_IVI_Law_precedent___lam__0(lean_object*, lean_object*);
-static lean_object* l_IVI_Ethics_reprMaxim___redArg___closed__1____x40_IVI_Domain___hyg_382_;
-static lean_object* l_IVI_Ethics_reprMaxim___redArg___closed__0____x40_IVI_Domain___hyg_382_;
 lean_object* lean_nat_to_int(lean_object*);
 LEAN_EXPORT lean_object* l_IVI_Ethics_deliberation;
-static lean_object* l_IVI_Physics_reprState___redArg___closed__7____x40_IVI_Domain___hyg_187_;
-LEAN_EXPORT lean_object* l_IVI_Physics_reprState____x40_IVI_Domain___hyg_187_(lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_IVI_Law_instReprNorm_repr___redArg(lean_object*);
 LEAN_EXPORT lean_object* l_IVI_Math_stepSchema___lam__0___boxed(lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_IVI_Law_instReprNorm_repr___boxed(lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_IVI_Physics_State_ctorIdx(lean_object*);
 static lean_object* l_IVI_Ethics_instReprMaxim___closed__0;
 LEAN_EXPORT lean_object* l_IVI_Nat_innerTime;
-LEAN_EXPORT lean_object* l_IVI_Law_reprNorm____x40_IVI_Domain___hyg_658____boxed(lean_object*, lean_object*);
+static lean_object* l_IVI_Physics_instReprState_repr___redArg___closed__11;
 static lean_object* l_IVI_Math_rec___closed__0;
-static lean_object* l_IVI_Physics_reprState___redArg___closed__6____x40_IVI_Domain___hyg_187_;
+LEAN_EXPORT lean_object* l_IVI_Ethics_instReprMaxim_repr(lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_IVI_Ethics_Maxim_ctorIdx(lean_object*);
 static lean_object* l_IVI_Physics_s_u2082___closed__0;
+static lean_object* l_IVI_Law_instReprNorm_repr___redArg___closed__3;
 static lean_object* l_IVI_Law_precedent___lam__0___closed__0;
 LEAN_EXPORT lean_object* l_IVI_Math_fSVO___lam__0___boxed(lean_object*);
 LEAN_EXPORT lean_object* l_IVI_Physics_J;
-static lean_object* l_IVI_Aesthetics_reprForm___redArg___closed__4____x40_IVI_Domain___hyg_509_;
 LEAN_EXPORT lean_object* l_IVI_Physics_instReprState;
-static lean_object* l_IVI_Ethics_reprMaxim___redArg___closed__2____x40_IVI_Domain___hyg_382_;
 LEAN_EXPORT lean_object* l_IVI_Aesthetics_rec;
 static lean_object* l_IVI_Law_rec___closed__0;
 static lean_object* l_IVI_Aesthetics_rec___closed__1;
-static lean_object* l_IVI_Aesthetics_reprForm___redArg___closed__2____x40_IVI_Domain___hyg_509_;
-LEAN_EXPORT lean_object* l_IVI_Aesthetics_reprForm___redArg____x40_IVI_Domain___hyg_509_(lean_object*);
 static lean_object* l_IVI_Physics_s_u2082___closed__1;
 LEAN_EXPORT lean_object* l_IVI_Math_fSVO;
+LEAN_EXPORT lean_object* l_IVI_Ethics_Maxim_ctorIdx___boxed(lean_object*);
 LEAN_EXPORT lean_object* l_IVI_Physics_s_u2081;
 LEAN_EXPORT lean_object* l_IVI_Ethics_deliberation___lam__0(lean_object*, lean_object*);
-static lean_object* l_IVI_Law_reprNorm___redArg___closed__0____x40_IVI_Domain___hyg_658_;
 static lean_object* l_IVI_Aesthetics_rec___closed__0;
 LEAN_EXPORT lean_object* l_IVI_Law_coherence;
 LEAN_EXPORT lean_object* l_IVI_Aesthetics_instReprForm;
-LEAN_EXPORT lean_object* l_IVI_Physics_reprState___redArg____x40_IVI_Domain___hyg_187_(lean_object*);
 LEAN_EXPORT lean_object* l_IVI_Math_fSVO___lam__0(lean_object*);
 static lean_object* l_IVI_Ethics_J___closed__0;
-LEAN_EXPORT lean_object* l_IVI_Ethics_reprMaxim____x40_IVI_Domain___hyg_382_(lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_IVI_Physics_instReprState_repr(lean_object*, lean_object*);
 static lean_object* l_IVI_Law_rec___closed__1;
 LEAN_EXPORT lean_object* l_IVI_Physics_rec;
 static lean_object* l_IVI_Math_J___closed__0;
-LEAN_EXPORT lean_object* l_IVI_Law_reprNorm___redArg____x40_IVI_Domain___hyg_658____boxed(lean_object*);
 static lean_object* l_IVI_Aesthetics_freePlay___lam__0___closed__0;
-LEAN_EXPORT lean_object* l_IVI_Aesthetics_reprForm___redArg____x40_IVI_Domain___hyg_509____boxed(lean_object*);
 LEAN_EXPORT lean_object* l_IVI_Aesthetics_J;
 static lean_object* l_IVI_Law_dueProcess___closed__0;
-LEAN_EXPORT lean_object* l_IVI_Aesthetics_reprForm____x40_IVI_Domain___hyg_509_(lean_object*, lean_object*);
 static lean_object* l_IVI_Physics_rec___closed__0;
-LEAN_EXPORT lean_object* l_IVI_Aesthetics_reprForm____x40_IVI_Domain___hyg_509____boxed(lean_object*, lean_object*);
-static lean_object* l_IVI_Aesthetics_reprForm___redArg___closed__3____x40_IVI_Domain___hyg_509_;
-static lean_object* l_IVI_Ethics_reprMaxim___redArg___closed__3____x40_IVI_Domain___hyg_382_;
-static lean_object* l_IVI_Physics_reprState___redArg___closed__9____x40_IVI_Domain___hyg_187_;
 LEAN_EXPORT lean_object* l_IVI_Aesthetics_reflectiveRule;
 static lean_object* l_IVI_Aesthetics_J___closed__0;
-static lean_object* l_IVI_Physics_reprState___redArg___closed__4____x40_IVI_Domain___hyg_187_;
 static lean_object* l_IVI_Physics_rec___closed__1;
 LEAN_EXPORT lean_object* l_IVI_Math_J;
-LEAN_EXPORT lean_object* l_IVI_Ethics_reprMaxim___redArg____x40_IVI_Domain___hyg_382_(lean_object*);
-static lean_object* l_IVI_Physics_reprState___redArg___closed__10____x40_IVI_Domain___hyg_187_;
+LEAN_EXPORT lean_object* l_IVI_Law_Norm_ctorIdx(lean_object*);
+static lean_object* l_IVI_Physics_instReprState_repr___redArg___closed__3;
+static lean_object* l_IVI_Physics_instReprState_repr___redArg___closed__2;
 LEAN_EXPORT lean_object* l_IVI_Law_precedent;
 static lean_object* l_IVI_Physics_J___closed__0;
+static lean_object* l_IVI_Physics_instReprState_repr___redArg___closed__8;
 static lean_object* l_IVI_Ethics_tellTruth___closed__0;
 static lean_object* l_IVI_Physics_s_u2081___closed__1;
-static lean_object* l_IVI_Law_reprNorm___redArg___closed__1____x40_IVI_Domain___hyg_658_;
-static lean_object* l_IVI_Aesthetics_reprForm___redArg___closed__0____x40_IVI_Domain___hyg_509_;
+LEAN_EXPORT lean_object* l_IVI_Law_Norm_ctorIdx___boxed(lean_object*);
+LEAN_EXPORT lean_object* l_IVI_Physics_instReprState_repr___redArg(lean_object*);
 LEAN_EXPORT lean_object* l_IVI_Physics_evolve___lam__0(lean_object*, lean_object*);
-static lean_object* l_IVI_Ethics_reprMaxim___redArg___closed__4____x40_IVI_Domain___hyg_382_;
+static lean_object* l_IVI_Aesthetics_instReprForm_repr___redArg___closed__2;
+static lean_object* l_IVI_Physics_instReprState_repr___redArg___closed__6;
+LEAN_EXPORT lean_object* l_IVI_Physics_instReprState_repr___boxed(lean_object*, lean_object*);
+static lean_object* l_IVI_Physics_instReprState_repr___redArg___closed__1;
 static lean_object* l_IVI_Math_rec___closed__1;
-static lean_object* l_IVI_Physics_reprState___redArg___closed__11____x40_IVI_Domain___hyg_187_;
-LEAN_EXPORT lean_object* l_IVI_Ethics_reprMaxim___redArg____x40_IVI_Domain___hyg_382____boxed(lean_object*);
+static lean_object* l_IVI_Aesthetics_instReprForm_repr___redArg___closed__0;
 LEAN_EXPORT lean_object* l_IVI_Ethics_tellTruth;
 static lean_object* l_IVI_Ethics_tellTruth___closed__1;
 LEAN_EXPORT lean_object* l_IVI_Law_dueProcess;
+LEAN_EXPORT lean_object* l_IVI_Physics_State_ctorIdx___boxed(lean_object*);
+LEAN_EXPORT lean_object* l_IVI_Aesthetics_instReprForm_repr___boxed(lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_IVI_Ethics_deliberation___lam__0___boxed(lean_object*, lean_object*);
 lean_object* lean_string_append(lean_object*, lean_object*);
-static lean_object* l_IVI_Physics_reprState___redArg___closed__1____x40_IVI_Domain___hyg_187_;
+static lean_object* l_IVI_Ethics_instReprMaxim_repr___redArg___closed__3;
+static lean_object* l_IVI_Aesthetics_instReprForm_repr___redArg___closed__3;
 static lean_object* l_IVI_Law_dueProcess___closed__1;
 lean_object* lean_nat_add(lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_IVI_Physics_evolve;
 LEAN_EXPORT lean_object* l_IVI_Math_stepSchema___lam__0(lean_object*, lean_object*, lean_object*);
+static lean_object* l_IVI_Physics_instReprState_repr___redArg___closed__12;
 LEAN_EXPORT lean_object* l_IVI_Ethics_J;
+static lean_object* l_IVI_Law_instReprNorm_repr___redArg___closed__2;
 static lean_object* l_IVI_Ethics_rec___closed__1;
-static lean_object* l_IVI_Physics_reprState___redArg___closed__5____x40_IVI_Domain___hyg_187_;
-LEAN_EXPORT lean_object* l_IVI_Law_reprNorm___redArg____x40_IVI_Domain___hyg_658_(lean_object*);
-static lean_object* l_IVI_Law_reprNorm___redArg___closed__3____x40_IVI_Domain___hyg_658_;
+static lean_object* l_IVI_Ethics_instReprMaxim_repr___redArg___closed__4;
 static lean_object* _init_l_IVI_Nat_innerTime() {
 _start:
 {
@@ -261,7 +267,24 @@ x_1 = l_IVI_Math_J___closed__0;
 return x_1;
 }
 }
-static lean_object* _init_l_IVI_Physics_reprState___redArg___closed__0____x40_IVI_Domain___hyg_187_() {
+LEAN_EXPORT lean_object* l_IVI_Physics_State_ctorIdx(lean_object* x_1) {
+_start:
+{
+lean_object* x_2; 
+x_2 = lean_unsigned_to_nat(0u);
+return x_2;
+}
+}
+LEAN_EXPORT lean_object* l_IVI_Physics_State_ctorIdx___boxed(lean_object* x_1) {
+_start:
+{
+lean_object* x_2; 
+x_2 = l_IVI_Physics_State_ctorIdx(x_1);
+lean_dec_ref(x_1);
+return x_2;
+}
+}
+static lean_object* _init_l_IVI_Physics_instReprState_repr___redArg___closed__0() {
 _start:
 {
 lean_object* x_1; 
@@ -269,7 +292,7 @@ x_1 = lean_mk_string_unchecked("{ ", 2, 2);
 return x_1;
 }
 }
-static lean_object* _init_l_IVI_Physics_reprState___redArg___closed__1____x40_IVI_Domain___hyg_187_() {
+static lean_object* _init_l_IVI_Physics_instReprState_repr___redArg___closed__1() {
 _start:
 {
 lean_object* x_1; 
@@ -277,21 +300,21 @@ x_1 = lean_mk_string_unchecked("tag", 3, 3);
 return x_1;
 }
 }
-static lean_object* _init_l_IVI_Physics_reprState___redArg___closed__2____x40_IVI_Domain___hyg_187_() {
+static lean_object* _init_l_IVI_Physics_instReprState_repr___redArg___closed__2() {
 _start:
 {
 lean_object* x_1; lean_object* x_2; 
-x_1 = l_IVI_Physics_reprState___redArg___closed__1____x40_IVI_Domain___hyg_187_;
+x_1 = l_IVI_Physics_instReprState_repr___redArg___closed__1;
 x_2 = lean_alloc_ctor(3, 1, 0);
 lean_ctor_set(x_2, 0, x_1);
 return x_2;
 }
 }
-static lean_object* _init_l_IVI_Physics_reprState___redArg___closed__3____x40_IVI_Domain___hyg_187_() {
+static lean_object* _init_l_IVI_Physics_instReprState_repr___redArg___closed__3() {
 _start:
 {
 lean_object* x_1; lean_object* x_2; lean_object* x_3; 
-x_1 = l_IVI_Physics_reprState___redArg___closed__2____x40_IVI_Domain___hyg_187_;
+x_1 = l_IVI_Physics_instReprState_repr___redArg___closed__2;
 x_2 = lean_box(0);
 x_3 = lean_alloc_ctor(5, 2, 0);
 lean_ctor_set(x_3, 0, x_2);
@@ -299,7 +322,7 @@ lean_ctor_set(x_3, 1, x_1);
 return x_3;
 }
 }
-static lean_object* _init_l_IVI_Physics_reprState___redArg___closed__4____x40_IVI_Domain___hyg_187_() {
+static lean_object* _init_l_IVI_Physics_instReprState_repr___redArg___closed__4() {
 _start:
 {
 lean_object* x_1; 
@@ -307,29 +330,29 @@ x_1 = lean_mk_string_unchecked(" := ", 4, 4);
 return x_1;
 }
 }
-static lean_object* _init_l_IVI_Physics_reprState___redArg___closed__5____x40_IVI_Domain___hyg_187_() {
+static lean_object* _init_l_IVI_Physics_instReprState_repr___redArg___closed__5() {
 _start:
 {
 lean_object* x_1; lean_object* x_2; 
-x_1 = l_IVI_Physics_reprState___redArg___closed__4____x40_IVI_Domain___hyg_187_;
+x_1 = l_IVI_Physics_instReprState_repr___redArg___closed__4;
 x_2 = lean_alloc_ctor(3, 1, 0);
 lean_ctor_set(x_2, 0, x_1);
 return x_2;
 }
 }
-static lean_object* _init_l_IVI_Physics_reprState___redArg___closed__6____x40_IVI_Domain___hyg_187_() {
+static lean_object* _init_l_IVI_Physics_instReprState_repr___redArg___closed__6() {
 _start:
 {
 lean_object* x_1; lean_object* x_2; lean_object* x_3; 
-x_1 = l_IVI_Physics_reprState___redArg___closed__5____x40_IVI_Domain___hyg_187_;
-x_2 = l_IVI_Physics_reprState___redArg___closed__3____x40_IVI_Domain___hyg_187_;
+x_1 = l_IVI_Physics_instReprState_repr___redArg___closed__5;
+x_2 = l_IVI_Physics_instReprState_repr___redArg___closed__3;
 x_3 = lean_alloc_ctor(5, 2, 0);
 lean_ctor_set(x_3, 0, x_2);
 lean_ctor_set(x_3, 1, x_1);
 return x_3;
 }
 }
-static lean_object* _init_l_IVI_Physics_reprState___redArg___closed__7____x40_IVI_Domain___hyg_187_() {
+static lean_object* _init_l_IVI_Physics_instReprState_repr___redArg___closed__7() {
 _start:
 {
 lean_object* x_1; lean_object* x_2; 
@@ -338,7 +361,7 @@ x_2 = lean_nat_to_int(x_1);
 return x_2;
 }
 }
-static lean_object* _init_l_IVI_Physics_reprState___redArg___closed__8____x40_IVI_Domain___hyg_187_() {
+static lean_object* _init_l_IVI_Physics_instReprState_repr___redArg___closed__8() {
 _start:
 {
 lean_object* x_1; 
@@ -346,41 +369,50 @@ x_1 = lean_mk_string_unchecked(" }", 2, 2);
 return x_1;
 }
 }
-static lean_object* _init_l_IVI_Physics_reprState___redArg___closed__9____x40_IVI_Domain___hyg_187_() {
+static lean_object* _init_l_IVI_Physics_instReprState_repr___redArg___closed__9() {
 _start:
 {
 lean_object* x_1; lean_object* x_2; 
-x_1 = lean_unsigned_to_nat(2u);
+x_1 = l_IVI_Physics_instReprState_repr___redArg___closed__0;
+x_2 = lean_string_length(x_1);
+return x_2;
+}
+}
+static lean_object* _init_l_IVI_Physics_instReprState_repr___redArg___closed__10() {
+_start:
+{
+lean_object* x_1; lean_object* x_2; 
+x_1 = l_IVI_Physics_instReprState_repr___redArg___closed__9;
 x_2 = lean_nat_to_int(x_1);
 return x_2;
 }
 }
-static lean_object* _init_l_IVI_Physics_reprState___redArg___closed__10____x40_IVI_Domain___hyg_187_() {
+static lean_object* _init_l_IVI_Physics_instReprState_repr___redArg___closed__11() {
 _start:
 {
 lean_object* x_1; lean_object* x_2; 
-x_1 = l_IVI_Physics_reprState___redArg___closed__0____x40_IVI_Domain___hyg_187_;
+x_1 = l_IVI_Physics_instReprState_repr___redArg___closed__0;
 x_2 = lean_alloc_ctor(3, 1, 0);
 lean_ctor_set(x_2, 0, x_1);
 return x_2;
 }
 }
-static lean_object* _init_l_IVI_Physics_reprState___redArg___closed__11____x40_IVI_Domain___hyg_187_() {
+static lean_object* _init_l_IVI_Physics_instReprState_repr___redArg___closed__12() {
 _start:
 {
 lean_object* x_1; lean_object* x_2; 
-x_1 = l_IVI_Physics_reprState___redArg___closed__8____x40_IVI_Domain___hyg_187_;
+x_1 = l_IVI_Physics_instReprState_repr___redArg___closed__8;
 x_2 = lean_alloc_ctor(3, 1, 0);
 lean_ctor_set(x_2, 0, x_1);
 return x_2;
 }
 }
-LEAN_EXPORT lean_object* l_IVI_Physics_reprState___redArg____x40_IVI_Domain___hyg_187_(lean_object* x_1) {
+LEAN_EXPORT lean_object* l_IVI_Physics_instReprState_repr___redArg(lean_object* x_1) {
 _start:
 {
 lean_object* x_2; lean_object* x_3; lean_object* x_4; lean_object* x_5; lean_object* x_6; uint8_t x_7; lean_object* x_8; lean_object* x_9; lean_object* x_10; lean_object* x_11; lean_object* x_12; lean_object* x_13; lean_object* x_14; lean_object* x_15; lean_object* x_16; 
-x_2 = l_IVI_Physics_reprState___redArg___closed__6____x40_IVI_Domain___hyg_187_;
-x_3 = l_IVI_Physics_reprState___redArg___closed__7____x40_IVI_Domain___hyg_187_;
+x_2 = l_IVI_Physics_instReprState_repr___redArg___closed__6;
+x_3 = l_IVI_Physics_instReprState_repr___redArg___closed__7;
 x_4 = l_String_quote(x_1);
 x_5 = lean_alloc_ctor(3, 1, 0);
 lean_ctor_set(x_5, 0, x_4);
@@ -394,12 +426,12 @@ lean_ctor_set_uint8(x_8, sizeof(void*)*1, x_7);
 x_9 = lean_alloc_ctor(5, 2, 0);
 lean_ctor_set(x_9, 0, x_2);
 lean_ctor_set(x_9, 1, x_8);
-x_10 = l_IVI_Physics_reprState___redArg___closed__9____x40_IVI_Domain___hyg_187_;
-x_11 = l_IVI_Physics_reprState___redArg___closed__10____x40_IVI_Domain___hyg_187_;
+x_10 = l_IVI_Physics_instReprState_repr___redArg___closed__10;
+x_11 = l_IVI_Physics_instReprState_repr___redArg___closed__11;
 x_12 = lean_alloc_ctor(5, 2, 0);
 lean_ctor_set(x_12, 0, x_11);
 lean_ctor_set(x_12, 1, x_9);
-x_13 = l_IVI_Physics_reprState___redArg___closed__11____x40_IVI_Domain___hyg_187_;
+x_13 = l_IVI_Physics_instReprState_repr___redArg___closed__12;
 x_14 = lean_alloc_ctor(5, 2, 0);
 lean_ctor_set(x_14, 0, x_12);
 lean_ctor_set(x_14, 1, x_13);
@@ -412,30 +444,20 @@ lean_ctor_set_uint8(x_16, sizeof(void*)*1, x_7);
 return x_16;
 }
 }
-LEAN_EXPORT lean_object* l_IVI_Physics_reprState____x40_IVI_Domain___hyg_187_(lean_object* x_1, lean_object* x_2) {
+LEAN_EXPORT lean_object* l_IVI_Physics_instReprState_repr(lean_object* x_1, lean_object* x_2) {
 _start:
 {
 lean_object* x_3; 
-x_3 = l_IVI_Physics_reprState___redArg____x40_IVI_Domain___hyg_187_(x_1);
+x_3 = l_IVI_Physics_instReprState_repr___redArg(x_1);
 return x_3;
 }
 }
-LEAN_EXPORT lean_object* l_IVI_Physics_reprState___redArg____x40_IVI_Domain___hyg_187____boxed(lean_object* x_1) {
-_start:
-{
-lean_object* x_2; 
-x_2 = l_IVI_Physics_reprState___redArg____x40_IVI_Domain___hyg_187_(x_1);
-lean_dec_ref(x_1);
-return x_2;
-}
-}
-LEAN_EXPORT lean_object* l_IVI_Physics_reprState____x40_IVI_Domain___hyg_187____boxed(lean_object* x_1, lean_object* x_2) {
+LEAN_EXPORT lean_object* l_IVI_Physics_instReprState_repr___boxed(lean_object* x_1, lean_object* x_2) {
 _start:
 {
 lean_object* x_3; 
-x_3 = l_IVI_Physics_reprState____x40_IVI_Domain___hyg_187_(x_1, x_2);
+x_3 = l_IVI_Physics_instReprState_repr(x_1, x_2);
 lean_dec(x_2);
-lean_dec_ref(x_1);
 return x_3;
 }
 }
@@ -443,7 +465,7 @@ static lean_object* _init_l_IVI_Physics_instReprState___closed__0() {
 _start:
 {
 lean_object* x_1; 
-x_1 = lean_alloc_closure((void*)(l_IVI_Physics_reprState____x40_IVI_Domain___hyg_187____boxed), 2, 0);
+x_1 = lean_alloc_closure((void*)(l_IVI_Physics_instReprState_repr___boxed), 2, 0);
 return x_1;
 }
 }
@@ -603,7 +625,24 @@ x_1 = l_IVI_Physics_J___closed__0;
 return x_1;
 }
 }
-static lean_object* _init_l_IVI_Ethics_reprMaxim___redArg___closed__0____x40_IVI_Domain___hyg_382_() {
+LEAN_EXPORT lean_object* l_IVI_Ethics_Maxim_ctorIdx(lean_object* x_1) {
+_start:
+{
+lean_object* x_2; 
+x_2 = lean_unsigned_to_nat(0u);
+return x_2;
+}
+}
+LEAN_EXPORT lean_object* l_IVI_Ethics_Maxim_ctorIdx___boxed(lean_object* x_1) {
+_start:
+{
+lean_object* x_2; 
+x_2 = l_IVI_Ethics_Maxim_ctorIdx(x_1);
+lean_dec_ref(x_1);
+return x_2;
+}
+}
+static lean_object* _init_l_IVI_Ethics_instReprMaxim_repr___redArg___closed__0() {
 _start:
 {
 lean_object* x_1; 
@@ -611,21 +650,21 @@ x_1 = lean_mk_string_unchecked("desc", 4, 4);
 return x_1;
 }
 }
-static lean_object* _init_l_IVI_Ethics_reprMaxim___redArg___closed__1____x40_IVI_Domain___hyg_382_() {
+static lean_object* _init_l_IVI_Ethics_instReprMaxim_repr___redArg___closed__1() {
 _start:
 {
 lean_object* x_1; lean_object* x_2; 
-x_1 = l_IVI_Ethics_reprMaxim___redArg___closed__0____x40_IVI_Domain___hyg_382_;
+x_1 = l_IVI_Ethics_instReprMaxim_repr___redArg___closed__0;
 x_2 = lean_alloc_ctor(3, 1, 0);
 lean_ctor_set(x_2, 0, x_1);
 return x_2;
 }
 }
-static lean_object* _init_l_IVI_Ethics_reprMaxim___redArg___closed__2____x40_IVI_Domain___hyg_382_() {
+static lean_object* _init_l_IVI_Ethics_instReprMaxim_repr___redArg___closed__2() {
 _start:
 {
 lean_object* x_1; lean_object* x_2; lean_object* x_3; 
-x_1 = l_IVI_Ethics_reprMaxim___redArg___closed__1____x40_IVI_Domain___hyg_382_;
+x_1 = l_IVI_Ethics_instReprMaxim_repr___redArg___closed__1;
 x_2 = lean_box(0);
 x_3 = lean_alloc_ctor(5, 2, 0);
 lean_ctor_set(x_3, 0, x_2);
@@ -633,19 +672,19 @@ lean_ctor_set(x_3, 1, x_1);
 return x_3;
 }
 }
-static lean_object* _init_l_IVI_Ethics_reprMaxim___redArg___closed__3____x40_IVI_Domain___hyg_382_() {
+static lean_object* _init_l_IVI_Ethics_instReprMaxim_repr___redArg___closed__3() {
 _start:
 {
 lean_object* x_1; lean_object* x_2; lean_object* x_3; 
-x_1 = l_IVI_Physics_reprState___redArg___closed__5____x40_IVI_Domain___hyg_187_;
-x_2 = l_IVI_Ethics_reprMaxim___redArg___closed__2____x40_IVI_Domain___hyg_382_;
+x_1 = l_IVI_Physics_instReprState_repr___redArg___closed__5;
+x_2 = l_IVI_Ethics_instReprMaxim_repr___redArg___closed__2;
 x_3 = lean_alloc_ctor(5, 2, 0);
 lean_ctor_set(x_3, 0, x_2);
 lean_ctor_set(x_3, 1, x_1);
 return x_3;
 }
 }
-static lean_object* _init_l_IVI_Ethics_reprMaxim___redArg___closed__4____x40_IVI_Domain___hyg_382_() {
+static lean_object* _init_l_IVI_Ethics_instReprMaxim_repr___redArg___closed__4() {
 _start:
 {
 lean_object* x_1; lean_object* x_2; 
@@ -654,12 +693,12 @@ x_2 = lean_nat_to_int(x_1);
 return x_2;
 }
 }
-LEAN_EXPORT lean_object* l_IVI_Ethics_reprMaxim___redArg____x40_IVI_Domain___hyg_382_(lean_object* x_1) {
+LEAN_EXPORT lean_object* l_IVI_Ethics_instReprMaxim_repr___redArg(lean_object* x_1) {
 _start:
 {
 lean_object* x_2; lean_object* x_3; lean_object* x_4; lean_object* x_5; lean_object* x_6; uint8_t x_7; lean_object* x_8; lean_object* x_9; lean_object* x_10; lean_object* x_11; lean_object* x_12; lean_object* x_13; lean_object* x_14; lean_object* x_15; lean_object* x_16; 
-x_2 = l_IVI_Ethics_reprMaxim___redArg___closed__3____x40_IVI_Domain___hyg_382_;
-x_3 = l_IVI_Ethics_reprMaxim___redArg___closed__4____x40_IVI_Domain___hyg_382_;
+x_2 = l_IVI_Ethics_instReprMaxim_repr___redArg___closed__3;
+x_3 = l_IVI_Ethics_instReprMaxim_repr___redArg___closed__4;
 x_4 = l_String_quote(x_1);
 x_5 = lean_alloc_ctor(3, 1, 0);
 lean_ctor_set(x_5, 0, x_4);
@@ -673,12 +712,12 @@ lean_ctor_set_uint8(x_8, sizeof(void*)*1, x_7);
 x_9 = lean_alloc_ctor(5, 2, 0);
 lean_ctor_set(x_9, 0, x_2);
 lean_ctor_set(x_9, 1, x_8);
-x_10 = l_IVI_Physics_reprState___redArg___closed__9____x40_IVI_Domain___hyg_187_;
-x_11 = l_IVI_Physics_reprState___redArg___closed__10____x40_IVI_Domain___hyg_187_;
+x_10 = l_IVI_Physics_instReprState_repr___redArg___closed__10;
+x_11 = l_IVI_Physics_instReprState_repr___redArg___closed__11;
 x_12 = lean_alloc_ctor(5, 2, 0);
 lean_ctor_set(x_12, 0, x_11);
 lean_ctor_set(x_12, 1, x_9);
-x_13 = l_IVI_Physics_reprState___redArg___closed__11____x40_IVI_Domain___hyg_187_;
+x_13 = l_IVI_Physics_instReprState_repr___redArg___closed__12;
 x_14 = lean_alloc_ctor(5, 2, 0);
 lean_ctor_set(x_14, 0, x_12);
 lean_ctor_set(x_14, 1, x_13);
@@ -691,30 +730,20 @@ lean_ctor_set_uint8(x_16, sizeof(void*)*1, x_7);
 return x_16;
 }
 }
-LEAN_EXPORT lean_object* l_IVI_Ethics_reprMaxim____x40_IVI_Domain___hyg_382_(lean_object* x_1, lean_object* x_2) {
+LEAN_EXPORT lean_object* l_IVI_Ethics_instReprMaxim_repr(lean_object* x_1, lean_object* x_2) {
 _start:
 {
 lean_object* x_3; 
-x_3 = l_IVI_Ethics_reprMaxim___redArg____x40_IVI_Domain___hyg_382_(x_1);
+x_3 = l_IVI_Ethics_instReprMaxim_repr___redArg(x_1);
 return x_3;
 }
 }
-LEAN_EXPORT lean_object* l_IVI_Ethics_reprMaxim___redArg____x40_IVI_Domain___hyg_382____boxed(lean_object* x_1) {
-_start:
-{
-lean_object* x_2; 
-x_2 = l_IVI_Ethics_reprMaxim___redArg____x40_IVI_Domain___hyg_382_(x_1);
-lean_dec_ref(x_1);
-return x_2;
-}
-}
-LEAN_EXPORT lean_object* l_IVI_Ethics_reprMaxim____x40_IVI_Domain___hyg_382____boxed(lean_object* x_1, lean_object* x_2) {
+LEAN_EXPORT lean_object* l_IVI_Ethics_instReprMaxim_repr___boxed(lean_object* x_1, lean_object* x_2) {
 _start:
 {
 lean_object* x_3; 
-x_3 = l_IVI_Ethics_reprMaxim____x40_IVI_Domain___hyg_382_(x_1, x_2);
+x_3 = l_IVI_Ethics_instReprMaxim_repr(x_1, x_2);
 lean_dec(x_2);
-lean_dec_ref(x_1);
 return x_3;
 }
 }
@@ -722,7 +751,7 @@ static lean_object* _init_l_IVI_Ethics_instReprMaxim___closed__0() {
 _start:
 {
 lean_object* x_1; 
-x_1 = lean_alloc_closure((void*)(l_IVI_Ethics_reprMaxim____x40_IVI_Domain___hyg_382____boxed), 2, 0);
+x_1 = lean_alloc_closure((void*)(l_IVI_Ethics_instReprMaxim_repr___boxed), 2, 0);
 return x_1;
 }
 }
@@ -843,7 +872,24 @@ x_1 = l_IVI_Ethics_J___closed__0;
 return x_1;
 }
 }
-static lean_object* _init_l_IVI_Aesthetics_reprForm___redArg___closed__0____x40_IVI_Domain___hyg_509_() {
+LEAN_EXPORT lean_object* l_IVI_Aesthetics_Form_ctorIdx(lean_object* x_1) {
+_start:
+{
+lean_object* x_2; 
+x_2 = lean_unsigned_to_nat(0u);
+return x_2;
+}
+}
+LEAN_EXPORT lean_object* l_IVI_Aesthetics_Form_ctorIdx___boxed(lean_object* x_1) {
+_start:
+{
+lean_object* x_2; 
+x_2 = l_IVI_Aesthetics_Form_ctorIdx(x_1);
+lean_dec_ref(x_1);
+return x_2;
+}
+}
+static lean_object* _init_l_IVI_Aesthetics_instReprForm_repr___redArg___closed__0() {
 _start:
 {
 lean_object* x_1; 
@@ -851,21 +897,21 @@ x_1 = lean_mk_string_unchecked("signature", 9, 9);
 return x_1;
 }
 }
-static lean_object* _init_l_IVI_Aesthetics_reprForm___redArg___closed__1____x40_IVI_Domain___hyg_509_() {
+static lean_object* _init_l_IVI_Aesthetics_instReprForm_repr___redArg___closed__1() {
 _start:
 {
 lean_object* x_1; lean_object* x_2; 
-x_1 = l_IVI_Aesthetics_reprForm___redArg___closed__0____x40_IVI_Domain___hyg_509_;
+x_1 = l_IVI_Aesthetics_instReprForm_repr___redArg___closed__0;
 x_2 = lean_alloc_ctor(3, 1, 0);
 lean_ctor_set(x_2, 0, x_1);
 return x_2;
 }
 }
-static lean_object* _init_l_IVI_Aesthetics_reprForm___redArg___closed__2____x40_IVI_Domain___hyg_509_() {
+static lean_object* _init_l_IVI_Aesthetics_instReprForm_repr___redArg___closed__2() {
 _start:
 {
 lean_object* x_1; lean_object* x_2; lean_object* x_3; 
-x_1 = l_IVI_Aesthetics_reprForm___redArg___closed__1____x40_IVI_Domain___hyg_509_;
+x_1 = l_IVI_Aesthetics_instReprForm_repr___redArg___closed__1;
 x_2 = lean_box(0);
 x_3 = lean_alloc_ctor(5, 2, 0);
 lean_ctor_set(x_3, 0, x_2);
@@ -873,19 +919,19 @@ lean_ctor_set(x_3, 1, x_1);
 return x_3;
 }
 }
-static lean_object* _init_l_IVI_Aesthetics_reprForm___redArg___closed__3____x40_IVI_Domain___hyg_509_() {
+static lean_object* _init_l_IVI_Aesthetics_instReprForm_repr___redArg___closed__3() {
 _start:
 {
 lean_object* x_1; lean_object* x_2; lean_object* x_3; 
-x_1 = l_IVI_Physics_reprState___redArg___closed__5____x40_IVI_Domain___hyg_187_;
-x_2 = l_IVI_Aesthetics_reprForm___redArg___closed__2____x40_IVI_Domain___hyg_509_;
+x_1 = l_IVI_Physics_instReprState_repr___redArg___closed__5;
+x_2 = l_IVI_Aesthetics_instReprForm_repr___redArg___closed__2;
 x_3 = lean_alloc_ctor(5, 2, 0);
 lean_ctor_set(x_3, 0, x_2);
 lean_ctor_set(x_3, 1, x_1);
 return x_3;
 }
 }
-static lean_object* _init_l_IVI_Aesthetics_reprForm___redArg___closed__4____x40_IVI_Domain___hyg_509_() {
+static lean_object* _init_l_IVI_Aesthetics_instReprForm_repr___redArg___closed__4() {
 _start:
 {
 lean_object* x_1; lean_object* x_2; 
@@ -894,12 +940,12 @@ x_2 = lean_nat_to_int(x_1);
 return x_2;
 }
 }
-LEAN_EXPORT lean_object* l_IVI_Aesthetics_reprForm___redArg____x40_IVI_Domain___hyg_509_(lean_object* x_1) {
+LEAN_EXPORT lean_object* l_IVI_Aesthetics_instReprForm_repr___redArg(lean_object* x_1) {
 _start:
 {
 lean_object* x_2; lean_object* x_3; lean_object* x_4; lean_object* x_5; lean_object* x_6; uint8_t x_7; lean_object* x_8; lean_object* x_9; lean_object* x_10; lean_object* x_11; lean_object* x_12; lean_object* x_13; lean_object* x_14; lean_object* x_15; lean_object* x_16; 
-x_2 = l_IVI_Aesthetics_reprForm___redArg___closed__3____x40_IVI_Domain___hyg_509_;
-x_3 = l_IVI_Aesthetics_reprForm___redArg___closed__4____x40_IVI_Domain___hyg_509_;
+x_2 = l_IVI_Aesthetics_instReprForm_repr___redArg___closed__3;
+x_3 = l_IVI_Aesthetics_instReprForm_repr___redArg___closed__4;
 x_4 = l_String_quote(x_1);
 x_5 = lean_alloc_ctor(3, 1, 0);
 lean_ctor_set(x_5, 0, x_4);
@@ -913,12 +959,12 @@ lean_ctor_set_uint8(x_8, sizeof(void*)*1, x_7);
 x_9 = lean_alloc_ctor(5, 2, 0);
 lean_ctor_set(x_9, 0, x_2);
 lean_ctor_set(x_9, 1, x_8);
-x_10 = l_IVI_Physics_reprState___redArg___closed__9____x40_IVI_Domain___hyg_187_;
-x_11 = l_IVI_Physics_reprState___redArg___closed__10____x40_IVI_Domain___hyg_187_;
+x_10 = l_IVI_Physics_instReprState_repr___redArg___closed__10;
+x_11 = l_IVI_Physics_instReprState_repr___redArg___closed__11;
 x_12 = lean_alloc_ctor(5, 2, 0);
 lean_ctor_set(x_12, 0, x_11);
 lean_ctor_set(x_12, 1, x_9);
-x_13 = l_IVI_Physics_reprState___redArg___closed__11____x40_IVI_Domain___hyg_187_;
+x_13 = l_IVI_Physics_instReprState_repr___redArg___closed__12;
 x_14 = lean_alloc_ctor(5, 2, 0);
 lean_ctor_set(x_14, 0, x_12);
 lean_ctor_set(x_14, 1, x_13);
@@ -931,30 +977,20 @@ lean_ctor_set_uint8(x_16, sizeof(void*)*1, x_7);
 return x_16;
 }
 }
-LEAN_EXPORT lean_object* l_IVI_Aesthetics_reprForm____x40_IVI_Domain___hyg_509_(lean_object* x_1, lean_object* x_2) {
+LEAN_EXPORT lean_object* l_IVI_Aesthetics_instReprForm_repr(lean_object* x_1, lean_object* x_2) {
 _start:
 {
 lean_object* x_3; 
-x_3 = l_IVI_Aesthetics_reprForm___redArg____x40_IVI_Domain___hyg_509_(x_1);
+x_3 = l_IVI_Aesthetics_instReprForm_repr___redArg(x_1);
 return x_3;
 }
 }
-LEAN_EXPORT lean_object* l_IVI_Aesthetics_reprForm___redArg____x40_IVI_Domain___hyg_509____boxed(lean_object* x_1) {
-_start:
-{
-lean_object* x_2; 
-x_2 = l_IVI_Aesthetics_reprForm___redArg____x40_IVI_Domain___hyg_509_(x_1);
-lean_dec_ref(x_1);
-return x_2;
-}
-}
-LEAN_EXPORT lean_object* l_IVI_Aesthetics_reprForm____x40_IVI_Domain___hyg_509____boxed(lean_object* x_1, lean_object* x_2) {
+LEAN_EXPORT lean_object* l_IVI_Aesthetics_instReprForm_repr___boxed(lean_object* x_1, lean_object* x_2) {
 _start:
 {
 lean_object* x_3; 
-x_3 = l_IVI_Aesthetics_reprForm____x40_IVI_Domain___hyg_509_(x_1, x_2);
+x_3 = l_IVI_Aesthetics_instReprForm_repr(x_1, x_2);
 lean_dec(x_2);
-lean_dec_ref(x_1);
 return x_3;
 }
 }
@@ -962,7 +998,7 @@ static lean_object* _init_l_IVI_Aesthetics_instReprForm___closed__0() {
 _start:
 {
 lean_object* x_1; 
-x_1 = lean_alloc_closure((void*)(l_IVI_Aesthetics_reprForm____x40_IVI_Domain___hyg_509____boxed), 2, 0);
+x_1 = lean_alloc_closure((void*)(l_IVI_Aesthetics_instReprForm_repr___boxed), 2, 0);
 return x_1;
 }
 }
@@ -1086,7 +1122,24 @@ x_1 = l_IVI_Aesthetics_J___closed__0;
 return x_1;
 }
 }
-static lean_object* _init_l_IVI_Law_reprNorm___redArg___closed__0____x40_IVI_Domain___hyg_658_() {
+LEAN_EXPORT lean_object* l_IVI_Law_Norm_ctorIdx(lean_object* x_1) {
+_start:
+{
+lean_object* x_2; 
+x_2 = lean_unsigned_to_nat(0u);
+return x_2;
+}
+}
+LEAN_EXPORT lean_object* l_IVI_Law_Norm_ctorIdx___boxed(lean_object* x_1) {
+_start:
+{
+lean_object* x_2; 
+x_2 = l_IVI_Law_Norm_ctorIdx(x_1);
+lean_dec_ref(x_1);
+return x_2;
+}
+}
+static lean_object* _init_l_IVI_Law_instReprNorm_repr___redArg___closed__0() {
 _start:
 {
 lean_object* x_1; 
@@ -1094,21 +1147,21 @@ x_1 = lean_mk_string_unchecked("name", 4, 4);
 return x_1;
 }
 }
-static lean_object* _init_l_IVI_Law_reprNorm___redArg___closed__1____x40_IVI_Domain___hyg_658_() {
+static lean_object* _init_l_IVI_Law_instReprNorm_repr___redArg___closed__1() {
 _start:
 {
 lean_object* x_1; lean_object* x_2; 
-x_1 = l_IVI_Law_reprNorm___redArg___closed__0____x40_IVI_Domain___hyg_658_;
+x_1 = l_IVI_Law_instReprNorm_repr___redArg___closed__0;
 x_2 = lean_alloc_ctor(3, 1, 0);
 lean_ctor_set(x_2, 0, x_1);
 return x_2;
 }
 }
-static lean_object* _init_l_IVI_Law_reprNorm___redArg___closed__2____x40_IVI_Domain___hyg_658_() {
+static lean_object* _init_l_IVI_Law_instReprNorm_repr___redArg___closed__2() {
 _start:
 {
 lean_object* x_1; lean_object* x_2; lean_object* x_3; 
-x_1 = l_IVI_Law_reprNorm___redArg___closed__1____x40_IVI_Domain___hyg_658_;
+x_1 = l_IVI_Law_instReprNorm_repr___redArg___closed__1;
 x_2 = lean_box(0);
 x_3 = lean_alloc_ctor(5, 2, 0);
 lean_ctor_set(x_3, 0, x_2);
@@ -1116,24 +1169,24 @@ lean_ctor_set(x_3, 1, x_1);
 return x_3;
 }
 }
-static lean_object* _init_l_IVI_Law_reprNorm___redArg___closed__3____x40_IVI_Domain___hyg_658_() {
+static lean_object* _init_l_IVI_Law_instReprNorm_repr___redArg___closed__3() {
 _start:
 {
 lean_object* x_1; lean_object* x_2; lean_object* x_3; 
-x_1 = l_IVI_Physics_reprState___redArg___closed__5____x40_IVI_Domain___hyg_187_;
-x_2 = l_IVI_Law_reprNorm___redArg___closed__2____x40_IVI_Domain___hyg_658_;
+x_1 = l_IVI_Physics_instReprState_repr___redArg___closed__5;
+x_2 = l_IVI_Law_instReprNorm_repr___redArg___closed__2;
 x_3 = lean_alloc_ctor(5, 2, 0);
 lean_ctor_set(x_3, 0, x_2);
 lean_ctor_set(x_3, 1, x_1);
 return x_3;
 }
 }
-LEAN_EXPORT lean_object* l_IVI_Law_reprNorm___redArg____x40_IVI_Domain___hyg_658_(lean_object* x_1) {
+LEAN_EXPORT lean_object* l_IVI_Law_instReprNorm_repr___redArg(lean_object* x_1) {
 _start:
 {
 lean_object* x_2; lean_object* x_3; lean_object* x_4; lean_object* x_5; lean_object* x_6; uint8_t x_7; lean_object* x_8; lean_object* x_9; lean_object* x_10; lean_object* x_11; lean_object* x_12; lean_object* x_13; lean_object* x_14; lean_object* x_15; lean_object* x_16; 
-x_2 = l_IVI_Law_reprNorm___redArg___closed__3____x40_IVI_Domain___hyg_658_;
-x_3 = l_IVI_Ethics_reprMaxim___redArg___closed__4____x40_IVI_Domain___hyg_382_;
+x_2 = l_IVI_Law_instReprNorm_repr___redArg___closed__3;
+x_3 = l_IVI_Ethics_instReprMaxim_repr___redArg___closed__4;
 x_4 = l_String_quote(x_1);
 x_5 = lean_alloc_ctor(3, 1, 0);
 lean_ctor_set(x_5, 0, x_4);
@@ -1147,12 +1200,12 @@ lean_ctor_set_uint8(x_8, sizeof(void*)*1, x_7);
 x_9 = lean_alloc_ctor(5, 2, 0);
 lean_ctor_set(x_9, 0, x_2);
 lean_ctor_set(x_9, 1, x_8);
-x_10 = l_IVI_Physics_reprState___redArg___closed__9____x40_IVI_Domain___hyg_187_;
-x_11 = l_IVI_Physics_reprState___redArg___closed__10____x40_IVI_Domain___hyg_187_;
+x_10 = l_IVI_Physics_instReprState_repr___redArg___closed__10;
+x_11 = l_IVI_Physics_instReprState_repr___redArg___closed__11;
 x_12 = lean_alloc_ctor(5, 2, 0);
 lean_ctor_set(x_12, 0, x_11);
 lean_ctor_set(x_12, 1, x_9);
-x_13 = l_IVI_Physics_reprState___redArg___closed__11____x40_IVI_Domain___hyg_187_;
+x_13 = l_IVI_Physics_instReprState_repr___redArg___closed__12;
 x_14 = lean_alloc_ctor(5, 2, 0);
 lean_ctor_set(x_14, 0, x_12);
 lean_ctor_set(x_14, 1, x_13);
@@ -1165,30 +1218,20 @@ lean_ctor_set_uint8(x_16, sizeof(void*)*1, x_7);
 return x_16;
 }
 }
-LEAN_EXPORT lean_object* l_IVI_Law_reprNorm____x40_IVI_Domain___hyg_658_(lean_object* x_1, lean_object* x_2) {
+LEAN_EXPORT lean_object* l_IVI_Law_instReprNorm_repr(lean_object* x_1, lean_object* x_2) {
 _start:
 {
 lean_object* x_3; 
-x_3 = l_IVI_Law_reprNorm___redArg____x40_IVI_Domain___hyg_658_(x_1);
+x_3 = l_IVI_Law_instReprNorm_repr___redArg(x_1);
 return x_3;
 }
 }
-LEAN_EXPORT lean_object* l_IVI_Law_reprNorm___redArg____x40_IVI_Domain___hyg_658____boxed(lean_object* x_1) {
-_start:
-{
-lean_object* x_2; 
-x_2 = l_IVI_Law_reprNorm___redArg____x40_IVI_Domain___hyg_658_(x_1);
-lean_dec_ref(x_1);
-return x_2;
-}
-}
-LEAN_EXPORT lean_object* l_IVI_Law_reprNorm____x40_IVI_Domain___hyg_658____boxed(lean_object* x_1, lean_object* x_2) {
+LEAN_EXPORT lean_object* l_IVI_Law_instReprNorm_repr___boxed(lean_object* x_1, lean_object* x_2) {
 _start:
 {
 lean_object* x_3; 
-x_3 = l_IVI_Law_reprNorm____x40_IVI_Domain___hyg_658_(x_1, x_2);
+x_3 = l_IVI_Law_instReprNorm_repr(x_1, x_2);
 lean_dec(x_2);
-lean_dec_ref(x_1);
 return x_3;
 }
 }
@@ -1196,7 +1239,7 @@ static lean_object* _init_l_IVI_Law_instReprNorm___closed__0() {
 _start:
 {
 lean_object* x_1; 
-x_1 = lean_alloc_closure((void*)(l_IVI_Law_reprNorm____x40_IVI_Domain___hyg_658____boxed), 2, 0);
+x_1 = lean_alloc_closure((void*)(l_IVI_Law_instReprNorm_repr___boxed), 2, 0);
 return x_1;
 }
 }
@@ -1357,30 +1400,32 @@ l_IVI_Math_J___closed__0 = _init_l_IVI_Math_J___closed__0();
 lean_mark_persistent(l_IVI_Math_J___closed__0);
 l_IVI_Math_J = _init_l_IVI_Math_J();
 lean_mark_persistent(l_IVI_Math_J);
-l_IVI_Physics_reprState___redArg___closed__0____x40_IVI_Domain___hyg_187_ = _init_l_IVI_Physics_reprState___redArg___closed__0____x40_IVI_Domain___hyg_187_();
-lean_mark_persistent(l_IVI_Physics_reprState___redArg___closed__0____x40_IVI_Domain___hyg_187_);
-l_IVI_Physics_reprState___redArg___closed__1____x40_IVI_Domain___hyg_187_ = _init_l_IVI_Physics_reprState___redArg___closed__1____x40_IVI_Domain___hyg_187_();
-lean_mark_persistent(l_IVI_Physics_reprState___redArg___closed__1____x40_IVI_Domain___hyg_187_);
-l_IVI_Physics_reprState___redArg___closed__2____x40_IVI_Domain___hyg_187_ = _init_l_IVI_Physics_reprState___redArg___closed__2____x40_IVI_Domain___hyg_187_();
-lean_mark_persistent(l_IVI_Physics_reprState___redArg___closed__2____x40_IVI_Domain___hyg_187_);
-l_IVI_Physics_reprState___redArg___closed__3____x40_IVI_Domain___hyg_187_ = _init_l_IVI_Physics_reprState___redArg___closed__3____x40_IVI_Domain___hyg_187_();
-lean_mark_persistent(l_IVI_Physics_reprState___redArg___closed__3____x40_IVI_Domain___hyg_187_);
-l_IVI_Physics_reprState___redArg___closed__4____x40_IVI_Domain___hyg_187_ = _init_l_IVI_Physics_reprState___redArg___closed__4____x40_IVI_Domain___hyg_187_();
-lean_mark_persistent(l_IVI_Physics_reprState___redArg___closed__4____x40_IVI_Domain___hyg_187_);
-l_IVI_Physics_reprState___redArg___closed__5____x40_IVI_Domain___hyg_187_ = _init_l_IVI_Physics_reprState___redArg___closed__5____x40_IVI_Domain___hyg_187_();
-lean_mark_persistent(l_IVI_Physics_reprState___redArg___closed__5____x40_IVI_Domain___hyg_187_);
-l_IVI_Physics_reprState___redArg___closed__6____x40_IVI_Domain___hyg_187_ = _init_l_IVI_Physics_reprState___redArg___closed__6____x40_IVI_Domain___hyg_187_();
-lean_mark_persistent(l_IVI_Physics_reprState___redArg___closed__6____x40_IVI_Domain___hyg_187_);
-l_IVI_Physics_reprState___redArg___closed__7____x40_IVI_Domain___hyg_187_ = _init_l_IVI_Physics_reprState___redArg___closed__7____x40_IVI_Domain___hyg_187_();
-lean_mark_persistent(l_IVI_Physics_reprState___redArg___closed__7____x40_IVI_Domain___hyg_187_);
-l_IVI_Physics_reprState___redArg___closed__8____x40_IVI_Domain___hyg_187_ = _init_l_IVI_Physics_reprState___redArg___closed__8____x40_IVI_Domain___hyg_187_();
-lean_mark_persistent(l_IVI_Physics_reprState___redArg___closed__8____x40_IVI_Domain___hyg_187_);
-l_IVI_Physics_reprState___redArg___closed__9____x40_IVI_Domain___hyg_187_ = _init_l_IVI_Physics_reprState___redArg___closed__9____x40_IVI_Domain___hyg_187_();
-lean_mark_persistent(l_IVI_Physics_reprState___redArg___closed__9____x40_IVI_Domain___hyg_187_);
-l_IVI_Physics_reprState___redArg___closed__10____x40_IVI_Domain___hyg_187_ = _init_l_IVI_Physics_reprState___redArg___closed__10____x40_IVI_Domain___hyg_187_();
-lean_mark_persistent(l_IVI_Physics_reprState___redArg___closed__10____x40_IVI_Domain___hyg_187_);
-l_IVI_Physics_reprState___redArg___closed__11____x40_IVI_Domain___hyg_187_ = _init_l_IVI_Physics_reprState___redArg___closed__11____x40_IVI_Domain___hyg_187_();
-lean_mark_persistent(l_IVI_Physics_reprState___redArg___closed__11____x40_IVI_Domain___hyg_187_);
+l_IVI_Physics_instReprState_repr___redArg___closed__0 = _init_l_IVI_Physics_instReprState_repr___redArg___closed__0();
+lean_mark_persistent(l_IVI_Physics_instReprState_repr___redArg___closed__0);
+l_IVI_Physics_instReprState_repr___redArg___closed__1 = _init_l_IVI_Physics_instReprState_repr___redArg___closed__1();
+lean_mark_persistent(l_IVI_Physics_instReprState_repr___redArg___closed__1);
+l_IVI_Physics_instReprState_repr___redArg___closed__2 = _init_l_IVI_Physics_instReprState_repr___redArg___closed__2();
+lean_mark_persistent(l_IVI_Physics_instReprState_repr___redArg___closed__2);
+l_IVI_Physics_instReprState_repr___redArg___closed__3 = _init_l_IVI_Physics_instReprState_repr___redArg___closed__3();
+lean_mark_persistent(l_IVI_Physics_instReprState_repr___redArg___closed__3);
+l_IVI_Physics_instReprState_repr___redArg___closed__4 = _init_l_IVI_Physics_instReprState_repr___redArg___closed__4();
+lean_mark_persistent(l_IVI_Physics_instReprState_repr___redArg___closed__4);
+l_IVI_Physics_instReprState_repr___redArg___closed__5 = _init_l_IVI_Physics_instReprState_repr___redArg___closed__5();
+lean_mark_persistent(l_IVI_Physics_instReprState_repr___redArg___closed__5);
+l_IVI_Physics_instReprState_repr___redArg___closed__6 = _init_l_IVI_Physics_instReprState_repr___redArg___closed__6();
+lean_mark_persistent(l_IVI_Physics_instReprState_repr___redArg___closed__6);
+l_IVI_Physics_instReprState_repr___redArg___closed__7 = _init_l_IVI_Physics_instReprState_repr___redArg___closed__7();
+lean_mark_persistent(l_IVI_Physics_instReprState_repr___redArg___closed__7);
+l_IVI_Physics_instReprState_repr___redArg___closed__8 = _init_l_IVI_Physics_instReprState_repr___redArg___closed__8();
+lean_mark_persistent(l_IVI_Physics_instReprState_repr___redArg___closed__8);
+l_IVI_Physics_instReprState_repr___redArg___closed__9 = _init_l_IVI_Physics_instReprState_repr___redArg___closed__9();
+lean_mark_persistent(l_IVI_Physics_instReprState_repr___redArg___closed__9);
+l_IVI_Physics_instReprState_repr___redArg___closed__10 = _init_l_IVI_Physics_instReprState_repr___redArg___closed__10();
+lean_mark_persistent(l_IVI_Physics_instReprState_repr___redArg___closed__10);
+l_IVI_Physics_instReprState_repr___redArg___closed__11 = _init_l_IVI_Physics_instReprState_repr___redArg___closed__11();
+lean_mark_persistent(l_IVI_Physics_instReprState_repr___redArg___closed__11);
+l_IVI_Physics_instReprState_repr___redArg___closed__12 = _init_l_IVI_Physics_instReprState_repr___redArg___closed__12();
+lean_mark_persistent(l_IVI_Physics_instReprState_repr___redArg___closed__12);
 l_IVI_Physics_instReprState___closed__0 = _init_l_IVI_Physics_instReprState___closed__0();
 lean_mark_persistent(l_IVI_Physics_instReprState___closed__0);
 l_IVI_Physics_instReprState = _init_l_IVI_Physics_instReprState();
@@ -1415,16 +1460,16 @@ l_IVI_Physics_J___closed__0 = _init_l_IVI_Physics_J___closed__0();
 lean_mark_persistent(l_IVI_Physics_J___closed__0);
 l_IVI_Physics_J = _init_l_IVI_Physics_J();
 lean_mark_persistent(l_IVI_Physics_J);
-l_IVI_Ethics_reprMaxim___redArg___closed__0____x40_IVI_Domain___hyg_382_ = _init_l_IVI_Ethics_reprMaxim___redArg___closed__0____x40_IVI_Domain___hyg_382_();
-lean_mark_persistent(l_IVI_Ethics_reprMaxim___redArg___closed__0____x40_IVI_Domain___hyg_382_);
-l_IVI_Ethics_reprMaxim___redArg___closed__1____x40_IVI_Domain___hyg_382_ = _init_l_IVI_Ethics_reprMaxim___redArg___closed__1____x40_IVI_Domain___hyg_382_();
-lean_mark_persistent(l_IVI_Ethics_reprMaxim___redArg___closed__1____x40_IVI_Domain___hyg_382_);
-l_IVI_Ethics_reprMaxim___redArg___closed__2____x40_IVI_Domain___hyg_382_ = _init_l_IVI_Ethics_reprMaxim___redArg___closed__2____x40_IVI_Domain___hyg_382_();
-lean_mark_persistent(l_IVI_Ethics_reprMaxim___redArg___closed__2____x40_IVI_Domain___hyg_382_);
-l_IVI_Ethics_reprMaxim___redArg___closed__3____x40_IVI_Domain___hyg_382_ = _init_l_IVI_Ethics_reprMaxim___redArg___closed__3____x40_IVI_Domain___hyg_382_();
-lean_mark_persistent(l_IVI_Ethics_reprMaxim___redArg___closed__3____x40_IVI_Domain___hyg_382_);
-l_IVI_Ethics_reprMaxim___redArg___closed__4____x40_IVI_Domain___hyg_382_ = _init_l_IVI_Ethics_reprMaxim___redArg___closed__4____x40_IVI_Domain___hyg_382_();
-lean_mark_persistent(l_IVI_Ethics_reprMaxim___redArg___closed__4____x40_IVI_Domain___hyg_382_);
+l_IVI_Ethics_instReprMaxim_repr___redArg___closed__0 = _init_l_IVI_Ethics_instReprMaxim_repr___redArg___closed__0();
+lean_mark_persistent(l_IVI_Ethics_instReprMaxim_repr___redArg___closed__0);
+l_IVI_Ethics_instReprMaxim_repr___redArg___closed__1 = _init_l_IVI_Ethics_instReprMaxim_repr___redArg___closed__1();
+lean_mark_persistent(l_IVI_Ethics_instReprMaxim_repr___redArg___closed__1);
+l_IVI_Ethics_instReprMaxim_repr___redArg___closed__2 = _init_l_IVI_Ethics_instReprMaxim_repr___redArg___closed__2();
+lean_mark_persistent(l_IVI_Ethics_instReprMaxim_repr___redArg___closed__2);
+l_IVI_Ethics_instReprMaxim_repr___redArg___closed__3 = _init_l_IVI_Ethics_instReprMaxim_repr___redArg___closed__3();
+lean_mark_persistent(l_IVI_Ethics_instReprMaxim_repr___redArg___closed__3);
+l_IVI_Ethics_instReprMaxim_repr___redArg___closed__4 = _init_l_IVI_Ethics_instReprMaxim_repr___redArg___closed__4();
+lean_mark_persistent(l_IVI_Ethics_instReprMaxim_repr___redArg___closed__4);
 l_IVI_Ethics_instReprMaxim___closed__0 = _init_l_IVI_Ethics_instReprMaxim___closed__0();
 lean_mark_persistent(l_IVI_Ethics_instReprMaxim___closed__0);
 l_IVI_Ethics_instReprMaxim = _init_l_IVI_Ethics_instReprMaxim();
@@ -1449,16 +1494,16 @@ l_IVI_Ethics_J___closed__0 = _init_l_IVI_Ethics_J___closed__0();
 lean_mark_persistent(l_IVI_Ethics_J___closed__0);
 l_IVI_Ethics_J = _init_l_IVI_Ethics_J();
 lean_mark_persistent(l_IVI_Ethics_J);
-l_IVI_Aesthetics_reprForm___redArg___closed__0____x40_IVI_Domain___hyg_509_ = _init_l_IVI_Aesthetics_reprForm___redArg___closed__0____x40_IVI_Domain___hyg_509_();
-lean_mark_persistent(l_IVI_Aesthetics_reprForm___redArg___closed__0____x40_IVI_Domain___hyg_509_);
-l_IVI_Aesthetics_reprForm___redArg___closed__1____x40_IVI_Domain___hyg_509_ = _init_l_IVI_Aesthetics_reprForm___redArg___closed__1____x40_IVI_Domain___hyg_509_();
-lean_mark_persistent(l_IVI_Aesthetics_reprForm___redArg___closed__1____x40_IVI_Domain___hyg_509_);
-l_IVI_Aesthetics_reprForm___redArg___closed__2____x40_IVI_Domain___hyg_509_ = _init_l_IVI_Aesthetics_reprForm___redArg___closed__2____x40_IVI_Domain___hyg_509_();
-lean_mark_persistent(l_IVI_Aesthetics_reprForm___redArg___closed__2____x40_IVI_Domain___hyg_509_);
-l_IVI_Aesthetics_reprForm___redArg___closed__3____x40_IVI_Domain___hyg_509_ = _init_l_IVI_Aesthetics_reprForm___redArg___closed__3____x40_IVI_Domain___hyg_509_();
-lean_mark_persistent(l_IVI_Aesthetics_reprForm___redArg___closed__3____x40_IVI_Domain___hyg_509_);
-l_IVI_Aesthetics_reprForm___redArg___closed__4____x40_IVI_Domain___hyg_509_ = _init_l_IVI_Aesthetics_reprForm___redArg___closed__4____x40_IVI_Domain___hyg_509_();
-lean_mark_persistent(l_IVI_Aesthetics_reprForm___redArg___closed__4____x40_IVI_Domain___hyg_509_);
+l_IVI_Aesthetics_instReprForm_repr___redArg___closed__0 = _init_l_IVI_Aesthetics_instReprForm_repr___redArg___closed__0();
+lean_mark_persistent(l_IVI_Aesthetics_instReprForm_repr___redArg___closed__0);
+l_IVI_Aesthetics_instReprForm_repr___redArg___closed__1 = _init_l_IVI_Aesthetics_instReprForm_repr___redArg___closed__1();
+lean_mark_persistent(l_IVI_Aesthetics_instReprForm_repr___redArg___closed__1);
+l_IVI_Aesthetics_instReprForm_repr___redArg___closed__2 = _init_l_IVI_Aesthetics_instReprForm_repr___redArg___closed__2();
+lean_mark_persistent(l_IVI_Aesthetics_instReprForm_repr___redArg___closed__2);
+l_IVI_Aesthetics_instReprForm_repr___redArg___closed__3 = _init_l_IVI_Aesthetics_instReprForm_repr___redArg___closed__3();
+lean_mark_persistent(l_IVI_Aesthetics_instReprForm_repr___redArg___closed__3);
+l_IVI_Aesthetics_instReprForm_repr___redArg___closed__4 = _init_l_IVI_Aesthetics_instReprForm_repr___redArg___closed__4();
+lean_mark_persistent(l_IVI_Aesthetics_instReprForm_repr___redArg___closed__4);
 l_IVI_Aesthetics_instReprForm___closed__0 = _init_l_IVI_Aesthetics_instReprForm___closed__0();
 lean_mark_persistent(l_IVI_Aesthetics_instReprForm___closed__0);
 l_IVI_Aesthetics_instReprForm = _init_l_IVI_Aesthetics_instReprForm();
@@ -1485,14 +1530,14 @@ l_IVI_Aesthetics_J___closed__0 = _init_l_IVI_Aesthetics_J___closed__0();
 lean_mark_persistent(l_IVI_Aesthetics_J___closed__0);
 l_IVI_Aesthetics_J = _init_l_IVI_Aesthetics_J();
 lean_mark_persistent(l_IVI_Aesthetics_J);
-l_IVI_Law_reprNorm___redArg___closed__0____x40_IVI_Domain___hyg_658_ = _init_l_IVI_Law_reprNorm___redArg___closed__0____x40_IVI_Domain___hyg_658_();
-lean_mark_persistent(l_IVI_Law_reprNorm___redArg___closed__0____x40_IVI_Domain___hyg_658_);
-l_IVI_Law_reprNorm___redArg___closed__1____x40_IVI_Domain___hyg_658_ = _init_l_IVI_Law_reprNorm___redArg___closed__1____x40_IVI_Domain___hyg_658_();
-lean_mark_persistent(l_IVI_Law_reprNorm___redArg___closed__1____x40_IVI_Domain___hyg_658_);
-l_IVI_Law_reprNorm___redArg___closed__2____x40_IVI_Domain___hyg_658_ = _init_l_IVI_Law_reprNorm___redArg___closed__2____x40_IVI_Domain___hyg_658_();
-lean_mark_persistent(l_IVI_Law_reprNorm___redArg___closed__2____x40_IVI_Domain___hyg_658_);
-l_IVI_Law_reprNorm___redArg___closed__3____x40_IVI_Domain___hyg_658_ = _init_l_IVI_Law_reprNorm___redArg___closed__3____x40_IVI_Domain___hyg_658_();
-lean_mark_persistent(l_IVI_Law_reprNorm___redArg___closed__3____x40_IVI_Domain___hyg_658_);
+l_IVI_Law_instReprNorm_repr___redArg___closed__0 = _init_l_IVI_Law_instReprNorm_repr___redArg___closed__0();
+lean_mark_persistent(l_IVI_Law_instReprNorm_repr___redArg___closed__0);
+l_IVI_Law_instReprNorm_repr___redArg___closed__1 = _init_l_IVI_Law_instReprNorm_repr___redArg___closed__1();
+lean_mark_persistent(l_IVI_Law_instReprNorm_repr___redArg___closed__1);
+l_IVI_Law_instReprNorm_repr___redArg___closed__2 = _init_l_IVI_Law_instReprNorm_repr___redArg___closed__2();
+lean_mark_persistent(l_IVI_Law_instReprNorm_repr___redArg___closed__2);
+l_IVI_Law_instReprNorm_repr___redArg___closed__3 = _init_l_IVI_Law_instReprNorm_repr___redArg___closed__3();
+lean_mark_persistent(l_IVI_Law_instReprNorm_repr___redArg___closed__3);
 l_IVI_Law_instReprNorm___closed__0 = _init_l_IVI_Law_instReprNorm___closed__0();
 lean_mark_persistent(l_IVI_Law_instReprNorm___closed__0);
 l_IVI_Law_instReprNorm = _init_l_IVI_Law_instReprNorm();

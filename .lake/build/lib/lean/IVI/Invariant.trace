@@ -1,11 +1,11 @@
 {"synthetic": false,
  "outputs":
- {"o": ["16374285683091458634"],
-  "i": "11462772495108236585",
-  "c": "9368919049436204994"},
+ {"o": ["5280109747974871780"],
+  "i": "5081797509558955470",
+  "c": "2173508679851770477"},
  "log":
  [{"message":
-   ".> LEAN_PATH=/Users/harryscott/Kantian-IVI/.lake/build/lib/lean /Users/harryscott/.elan/toolchains/leanprover--lean4---v4.23.0/bin/lean /Users/harryscott/Kantian-IVI/IVI/Invariant.lean -o /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Invariant.olean -i /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Invariant.ilean -c /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Invariant.c --setup /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Invariant.setup.json --json",
+   ".> LEAN_PATH=/Users/harryscott/Kantian-IVI/.lake/packages/Cli/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/batteries/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/Qq/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/aesop/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/proofwidgets/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/importGraph/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/plausible/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/build/lib/lean /Users/harryscott/.elan/toolchains/leanprover--lean4---v4.24.0-rc1/bin/lean /Users/harryscott/Kantian-IVI/IVI/Invariant.lean -o /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Invariant.olean -i /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Invariant.ilean -c /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Invariant.c --setup /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Invariant.setup.json --json",
    "level": "trace"},
   {"message":
    "IVI/Invariant.lean:421:14: unused variable `v`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
@@ -21,18 +21,18 @@
    [["deps",
      [["ivi/IVI:extraDep", [["@ivi:extraDep", "1723"]]],
       ["imports",
-       [["IVI.Intangible transitive imports (legacy)", "18366831339449116832"],
-        ["IVI.Intangible:importAllArts", "1307306836415668194"],
+       [["IVI.Intangible transitive imports (legacy)", "12527941517874735524"],
+        ["IVI.Intangible:importAllArts", "6697781964442365726"],
         ["IVI.SchematismEvidence transitive imports (legacy)", "1723"],
-        ["IVI.SchematismEvidence:importAllArts", "16712961853345461743"]]]]],
+        ["IVI.SchematismEvidence:importAllArts", "13462879084447671572"]]]]],
     ["libs",
      [["import dynlibs", "1723"],
       ["package external libraries", "1723"],
       ["module dynlibs", "1723"],
       ["module plugins", "1723"]]]]],
-  ["Lean 4.23.0, commit 50aaf682e9b74ab92880292a25c68baa1cc81c87",
-   "5786258275165720599"],
+  ["Lean 4.24.0, commit 919e297292280cdb27598edd4e03437be5850221",
+   "16820442660988836695"],
   ["/Users/harryscott/Kantian-IVI/IVI/Invariant.lean", "6818767328693925297"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "16210786994462828530"}
+ "depHash": "16425533300951326421"}

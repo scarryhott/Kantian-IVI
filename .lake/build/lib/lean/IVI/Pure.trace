@@ -1,11 +1,11 @@
 {"synthetic": false,
  "outputs":
- {"o": ["15116204586249111969"],
-  "i": "15605001506831972178",
-  "c": "3634797633362987255"},
+ {"o": ["12679619924888530471"],
+  "i": "11283362575768032649",
+  "c": "1035911319654122535"},
  "log":
  [{"message":
-   ".> LEAN_PATH=/Users/harryscott/Kantian-IVI/.lake/build/lib/lean /Users/harryscott/.elan/toolchains/leanprover--lean4---v4.23.0/bin/lean /Users/harryscott/Kantian-IVI/IVI/Pure.lean -o /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Pure.olean -i /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Pure.ilean -c /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Pure.c --setup /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Pure.setup.json --json",
+   ".> LEAN_PATH=/Users/harryscott/Kantian-IVI/.lake/packages/Cli/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/batteries/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/Qq/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/aesop/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/proofwidgets/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/importGraph/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/plausible/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/build/lib/lean /Users/harryscott/.elan/toolchains/leanprover--lean4---v4.24.0-rc1/bin/lean /Users/harryscott/Kantian-IVI/IVI/Pure.lean -o /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Pure.olean -i /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Pure.ilean -c /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Pure.c --setup /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Pure.setup.json --json",
    "level": "trace"},
   {"message":
    "IVI/Pure.lean:105:60: unused variable `s`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
@@ -25,15 +25,15 @@
      [["ivi/IVI:extraDep", [["@ivi:extraDep", "1723"]]],
       ["imports",
        [["IVI.Core transitive imports (legacy)", "1723"],
-        ["IVI.Core:importAllArts", "18116588190697556974"]]]]],
+        ["IVI.Core:importAllArts", "7906131056702661987"]]]]],
     ["libs",
      [["import dynlibs", "1723"],
       ["package external libraries", "1723"],
       ["module dynlibs", "1723"],
       ["module plugins", "1723"]]]]],
-  ["Lean 4.23.0, commit 50aaf682e9b74ab92880292a25c68baa1cc81c87",
-   "5786258275165720599"],
+  ["Lean 4.24.0, commit 919e297292280cdb27598edd4e03437be5850221",
+   "16820442660988836695"],
   ["/Users/harryscott/Kantian-IVI/IVI/Pure.lean", "14925859471902588238"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "17453382427999138683"}
+ "depHash": "18220411204200282118"}

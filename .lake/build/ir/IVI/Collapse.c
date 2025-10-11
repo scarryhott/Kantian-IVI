@@ -21,16 +21,35 @@ LEAN_EXPORT lean_object* l___private_IVI_Collapse_0__IVI_harmonicSummary_match__
 LEAN_EXPORT lean_object* l___private_IVI_Collapse_0__IVI_harmonicSummary_match__1_splitter___redArg___boxed(lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l___private_IVI_Collapse_0__IVI_spectralGraininess_match__1_splitter___boxed(lean_object*, lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l___private_IVI_Collapse_0__IVI_spectralGraininess_match__1_splitter(lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_IVI_ICollapseCfg_ctorIdx___boxed(lean_object*);
 LEAN_EXPORT lean_object* l_IVI_ICollapseCfg_grainCollapseBool___boxed(lean_object*, lean_object*);
 LEAN_EXPORT uint8_t l_IVI_ICollapseCfg_grainCollapseBool(lean_object*, lean_object*);
 double l_IVI_graininessScore(lean_object*);
 double lean_float_add(double, double);
 LEAN_EXPORT lean_object* l_IVI_ICollapseCfg_collapseScore___boxed(lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_IVI_ICollapseCfg_grainSafeBool___boxed(lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_IVI_ICollapseCfg_ctorIdx(lean_object*);
 LEAN_EXPORT lean_object* l___private_IVI_Collapse_0__IVI_harmonicSummary_match__1_splitter(lean_object*, lean_object*, lean_object*, lean_object*);
 uint8_t lean_float_decLe(double, double);
 LEAN_EXPORT double l_IVI_ICollapseCfg_collapseScore(lean_object*, lean_object*);
 lean_object* l_IVI_Invariant_resonanceMatrixW(lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_IVI_ICollapseCfg_ctorIdx(lean_object* x_1) {
+_start:
+{
+lean_object* x_2; 
+x_2 = lean_unsigned_to_nat(0u);
+return x_2;
+}
+}
+LEAN_EXPORT lean_object* l_IVI_ICollapseCfg_ctorIdx___boxed(lean_object* x_1) {
+_start:
+{
+lean_object* x_2; 
+x_2 = l_IVI_ICollapseCfg_ctorIdx(x_1);
+lean_dec_ref(x_1);
+return x_2;
+}
+}
 LEAN_EXPORT double l_IVI_ICollapseCfg_collapseScore(lean_object* x_1, lean_object* x_2) {
 _start:
 {
