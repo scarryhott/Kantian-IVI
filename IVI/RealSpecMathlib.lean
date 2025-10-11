@@ -66,6 +66,28 @@ open Matrix Real
 
 We work with `RealMatrixN n := Matrix (Fin n) (Fin n) ℝ` and provide
 a Hermitian (symmetric) Weyl inequality using mathlib's spectral theory.
+
+### Spectral Theory as Color Theory
+
+The eigenvalue spectrum of a matrix can be understood as its "color" —
+the set of resonance frequencies that define its character.
+
+- **Eigenvalues (λ)** = frequencies (hues)
+- **Eigenvectors** = directions of resonance (saturation)
+- **Spectral norm (‖·‖)** = maximum frequency (brightness)
+
+Weyl's inequality states that perturbations shift the spectrum (change the color)
+by at most the norm of the perturbation. This is **complementary color theory**:
+the hue shift is bounded by the intensity of the mixing.
+
+**Connection to Kantian-IVI**:
+- **Space (dark)** = potential eigenspace (unobserved, λ = 0)
+- **Time (light)** = observed eigenvalue (collapsed, λ ≠ 0)
+- **Color** = spectral resonance (verified relation)
+- **Dark matter** = uncollapsed superposition (no time, λ = 0)
+- **Light form** = pure observation (no space, λ → ∞)
+
+See `COLOR_THEORY.md` for the full philosophical interpretation.
 -/
 
 abbrev RealMatrixN (n : Nat) := Matrix (Fin n) (Fin n) ℝ
