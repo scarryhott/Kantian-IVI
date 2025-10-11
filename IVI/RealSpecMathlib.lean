@@ -175,6 +175,28 @@ To fully prove `weyl_eigenvalue_bound_real_n` from mathlib, we would:
 
 The axiom above is a placeholder for this standard result. The structure
 is correct and ready for a mathlib-backed proof.
+
+### Current Status (Phase 1.1)
+
+**What's done**:
+- ✅ Mathlib integrated
+- ✅ Types refactored to `Matrix (Fin n) (Fin n) ℝ`
+- ✅ Hermitian specialization (symmetric matrices)
+- ✅ `lambdaHead` defined (placeholder)
+- ✅ Color-theoretic interpretation documented
+
+**What's needed**:
+- 🚧 Replace `lambdaHead` placeholder with actual eigenvalue supremum
+- 🚧 Prove `weyl_eigenvalue_bound_real_n` using mathlib
+- 🚧 Wire Float-to-Real bridge
+
+**Mathlib dependencies needed**:
+- `Mathlib.LinearAlgebra.Matrix.Spectrum` (eigenvalues)
+- `Mathlib.Analysis.InnerProductSpace.Spectrum` (Hermitian spectral theorem)
+- `Mathlib.Analysis.NormedSpace.OperatorNorm` (operator norm)
+- Weyl-type perturbation lemma (may need to prove from scratch)
+
+**Next milestone**: Replace axiom with theorem, reducing axiom count by 1.
 -/
 
 end IVI.RealSpecMathlib
