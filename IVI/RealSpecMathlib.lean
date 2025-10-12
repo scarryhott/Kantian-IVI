@@ -355,6 +355,143 @@ theorem symmetric_bounded_add {n : Nat} (A E : RealMatrixN n) (c_A c_E : ℝ)
     _ ≤ c_A + c_E := add_le_add (hA i j) (hE i j)
 
 /-!
+## Additional Matrix Properties
+
+These lemmas establish useful facts about matrix operations that will be
+needed for the main theorems.
+-/
+
+/-- 
+If M and N are both non-negative and symmetric, so is M + N.
+-/
+theorem symmetric_nonneg_closed {n : Nat} (M N : RealMatrixN n)
+  (hM_symm : Matrix.IsSymm M) (hN_symm : Matrix.IsSymm N)
+  (hM_nonneg : nonNegative M) (hN_nonneg : nonNegative N) :
+  Matrix.IsSymm (M + N) ∧ nonNegative (M + N) :=
+  ⟨symmetric_add M N hM_symm hN_symm, nonNegative_add M N hM_nonneg hN_nonneg⟩
+
+/-- 
+Entrywise bounded matrices are closed under negation with the same bound.
+-/
+theorem entrywiseBounded_neg {n : Nat} (M : RealMatrixN n) (c : ℝ)
+  (h : entrywiseBounded M c) :
+  entrywiseBounded (-M) c := by
+  intro i j
+  unfold entrywiseBounded at *
+  simp [Matrix.neg_apply]
+  rw [abs_neg]
+  exact h i j
+
+/-- 
+If A and B are entrywise bounded, then A - B is entrywise bounded.
+-/
+theorem entrywiseBounded_sub {n : Nat} (A B : RealMatrixN n) (c_A c_B : ℝ)
+  (hA : entrywiseBounded A c_A) (hB : entrywiseBounded B c_B) :
+  entrywiseBounded (A - B) (c_A + c_B) := by
+  intro i j
+  unfold entrywiseBounded at *
+  simp [Matrix.sub_apply]
+  calc |A i j - B i j|
+      ≤ |A i j| + |B i j| := abs_sub _ _
+    _ ≤ c_A + c_B := add_le_add (hA i j) (hB i j)
+
+/-- 
+The identity matrix is symmetric.
+-/
+theorem symmetric_identity {n : Nat} :
+  Matrix.IsSymm (1 : RealMatrixN n) := by
+  intro i j
+  simp [Matrix.IsSymm, Matrix.one_apply]
+  split_ifs <;> rfl
+
+/-- 
+The identity matrix is entrywise bounded by 1.
+-/
+theorem entrywiseBounded_identity {n : Nat} :
+  entrywiseBounded (1 : RealMatrixN n) 1 := by
+  intro i j
+  simp [Matrix.one_apply]
+  split_ifs
+  · simp
+  · simp
+
+/-- 
+If M is symmetric and entrywise bounded, then -M is also symmetric and bounded.
+-/
+theorem symmetric_bounded_neg {n : Nat} (M : RealMatrixN n) (c : ℝ)
+  (h_symm : Matrix.IsSymm M) (h_bound : entrywiseBounded M c) :
+  Matrix.IsSymm (-M) ∧ entrywiseBounded (-M) c := by
+  constructor
+  · intro i j
+    simp [Matrix.IsSymm, Matrix.neg_apply] at *
+    rw [h_symm]
+  · exact entrywiseBounded_neg M c h_bound
+
+/-!
+## Real Number Lemmas
+
+Basic lemmas about real numbers, absolute values, and inequalities.
+-/
+
+/-- 
+Triangle inequality for absolute value differences.
+-/
+theorem abs_diff_triangle (a b c : ℝ) :
+  |a - b| ≤ |a - c| + |c - b| := by
+  calc |a - b|
+      = |(a - c) + (c - b)| := by ring_nf
+    _ ≤ |a - c| + |c - b| := abs_add _ _
+
+/-- 
+If |x| ≤ a and a ≤ b, then |x| ≤ b.
+-/
+theorem abs_le_trans {x a b : ℝ} (h1 : |x| ≤ a) (h2 : a ≤ b) :
+  |x| ≤ b :=
+  le_trans h1 h2
+
+/-- 
+If a ≥ 0 and b ≥ 0 and a ≤ c and b ≤ d, then a + b ≤ c + d.
+-/
+theorem nonneg_add_le {a b c d : ℝ} (ha : a ≥ 0) (hb : b ≥ 0)
+  (hac : a ≤ c) (hbd : b ≤ d) :
+  a + b ≤ c + d :=
+  add_le_add hac hbd
+
+/-!
+## Lemmas for Weyl Inequality
+
+These lemmas build toward proving the Weyl inequality for symmetric matrices.
+-/
+
+/-- 
+For symmetric matrices, A + E is symmetric when both A and E are symmetric.
+This is a specialized version of symmetric_add for Weyl's context.
+-/
+theorem weyl_perturbation_symmetric {n : Nat} (A E : RealMatrixN n)
+  (hA : Matrix.IsSymm A) (hE : Matrix.IsSymm E) :
+  Matrix.IsSymm (A + E) :=
+  symmetric_add A E hA hE
+
+/-- 
+If E is entrywise bounded by ε, then for any entry, |E i j| ≤ ε.
+This is just unfolding the definition, but useful for Weyl proofs.
+-/
+theorem weyl_perturbation_bound {n : Nat} (E : RealMatrixN n) (ε : ℝ)
+  (h : entrywiseBounded E ε) (i j : Fin n) :
+  |E i j| ≤ ε :=
+  h i j
+
+/-- 
+If A is symmetric and non-negative, and E is symmetric and non-negative,
+then A + E is symmetric and non-negative.
+-/
+theorem weyl_nonneg_preserved {n : Nat} (A E : RealMatrixN n)
+  (hA_symm : Matrix.IsSymm A) (hE_symm : Matrix.IsSymm E)
+  (hA_nonneg : nonNegative A) (hE_nonneg : nonNegative E) :
+  Matrix.IsSymm (A + E) ∧ nonNegative (A + E) :=
+  symmetric_nonneg_closed A E hA_symm hE_symm hA_nonneg hE_nonneg
+
+/-!
 ## Phase 1.3: Power Iteration Convergence
 
 Power iteration is used in IVI to find dominant eigenvectors (resonance modes).
