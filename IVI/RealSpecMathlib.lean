@@ -297,6 +297,64 @@ This gives us concrete error budgets for Float computations.
 -/
 
 /-!
+## Symmetric Matrix Properties
+
+Symmetric matrices are central to IVI's spectral theory. They represent
+reciprocal relations (A7: Reciprocity) and have real eigenvalues.
+-/
+
+/-- 
+Symmetric matrices are closed under addition.
+-/
+theorem symmetric_add {n : Nat} (A B : RealMatrixN n)
+  (hA : Matrix.IsSymm A) (hB : Matrix.IsSymm B) :
+  Matrix.IsSymm (A + B) := by
+  intro i j
+  simp [Matrix.IsSymm, Matrix.add_apply] at *
+  rw [hA, hB]
+
+/-- 
+Symmetric matrices are closed under scalar multiplication.
+-/
+theorem symmetric_smul {n : Nat} (c : ℝ) (A : RealMatrixN n)
+  (hA : Matrix.IsSymm A) :
+  Matrix.IsSymm (c • A) := by
+  intro i j
+  simp [Matrix.IsSymm, Matrix.smul_apply] at *
+  rw [hA]
+
+/-- 
+The zero matrix is symmetric.
+-/
+theorem symmetric_zero {n : Nat} :
+  Matrix.IsSymm (0 : RealMatrixN n) := by
+  intro i j
+  simp [Matrix.IsSymm]
+
+/-- 
+If A is symmetric and non-negative, then A + E is non-negative when E is non-negative.
+-/
+theorem symmetric_nonneg_add {n : Nat} (A E : RealMatrixN n)
+  (hA_symm : Matrix.IsSymm A) (hE_symm : Matrix.IsSymm E)
+  (hA_nonneg : nonNegative A) (hE_nonneg : nonNegative E) :
+  nonNegative (A + E) :=
+  nonNegative_add A E hA_nonneg hE_nonneg
+
+/-- 
+If A is symmetric and entrywise bounded, then A + E is entrywise bounded
+when E is entrywise bounded.
+-/
+theorem symmetric_bounded_add {n : Nat} (A E : RealMatrixN n) (c_A c_E : ℝ)
+  (hA : entrywiseBounded A c_A) (hE : entrywiseBounded E c_E) :
+  entrywiseBounded (A + E) (c_A + c_E) := by
+  intro i j
+  unfold entrywiseBounded at *
+  simp [Matrix.add_apply]
+  calc |A i j + E i j|
+      ≤ |A i j| + |E i j| := abs_add _ _
+    _ ≤ c_A + c_E := add_le_add (hA i j) (hE i j)
+
+/-!
 ## Phase 1.3: Power Iteration Convergence
 
 Power iteration is used in IVI to find dominant eigenvectors (resonance modes).
