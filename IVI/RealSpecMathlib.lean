@@ -11,6 +11,7 @@
 import Mathlib.Data.Matrix.Basic
 import Mathlib.Data.Real.Basic
 import Mathlib.Data.Real.Sqrt
+import Mathlib.LinearAlgebra.Matrix.Spectrum
 
 namespace IVI
 
@@ -122,12 +123,16 @@ For now, we axiomatize with the understanding that this is a standard definition
 Dominant eigenvalue (largest eigenvalue in absolute value) of a matrix.
 
 For symmetric matrices, this equals the spectral radius and is the largest
-real eigenvalue. For now, we axiomatize this as we need more mathlib
-infrastructure for matrix norms.
+real eigenvalue. We define it using mathlib's Hermitian spectral theory.
 
-TODO: Define via operator norm once matrix norm instances are available.
+For real symmetric matrices, IsHermitian is equivalent to IsSymm.
 -/
-noncomputable axiom lambdaHead {n : Nat} (A : RealMatrixN n) : ℝ
+noncomputable def lambdaHead {n : Nat} [Fintype (Fin n)] [DecidableEq (Fin n)] 
+    (A : RealMatrixN n) (hA : Matrix.IsSymm A) : ℝ :=
+  let hHerm : Matrix.IsHermitian A := Matrix.isHermitian_iff_isSymmetric.mpr hA
+  -- Get the maximum eigenvalue by absolute value
+  -- For symmetric matrices, eigenvalues are real
+  Finset.univ.sup' (Finset.univ_nonempty (α := Fin n)) (fun i => |hHerm.eigenvalues i|)
 
 /-!
 ## Weyl's Inequality for Symmetric Matrices
@@ -162,11 +167,12 @@ axiomatize it pending full mathlib matrix norm infrastructure.
 TODO: Prove using reverse triangle inequality once matrix norms are available.
 -/
 axiom weyl_eigenvalue_bound_real_n
-  {n : Nat} (A E : RealMatrixN n) (ε : ℝ)
+  {n : Nat} [Fintype (Fin n)] [DecidableEq (Fin n)]
+  (A E : RealMatrixN n) (ε : ℝ)
   (hA : Matrix.IsSymm A)
   (hE : Matrix.IsSymm E)
   (h_norm : ε ≥ 0) :  -- Placeholder for ‖E‖ ≤ ε once norms available
-  |lambdaHead (A + E) - lambdaHead A| ≤ ε
+  |lambdaHead (A + E) (symmetric_add A E hA hE) - lambdaHead A hA| ≤ ε
 
 /-!
 ## Notes on Implementation
