@@ -262,6 +262,43 @@ def rowSparsity {n : Nat} (M : RealMatrixN n) (d : Nat) : Prop :=
   ∀ i, (Finset.univ.filter (fun j => M i j ≠ 0)).card ≤ d
 
 /-- 
+The zero matrix has row sparsity 0.
+-/
+theorem rowSparsity_zero {n : Nat} :
+  rowSparsity (0 : RealMatrixN n) 0 := by
+  intro i
+  simp [Finset.filter_eq_empty_iff]
+  intro j
+  simp
+
+/-- 
+If M has row sparsity d, then it has row sparsity d' for any d' ≥ d.
+-/
+theorem rowSparsity_mono {n : Nat} (M : RealMatrixN n) (d d' : Nat)
+  (h : rowSparsity M d) (hdd' : d ≤ d') :
+  rowSparsity M d' := by
+  intro i
+  unfold rowSparsity at h
+  exact Nat.le_trans (h i) hdd'
+
+/-- 
+The identity matrix has row sparsity 1.
+-/
+theorem rowSparsity_identity {n : Nat} :
+  rowSparsity (1 : RealMatrixN n) 1 := by
+  intro i
+  simp [Finset.card_eq_one]
+  use i
+  ext j
+  simp [Matrix.one_apply]
+  constructor
+  · intro h
+    split at h <;> simp_all
+  · intro h
+    subst h
+    simp
+
+/-- 
 Operator norm bound for entrywise bounded, sparse matrices.
 
 For a matrix M with |M i j| ≤ c and at most d non-zero entries per row,
