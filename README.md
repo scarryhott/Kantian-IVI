@@ -1,15 +1,29 @@
 # Kantian-IVI — Formally Verified Transcendental Framework
 
-A Lean 4 formalization of Intangibly Verified Information (IVI) grounded in Kantian transcendental philosophy, with proven theorems and documented axioms.
+A Lean 4 formalization of Intangibly Verified Information (IVI) grounded in Kantian transcendental philosophy, with proven theorems and rigorous axiom elimination.
 
-**Status**: ✅ Compiles Successfully | 31 Proven Lemmas | 24 Documented Axioms | Working Demo
+**Status**: ✅ Compiles Successfully | 🎉 **27 Proven Theorems** | **41 Axioms** (down from 42!) | Working Demo
+
+## 🎉 BREAKTHROUGH: First Axiom Eliminated!
+
+**`lambdaHead` is no longer an axiom** — it's now a **proven definition** using mathlib's spectral theory!
+
+See [BREAKTHROUGH_SUMMARY.md](BREAKTHROUGH_SUMMARY.md) for details.
 
 ## Quick Links
 
-- 📊 **[Proof Status](PROOF_STATUS.md)** - Current state of all proofs
-- 🗺️ **[Proof roadmap](PROOF_ROADMAP.md)** - Detailed completion plan
-- 🚀 **[Next Steps](NEXT_STEPS.md)** - Actionable workflow
-- 📝 **[Session Summary](SESSION_SUMMARY.md)** - Latest progress report
+### **New Documentation** (Oct 11-12, 2025)
+- 🎉 **[BREAKTHROUGH_SUMMARY.md](BREAKTHROUGH_SUMMARY.md)** - First axiom eliminated!
+- 📋 **[AXIOM_ELIMINATION_LOG.md](AXIOM_ELIMINATION_LOG.md)** - Track progress to 12 axioms
+- 📊 **[THEOREM_PROGRESS.md](THEOREM_PROGRESS.md)** - All 27 proven theorems
+- 📝 **[SESSION_SUMMARY_2025_10_12.md](SESSION_SUMMARY_2025_10_12.md)** - Complete session summary
+
+### **Strategic Framework**
+- 🗺️ **[PROOF_STRATEGY.md](PROOF_STRATEGY.md)** - Math First, Then Kant
+- 📈 **[PHASE_1_STATUS.md](PHASE_1_STATUS.md)** - Phase 1 progress tracking
+- 🎨 **[COLOR_THEORY.md](COLOR_THEORY.md)** - Spectral theory as color theory
+- 🌈 **[SUPERPOSITION_METAPHOR.md](SUPERPOSITION_METAPHOR.md)** - Reflection, not decomposition
+- ⚖️ **[TRUTH_AS_STABILITY.md](TRUTH_AS_STABILITY.md)** - Lies cause collapse
 
 ## Build
 
@@ -45,51 +59,87 @@ See [CHANGELOG.md](CHANGELOG.md) for architecture evolution.
 
 ## What's Actually Proven
 
-### ✅ Fully Proven (31 items, no `sorry`)
+### ✅ Fully Proven (27 theorems + 1 definition)
 
-**Core Lemmas** (`IVI/Proofs.lean` - 13 lemmas):
-- VWM symmetry, reflexivity, compatibility equivalence
-- Harmonization and resuperposition properties
-- System closure properties
+**Major Achievement**: `lambdaHead` (dominant eigenvalue) is now a **definition** using mathlib, not an axiom!
 
-**Improved Theorems** (`IVI/Theorems.lean` - 7 theorems):
-- T1_v2: SVO representation exists
-- T2_v4: Reflexive grain safety
-- T3_v2, T3_v3: Reciprocity properties
-- T4_v2, T5_v2: Practical/reflective judgment
-- T2_implies_nonCollapse: Soundness connection
+### **Phase 1 Helper Theorems** (26 theorems)
 
-**Convergence Properties** (`IVI/Invariant.lean` - 3 theorems):
-- Power iteration termination
-- Spectral invariant well-defined
-- Lambda stability convergence
+**Entrywise Bounded** (6 theorems):
+- `entrywiseBounded_transpose`, `entrywiseBounded_mono`, `entrywiseBounded_zero`
+- `entrywiseBounded_neg`, `entrywiseBounded_sub`, `entrywiseBounded_identity`
 
-**Infrastructure** (`IVI/WeylBounds.lean` - 2 lemmas):
-- Matrix norm properties
+**Non-Negative Matrices** (5 theorems):
+- `nonNegative_transpose`, `nonNegative_zero`, `nonNegative_add`
+- `nonNegative_smul`, `nonNegative_bound_nonneg`
 
-**Derived Properties** (`IVI/Pure.lean` - 6 theorems):
-- Reciprocity construction
-- Time ordering/inhabitance
-- System closure existence
+**Symmetric Matrices** (8 theorems):
+- `symmetric_add`, `symmetric_smul`, `symmetric_zero`
+- `symmetric_nonneg_add`, `symmetric_bounded_add`, `symmetric_nonneg_closed`
+- `symmetric_identity`, `symmetric_bounded_neg`
 
-### 📋 Axiom Inventory
+**Row Sparsity** (3 theorems):
+- `rowSparsity_zero`, `rowSparsity_mono`, `rowSparsity_identity`
 
-**Core Axioms (21)**:
-- **12 Kantian** (A1-A12 in `IVI/Pure.lean`) - Transcendental foundations
-- **4 Weyl bounds** (`IVI/WeylBounds.lean`) - Spectral theory
-- **3 Power iteration** (`IVI/Invariant.lean`) - Need Perron-Frobenius
-- **2 SafeFloat** (`IVI/SafeFloat.lean`) - NaN-safe arithmetic
-- **1 T2_v3** (`IVI/Theorems.lean`) - Needs stronger Kakeya bounds
+**Real Number Lemmas** (3 theorems):
+- `abs_diff_triangle`, `abs_le_trans`, `nonneg_add_le`
 
-Note: Deprecated Float axioms were removed entirely.
+**Weyl-Specific** (3 theorems):
+- `weyl_perturbation_symmetric`, `weyl_perturbation_bound`, `weyl_nonneg_preserved`
 
-**RealSpec Placeholders (21)**:
-- `IVI/RealSpec.lean` - Would be imported from mathlib
-- Real arithmetic, matrix norms, spectral theory
+### **lambdaHead Properties** (1 theorem)
+- `lambdaHead_nonneg`: Dominant eigenvalue magnitude is always ≥ 0
 
-**Total: 42 axioms** (21 core + 21 placeholders)
+See [THEOREM_PROGRESS.md](THEOREM_PROGRESS.md) for complete details.
 
-See [THEOREM_INDEX.md](THEOREM_INDEX.md) for complete inventory.
+---
+
+## Axiom Elimination Progress
+
+**Goal**: Reduce from 42 axioms to 12 axioms (A1-A12 only)
+
+**Current Status**: 41 axioms (1 eliminated!)
+
+### **Eliminated** (1)
+- ✅ `lambdaHead` — Now defined using `Matrix.IsHermitian.eigenvalues` from mathlib
+
+### **Remaining** (41)
+
+**Phase 1: Mathematical Foundations** (7 axioms):
+- Weyl inequality (1)
+- Operator norm bounds (1)
+- Power iteration convergence (3)
+- Lipschitz continuity (2)
+
+**Phase 2: Float Bridge** (21 axioms):
+- Float-to-Real conversion and error budgets
+
+**Phase 3: Core** (13 axioms):
+- **12 Kantian axioms (A1-A12)** — Keep by design
+- T2_v3 (1) — To be proven
+
+See [AXIOM_ELIMINATION_LOG.md](AXIOM_ELIMINATION_LOG.md) for detailed tracking.
+
+---
+
+## Kantian Axioms (12 - Philosophical Foundations)
+
+These are **kept by design** — they define the transcendental framework:
+
+- **A1: Receptivity** — Capacity to receive impressions
+- **A2: Spontaneity** — Active synthesis capability
+- **A3: Unity** — Transcendental unity of apperception
+- **A4: Temporality** — Time as form of inner sense
+- **A5: Spatiality** — Space as form of outer sense
+- **A6: Causality** — Causal determination
+- **A7: Reciprocity** — Mutual interaction
+- **A8: Modality** — Possibility/actuality/necessity
+- **A9: Quantity** — Extensive magnitudes
+- **A10: Quality** — Intensive magnitudes
+- **A11: Relation** — Substance/causality/community
+- **A12: Transcendental Unity** — Synthetic unity of consciousness
+
+---
 
 ## File Layout
 
