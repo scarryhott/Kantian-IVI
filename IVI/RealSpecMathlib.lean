@@ -12,6 +12,7 @@ import Mathlib.Data.Matrix.Basic
 import Mathlib.Data.Real.Basic
 import Mathlib.Data.Real.Sqrt
 import Mathlib.LinearAlgebra.Matrix.Spectrum
+import Mathlib.Analysis.CStarAlgebra.Matrix
 
 namespace IVI
 
@@ -135,6 +136,22 @@ noncomputable def lambdaHead {n : Nat} [Fintype (Fin n)] [DecidableEq (Fin n)]
   Finset.univ.sup' (Finset.univ_nonempty (α := Fin n)) (fun i => |hHerm.eigenvalues i|)
 
 /-!
+## Operator Norm (L2 Norm / Spectral Norm)
+
+Mathlib provides the L2 operator norm for matrices via:
+- `Matrix.instL2OpNormedAddCommGroup` (scoped in `Matrix.Norms.L2Operator`)
+- For symmetric matrices, the operator norm equals the spectral radius
+
+The operator norm ‖A‖ is defined as:
+  ‖A‖ = sup { ‖Ax‖ / ‖x‖ : x ≠ 0 }
+
+For symmetric matrices:
+  ‖A‖ = max { |λᵢ| : λᵢ eigenvalue of A } = lambdaHead(A)
+
+This connection is the key to proving Weyl's inequality.
+-/
+
+/-!
 ## Properties of lambdaHead
 
 Now that lambdaHead is defined, we can prove properties about it.
@@ -151,6 +168,20 @@ theorem lambdaHead_nonneg {n : Nat} [Fintype (Fin n)] [DecidableEq (Fin n)] [Non
   apply Finset.le_sup'
   · exact Finset.mem_univ i
   · exact abs_nonneg _
+
+/--
+For symmetric matrices, lambdaHead equals the operator norm (spectral norm).
+
+This is a fundamental theorem connecting the algebraic definition (supremum of
+eigenvalues) with the analytic definition (operator norm).
+
+TODO: Prove this using mathlib's spectral theorem and operator norm properties.
+For now, we axiomatize it as it requires connecting several mathlib components.
+-/
+axiom lambdaHead_eq_opNorm {n : Nat} [Fintype (Fin n)] [DecidableEq (Fin n)] [Nonempty (Fin n)]
+    (A : RealMatrixN n) (hA : Matrix.IsSymm A) :
+    open scoped Matrix.Norms.L2Operator in
+    lambdaHead A hA = ‖A‖
 
 /-!
 ## Weyl's Inequality for Symmetric Matrices
@@ -184,13 +215,26 @@ axiomatize it pending full mathlib matrix norm infrastructure.
 
 TODO: Prove using reverse triangle inequality once matrix norms are available.
 -/
+/-!
+With lambdaHead_eq_opNorm, we can now state Weyl's inequality properly:
+
+For symmetric matrices A and E:
+  |lambdaHead(A + E) - lambdaHead(A)| ≤ ‖E‖
+
+This is equivalent to:
+  |‖A + E‖ - ‖A‖| ≤ ‖E‖
+
+which follows from the reverse triangle inequality for norms.
+
+TODO: Prove this using the reverse triangle inequality and lambdaHead_eq_opNorm.
+-/
 axiom weyl_eigenvalue_bound_real_n
-  {n : Nat} [Fintype (Fin n)] [DecidableEq (Fin n)]
-  (A E : RealMatrixN n) (ε : ℝ)
+  {n : Nat} [Fintype (Fin n)] [DecidableEq (Fin n)] [Nonempty (Fin n)]
+  (A E : RealMatrixN n)
   (hA : Matrix.IsSymm A)
-  (hE : Matrix.IsSymm E)
-  (h_norm : ε ≥ 0) :  -- Placeholder for ‖E‖ ≤ ε once norms available
-  |lambdaHead (A + E) (symmetric_add A E hA hE) - lambdaHead A hA| ≤ ε
+  (hE : Matrix.IsSymm E) :
+  open scoped Matrix.Norms.L2Operator in
+  |lambdaHead (A + E) (symmetric_add A E hA hE) - lambdaHead A hA| ≤ ‖E‖
 
 /-!
 ## Notes on Implementation
