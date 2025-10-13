@@ -53,7 +53,12 @@ Weyl inequality (sketch wrapper): If the operator norm of the perturbation E is
 This is stated against our project types but will be proven via mathlib on the
 embedded matrices. For now we declare it as an axiom and will replace with an
 actual proof after the embedding is implemented.
+
+DEPRECATED: This axiom is superseded by `weyl_eigenvalue_bound_real_n` which is
+now a proven theorem (not an axiom). This legacy version remains only for
+backwards compatibility with old code that may reference it.
 -/
+@[deprecated weyl_eigenvalue_bound_real_n "Use weyl_eigenvalue_bound_real_n instead (proven theorem)"]
 axiom weyl_eigenvalue_bound_real_mathlib
   (A E : RealMatrix) (ε : Real)
   (h : opNorm_emb E ≤ ε) :
