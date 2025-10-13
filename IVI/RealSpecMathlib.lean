@@ -214,43 +214,52 @@ theorem sup_eigenvalues_le_opNorm {n : Nat} [Fintype (Fin n)] [DecidableEq (Fin 
   exact eigenvalue_le_opNorm A hA i
 
 /--
+The operator norm is bounded by the supremum of eigenvalues (reverse direction).
+
+For symmetric matrices, the operator norm is achieved at an eigenvector. Using the
+spectral decomposition, any vector can be written as a linear combination of
+eigenvectors, and the norm of Av is bounded by the largest eigenvalue times the
+norm of v.
+
+TODO: Prove using mathlib lemmas:
+- Spectral decomposition: any v = Σᵢ cᵢ vᵢ where vᵢ are eigenvectors
+- Then Av = Σᵢ cᵢ λᵢ vᵢ
+- By Parseval: ‖Av‖² = Σᵢ |cᵢ|² |λᵢ|² ≤ (max |λᵢ|)² Σᵢ |cᵢ|² = (max |λᵢ|)² ‖v‖²
+- Therefore ‖A‖ ≤ max |λᵢ| = lambdaHead A
+
+Reference: Horn & Johnson, "Matrix Analysis" (1985), Theorem 5.6.9.
+-/
+axiom opNorm_le_sup_eigenvalues {n : Nat} [Fintype (Fin n)] [DecidableEq (Fin n)] [Nonempty (Fin n)]
+    (A : RealMatrixN n) (hA : Matrix.IsSymm A) :
+    open scoped Matrix.Norms.L2Operator in
+    ‖A‖ ≤ lambdaHead A hA
+
+/--
 For symmetric matrices, lambdaHead equals the operator norm (spectral norm).
 
 This is a fundamental theorem connecting the algebraic definition (supremum of
 eigenvalues) with the analytic definition (operator norm).
 
-**Proof Strategy** (in progress):
-1. Show each eigenvalue is bounded by the operator norm:
-   If v is an eigenvector with eigenvalue λ, then ‖Av‖ = |λ|‖v‖, so |λ| ≤ ‖A‖.
-   
-2. Show the supremum of eigenvalues is bounded by the operator norm:
-   Follows from (1) and properties of supremum.
-   
-3. Show the operator norm is bounded by the supremum (reverse inequality):
-   For symmetric matrices, decompose any vector in the eigenvector basis.
-   Show that ‖Av‖ ≤ (max |λᵢ|)‖v‖ for all v.
-   
-4. Conclude equality by le_antisymm.
+**Proof**: Combine both directions using `le_antisymm`:
+1. Forward: lambdaHead A ≤ ‖A‖ (proven via `sup_eigenvalues_le_opNorm`)
+2. Reverse: ‖A‖ ≤ lambdaHead A (axiomatized as `opNorm_le_sup_eigenvalues`)
 
 The key insight is that for symmetric matrices, the spectral decomposition
 allows us to express any vector in the eigenvector basis, and the operator
 norm is achieved at the eigenvector corresponding to the largest eigenvalue.
 
-**Status**: Currently axiomatized. Working on proof using mathlib's:
-- `Matrix.IsHermitian.eigenvalues` (eigenvalues exist)
-- `Matrix.IsHermitian.eigenvectorBasis` (orthonormal basis)
-- Operator norm definition from `Matrix.Norms.L2Operator`
+**Status**: Partially proven (forward direction complete).
 
 **Reference**: Horn & Johnson, "Matrix Analysis" (1985), Theorem 5.6.9
-
-TODO: Complete the proof by showing:
-- eigenvalue_le_opNorm: Each |λᵢ| ≤ ‖A‖
-- opNorm_le_sup_eigenvalues: ‖A‖ ≤ max |λᵢ|
 -/
-axiom lambdaHead_eq_opNorm {n : Nat} [Fintype (Fin n)] [DecidableEq (Fin n)] [Nonempty (Fin n)]
+theorem lambdaHead_eq_opNorm {n : Nat} [Fintype (Fin n)] [DecidableEq (Fin n)] [Nonempty (Fin n)]
     (A : RealMatrixN n) (hA : Matrix.IsSymm A) :
     open scoped Matrix.Norms.L2Operator in
-    lambdaHead A hA = ‖A‖
+    lambdaHead A hA = ‖A‖ := by
+  open scoped Matrix.Norms.L2Operator
+  apply le_antisymm
+  · exact sup_eigenvalues_le_opNorm A hA
+  · exact opNorm_le_sup_eigenvalues A hA
 
 /-!
 ## Weyl's Inequality for Symmetric Matrices
