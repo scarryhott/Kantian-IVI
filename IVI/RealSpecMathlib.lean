@@ -175,8 +175,33 @@ For symmetric matrices, lambdaHead equals the operator norm (spectral norm).
 This is a fundamental theorem connecting the algebraic definition (supremum of
 eigenvalues) with the analytic definition (operator norm).
 
-TODO: Prove this using mathlib's spectral theorem and operator norm properties.
-For now, we axiomatize it as it requires connecting several mathlib components.
+**Proof Strategy** (in progress):
+1. Show each eigenvalue is bounded by the operator norm:
+   If v is an eigenvector with eigenvalue λ, then ‖Av‖ = |λ|‖v‖, so |λ| ≤ ‖A‖.
+   
+2. Show the supremum of eigenvalues is bounded by the operator norm:
+   Follows from (1) and properties of supremum.
+   
+3. Show the operator norm is bounded by the supremum (reverse inequality):
+   For symmetric matrices, decompose any vector in the eigenvector basis.
+   Show that ‖Av‖ ≤ (max |λᵢ|)‖v‖ for all v.
+   
+4. Conclude equality by le_antisymm.
+
+The key insight is that for symmetric matrices, the spectral decomposition
+allows us to express any vector in the eigenvector basis, and the operator
+norm is achieved at the eigenvector corresponding to the largest eigenvalue.
+
+**Status**: Currently axiomatized. Working on proof using mathlib's:
+- `Matrix.IsHermitian.eigenvalues` (eigenvalues exist)
+- `Matrix.IsHermitian.eigenvectorBasis` (orthonormal basis)
+- Operator norm definition from `Matrix.Norms.L2Operator`
+
+**Reference**: Horn & Johnson, "Matrix Analysis" (1985), Theorem 5.6.9
+
+TODO: Complete the proof by showing:
+- eigenvalue_le_opNorm: Each |λᵢ| ≤ ‖A‖
+- opNorm_le_sup_eigenvalues: ‖A‖ ≤ max |λᵢ|
 -/
 axiom lambdaHead_eq_opNorm {n : Nat} [Fintype (Fin n)] [DecidableEq (Fin n)] [Nonempty (Fin n)]
     (A : RealMatrixN n) (hA : Matrix.IsSymm A) :

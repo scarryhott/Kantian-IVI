@@ -123,6 +123,8 @@
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/UniformSpace/Pi.olean"],
   "Mathlib.Topology.UniformSpace.OfFun":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/UniformSpace/OfFun.olean"],
+  "Mathlib.Topology.UniformSpace.Matrix":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/UniformSpace/Matrix.olean"],
   "Mathlib.Topology.UniformSpace.LocallyUniformConvergence":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/UniformSpace/LocallyUniformConvergence.olean"],
   "Mathlib.Topology.UniformSpace.HeineCantor":
@@ -3019,6 +3021,8 @@
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Normed/Affine/Isometry.olean"],
   "Mathlib.Analysis.MeanInequalities":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/MeanInequalities.olean"],
+  "Mathlib.Analysis.Matrix":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Matrix.olean"],
   "Mathlib.Analysis.LocallyConvex.WithSeminorms":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/LocallyConvex/WithSeminorms.olean"],
   "Mathlib.Analysis.LocallyConvex.Bounded":
@@ -3167,6 +3171,8 @@
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Calculus/ContDiff/Defs.olean"],
   "Mathlib.Analysis.Calculus.ContDiff.Basic":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Calculus/ContDiff/Basic.olean"],
+  "Mathlib.Analysis.CStarAlgebra.Matrix":
+  ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/CStarAlgebra/Matrix.olean"],
   "Mathlib.Analysis.CStarAlgebra.Basic":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/CStarAlgebra/Basic.olean"],
   "Mathlib.Analysis.Asymptotics.Theta":
