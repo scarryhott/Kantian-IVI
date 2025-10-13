@@ -135,6 +135,24 @@ noncomputable def lambdaHead {n : Nat} [Fintype (Fin n)] [DecidableEq (Fin n)]
   Finset.univ.sup' (Finset.univ_nonempty (α := Fin n)) (fun i => |hHerm.eigenvalues i|)
 
 /-!
+## Properties of lambdaHead
+
+Now that lambdaHead is defined, we can prove properties about it.
+-/
+
+/-- 
+lambdaHead is always non-negative (it's the supremum of absolute values).
+-/
+theorem lambdaHead_nonneg {n : Nat} [Fintype (Fin n)] [DecidableEq (Fin n)] [Nonempty (Fin n)]
+    (A : RealMatrixN n) (hA : Matrix.IsSymm A) :
+    lambdaHead A hA ≥ 0 := by
+  unfold lambdaHead
+  have ⟨i, _⟩ := Finset.univ_nonempty (α := Fin n)
+  apply Finset.le_sup'
+  · exact Finset.mem_univ i
+  · exact abs_nonneg _
+
+/-!
 ## Weyl's Inequality for Symmetric Matrices
 
 Weyl's inequality states that for symmetric matrices A and E:
