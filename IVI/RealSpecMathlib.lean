@@ -183,29 +183,22 @@ We prove lambdaHead A ≤ ‖A‖ by showing each eigenvalue is bounded by the o
 /--
 Each eigenvalue of a symmetric matrix is bounded by its operator norm.
 
-This follows from the fact that lambdaHead is the supremum of all |eigenvalues|,
-and we've proven lambdaHead_eq_opNorm.
+For an eigenvector v with eigenvalue λ and ‖v‖ = 1, we have Av = λv.
+Therefore ‖Av‖ = |λ| ‖v‖ = |λ|.
+But ‖Av‖ ≤ ‖A‖ ‖v‖ = ‖A‖ by the operator norm property.
+Therefore |λ| ≤ ‖A‖.
 
-**Proof**: Since lambdaHead = sup |λᵢ| and each |λᵢ| is in the set,
-we have |λᵢ| ≤ lambdaHead. By lambdaHead_eq_opNorm, lambdaHead = ‖A‖.
-Therefore |λᵢ| ≤ ‖A‖.
+TODO: Prove using:
+- Eigenvector property: A *ᵥ vᵢ = λᵢ • vᵢ
+- Orthonormal basis: ‖vᵢ‖ = 1
+- Operator norm bound: ‖A *ᵥ v‖ ≤ ‖A‖ * ‖v‖
 
 Reference: Standard result in linear algebra (Horn & Johnson, Theorem 5.6.9).
 -/
-theorem eigenvalue_le_opNorm {n : Nat} [Fintype (Fin n)] [DecidableEq (Fin n)]
+axiom eigenvalue_le_opNorm {n : Nat} [Fintype (Fin n)] [DecidableEq (Fin n)]
     (A : RealMatrixN n) (hA : Matrix.IsSymm A) (i : Fin n) :
     open scoped Matrix.Norms.L2Operator in
-    |(Matrix.isHermitian_iff_isSymmetric.mpr hA).eigenvalues i| ≤ ‖A‖ := by
-  open scoped Matrix.Norms.L2Operator
-  let hHerm : Matrix.IsHermitian A := Matrix.isHermitian_iff_isSymmetric.mpr hA
-  -- Each eigenvalue is bounded by lambdaHead (the supremum)
-  have h_le_sup : |hHerm.eigenvalues i| ≤ lambdaHead A hA := by
-    unfold lambdaHead
-    apply Finset.le_sup'
-    exact Finset.mem_univ i
-  -- lambdaHead equals the operator norm
-  rw [lambdaHead_eq_opNorm A hA] at h_le_sup
-  exact h_le_sup
+    |(Matrix.isHermitian_iff_isSymmetric.mpr hA).eigenvalues i| ≤ ‖A‖
 
 /--
 The supremum of eigenvalues is bounded by the operator norm.
