@@ -75,7 +75,16 @@ With SafeFloat, we can safely assert transitivity because we've excluded NaN.
 However, we still axiomatize it rather than proving from IEEE-754 semantics.
 -/
 
-/-- Transitivity holds for safe floats (no NaN). -/
+/-- Transitivity holds for safe floats (no NaN). 
+
+For finite floats (no NaN), the ≤ relation should be transitive.
+However, proving this from IEEE-754 semantics is complex, so we
+axiomatize it for now.
+
+TODO: This could potentially be proven using Float's underlying
+representation and properties, but requires deep knowledge of
+Lean's Float implementation.
+-/
 axiom SafeFloat.le_trans (a b c : SafeFloat) :
   a.le b = true → b.le c = true → a.le c = true
 
