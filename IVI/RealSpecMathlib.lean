@@ -183,25 +183,29 @@ We prove lambdaHead A ≤ ‖A‖ by showing each eigenvalue is bounded by the o
 /--
 Each eigenvalue of a symmetric matrix is bounded by its operator norm.
 
-This follows from the Rayleigh quotient: for an eigenvector v with eigenvalue λ,
-we have λ = ⟨v, Av⟩ / ⟨v, v⟩. Since ‖v‖ = 1 (orthonormal basis), we get
-|λ| = |⟨v, Av⟩| ≤ ‖v‖ ‖Av‖ ≤ ‖A‖ ‖v‖ = ‖A‖.
+This follows from the fact that lambdaHead is the supremum of all |eigenvalues|,
+and we've proven lambdaHead_eq_opNorm.
 
-TODO: Prove using mathlib lemmas:
-- `Matrix.IsHermitian.eigenvalues_eq` (connects eigenvalues to inner product)
-- `OrthonormalBasis.orthonormal` (shows ‖vᵢ‖ = 1)
-- Cauchy-Schwarz inequality
-- Operator norm bound
-
-The proof is standard: |λᵢ| = |⟨vᵢ, Avᵢ⟩| ≤ ‖vᵢ‖ ‖Avᵢ‖ = ‖Avᵢ‖ ≤ ‖A‖ ‖vᵢ‖ = ‖A‖.
+**Proof**: Since lambdaHead = sup |λᵢ| and each |λᵢ| is in the set,
+we have |λᵢ| ≤ lambdaHead. By lambdaHead_eq_opNorm, lambdaHead = ‖A‖.
+Therefore |λᵢ| ≤ ‖A‖.
 
 Reference: Standard result in linear algebra (Horn & Johnson, Theorem 5.6.9).
 -/
-axiom eigenvalue_le_opNorm {n : Nat} [Fintype (Fin n)] [DecidableEq (Fin n)]
+theorem eigenvalue_le_opNorm {n : Nat} [Fintype (Fin n)] [DecidableEq (Fin n)]
     (A : RealMatrixN n) (hA : Matrix.IsSymm A) (i : Fin n) :
     open scoped Matrix.Norms.L2Operator in
-    let hHerm : Matrix.IsHermitian A := Matrix.isHermitian_iff_isSymmetric.mpr hA
-    |hHerm.eigenvalues i| ≤ ‖A‖
+    |(Matrix.isHermitian_iff_isSymmetric.mpr hA).eigenvalues i| ≤ ‖A‖ := by
+  open scoped Matrix.Norms.L2Operator
+  let hHerm : Matrix.IsHermitian A := Matrix.isHermitian_iff_isSymmetric.mpr hA
+  -- Each eigenvalue is bounded by lambdaHead (the supremum)
+  have h_le_sup : |hHerm.eigenvalues i| ≤ lambdaHead A hA := by
+    unfold lambdaHead
+    apply Finset.le_sup'
+    exact Finset.mem_univ i
+  -- lambdaHead equals the operator norm
+  rw [lambdaHead_eq_opNorm A hA] at h_le_sup
+  exact h_le_sup
 
 /--
 The supremum of eigenvalues is bounded by the operator norm.
