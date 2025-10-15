@@ -1,183 +1,92 @@
-# Next Work: Complete lambdaHead_eq_opNorm
+# Next Work: Prove `operator_norm_bound`
 
-**Goal**: Prove the two helper axioms to make lambdaHead_eq_opNorm a pure theorem
+**Goal**: Remove the remaining high-priority axiom in `IVI/RealSpecMathlib.lean` by proving the quantitative operator-norm bound for sparse, entrywise-bounded matrices.
 
 ---
 
-## Current Status
+## Where We Stand ✅
 
-### What We Have ✅
+- `lambdaHead_eq_opNorm` is now a fully proven theorem (both helper lemmas completed).
+- `weyl_eigenvalue_bound_real_n` is also a theorem, powered by the new operator-norm equivalence.
+- Remaining spectral axioms in this file:
+  1. `embedToMatrix` (structural bridge, low priority)
+  2. `operator_norm_bound` (quantitative estimate) **← focus**
+  3. Power-iteration and Lipschitz axioms (Phase 1.3–1.4 targets)
+
+Eliminating `operator_norm_bound` tightens the quantitative side of Phase 1.2 and sets up Phase 2 (runtime/error analysis).
+
+---
+
+## Statement To Prove
 
 ```lean
-theorem lambdaHead_eq_opNorm : lambdaHead A hA = ‖A‖ := by
-  apply le_antisymm
-  · exact sup_eigenvalues_le_opNorm A hA  -- ✅ PROVEN
-  · exact opNorm_le_sup_eigenvalues A hA  -- ⏳ Axiom (TODO)
+axiom operator_norm_bound
+  {n : Nat} (M : RealMatrixN n) (c : ℝ) (d : Nat)
+  (h_entry : entrywiseBounded M c)
+  (h_sparse : rowSparsity M d)
+  (h_c_pos : c ≥ 0) :
+  ∃ (norm_M : ℝ), norm_M ≤ c * Real.sqrt (n * d)
 ```
 
-**Dependencies**:
-1. `sup_eigenvalues_le_opNorm` — ✅ PROVEN (uses `eigenvalue_le_opNorm` axiom)
-2. `opNorm_le_sup_eigenvalues` — ⏳ Axiom (needs proof)
-
-### What We Need ⏳
-
-Two helper axioms to prove:
-
-#### 1. eigenvalue_le_opNorm
-```lean
-axiom eigenvalue_le_opNorm {n : Nat} [Fintype (Fin n)] [DecidableEq (Fin n)]
-    (A : RealMatrixN n) (hA : Matrix.IsSymm A) (i : Fin n) :
-    open scoped Matrix.Norms.L2Operator in
-    let hHerm : Matrix.IsHermitian A := Matrix.isHermitian_iff_isSymmetric.mpr hA
-    |hHerm.eigenvalues i| ≤ ‖A‖
-```
-
-**Proof strategy**: Use Rayleigh quotient and Cauchy-Schwarz
-
-#### 2. opNorm_le_sup_eigenvalues
-```lean
-axiom opNorm_le_sup_eigenvalues {n : Nat} [Fintype (Fin n)] [DecidableEq (Fin n)] [Nonempty (Fin n)]
-    (A : RealMatrixN n) (hA : Matrix.IsSymm A) :
-    open scoped Matrix.Norms.L2Operator in
-    ‖A‖ ≤ lambdaHead A hA
-```
-
-**Proof strategy**: Use spectral decomposition and Parseval's identity
+**Intuition**: A matrix with at most `d` non-zero entries per row and entries bounded by `c` has spectral norm ≤ `c √(n d)`. This is a standard Gershgorin/ℓ₂ estimate.
 
 ---
 
-## Proof Plan for eigenvalue_le_opNorm
+## Plan of Attack
 
-### Approach
+### Step 1 — Reformulate the Goal
+- Interpret the conclusion as `‖M‖ ≤ c * √(n * d)` under the L2 operator norm.
+- Translate `entrywiseBounded` and `rowSparsity` hypotheses into algebraic bounds on matrix rows.
+- Decide whether to work directly with the matrix-as-linear-map (`Matrix.toEuclideanCLM`) or via vector inequalities.
 
-Use the fact that for an eigenvector v with eigenvalue λ:
-- A v = λ v
-- ‖v‖ = 1 (orthonormal basis)
-- |λ| = ‖A v‖ ≤ ‖A‖ ‖v‖ = ‖A‖
+### Step 2 — Row-wise Norm Bound ✅ *Completed via `row_square_sum_le`*
+- Every row now satisfies: `∑ᵢ (M i j)² ≤ d · c²`.
+- This controls the squared ℓ₂ norm of each row; ready to feed into Cauchy-Schwarz.
 
-### Lemmas Needed
+### Step 3 — Global Bound (In Progress)
+- Apply Cauchy-Schwarz on each row using `row_square_sum_le`.
+- Target: `‖M v‖² ≤ (c² * n * d) ‖v‖²`, hence `‖M v‖ ≤ c √(n d) ‖v‖`.
+- Once the inequality is established, invoke `ContinuousLinearMap.opNorm_le_bound`.
 
-1. **Eigenvector property**: 
-   - `Matrix.IsHermitian.eigenvalues_eq` or similar
-   - Shows relationship between A, v, and λ
-
-2. **Orthonormal property**:
-   - `hHerm.eigenvectorBasis.orthonormal.1 i : ‖hHerm.eigenvectorBasis i‖ = 1`
-   - ✅ Already confirmed this works
-
-3. **Operator norm bound**:
-   - Need: `‖A.mulVec v‖ ≤ ‖A‖ * ‖v‖`
-   - Search for matrix operator norm lemmas
-
-### Implementation Steps
-
-1. Convert eigenvector basis element to appropriate type
-2. Apply eigenvector property
-3. Use norm calculation
-4. Apply operator norm bound
-5. Simplify using ‖v‖ = 1
+### Step 4 — Existential Packaging
+- The lemma currently states an existence of some `norm_M`. We can instantiate it with `‖M‖` and reuse the inequality.
+- Conclude the axiom using the derived bound.
 
 ---
 
-## Proof Plan for opNorm_le_sup_eigenvalues
+## Supporting Lemmas To Look For 🔍
 
-### Approach
+- `Matrix.row` + `Finset` lemmas for counting non-zero entries.
+- `Real.sqrt_mul`, `Real.sqrt_natCast` for handling √(n * d).
+- `Finset.card` bounds from `rowSparsity`.
+- Norm inequalities: `norm_sum_le`, `norm_mul`, `Finset.norm_sum_le`.
 
-For any vector w:
-- Decompose: w = Σᵢ cᵢ vᵢ (eigenvector basis)
-- Apply A: A w = Σᵢ cᵢ λᵢ vᵢ
-- Bound norm: ‖A w‖² = Σᵢ |cᵢ|² |λᵢ|² ≤ (max |λᵢ|)² Σᵢ |cᵢ|² = (max |λᵢ|)² ‖w‖²
-- Therefore: ‖A‖ ≤ max |λᵢ| = lambdaHead A
-
-### Lemmas Needed
-
-1. **Orthonormal decomposition**:
-   - How to express w in eigenvector basis
-   - Likely `OrthonormalBasis.repr` or similar
-
-2. **Parseval's identity**:
-   - `‖w‖² = Σᵢ |cᵢ|²` for orthonormal basis
-   - Should exist in mathlib
-
-3. **Linearity of matrix multiplication**:
-   - `A.mulVec (Σᵢ cᵢ vᵢ) = Σᵢ cᵢ (A.mulVec vᵢ)`
-   - Standard property
-
-4. **Operator norm characterization**:
-   - `‖A‖ = sup { ‖A v‖ / ‖v‖ : v ≠ 0 }`
-   - Or equivalent formulation
+If a ready-made lemma exists (e.g. in `mathlib` for sparse matrices), prefer reusing it; otherwise derive the estimate manually.
 
 ---
 
-## Recommended Approach
+## Risks / Open Questions
 
-### Option 1: Prove Both (Ambitious)
-- Time estimate: 4-6 hours
-- Requires deep dive into mathlib
-- May encounter type issues
+1. **Formalizing sparsity**: confirm `rowSparsity` gives the right combinatorial bound (≤ d non-zero entries per row). If not, adjust or strengthen the lemma.
+2. **Non-negativity of √ argument**: ensure `n * d` coerces to ℝ with appropriate non-negativity proofs.
+3. **Existence statement**: convert the inequality into the requested existential witness cleanly.
 
-### Option 2: Prove eigenvalue_le_opNorm First (Pragmatic)
-- Time estimate: 2-3 hours
-- Simpler of the two
-- Shows progress
-- Leaves harder one for later
-
-### Option 3: Document and Move On (Strategic)
-- Time estimate: 30 minutes
-- Focus on other Phase 1 priorities
-- Come back when we have more experience
-- Maintain momentum
+Fallback: if direct proof stretches too long, document the main missing lemma(s) and commit partial progress.
 
 ---
 
-## My Recommendation
+## Stretch Goals
 
-**Option 2**: Prove `eigenvalue_le_opNorm` first
-
-**Reasoning**:
-1. It's the simpler of the two
-2. Shows concrete progress
-3. Builds confidence with mathlib
-4. Reduces axiom count by 1
-5. The harder proof can wait
-
-**Timeline**:
-- Next session: 2-3 hours on `eigenvalue_le_opNorm`
-- If successful: Great! Move to next priority
-- If stuck: Document issues, move on, come back later
+1. Generalize the bound to rectangular matrices (if helpful later).
+2. Explore whether `rowSparsity` can be derived from stronger structural assumptions (for Phase 2).
+3. Begin scaffolding for `powerIter_converges` using the new quantitative bounds.
 
 ---
 
-## Alternative: Move to Priority 2
+## Ready Checklist
 
-Since `lambdaHead_eq_opNorm` is already a theorem (just with helper axioms), we could:
-
-1. **Declare victory** on Priority 1 structure
-2. **Move to Priority 2**: Weyl inequality
-3. **Come back** to prove helpers when we have more experience
-
-**Pros**:
-- Maintains momentum
-- Diversifies work
-- May learn techniques applicable to helpers
-
-**Cons**:
-- Leaves work incomplete
-- Helper axioms remain
-
----
-
-## Decision Point
-
-**What would you like to do?**
-
-A. **Prove eigenvalue_le_opNorm** (2-3 hours, concrete progress)
-B. **Prove both helpers** (4-6 hours, complete the theorem)
-C. **Move to Priority 2** (maintain momentum, come back later)
-D. **Something else** (your call!)
-
----
-
-**Current State**: Build succeeds, all documentation complete, ready for next phase
-
-**Confidence**: High for Option A, Medium for Option B, High for Option C
+- [ ] Locate or restate key helper lemmas (row norm bound, sum-of-squares bound).
+- [ ] Express `‖M‖` via `Matrix.toEuclideanCLM`.
+- [ ] Prove `‖M v‖ ≤ c * √(n * d) * ‖v‖`.
+- [ ] Package into existential statement.
+- [ ] Update documentation (`PRIORITY_1_PROGRESS.md`, statuses) once complete.

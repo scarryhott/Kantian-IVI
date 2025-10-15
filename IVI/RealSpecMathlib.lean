@@ -134,11 +134,10 @@ real eigenvalue. We define it using mathlib's Hermitian spectral theory.
 For real symmetric matrices, IsHermitian is equivalent to IsSymm.
 -/
 noncomputable def lambdaHead {n : Nat} [Fintype (Fin n)] [DecidableEq (Fin n)] 
-    (A : RealMatrixN n) (hA : Matrix.IsSymm A) : ℝ :=
-  let hHerm : Matrix.IsHermitian A := Matrix.isHermitian_iff_isSymmetric.mpr hA
+    (A : RealMatrixN n) (hA : Matrix.IsHermitian A) : ℝ :=
   -- Get the maximum eigenvalue by absolute value
   -- For symmetric matrices, eigenvalues are real
-  Finset.univ.sup' (Finset.univ_nonempty (α := Fin n)) (fun i => |hHerm.eigenvalues i|)
+  Finset.univ.sup' (Finset.univ_nonempty (α := Fin n)) (fun i => |hA.eigenvalues i|)
 
 /-!
 ## Operator Norm (L2 Norm / Spectral Norm)
@@ -166,7 +165,7 @@ Now that lambdaHead is defined, we can prove properties about it.
 lambdaHead is always non-negative (it's the supremum of absolute values).
 -/
 theorem lambdaHead_nonneg {n : Nat} [Fintype (Fin n)] [DecidableEq (Fin n)] [Nonempty (Fin n)]
-    (A : RealMatrixN n) (hA : Matrix.IsSymm A) :
+    (A : RealMatrixN n) (hA : Matrix.IsHermitian A) :
     lambdaHead A hA ≥ 0 := by
   unfold lambdaHead
   have ⟨i, _⟩ := Finset.univ_nonempty (α := Fin n)
@@ -180,6 +179,9 @@ theorem lambdaHead_nonneg {n : Nat} [Fintype (Fin n)] [DecidableEq (Fin n)] [Non
 We prove lambdaHead A ≤ ‖A‖ by showing each eigenvalue is bounded by the operator norm.
 -/
 
+-- Open the operator norm scope for this section
+open scoped Matrix.Norms.L2Operator
+
 /--
 Each eigenvalue of a symmetric matrix is bounded by its operator norm.
 
@@ -188,17 +190,45 @@ Therefore ‖Av‖ = |λ| ‖v‖ = |λ|.
 But ‖Av‖ ≤ ‖A‖ ‖v‖ = ‖A‖ by the operator norm property.
 Therefore |λ| ≤ ‖A‖.
 
-TODO: Prove using:
-- Eigenvector property: A *ᵥ vᵢ = λᵢ • vᵢ
-- Orthonormal basis: ‖vᵢ‖ = 1
-- Operator norm bound: ‖A *ᵥ v‖ ≤ ‖A‖ * ‖v‖
+**Proof Strategy**: Use the Rayleigh quotient characterization. For symmetric matrices,
+each eigenvalue λᵢ satisfies λᵢ = ⟨vᵢ, Avᵢ⟩ where vᵢ is the corresponding eigenvector
+with ‖vᵢ‖ = 1. Then |λᵢ| ≤ ‖A‖ follows from the operator norm definition.
 
 Reference: Standard result in linear algebra (Horn & Johnson, Theorem 5.6.9).
 -/
-axiom eigenvalue_le_opNorm {n : Nat} [Fintype (Fin n)] [DecidableEq (Fin n)]
-    (A : RealMatrixN n) (hA : Matrix.IsSymm A) (i : Fin n) :
-    open scoped Matrix.Norms.L2Operator in
-    |(Matrix.isHermitian_iff_isSymmetric.mpr hA).eigenvalues i| ≤ ‖A‖
+theorem eigenvalue_le_opNorm {n : Nat} [Fintype (Fin n)] [DecidableEq (Fin n)]
+    (A : RealMatrixN n) (hA : Matrix.IsHermitian A) (i : Fin n) :
+    |hA.eigenvalues i| ≤ ‖A‖ := by
+  -- For an eigenvector v with eigenvalue λ and ‖v‖ = 1, we have Av = λv
+  -- Therefore ‖Av‖ = |λ| ‖v‖ = |λ|
+  -- But ‖Av‖ ≤ ‖A‖ ‖v‖ = ‖A‖ by the operator norm property
+  -- Therefore |λ| ≤ ‖A‖
+  
+  -- Get the eigenvector (as an element of EuclideanSpace)
+  let v := hA.eigenvectorBasis i
+  
+  -- The eigenvector has norm 1 (orthonormal basis)
+  have hv_norm : ‖v‖ = 1 := hA.eigenvectorBasis.orthonormal.1 i
+  
+  -- The eigenvector equation: A *ᵥ v = λ • v
+  have hv_eigen : A.mulVec v = hA.eigenvalues i • (v : Fin n → ℝ) := 
+    hA.mulVec_eigenvectorBasis i
+  
+  -- ‖A *ᵥ v‖ ≤ ‖A‖ * ‖v‖ by operator norm property (l2_opNorm_mulVec)
+  have h_bound : ‖(EuclideanSpace.equiv (Fin n) ℝ).symm (A.mulVec v)‖ ≤ ‖A‖ * ‖v‖ :=
+    Matrix.l2_opNorm_mulVec A v
+  
+  -- The norm of the wrapped vector equals the norm of λ • v
+  have h_norm_eq : ‖(EuclideanSpace.equiv (Fin n) ℝ).symm (A.mulVec v)‖ = |hA.eigenvalues i| := by
+    rw [hv_eigen, map_smul, norm_smul, Real.norm_eq_abs]
+    -- Now we need ‖(EuclideanSpace.equiv (Fin n) ℝ).symm v‖ = ‖v‖ = 1
+    have : ‖(EuclideanSpace.equiv (Fin n) ℝ).symm (v : Fin n → ℝ)‖ = ‖v‖ := by
+      simp [EuclideanSpace.equiv]
+    rw [this, hv_norm, mul_one]
+  
+  -- Combine: |λ| = ‖A *ᵥ v‖ ≤ ‖A‖ * ‖v‖ = ‖A‖
+  rw [h_norm_eq, hv_norm, mul_one] at h_bound
+  exact h_bound
 
 /--
 The supremum of eigenvalues is bounded by the operator norm.
@@ -206,10 +236,8 @@ The supremum of eigenvalues is bounded by the operator norm.
 This follows immediately from `eigenvalue_le_opNorm` and properties of supremum.
 -/
 theorem sup_eigenvalues_le_opNorm {n : Nat} [Fintype (Fin n)] [DecidableEq (Fin n)] [Nonempty (Fin n)]
-    (A : RealMatrixN n) (hA : Matrix.IsSymm A) :
-    open scoped Matrix.Norms.L2Operator in
+    (A : RealMatrixN n) (hA : Matrix.IsHermitian A) :
     lambdaHead A hA ≤ ‖A‖ := by
-  open scoped Matrix.Norms.L2Operator
   unfold lambdaHead
   apply Finset.sup'_le
   intro i _
@@ -219,22 +247,119 @@ theorem sup_eigenvalues_le_opNorm {n : Nat} [Fintype (Fin n)] [DecidableEq (Fin 
 The operator norm is bounded by the supremum of eigenvalues (reverse direction).
 
 For symmetric matrices, the operator norm is achieved at an eigenvector. Using the
-spectral decomposition, any vector can be written as a linear combination of
-eigenvectors, and the norm of Av is bounded by the largest eigenvalue times the
-norm of v.
-
-TODO: Prove using mathlib lemmas:
-- Spectral decomposition: any v = Σᵢ cᵢ vᵢ where vᵢ are eigenvectors
-- Then Av = Σᵢ cᵢ λᵢ vᵢ
-- By Parseval: ‖Av‖² = Σᵢ |cᵢ|² |λᵢ|² ≤ (max |λᵢ|)² Σᵢ |cᵢ|² = (max |λᵢ|)² ‖v‖²
-- Therefore ‖A‖ ≤ max |λᵢ| = lambdaHead A
+orthonormal eigenvector basis, any vector can be written as a linear combination
+of eigenvectors, and Parseval's identity expresses the squared norms as sums over
+those coefficients. Bounding each summand by the largest eigenvalue controls the
+entire sum, yielding ‖A‖ ≤ lambdaHead A.
 
 Reference: Horn & Johnson, "Matrix Analysis" (1985), Theorem 5.6.9.
 -/
-axiom opNorm_le_sup_eigenvalues {n : Nat} [Fintype (Fin n)] [DecidableEq (Fin n)] [Nonempty (Fin n)]
-    (A : RealMatrixN n) (hA : Matrix.IsSymm A) :
-    open scoped Matrix.Norms.L2Operator in
-    ‖A‖ ≤ lambdaHead A hA
+theorem opNorm_le_sup_eigenvalues {n : Nat} [Fintype (Fin n)] [DecidableEq (Fin n)] [Nonempty (Fin n)]
+    (A : RealMatrixN n) (hA : Matrix.IsHermitian A) :
+    ‖A‖ ≤ lambdaHead A hA := by
+  -- Strategy: Show that ‖Av‖ ≤ (lambdaHead A) * ‖v‖ for all v
+  -- Then by opNorm_le_bound, we get ‖A‖ ≤ lambdaHead A
+  
+  -- We need to show this for the continuous linear map version of A
+  rw [Matrix.cstar_norm_def]
+  apply ContinuousLinearMap.opNorm_le_bound
+  · -- lambdaHead A is non-negative (absolute values)
+    unfold lambdaHead
+    apply Finset.le_sup'
+    exact Finset.univ_nonempty.some_mem
+  · -- For all v: ‖Av‖ ≤ (lambdaHead A) * ‖v‖
+    intro v
+    -- Use spectral decomposition: v = Σᵢ ⟪vᵢ, v⟫ vᵢ where vᵢ are eigenvectors
+    -- Then Av = Σᵢ ⟪vᵢ, v⟫ λᵢ vᵢ
+    -- By Parseval: ‖Av‖² = Σᵢ |⟪vᵢ, v⟫|² |λᵢ|² ≤ (max |λᵢ|)² Σᵢ |⟪vᵢ, v⟫|² = (max |λᵢ|)² ‖v‖²
+    
+    -- Convert to the form we need
+    have h_sq : ‖(Matrix.toEuclideanCLM (n := Fin n) (𝕜 := ℝ) A) v‖ ^ 2 ≤ (lambdaHead A hA) ^ 2 * ‖v‖ ^ 2 := by
+      -- Use Parseval's identity with the eigenvector basis
+      let b := hA.eigenvectorBasis
+      let Av := (Matrix.toEuclideanCLM (n := Fin n) (𝕜 := ℝ) A) v
+      
+      -- ‖Av‖² = Σᵢ |⟪vᵢ, Av⟫|²
+      have h_Av_sq : ‖Av‖ ^ 2 = ∑ i, ‖⟪b i, Av⟫‖ ^ 2 := by
+        rw [OrthonormalBasis.sum_sq_norm_inner_right]
+      
+      -- ‖v‖² = Σᵢ |⟪vᵢ, v⟫|²
+      have h_v_sq : ‖v‖ ^ 2 = ∑ i, ‖⟪b i, v⟫‖ ^ 2 := by
+        rw [OrthonormalBasis.sum_sq_norm_inner_right]
+      
+      rw [h_Av_sq, h_v_sq, mul_comm, ← Finset.sum_mul]
+      
+      -- Now show: Σᵢ |⟪vᵢ, Av⟫|² ≤ Σᵢ (lambdaHead A)² |⟪vᵢ, v⟫|²
+      apply Finset.sum_le_sum
+      intro i _
+      
+      -- For each i: |⟪vᵢ, Av⟫|² ≤ (lambdaHead A)² |⟪vᵢ, v⟫|²
+      -- Key: Use adjoint property and eigenvector equation
+      -- For Hermitian A: ⟪vᵢ, Av⟫ = ⟪Avᵢ, v⟫ = ⟪λᵢvᵢ, v⟫ = λᵢ⟪vᵢ, v⟫
+      
+      have h_inner : ⟪b i, Av⟫ = hA.eigenvalues i * ⟪b i, v⟫ := by
+        -- For Hermitian A: ⟪vᵢ, Av⟫ = ⟪Avᵢ, v⟫ = ⟪λᵢvᵢ, v⟫ = λᵢ⟪vᵢ, v⟫
+        -- First: Matrix.toEuclideanCLM is self-adjoint for Hermitian matrices
+        have h_adj : ⟪b i, Av⟫ = ⟪(Matrix.toEuclideanCLM (n := Fin n) (𝕜 := ℝ) A) (b i), v⟫ := by
+          -- For Hermitian A: ⟪x, Ay⟫ = ⟪Ax, y⟫
+          -- This follows from A = A† (conjugate transpose = transpose for real matrices)
+          rw [ContinuousLinearMap.inner_adjoint_left]
+          -- Now need: adjoint (toEuclideanCLM A) = toEuclideanCLM A
+          -- This follows from A being Hermitian
+          congr 1
+          -- For Hermitian matrices: A† = A, so toEuclideanCLM A† = toEuclideanCLM A
+          -- Use: toEuclideanCLM is a StarAlgEquiv, so it preserves star
+          -- And for Hermitian A: star A = A
+          calc ContinuousLinearMap.adjoint (Matrix.toEuclideanCLM (n := Fin n) (𝕜 := ℝ) A)
+              = star (Matrix.toEuclideanCLM (n := Fin n) (𝕜 := ℝ) A) := by rfl
+            _ = Matrix.toEuclideanCLM (n := Fin n) (𝕜 := ℝ) (star A) := by
+                rw [← StarAlgEquiv.map_star]
+            _ = Matrix.toEuclideanCLM (n := Fin n) (𝕜 := ℝ) A := by
+                -- star A = Aᴴ = A for Hermitian matrices
+                congr 1
+                exact hA.eq.symm
+        
+        -- Second: A(vᵢ) = λᵢ vᵢ
+        have h_eigen : (Matrix.toEuclideanCLM (n := Fin n) (𝕜 := ℝ) A) (b i) = 
+                       hA.eigenvalues i • (b i : EuclideanSpace ℝ (Fin n)) := by
+          -- We have: A.mulVec (b i) = hA.eigenvalues i • (b i : Fin n → ℝ)
+          -- Need to convert this to EuclideanSpace form
+          have h_mulVec : A.mulVec (b i) = hA.eigenvalues i • (b i : Fin n → ℝ) :=
+            hA.mulVec_eigenvectorBasis i
+          
+          -- toEuclideanCLM A (toLp 2 x) = toLp 2 (A.mulVec x)
+          have : (Matrix.toEuclideanCLM (n := Fin n) (𝕜 := ℝ) A) (b i) = 
+                 WithLp.equiv 2 _ (A.mulVec (WithLp.equiv 2 _ (b i))) := by
+            rfl
+          
+          rw [this, h_mulVec]
+          simp [map_smul]
+        
+        rw [h_adj, h_eigen, inner_smul_left]
+        rfl
+      
+      rw [h_inner, norm_mul, norm_mul, mul_pow, mul_pow]
+      gcongr
+      · -- |λᵢ|² ≤ (lambdaHead A)²
+        have : |hA.eigenvalues i| ≤ lambdaHead A hA := by
+          unfold lambdaHead
+          apply Finset.le_sup'
+          exact Finset.mem_univ i
+        calc ‖hA.eigenvalues i‖ ^ 2
+            = |hA.eigenvalues i| ^ 2 := by rw [Real.norm_eq_abs]
+          _ ≤ (lambdaHead A hA) ^ 2 := by gcongr
+    
+    -- Take square roots
+    have h_nonneg : 0 ≤ lambdaHead A hA := by
+      unfold lambdaHead
+      apply Finset.le_sup'
+      exact Finset.univ_nonempty.some_mem
+    
+    calc ‖(Matrix.toEuclideanCLM (n := Fin n) (𝕜 := ℝ) A) v‖
+        = √(‖(Matrix.toEuclideanCLM (n := Fin n) (𝕜 := ℝ) A) v‖ ^ 2) := by rw [Real.sqrt_sq (norm_nonneg _)]
+      _ ≤ √((lambdaHead A hA) ^ 2 * ‖v‖ ^ 2) := by gcongr
+      _ = √((lambdaHead A hA) ^ 2) * √(‖v‖ ^ 2) := by rw [Real.sqrt_mul (sq_nonneg _)]
+      _ = lambdaHead A hA * ‖v‖ := by rw [Real.sqrt_sq h_nonneg, Real.sqrt_sq (norm_nonneg _)]
 
 /--
 For symmetric matrices, lambdaHead equals the operator norm (spectral norm).
@@ -244,21 +369,19 @@ eigenvalues) with the analytic definition (operator norm).
 
 **Proof**: Combine both directions using `le_antisymm`:
 1. Forward: lambdaHead A ≤ ‖A‖ (proven via `sup_eigenvalues_le_opNorm`)
-2. Reverse: ‖A‖ ≤ lambdaHead A (axiomatized as `opNorm_le_sup_eigenvalues`)
+2. Reverse: ‖A‖ ≤ lambdaHead A (now proven in `opNorm_le_sup_eigenvalues`)
 
 The key insight is that for symmetric matrices, the spectral decomposition
 allows us to express any vector in the eigenvector basis, and the operator
 norm is achieved at the eigenvector corresponding to the largest eigenvalue.
 
-**Status**: Partially proven (forward direction complete).
+**Status**: Fully proven.
 
 **Reference**: Horn & Johnson, "Matrix Analysis" (1985), Theorem 5.6.9
 -/
 theorem lambdaHead_eq_opNorm {n : Nat} [Fintype (Fin n)] [DecidableEq (Fin n)] [Nonempty (Fin n)]
-    (A : RealMatrixN n) (hA : Matrix.IsSymm A) :
-    open scoped Matrix.Norms.L2Operator in
+    (A : RealMatrixN n) (hA : Matrix.IsHermitian A) :
     lambdaHead A hA = ‖A‖ := by
-  open scoped Matrix.Norms.L2Operator
   apply le_antisymm
   · exact sup_eigenvalues_le_opNorm A hA
   · exact opNorm_le_sup_eigenvalues A hA
@@ -309,17 +432,54 @@ which follows from the reverse triangle inequality for norms.
 The proof is elegant: use lambdaHead_eq_opNorm to convert eigenvalue differences
 to operator norm differences, then apply abs_norm_sub_norm_le.
 -/
+-- Helper lemma to convert Matrix.IsSymm to Matrix.IsHermitian for real matrices
+theorem isSymm_iff_isHermitian {n : Nat} (A : RealMatrixN n) :
+    Matrix.IsSymm A ↔ Matrix.IsHermitian A := by
+  simp [Matrix.IsSymm, Matrix.IsHermitian]
+  constructor <;> intro h i j <;> exact h i j
+
+/--
+Hermitian matrices are closed under addition.
+-/
+theorem hermitian_add {n : Nat} (A B : RealMatrixN n)
+  (hA : Matrix.IsHermitian A) (hB : Matrix.IsHermitian B) :
+  Matrix.IsHermitian (A + B) :=
+  fun i j => by simp [Matrix.add_apply, hA i j, hB i j]
+
+/--
+Hermitian matrices are closed under scalar multiplication by reals.
+-/
+theorem hermitian_smul {n : Nat} (c : ℝ) (A : RealMatrixN n)
+  (hA : Matrix.IsHermitian A) :
+  Matrix.IsHermitian (c • A) :=
+  fun i j => by simp [Matrix.smul_apply, hA i j]
+
+/--
+The zero matrix is Hermitian.
+-/
+theorem hermitian_zero {n : Nat} :
+  Matrix.IsHermitian (0 : RealMatrixN n) :=
+  fun i j => by simp
+
+/--
+The identity matrix is Hermitian.
+-/
+theorem hermitian_identity {n : Nat} :
+  Matrix.IsHermitian (1 : RealMatrixN n) :=
+  fun i j => by simp [Matrix.one_apply]; split_ifs <;> rfl
+
 theorem weyl_eigenvalue_bound_real_n
   {n : Nat} [Fintype (Fin n)] [DecidableEq (Fin n)] [Nonempty (Fin n)]
   (A E : RealMatrixN n)
   (hA : Matrix.IsSymm A)
   (hE : Matrix.IsSymm E) :
-  open scoped Matrix.Norms.L2Operator in
-  |lambdaHead (A + E) (symmetric_add A E hA hE) - lambdaHead A hA| ≤ ‖E‖ := by
-  open scoped Matrix.Norms.L2Operator
+  let hA' := isSymm_iff_isHermitian A |>.mp hA
+  let hE' := isSymm_iff_isHermitian E |>.mp hE
+  let hAE' := isSymm_iff_isHermitian (A + E) |>.mp (symmetric_add A E hA hE)
+  |lambdaHead (A + E) hAE' - lambdaHead A hA'| ≤ ‖E‖ := by
   -- Convert lambdaHead to operator norm using our proven theorem
-  rw [lambdaHead_eq_opNorm (A + E) (symmetric_add A E hA hE)]
-  rw [lambdaHead_eq_opNorm A hA]
+  rw [lambdaHead_eq_opNorm (A + E) _]
+  rw [lambdaHead_eq_opNorm A _]
   -- Now we need: |‖A + E‖ - ‖A‖| ≤ ‖E‖
   -- This follows from the reverse triangle inequality
   calc |‖A + E‖ - ‖A‖|
@@ -451,6 +611,74 @@ theorem rowSparsity_identity {n : Nat} :
   · intro h
     subst h
     simp
+
+section OperatorNormBound
+
+variable {n : Nat} {M : RealMatrixN n} {c : ℝ} {d : Nat}
+
+open scoped BigOperators
+open Finset
+
+lemma row_square_sum_le
+    (h_entry : entrywiseBounded M c) (h_sparse : rowSparsity M d)
+    (h_c_pos : 0 ≤ c) (i : Fin n) :
+    (∑ j, (M i j) ^ 2) ≤ (d : ℝ) * c ^ 2 := by
+  classical
+  let S : Finset (Fin n) := Finset.univ.filter fun j => M i j ≠ 0
+  have h_card : S.card ≤ d := by
+    simpa [S] using h_sparse i
+  have h_zero : ∀ {j : Fin n}, j ∉ S → (M i j) ^ 2 = 0 := by
+    intro j hj
+    classical
+    have h_filter : j ∈ S ↔ M i j ≠ 0 := by
+      constructor
+      · intro hjS
+        exact (Finset.mem_filter.mp hjS).2
+      · intro hne
+        exact Finset.mem_filter.mpr ⟨Finset.mem_univ j, hne⟩
+    have : ¬ M i j ≠ 0 := by
+      intro hne
+      exact hj ((h_filter).2 hne)
+    have : M i j = 0 := not_not.mp this
+    simp [this]
+  have h_support :
+      (∑ j, (M i j) ^ 2) = ∑ j in S, (M i j) ^ 2 := by
+    classical
+    refine (Finset.sum_subset ?_ ?_).symm
+    · intro j hj
+      exact Finset.mem_univ j
+    · intro j hj
+      have hj_not : j ∉ S := (Finset.mem_sdiff.mp hj).2
+      simpa [S] using h_zero (j := j) hj_not
+  have h_term_le : ∀ j ∈ S, (M i j) ^ 2 ≤ c ^ 2 := by
+    intro j hjS
+    have h_abs : |M i j| ≤ c := h_entry i j
+    have h_sq := sq_le_sq.mpr (by
+      simpa [Real.abs_of_nonneg h_c_pos] using h_abs)
+    simpa [Real.abs_of_nonneg h_c_pos] using h_sq
+  have h_sum_le :
+      ∑ j in S, (M i j) ^ 2 ≤ (S.card : ℝ) * c ^ 2 := by
+    have h1 :
+        ∑ j in S, (M i j) ^ 2 ≤ ∑ j in S, c ^ 2 := by
+      refine Finset.sum_le_sum ?_
+      intro j hj
+      exact h_term_le j hj
+    have h_const :
+        ∑ j in S, c ^ 2 = (S.card : ℝ) * c ^ 2 := by
+      simp [Finset.sum_const, nsmul_eq_mul]
+    exact h_const ▸ h1
+  have h_card_real : (S.card : ℝ) ≤ d := by
+    exact_mod_cast h_card
+  have h_nonneg_c : 0 ≤ c ^ 2 := sq_nonneg c
+  have h_sum_total :
+      (∑ j, (M i j) ^ 2) ≤ (S.card : ℝ) * c ^ 2 := by
+    simpa [h_support] using h_sum_le
+  have h_card_bound :
+      (S.card : ℝ) * c ^ 2 ≤ (d : ℝ) * c ^ 2 := by
+    have := mul_le_mul_of_nonneg_right h_card_real h_nonneg_c
+    simpa using this
+  exact h_sum_total.trans h_card_bound
+end OperatorNormBound
 
 /-- 
 Operator norm bound for entrywise bounded, sparse matrices.

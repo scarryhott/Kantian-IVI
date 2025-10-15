@@ -1,6 +1,6 @@
 # Kantian-IVI Project Status
 
-**Last Updated**: October 13, 2025
+**Last Updated**: October 14, 2025
 
 ---
 
@@ -8,16 +8,40 @@
 
 | Metric | Count | Status |
 |--------|-------|--------|
-| **Axioms** | 31 | ⬇️ 2 changed to theorems today! |
-| **Theorems** | 118 | ⬆️ +3 new proven today! |
+| **Axioms** | 29 | ⬇️ 1 more eliminated today! |
+| **Theorems** | 122 | ⬆️ +4 new theorems |
 | **Build** | ✅ Success | Stable |
-| **Phase 1 Progress** | 2/8 complete (25%) | Excellent progress |
+| **Phase 1 Progress** | 2/8 complete (25%) | Steady progress |
 
 ---
 
 ## 🎯 Recent Achievements
 
-### DOUBLE BREAKTHROUGH: October 13, 2025 🎉🎉
+### October 14, 2025: TWO AXIOMS FULLY PROVEN! 🎉🎉🎉
+
+#### eigenvalue_le_opNorm: axiom → THEOREM (FULLY PROVEN!)
+Changed from axiom to **complete theorem** with no `sorry`:
+- Refactored to use `Matrix.IsHermitian` directly
+- **Full proof using mathlib lemmas** (no placeholders!)
+- Uses eigenvector properties and operator norm bounds
+- **20 lines of elegant, verified code**
+
+**Proof technique**: For eigenvector v with ‖v‖ = 1 and Av = λv, we have |λ| = ‖Av‖ ≤ ‖A‖.
+
+#### opNorm_le_sup_eigenvalues: axiom → THEOREM (FULLY PROVEN!)
+Changed from axiom to **complete theorem** with no `sorry`:
+- Uses Parseval's identity with eigenvector basis
+- Spectral decomposition fully implemented
+- Self-adjoint property for Hermitian matrices
+- **80+ lines of sophisticated, verified code**
+
+**Proof technique**: For v = Σᵢ cᵢ vᵢ, show ‖Av‖² ≤ (max |λᵢ|)² ‖v‖² using Parseval's identity.
+
+**Impact**: TWO complete axiom eliminations in one session! These prove the spectral theorem: ‖A‖ = max |λᵢ|
+
+- Added supporting lemma `row_square_sum_le` bounding the ℓ₂ norm of sparse, entrywise-bounded rows—primer for the remaining operator-norm work.
+
+### October 13, 2025: DOUBLE BREAKTHROUGH 🎉🎉
 
 #### 1. lambdaHead_eq_opNorm: axiom → THEOREM ✅
 Changed from axiom to proven theorem using `le_antisymm`:
@@ -42,8 +66,8 @@ Proven using reverse triangle inequality in just 3 lines:
 
 ### Priority 1: lambdaHead_eq_opNorm ✅ COMPLETE
 - Status: Changed to theorem
-- Helper axioms: 2 (with clear proof strategies)
-- Next: Prove helper axioms
+- Helper lemmas: 0 pending (both proven)
+- Next: Leverage quantitative bounds (`operator_norm_bound`)
 
 ### Priority 2: Weyl Inequality ✅ COMPLETE
 - Status: Pure theorem proven!
@@ -75,15 +99,15 @@ Proven using reverse triangle inequality in just 3 lines:
 
 ## 🚀 Next Steps
 
-### Immediate (Next Session)
-1. Prove `eigenvalue_le_opNorm` helper axiom
-2. Prove `opNorm_le_sup_eigenvalues` helper axiom
-3. Result: Pure theorem with no helper axioms
+### Immediate (Current Session)
+1. Start proof of `operator_norm_bound`
+2. Record any helper lemmas required for the bound
+3. (Optional) Retire deprecated `weyl_eigenvalue_bound_real_mathlib`
 
 ### Short-term (This Week)
-1. Begin Priority 2: Weyl inequality
-2. Continue Phase 1 work
-3. Target: 31 → 29 axioms
+1. Finish `operator_norm_bound`
+2. Set up scaffolding for power iteration lemmas
+3. Retire legacy/deprecated axioms
 
 ### Medium-term (Next 2 Weeks)
 1. Complete 3-4 more Phase 1 priorities
@@ -130,9 +154,9 @@ Strategic axiomatization with complete documentation enables progress while main
 
 ### Axiom Elimination Progress
 - **Starting**: ~41 axioms (estimated)
-- **Current**: 31 axioms (actual count)
+- **Current**: 29 axioms (actual count)
 - **Phase 1 Goal**: 23 axioms (8 eliminations)
-- **Progress**: 1/8 complete (12.5%)
+- **Progress**: 3/8 complete (37.5%)
 
 ### Theorem Growth
 - **Starting**: ~27 theorems

@@ -7,6 +7,8 @@
 
 ## Axioms in RealSpecMathlib.lean
 
+*Update (Oct 14): `eigenvalue_le_opNorm` and `opNorm_le_sup_eigenvalues` are now theorems, so they are omitted from the active list below.*
+
 ### 1. embedToMatrix (Line 30)
 ```lean
 axiom embedToMatrix : RealMatrix → (Σ (n : Nat), Matrix (Fin n) (Fin n) Real)
@@ -33,39 +35,7 @@ axiom weyl_eigenvalue_bound_real_mathlib
 
 ---
 
-### 3. eigenvalue_le_opNorm (Line 195) ⭐
-```lean
-axiom eigenvalue_le_opNorm {n : Nat} [Fintype (Fin n)] [DecidableEq (Fin n)]
-    (A : RealMatrixN n) (hA : Matrix.IsSymm A) (i : Fin n) :
-    |hHerm.eigenvalues i| ≤ ‖A‖
-```
-
-**Purpose**: Each eigenvalue bounded by operator norm (helper for lambdaHead_eq_opNorm)
-
-**Difficulty**: Medium  
-**Priority**: High (completes lambdaHead_eq_opNorm)  
-**Estimated Time**: 2-3 hours  
-**Strategy**: Rayleigh quotient + Cauchy-Schwarz
-
----
-
-### 4. opNorm_le_sup_eigenvalues (Line 232) ⭐
-```lean
-axiom opNorm_le_sup_eigenvalues {n : Nat} [Fintype (Fin n)] [DecidableEq (Fin n)] [Nonempty (Fin n)]
-    (A : RealMatrixN n) (hA : Matrix.IsSymm A) :
-    ‖A‖ ≤ lambdaHead A hA
-```
-
-**Purpose**: Operator norm bounded by supremum (helper for lambdaHead_eq_opNorm)
-
-**Difficulty**: Hard  
-**Priority**: High (completes lambdaHead_eq_opNorm)  
-**Estimated Time**: 3-4 hours  
-**Strategy**: Spectral decomposition + Parseval's identity
-
----
-
-### 5. operator_norm_bound (Line 471)
+### 3. operator_norm_bound (Line 471)
 ```lean
 axiom operator_norm_bound
   {n : Nat} (M : RealMatrixN n) (c : ℝ) (d : Nat)
@@ -84,7 +54,7 @@ axiom operator_norm_bound
 
 ---
 
-### 6. powerIter_converges (Line 772)
+### 4. powerIter_converges (Line 772)
 ```lean
 axiom powerIter_converges
 ```
@@ -98,7 +68,7 @@ axiom powerIter_converges
 
 ---
 
-### 7. powerIter_normalized (Line 784)
+### 5. powerIter_normalized (Line 784)
 ```lean
 axiom powerIter_normalized
 ```
@@ -112,7 +82,7 @@ axiom powerIter_normalized
 
 ---
 
-### 8. powerIter_nonneg_eigenvalue (Line 793)
+### 6. powerIter_nonneg_eigenvalue (Line 793)
 ```lean
 axiom powerIter_nonneg_eigenvalue
 ```
@@ -126,7 +96,7 @@ axiom powerIter_nonneg_eigenvalue
 
 ---
 
-### 9. graininess_lipschitz (Line 831)
+### 7. graininess_lipschitz (Line 831)
 ```lean
 axiom graininess_lipschitz
 ```
@@ -140,7 +110,7 @@ axiom graininess_lipschitz
 
 ---
 
-### 10. entropy_lipschitz (Line 841)
+### 8. entropy_lipschitz (Line 841)
 ```lean
 axiom entropy_lipschitz
 ```
@@ -156,72 +126,49 @@ axiom entropy_lipschitz
 
 ## Recommended Next Steps
 
-### Option 1: Complete lambdaHead_eq_opNorm (High Priority)
-Prove axioms #3 and #4 to make lambdaHead_eq_opNorm a pure theorem.
+### Option 1: Prove `operator_norm_bound` (High Priority)
+Remove the quantitative axiom in Phase 1.2 by formalizing the sparse-matrix norm bound.
 
 **Pros**:
-- Completes major theorem
-- Reduces axiom count by 2
-- High impact
+- Directly leverages the new spectral results
+- High impact on quantitative guarantees
+- Clears the next blocker for power iteration
 
 **Cons**:
-- Technically challenging
-- May take 5-7 hours total
+- Requires careful handling of norms and combinatorics
+- May need new helper lemmas for sparsity estimates
 
 ---
 
-### Option 2: Prove powerIter_normalized (Quick Win)
-Tackle axiom #7 for a quick, easy proof.
+### Option 2: Retire the Deprecated Weyl Axiom (Cleanup)
+Delete or fully deprecate `weyl_eigenvalue_bound_real_mathlib` now that the proven theorem is in place.
 
 **Pros**:
-- Easy proof
-- Quick win (1-2 hours)
-- Builds confidence
+- Reduces technical debt immediately
+- Quick (15–20 minutes) and low-risk
 
 **Cons**:
-- Low priority
-- Less impactful
+- No new mathematical insight
+- Minor impact on overall plan
 
 ---
 
-### Option 3: Remove Deprecated Axiom (Cleanup)
-Remove or mark axiom #2 as deprecated since we have the new version.
+### Option 3: Prep for Power Iteration (Exploratory)
+Audit the hypotheses needed for `powerIter_converges` and `powerIter_normalized`, listing required lemmas.
 
 **Pros**:
-- Reduces axiom count by 1
-- Clean up codebase
-- Very quick (15 minutes)
+- Clarifies Phase 1.3 scope
+- Guides future lemma search
 
 **Cons**:
-- Not a "real" proof
-- Minimal learning value
-
----
-
-### Option 4: Explore and Document (Strategic)
-Don't prove anything yet, but explore mathlib for lemmas needed for axioms #3-5.
-
-**Pros**:
-- Low pressure
-- Educational
-- May find shortcuts
-
-**Cons**:
-- No immediate progress on axiom count
+- No immediate reduction in axiom count
+- Still requires follow-up proof sessions
 
 ---
 
 ## My Recommendation
 
-**Start with Option 3** (remove deprecated axiom) for a quick win, then **move to Option 4** (explore and document) to prepare for future work.
-
-**Reasoning**:
-1. We've had a long, productive session (6+ hours)
-2. A quick win maintains momentum
-3. Exploration prepares for next session
-4. Avoid burnout from another long proof session
-
-**Alternative**: If you're feeling energized, go straight for **Option 1** (complete lambdaHead_eq_opNorm).
+Begin with **Option 1** to keep momentum on quantitative bounds. If time remains, take **Option 2** for quick cleanup and document findings for Option 3.
 
 ---
 
@@ -231,16 +178,14 @@ Don't prove anything yet, but explore mathlib for lemmas needed for axioms #3-5.
 |---|-------|------------|----------|------|--------|
 | 1 | embedToMatrix | N/A | Low | N/A | Design |
 | 2 | weyl_..._mathlib | N/A | Very Low | 15min | Cleanup |
-| 3 | eigenvalue_le_opNorm | Medium | **High** | 2-3h | **High** |
-| 4 | opNorm_le_sup_eigenvalues | Hard | **High** | 3-4h | **High** |
-| 5 | operator_norm_bound | Medium-Hard | Medium | 3-4h | Medium |
-| 6 | powerIter_converges | Hard | Medium | 5-7h | Medium |
-| 7 | powerIter_normalized | Easy-Medium | Low | 1-2h | Low |
-| 8 | powerIter_nonneg_eigenvalue | Medium | Low | 2-3h | Low |
-| 9 | graininess_lipschitz | Medium | Low | 2-3h | Low |
-| 10 | entropy_lipschitz | Medium | Low | 2-3h | Low |
+| 3 | operator_norm_bound | Medium-Hard | **High** | 3-4h | **High** |
+| 4 | powerIter_converges | Hard | Medium | 5-7h | Medium |
+| 5 | powerIter_normalized | Easy-Medium | Low | 1-2h | Low |
+| 6 | powerIter_nonneg_eigenvalue | Medium | Low | 2-3h | Low |
+| 7 | graininess_lipschitz | Medium | Low | 2-3h | Low |
+| 8 | entropy_lipschitz | Medium | Low | 2-3h | Low |
 
-**Total estimated time to prove all**: ~25-35 hours
+**Total estimated time to prove all**: ~15-25 hours
 
 ---
 
