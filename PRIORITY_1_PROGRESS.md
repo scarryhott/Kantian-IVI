@@ -8,11 +8,12 @@
 
 ## Achievements
 
-- Proved both helper lemmas:
+- Proved all helper lemmas:
   - `eigenvalue_le_opNorm`
   - `opNorm_le_sup_eigenvalues`
+  - `operator_norm_bound` (quantitative bound via `mulVec_norm_sq_le`)
 - Upgraded `lambdaHead_eq_opNorm` from axiom-backed skeleton to complete theorem.
-- Used the result to certify `weyl_eigenvalue_bound_real_n`.
+- Used the results to certify `weyl_eigenvalue_bound_real_n` and remove the operator-norm axiom.
 - Updated documentation and comments to reflect the new status.
 
 **Build**: `lake build` passes (only benign lint warnings).
@@ -29,11 +30,9 @@
 
 ## Next Focus
 
-1. Prove `operator_norm_bound` (quantitative estimate for sparse matrices).
-2. Continue eliminating Phase 1 axioms (power iteration + Lipschitz properties).
-3. Document how the new spectral results integrate with runtime guarantees.
-
-See `NEXT_WORK.md` for the detailed plan on `operator_norm_bound`.
+1. Begin Phase 1.3 by formalizing power iteration (convergence + normalization lemmas).
+2. Prepare for Phase 1.4 Lipschitz properties once power iteration is settled.
+3. Document how the spectral results integrate with runtime guarantees (`NEXT_WORK.md`).
 
 ---
 

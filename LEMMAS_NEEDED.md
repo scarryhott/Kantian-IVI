@@ -1,57 +1,56 @@
-# Lemmas Needed — `operator_norm_bound`
+# Lemmas Needed — Power Iteration
 
-**Goal**: Prove the axiom
-
-```lean
-operator_norm_bound
-  {n : Nat} (M : RealMatrixN n) (c : ℝ) (d : Nat)
-  (h_entry : entrywiseBounded M c)
-  (h_sparse : rowSparsity M d)
-  (h_c_pos : c ≥ 0) :
-  ∃ norm_M, norm_M ≤ c * Real.sqrt (n * d)
-```
+**Target theorem**: `powerIter_converges`  
+**Context**: real symmetric matrices (`Matrix.IsHermitian`) with spectral gap.
 
 ---
 
-## Key Ingredients
+## Pending Lemmas
 
-1. **Row-level ℓ₂ bound** ✅ *Done — see `row_square_sum_le`*
+1. **Eigenbasis Expansion Bound**
    ```lean
-   lemma row_square_sum_le
-       (h_entry : entrywiseBounded M c) (h_sparse : rowSparsity M d)
-       (h_c_pos : 0 ≤ c) (i : Fin n) :
-       (∑ j, (M i j) ^ 2) ≤ (d : ℝ) * c ^ 2
+   lemma eigenbasis_coeff_decay
+       {λ₁ : ℝ} (gap : ∀ i ≠ i₀, |λᵢ| ≤ r) :
+       |⟪eigen i, (M^k) • v⟫| ≤ |λᵢ|^k * C
    ```
-   - Converts sparsity into a bound on the squared ℓ₂ norm of each row.
-   - Proof strategy: restrict to the non-zero support, bound each term by `c²`,
-     and apply the cardinality inequality from `rowSparsity`.
+   - Needed to quantify the decay of non-dominant components.
+   - Requires expressing iterates in the Hermitian eigenbasis.
 
-2. **Cauchy-Schwarz per row**
+2. **Normalization Control**
    ```lean
-   have : ‖(Matrix.toEuclideanCLM M) v‖^2
-        = ∑ i, ‖⟪row i, v⟫‖^2
+   lemma normalize_iterate_bound
+       (hk : ‖(Matrix.toEuclideanCLM M)^k v‖ ≠ 0) :
+       ‖normalize ((Matrix.toEuclideanCLM M)^k v) - dominantVec‖ ≤ …
    ```
-   - Follows from Parseval/orthonormality of standard basis.
-   - Each inner product bounded by `‖row i‖ * ‖v‖`.
+   - Ensures each step of normalized iteration is well-defined and bounded.
 
-3. **Global inequality**
+3. **Spectral-Gap Inequality**
    ```lean
-   ‖M v‖ ≤ c * Real.sqrt (n * d) * ‖v‖
+   lemma spectral_gap_ratio
+       (gap : |λ₂| ≤ r * |λ₁|) :
+       |λ₂ / λ₁|^k ≤ r^k
    ```
-   - After squaring & summing, use `Finset.sum_le_sum`.
+   - Formalizes geometric decay relative to the dominant eigenvalue.
 
-4. **Operator norm packaging**
-   - Apply `ContinuousLinearMap.opNorm_le_bound`.
-   - Witness chosen as `‖M‖`.
+4. **Iterated Action in Eigenbasis**
+   ```lean
+   lemma iterate_in_eigenbasis
+       (v : EuclideanSpace ℝ (Fin n)) :
+       (Matrix.toEuclideanCLM M)^[k] v =
+         ∑ i, (λᵢ ^ k * ⟪eigen i, v⟫) • eigen i
+   ```
+   - Converts repeated application of `M` into scalar powers in the orthonormal basis.
+
+5. **Normalization Continuity**
+   ```lean
+   lemma normalize_lim {x : ℕ → E} (hx : x ⟶ x₀) (h≠0 : x₀ ≠ 0) :
+       normalize (x n) ⟶ normalize x₀
+   ```
+   - Needed to conclude convergence of the normalized iteration.
 
 ---
 
-## Lemmas To Search / Prove
+## Notes
 
-- `Finset.card_filter_le` to bound the number of non-zero entries.
-- Conversion between `rowSparsity` hypothesis and `Finset` statements.
-- `Matrix.toEuclideanCLM` properties (unit vectors as orthonormal basis).
-- `Real.sqrt_mul`, `Real.sqrt_natCast`.
-- Any existing mathlib lemma bounding norms of sparse vectors (if available).
-
-If a lemma is not in mathlib, sketch it locally with comments so it can later be generalized or upstreamed.
+- Many pieces may exist in mathlib; confirm before proving from scratch.
+- Track discovered lemmas in `explore_power_iter.lean` before moving them into `IVI/RealSpecMathlib.lean`.

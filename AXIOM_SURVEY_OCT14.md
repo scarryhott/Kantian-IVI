@@ -7,18 +7,16 @@
 
 ## 📊 Axiom Categories
 
-### Category 1: Spectral Theory (RealSpecMathlib) - 10 axioms
-**Status**: Explored, documented, deferred
+### Category 1: Spectral Theory (RealSpecMathlib) - 7 axioms
+**Status**: Core helper axioms eliminated; power iteration remains
 
-- `eigenvalue_le_opNorm` - Needs eigenvector properties
-- `opNorm_le_sup_eigenvalues` - Needs spectral decomposition
-- `operator_norm_bound` - Needs Cauchy-Schwarz analysis
-- `powerIter_*` - Needs convergence analysis
-- Others...
+- `powerIter_*` — convergence, normalization, Perron-Frobenius style lemmas
+- Residual structural bridge (`embedToMatrix`)
+- Runtime Lipschitz bounds (Phase 1.4 follow-up)
 
 **Difficulty**: Medium to Hard  
 **Time**: 2-7 hours each  
-**Decision**: Documented in HELPER_AXIOMS_STATUS.md, defer for now
+**Decision**: Focus next on power iteration; other items can follow
 
 ---
 

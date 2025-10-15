@@ -76,11 +76,11 @@
 - **Impact**: Quick axiom reduction
 - **Learning**: Direct calculation practice
 
-### Option B: Useful Bound - operator_norm_bound
-- **Difficulty**: Medium-Hard
-- **Time**: 3-4 hours
-- **Impact**: Runtime bounds for IVI
-- **Learning**: Cauchy-Schwarz application
+### Option B: Power Iteration (Phase 1.3)
+- **Difficulty**: Hard
+- **Time**: 5-7 hours (likely multi-session)
+- **Impact**: Eliminates three related axioms
+- **Learning**: Spectral gap + convergence techniques
 
 ### Option C: Explore Other Files
 - Look at other axioms in the codebase

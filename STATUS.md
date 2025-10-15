@@ -8,16 +8,16 @@
 
 | Metric | Count | Status |
 |--------|-------|--------|
-| **Axioms** | 29 | ⬇️ 1 more eliminated today! |
-| **Theorems** | 122 | ⬆️ +4 new theorems |
+| **Axioms** | 28 | ⬇️ `operator_norm_bound` eliminated! |
+| **Theorems** | 123 | ⬆️ +5 new theorems |
 | **Build** | ✅ Success | Stable |
-| **Phase 1 Progress** | 2/8 complete (25%) | Steady progress |
+| **Phase 1 Progress** | 3/8 complete (37.5%) | On schedule |
 
 ---
 
 ## 🎯 Recent Achievements
 
-### October 14, 2025: TWO AXIOMS FULLY PROVEN! 🎉🎉🎉
+### October 14, 2025: OPERATOR NORM & HELPER AXIOMS 🎉🎉🎉
 
 #### eigenvalue_le_opNorm: axiom → THEOREM (FULLY PROVEN!)
 Changed from axiom to **complete theorem** with no `sorry`:
@@ -39,7 +39,12 @@ Changed from axiom to **complete theorem** with no `sorry`:
 
 **Impact**: TWO complete axiom eliminations in one session! These prove the spectral theorem: ‖A‖ = max |λᵢ|
 
-- Added supporting lemma `row_square_sum_le` bounding the ℓ₂ norm of sparse, entrywise-bounded rows—primer for the remaining operator-norm work.
+- Added supporting lemma `row_square_sum_le` bounding the ℓ₂ norm of sparse, entrywise-bounded rows.
+- Proved the global inequality `mulVec_norm_sq_le`, delivering the Cauchy–Schwarz bound for sparse matrices.
+- **operator_norm_bound**: axiom → **THEOREM** (FULLY PROVEN!)  
+  - Applied `ContinuousLinearMap.opNorm_le_bound` with the new global estimate  
+  - Witnessed the existential statement via `‖M‖`  
+  - `c * √(n d)` bound now formalized with no `sorry`
 
 ### October 13, 2025: DOUBLE BREAKTHROUGH 🎉🎉
 
@@ -65,9 +70,9 @@ Proven using reverse triangle inequality in just 3 lines:
 **Goal**: Eliminate 8 temporary axioms from real spectral mathematics
 
 ### Priority 1: lambdaHead_eq_opNorm ✅ COMPLETE
-- Status: Changed to theorem
-- Helper lemmas: 0 pending (both proven)
-- Next: Leverage quantitative bounds (`operator_norm_bound`)
+- Status: Main theorem and all helper lemmas proven
+- Quantitative bound (`operator_norm_bound`) also discharged
+- Next: Shift momentum to Phase 1.3 (power iteration)
 
 ### Priority 2: Weyl Inequality ✅ COMPLETE
 - Status: Pure theorem proven!
@@ -76,10 +81,9 @@ Proven using reverse triangle inequality in just 3 lines:
 - Next: Move to Priority 3
 
 ### Priorities 3-8: ⏳ TODO
-- Power iteration convergence
-- Operator norm bounds
-- Lipschitz continuity
-- Other spectral properties
+- **Power iteration** (`powerIter_converges`, `powerIter_normalized`, `powerIter_nonneg_eigenvalue`)
+- Lipschitz continuity for graininess / entropy (Phase 1.4)
+- Structural bridge `embedToMatrix` (low priority)
 
 ---
 
@@ -100,19 +104,19 @@ Proven using reverse triangle inequality in just 3 lines:
 ## 🚀 Next Steps
 
 ### Immediate (Current Session)
-1. Start proof of `operator_norm_bound`
-2. Record any helper lemmas required for the bound
-3. (Optional) Retire deprecated `weyl_eigenvalue_bound_real_mathlib`
+1. Survey mathlib support for power iteration and spectral gaps
+2. Define the normalized iteration step inside `IVI/RealSpecMathlib`
+3. Capture missing helper lemmas (document in `LEMMAS_NEEDED.md`)
 
 ### Short-term (This Week)
-1. Finish `operator_norm_bound`
-2. Set up scaffolding for power iteration lemmas
-3. Retire legacy/deprecated axioms
+1. Prove `powerIter_converges`
+2. Follow with `powerIter_normalized` / `powerIter_nonneg_eigenvalue`
+3. Retire the deprecated `weyl_eigenvalue_bound_real_mathlib`
 
 ### Medium-term (Next 2 Weeks)
-1. Complete 3-4 more Phase 1 priorities
-2. Target: 31 → 23 axioms
-3. Document progress
+1. Complete Phase 1.3 and Phase 1.4 axioms
+2. Target: 28 → 23 axioms
+3. Document integration with Phase 2 runtime goals
 
 ---
 
@@ -154,14 +158,14 @@ Strategic axiomatization with complete documentation enables progress while main
 
 ### Axiom Elimination Progress
 - **Starting**: ~41 axioms (estimated)
-- **Current**: 29 axioms (actual count)
+- **Current**: 28 axioms (actual count)
 - **Phase 1 Goal**: 23 axioms (8 eliminations)
 - **Progress**: 3/8 complete (37.5%)
 
 ### Theorem Growth
 - **Starting**: ~27 theorems
-- **Current**: 115 theorems
-- **Growth**: +88 theorems (mostly existing, now counted correctly)
+- **Current**: 123 theorems
+- **Growth**: +96 theorems (mostly existing, now counted correctly)
 
 ---
 

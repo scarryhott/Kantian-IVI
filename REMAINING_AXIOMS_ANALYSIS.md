@@ -1,7 +1,7 @@
 # Remaining Axioms Analysis
 
-**Date**: October 13, 2025 (Evening Session)  
-**Current Axiom Count**: 30
+**Date**: October 14, 2025 (Evening Session)  
+**Current Axiom Count**: 28
 
 ---
 
@@ -35,26 +35,7 @@ axiom weyl_eigenvalue_bound_real_mathlib
 
 ---
 
-### 3. operator_norm_bound (Line 471)
-```lean
-axiom operator_norm_bound
-  {n : Nat} (M : RealMatrixN n) (c : ℝ) (d : Nat)
-  (h_entry : entrywiseBounded M c)
-  (h_sparse : rowSparsity M d)
-  (h_c_pos : c ≥ 0) :
-  ∃ (norm_M : ℝ), norm_M ≤ c * Real.sqrt (n * d)
-```
-
-**Purpose**: Concrete bound on operator norm for sparse, bounded matrices
-
-**Difficulty**: Medium-Hard  
-**Priority**: Medium (useful for runtime bounds)  
-**Estimated Time**: 3-4 hours  
-**Strategy**: Use Cauchy-Schwarz and row-by-row analysis
-
----
-
-### 4. powerIter_converges (Line 772)
+### 3. powerIter_converges (Line 772)
 ```lean
 axiom powerIter_converges
 ```
@@ -68,7 +49,7 @@ axiom powerIter_converges
 
 ---
 
-### 5. powerIter_normalized (Line 784)
+### 4. powerIter_normalized (Line 784)
 ```lean
 axiom powerIter_normalized
 ```
@@ -82,7 +63,7 @@ axiom powerIter_normalized
 
 ---
 
-### 6. powerIter_nonneg_eigenvalue (Line 793)
+### 5. powerIter_nonneg_eigenvalue (Line 793)
 ```lean
 axiom powerIter_nonneg_eigenvalue
 ```
@@ -96,7 +77,7 @@ axiom powerIter_nonneg_eigenvalue
 
 ---
 
-### 7. graininess_lipschitz (Line 831)
+### 6. graininess_lipschitz (Line 831)
 ```lean
 axiom graininess_lipschitz
 ```
@@ -110,7 +91,7 @@ axiom graininess_lipschitz
 
 ---
 
-### 8. entropy_lipschitz (Line 841)
+### 7. entropy_lipschitz (Line 841)
 ```lean
 axiom entropy_lipschitz
 ```
@@ -126,21 +107,7 @@ axiom entropy_lipschitz
 
 ## Recommended Next Steps
 
-### Option 1: Prove `operator_norm_bound` (High Priority)
-Remove the quantitative axiom in Phase 1.2 by formalizing the sparse-matrix norm bound.
-
-**Pros**:
-- Directly leverages the new spectral results
-- High impact on quantitative guarantees
-- Clears the next blocker for power iteration
-
-**Cons**:
-- Requires careful handling of norms and combinatorics
-- May need new helper lemmas for sparsity estimates
-
----
-
-### Option 2: Retire the Deprecated Weyl Axiom (Cleanup)
+### Option 1: Retire the Deprecated Weyl Axiom (Cleanup)
 Delete or fully deprecate `weyl_eigenvalue_bound_real_mathlib` now that the proven theorem is in place.
 
 **Pros**:
@@ -153,7 +120,7 @@ Delete or fully deprecate `weyl_eigenvalue_bound_real_mathlib` now that the prov
 
 ---
 
-### Option 3: Prep for Power Iteration (Exploratory)
+### Option 2: Prep for Power Iteration (Exploratory)
 Audit the hypotheses needed for `powerIter_converges` and `powerIter_normalized`, listing required lemmas.
 
 **Pros**:
@@ -168,7 +135,7 @@ Audit the hypotheses needed for `powerIter_converges` and `powerIter_normalized`
 
 ## My Recommendation
 
-Begin with **Option 1** to keep momentum on quantitative bounds. If time remains, take **Option 2** for quick cleanup and document findings for Option 3.
+Start with **Option 2**: gather the lemmas required for power iteration and draft the iteration definition. Use any spare time for the cleanup task (Option 1).
 
 ---
 
@@ -178,14 +145,13 @@ Begin with **Option 1** to keep momentum on quantitative bounds. If time remains
 |---|-------|------------|----------|------|--------|
 | 1 | embedToMatrix | N/A | Low | N/A | Design |
 | 2 | weyl_..._mathlib | N/A | Very Low | 15min | Cleanup |
-| 3 | operator_norm_bound | Medium-Hard | **High** | 3-4h | **High** |
-| 4 | powerIter_converges | Hard | Medium | 5-7h | Medium |
-| 5 | powerIter_normalized | Easy-Medium | Low | 1-2h | Low |
-| 6 | powerIter_nonneg_eigenvalue | Medium | Low | 2-3h | Low |
-| 7 | graininess_lipschitz | Medium | Low | 2-3h | Low |
-| 8 | entropy_lipschitz | Medium | Low | 2-3h | Low |
+| 3 | powerIter_converges | Hard | **High** | 5-7h | **High** |
+| 4 | powerIter_normalized | Easy-Medium | Medium | 1-2h | Medium |
+| 5 | powerIter_nonneg_eigenvalue | Medium | Medium | 2-3h | Medium |
+| 6 | graininess_lipschitz | Medium | Low | 2-3h | Low |
+| 7 | entropy_lipschitz | Medium | Low | 2-3h | Low |
 
-**Total estimated time to prove all**: ~15-25 hours
+**Total estimated time to prove all**: ~12-20 hours
 
 ---
 

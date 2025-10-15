@@ -1,7 +1,7 @@
-# Next Session Kickoff — October 14, 2025
+# Next Session Kickoff — October 15, 2025
 
-**Last Session**: Completed proofs of `eigenvalue_le_opNorm` and `opNorm_le_sup_eigenvalues`.  
-**Current Focus**: Shift from spectral equivalence to quantitative bounds.
+**Last Session**: Eliminated `operator_norm_bound` and finished all helper lemmas for `lambdaHead_eq_opNorm`.  
+**Current Focus**: Launch Phase 1.3 — power iteration convergence.
 
 ---
 
@@ -9,74 +9,59 @@
 
 | Metric | Value |
 |--------|-------|
-| Axioms | 29 |
-| Theorems | 122 |
+| Axioms | 28 |
+| Theorems | 123 |
 | Build | ✅ |
-| Phase 1 Progress | 3 / 8 milestones underway |
+| Phase 1 Progress | 3 / 8 milestones complete |
 
 ---
 
 ## Primary Objective
 
-**Prove `operator_norm_bound`** in `IVI/RealSpecMathlib.lean`:
-
-> Sparse (`rowSparsity M d`) and entrywise-bounded (`entrywiseBounded M c`) matrices have operator norm ≤ `c √(n * d)`.
-
-This removes the remaining high-impact axiom in the spectral-norm section and supports later runtime guarantees.
+Define the normalized power-iteration step and gather the lemmas needed to prove `powerIter_converges`.
 
 ---
 
-## Session Plan
+## Agenda
 
-1. **Understand Definitions**  
-   - Expand `entrywiseBounded` and `rowSparsity`.  
-   - Identify existing lemmas (search `rg "rowSparsity"`).
+1. **Survey mathlib tools**  
+   - Eigenbasis manipulation for Hermitian matrices  
+   - Convergence lemmas for sequences of vectors  
+   - Normalization helpers (`normalize`, `WithLp`)  
 
-2. **Derive Row Norm Bound**  
-   - Lemma goal: `‖row i‖₂ ≤ c * √d`.  
-   - Use cardinality bound + Cauchy-Schwarz.
+2. **Define the iteration**  
+   - Implement `powerIterStep M v := normalize (Matrix.toEuclideanCLM M v)` (with safeguards for zero vectors)  
+   - Set up iterates via `Nat.iterate` or explicit recursion  
 
-3. **Bound `‖M v‖` Globally**  
-   - Apply row bounds and sum of squares.  
-   - Conclude `‖M v‖ ≤ c * √(n * d) * ‖v‖`.
+3. **Document missing lemmas**  
+   - Geometric decay for non-dominant eigencomponents  
+   - Continuity of normalization  
+   - Any needed spectral-gap inequalities  
 
-4. **Wrap Up**  
-   - Instantiate witness `norm_M := ‖M‖`.  
-   - Provide inequality using `ContinuousLinearMap.opNorm_le_bound`.
-
-5. **Verify & Document**  
-   - Run `lake build IVI.RealSpecMathlib`.  
-   - Update `STATUS.md`, `NEXT_WORK.md` if complete.  
-   - Record blocking lemmas if not finished.
+4. **Update project trackers**  
+   - `LEMMAS_NEEDED.md` for pending lemmas  
+   - `PRIORITY_1_PROGRESS.md` / session notes with findings  
 
 ---
 
-## Backup Tasks (if main goal finishes early)
+## Backup Tasks (if time remains)
 
-1. Remove deprecated `weyl_eigenvalue_bound_real_mathlib`.  
-2. Draft lemma list for `powerIter_converges`.  
-3. Update `LEMMAS_NEEDED.md` with any gaps discovered.
+1. Retire `weyl_eigenvalue_bound_real_mathlib` (legacy axiom).  
+2. Outline `powerIter_normalized` and `powerIter_nonneg_eigenvalue`.  
+3. Sketch how power iteration feeds into Phase 2 runtime analysis.
 
 ---
 
 ## Useful Commands
 
 ```bash
-# Focused build
-lake build IVI.RealSpecMathlib
+# Build entire project
+lake build
 
-# Search for sparsity lemmas
-rg "rowSparsity" -n
+# Search existing power-iteration references
+rg "powerIter" -n IVI
 
-# Inspect definitions in Lean
-#check entrywiseBounded
-#check rowSparsity
+# Inspect core lemmas
+#check Matrix.toEuclideanCLM
+#check OrthonormalBasis
 ```
-
----
-
-## References
-
-- `NEXT_WORK.md` — detailed plan for the operator norm bound.  
-- `REMAINING_AXIOMS_ANALYSIS.md` — updated priority list.  
-- `PRIORITY_1_PROGRESS.md` — summary of completed spectral work.

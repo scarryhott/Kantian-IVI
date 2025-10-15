@@ -678,32 +678,149 @@ lemma row_square_sum_le
     have := mul_le_mul_of_nonneg_right h_card_real h_nonneg_c
     simpa using this
   exact h_sum_total.trans h_card_bound
+
+lemma mulVec_norm_sq_le
+    (h_entry : entrywiseBounded M c) (h_sparse : rowSparsity M d)
+    (h_c_pos : 0 ≤ c) (v : EuclideanSpace ℝ (Fin n)) :
+    ‖(Matrix.toEuclideanCLM (n := Fin n) (𝕜 := ℝ) M) v‖ ^ 2
+      ≤ (n : ℝ) * (d : ℝ) * c ^ 2 * ‖v‖ ^ 2 := by
+  classical
+  set vFun : Fin n → ℝ := WithLp.ofLp (p := 2) v
+  set MvFun : Fin n → ℝ := Matrix.mulVec M vFun
+  have hMv :
+      Matrix.toEuclideanCLM (n := Fin n) (𝕜 := ℝ) M v =
+        WithLp.toLp (p := 2) MvFun := by
+    simpa [vFun, MvFun] using
+      (Matrix.toEuclideanCLM_toLp (n := Fin n) (𝕜 := ℝ) M vFun)
+  have h_norm_sq :
+      ‖(Matrix.toEuclideanCLM (n := Fin n) (𝕜 := ℝ) M) v‖ ^ 2 =
+        ∑ i, |MvFun i| ^ 2 := by
+    have :=
+      PiLp.norm_sq_eq_of_L2 (β := fun _ : Fin n => ℝ)
+        (Matrix.toEuclideanCLM (n := Fin n) (𝕜 := ℝ) M v)
+    simpa [hMv, MvFun, Real.norm_eq_abs] using this
+  have h_row_bound :
+      ∀ i : Fin n, (∑ j, (M i j) ^ 2) ≤ (d : ℝ) * c ^ 2 :=
+    row_square_sum_le (M := M) (c := c) (d := d) h_entry h_sparse h_c_pos
+  have h_each :
+      ∀ i : Fin n,
+        |MvFun i| ^ 2 ≤ (d : ℝ) * c ^ 2 * ‖v‖ ^ 2 := by
+    intro i
+    let rowVec : EuclideanSpace ℝ (Fin n) :=
+      WithLp.toLp (p := 2) fun j => M i j
+    have h_inner :
+        ⟪rowVec, v⟫ = (Matrix.mulVec M vFun) i := by
+      simp [rowVec, vFun, Matrix.mulVec, Matrix.dotProduct]
+    have h_abs :
+        |MvFun i| ≤ ‖rowVec‖ * ‖v‖ := by
+      simpa [MvFun, h_inner, Real.norm_eq_abs] using
+        (abs_inner_le_norm (x := rowVec) (y := v))
+    have h_abs' :
+        |MvFun i| ≤ |‖rowVec‖ * ‖v‖| := by
+      simpa [MvFun, h_inner, Real.norm_eq_abs, Real.abs_mul, abs_norm,
+        abs_of_nonneg (norm_nonneg _), abs_of_nonneg (norm_nonneg _)] using h_abs
+    have h_abs_sq :
+        |MvFun i| ^ 2 ≤ (‖rowVec‖ * ‖v‖) ^ 2 := by
+      simpa [sq_abs] using (sq_le_sq.mpr h_abs')
+    have h_row_norm_sq :
+        ‖rowVec‖ ^ 2 = ∑ j, (M i j) ^ 2 := by
+      have :=
+        PiLp.norm_sq_eq_of_L2 (β := fun _ : Fin n => ℝ) rowVec
+      simpa [rowVec] using this
+    have h_row_norm_le :
+        ‖rowVec‖ ^ 2 ≤ (d : ℝ) * c ^ 2 :=
+      by simpa [h_row_norm_sq] using h_row_bound i
+    have h_rhs :
+        (‖rowVec‖ * ‖v‖) ^ 2 ≤ (d : ℝ) * c ^ 2 * ‖v‖ ^ 2 := by
+      have h_nonneg : 0 ≤ ‖v‖ ^ 2 := sq_nonneg _
+      have :=
+        mul_le_mul_of_nonneg_right h_row_norm_le h_nonneg
+      simpa [pow_two, mul_comm, mul_left_comm, mul_assoc] using this
+    exact h_abs_sq.trans h_rhs
+  have h_sum :
+      ∑ i, |MvFun i| ^ 2 ≤ ∑ i, (d : ℝ) * c ^ 2 * ‖v‖ ^ 2 :=
+    Finset.sum_le_sum fun i _ => h_each i
+  have h_sum_const :
+      ∑ i, (d : ℝ) * c ^ 2 * ‖v‖ ^ 2 =
+        (n : ℝ) * (d : ℝ) * c ^ 2 * ‖v‖ ^ 2 := by
+    simp [Finset.sum_const, nsmul_eq_mul, Fintype.card_fin,
+      mul_comm, mul_left_comm, mul_assoc]
+  calc
+    ‖Matrix.toEuclideanCLM (n := Fin n) (𝕜 := ℝ) M v‖ ^ 2
+        = ∑ i, |MvFun i| ^ 2 := h_norm_sq
+    _ ≤ ∑ i, (d : ℝ) * c ^ 2 * ‖v‖ ^ 2 := h_sum
+    _ = (n : ℝ) * (d : ℝ) * c ^ 2 * ‖v‖ ^ 2 := h_sum_const
+
+open scoped Matrix.Norms.L2Operator
+
+lemma opNorm_le_bound_matrix
+    (h_entry : entrywiseBounded M c) (h_sparse : rowSparsity M d)
+    (h_c_pos : 0 ≤ c) :
+    ‖Matrix.toEuclideanCLM (n := Fin n) (𝕜 := ℝ) M‖
+      ≤ Real.sqrt ((n : ℝ) * (d : ℝ)) * c := by
+  classical
+  have hC_nonneg : 0 ≤ Real.sqrt ((n : ℝ) * (d : ℝ)) * c := by
+    have h₀ : 0 ≤ Real.sqrt ((n : ℝ) * (d : ℝ)) := Real.sqrt_nonneg _
+    exact mul_nonneg h₀ h_c_pos
+  have h_bound :
+      ∀ v : EuclideanSpace ℝ (Fin n),
+        ‖(Matrix.toEuclideanCLM (n := Fin n) (𝕜 := ℝ) M) v‖
+          ≤ (Real.sqrt ((n : ℝ) * (d : ℝ)) * c) * ‖v‖ := by
+    intro v
+    have h_sq :=
+      mulVec_norm_sq_le (M := M) (c := c) (d := d) h_entry h_sparse h_c_pos v
+    have h_const_sq :
+        ((Real.sqrt ((n : ℝ) * (d : ℝ)) * c) * ‖v‖) ^ 2
+          = (n : ℝ) * (d : ℝ) * c ^ 2 * ‖v‖ ^ 2 := by
+      have hα : 0 ≤ (n : ℝ) * (d : ℝ) := by positivity
+      simp [pow_two, mul_comm, mul_left_comm, mul_assoc,
+        Real.mul_self_sqrt hα] at *
+    have h_sq' :
+        ‖(Matrix.toEuclideanCLM (n := Fin n) (𝕜 := ℝ) M) v‖ ^ 2
+          ≤ ((Real.sqrt ((n : ℝ) * (d : ℝ)) * c) * ‖v‖) ^ 2 := by
+      simpa [h_const_sq, pow_two] using h_sq
+    have h_lhs_nonneg :
+        0 ≤ ‖(Matrix.toEuclideanCLM (n := Fin n) (𝕜 := ℝ) M) v‖ :=
+      norm_nonneg _
+    have h_rhs_nonneg :
+        0 ≤ (Real.sqrt ((n : ℝ) * (d : ℝ)) * c) * ‖v‖ := by
+      have h₁ : 0 ≤ ‖v‖ := norm_nonneg _
+      exact mul_nonneg hC_nonneg h₁
+    have h_abs :=
+      sq_le_sq.mp h_sq'
+    simpa [abs_of_nonneg h_lhs_nonneg, abs_of_nonneg h_rhs_nonneg]
+      using h_abs
+  have h_op :
+      ‖Matrix.toEuclideanCLM (n := Fin n) (𝕜 := ℝ) M‖
+        ≤ Real.sqrt ((n : ℝ) * (d : ℝ)) * c :=
+    ContinuousLinearMap.opNorm_le_bound _ hC_nonneg h_bound
+  have h_norm :
+      ‖M‖ = ‖Matrix.toEuclideanCLM (n := Fin n) (𝕜 := ℝ) M‖ :=
+    (Matrix.cstar_norm_def (A := M)).symm
+  simpa [h_norm] using h_op
+
+theorem operator_norm_bound
+    {n : Nat} (M : RealMatrixN n) (c : ℝ) (d : Nat)
+    (h_entry : entrywiseBounded M c)
+    (h_sparse : rowSparsity M d)
+    (h_c_pos : c ≥ 0) :
+    ∃ norm_M : ℝ, norm_M ≤ c * Real.sqrt (n * d) := by
+  classical
+  refine ⟨‖M‖, ?_⟩
+  have h :=
+    opNorm_le_bound_matrix (M := M) (c := c) (d := d) h_entry h_sparse h_c_pos
+  have h_cast :
+      Real.sqrt ((n : ℝ) * (d : ℝ)) * c
+        = c * Real.sqrt ((n * d : ℝ)) := by
+    have : ((n : ℝ) * (d : ℝ)) = (n * d : ℝ) := by
+      norm_cast
+    simp [this, mul_comm, mul_left_comm, mul_assoc]
+  have h_goal :
+      ‖M‖ ≤ Real.sqrt ((n : ℝ) * (d : ℝ)) * c := by
+    simpa using h
+  simpa [h_cast, Nat.cast_mul, mul_comm] using h_goal
+
 end OperatorNormBound
-
-/-- 
-Operator norm bound for entrywise bounded, sparse matrices.
-
-For a matrix M with |M i j| ≤ c and at most d non-zero entries per row,
-the operator norm satisfies ‖M‖ ≤ c√(nd).
-
-This is a standard result in matrix analysis. The proof uses the fact that
-for any vector v with ‖v‖ = 1, we have:
-  ‖Mv‖² ≤ Σᵢ (Σⱼ |M i j| |v j|)²
-        ≤ Σᵢ (c·√d·‖v‖)²  (by Cauchy-Schwarz and sparsity)
-        ≤ n·c²·d
-
-Thus ‖M‖ ≤ c√(nd).
-
-For now, we axiomatize pending full mathlib matrix norm infrastructure.
-
-TODO: Prove using Cauchy-Schwarz and direct norm calculation once norms available.
--/
-axiom operator_norm_bound
-  {n : Nat} (M : RealMatrixN n) (c : ℝ) (d : Nat)
-  (h_entry : entrywiseBounded M c)
-  (h_sparse : rowSparsity M d)
-  (h_c_pos : c ≥ 0) :
-  ∃ (norm_M : ℝ), norm_M ≤ c * Real.sqrt (n * d)
 
 /-!
 ### Application to IVI Runtime Matrices
