@@ -751,6 +751,72 @@ lemma mulVec_norm_sq_le
     _ ≤ ∑ i, (d : ℝ) * c ^ 2 * ‖v‖ ^ 2 := h_sum
     _ = (n : ℝ) * (d : ℝ) * c ^ 2 * ‖v‖ ^ 2 := h_sum_const
 
+section PowerIteration
+
+variable {n : Nat}
+
+noncomputable def normalizeVec (v : EuclideanSpace ℝ (Fin n)) :
+    EuclideanSpace ℝ (Fin n) :=
+  if h : ‖v‖ = 0 then v else (‖v‖)⁻¹ • v
+
+@[simp] lemma normalizeVec_of_norm_eq_zero
+    (v : EuclideanSpace ℝ (Fin n)) (hv : ‖v‖ = 0) :
+    normalizeVec v = v := by
+  classical
+  unfold normalizeVec
+  simp [hv]
+
+lemma normalizeVec_of_norm_ne_zero
+    (v : EuclideanSpace ℝ (Fin n)) (hv : ‖v‖ ≠ 0) :
+    normalizeVec v = (‖v‖)⁻¹ • v := by
+  classical
+  unfold normalizeVec
+  simp [hv]
+
+lemma normalizeVec_norm
+    (v : EuclideanSpace ℝ (Fin n)) :
+    ‖normalizeVec v‖ = if ‖v‖ = 0 then 0 else 1 := by
+  classical
+  by_cases hv : ‖v‖ = 0
+  · simp [normalizeVec_of_norm_eq_zero, hv]
+  · have hv_ne : ‖v‖ ≠ 0 := hv
+    have hnorm :
+        ‖(‖v‖)⁻¹ • v‖ = ((‖v‖)⁻¹) * ‖v‖ := by
+      simpa [Real.norm_eq_abs, abs_inv, abs_of_nonneg (norm_nonneg v)]
+        using norm_smul ((‖v‖)⁻¹) v
+    have :
+        ‖normalizeVec v‖ = ((‖v‖)⁻¹) * ‖v‖ := by
+      simpa [normalizeVec_of_norm_ne_zero, hv_ne] using hnorm
+    have hval : ((‖v‖)⁻¹) * ‖v‖ = 1 := by
+      have := inv_mul_cancel hv_ne
+      simpa [mul_comm] using this
+    simp [normalizeVec, hv, hv_ne, this, hval]
+
+noncomputable def powerIterStep (M : RealMatrixN n) :
+    EuclideanSpace ℝ (Fin n) → EuclideanSpace ℝ (Fin n) :=
+  fun v =>
+    let w := Matrix.toEuclideanCLM (n := Fin n) (𝕜 := ℝ) M v
+    normalizeVec w
+
+noncomputable def powerIter (M : RealMatrixN n) (k : Nat)
+    (v : EuclideanSpace ℝ (Fin n)) :
+    EuclideanSpace ℝ (Fin n) :=
+  (Function.iterate k (powerIterStep (n := n) M)) v
+
+@[simp] lemma powerIter_zero
+    (M : RealMatrixN n) (v : EuclideanSpace ℝ (Fin n)) :
+    powerIter (n := n) M 0 v = v := by
+  simp [powerIter]
+
+lemma powerIter_succ
+    (M : RealMatrixN n) (k : Nat) (v : EuclideanSpace ℝ (Fin n)) :
+    powerIter (n := n) M (Nat.succ k) v
+        = powerIterStep (n := n) M (powerIter (n := n) M k v) := by
+  classical
+  simp [powerIter, Function.iterate_succ]
+
+end PowerIteration
+
 open scoped Matrix.Norms.L2Operator
 
 lemma opNorm_le_bound_matrix
