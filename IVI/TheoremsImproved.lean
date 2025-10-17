@@ -84,11 +84,15 @@ theorem T2_liminal_persistence_monotonic
   (cfg : ICollapseCfg)
   (nodes nodes' : List DomainNode)
   (h_safe : cfg.grainSafe nodes)
-  (h_bound : graininessScore (resonanceMatrixW defaultWeighting nodes') ≤
-             graininessScore (resonanceMatrixW defaultWeighting nodes)) :
+  (h_bound : graininessScore (resonanceMatrixW cfg.W nodes') ≤
+             graininessScore (resonanceMatrixW cfg.W nodes)) :
   cfg.grainSafe nodes' := by
   -- If graininess doesn't increase, safety is preserved
-  sorry  -- TODO: unfold grainSafe and use monotonicity
+  unfold ICollapseCfg.grainSafe at h_safe
+  unfold ICollapseCfg.grainSafe
+  unfold ICollapseCfg.safeScore at h_safe ⊢
+  unfold ICollapseCfg.collapseScore
+  exact le_trans h_bound h_safe
 
 /-!
 ## T3: Reciprocity Topology

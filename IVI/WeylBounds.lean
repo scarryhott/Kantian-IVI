@@ -52,9 +52,9 @@ or the Real specification in `IVI/RealSpec.lean` instead.
 
 /-- Operator norm (infinity norm) of a Float matrix. -/
 @[simp] def matrixNormInf (M : List (List Float)) : Float :=
-  M.foldl (fun acc row => 
-    let rowSum := row.foldl (fun s x => s + Float.abs x) 0.0
-    if acc < rowSum then rowSum else acc) 0.0
+  M.foldl (fun acc row =>
+    let rowSum := row.foldl (fun s x => s + |x|) 0.0
+    max acc rowSum) 0.0
 
 /-- Matrix difference (element-wise). -/
 @[simp] def matrixDiff (M N : List (List Float)) : List (List Float) :=
@@ -63,8 +63,47 @@ or the Real specification in `IVI/RealSpec.lean` instead.
 
 /-- Matrix norm is non-negative. -/
 theorem matrixNormInf_nonneg (M : List (List Float)) : 0.0 ≤ matrixNormInf M := by
-  simp [matrixNormInf]
-  sorry  -- TODO: prove by induction on fold
+  unfold matrixNormInf
+  have row_nonneg :
+      ∀ (row : List Float), 0.0 ≤ row.foldl (fun s x => s + |x|) 0.0 := by
+    intro row
+    have aux :
+        ∀ (xs : List Float) (acc : Float), 0.0 ≤ acc →
+          0.0 ≤ xs.foldl (fun s x => s + |x|) acc := by
+      intro xs
+      induction xs with
+      | nil =>
+          intro acc hacc
+          simpa using hacc
+      | cons x xs ih =>
+          intro acc hacc
+          have hx : 0.0 ≤ |x| := by
+            have := abs_nonneg (x : Float)
+            simpa using this
+          have hacc' : 0.0 ≤ acc + |x| := add_nonneg hacc hx
+          simpa [List.foldl, add_assoc] using ih (acc + |x|) hacc'
+    simpa using aux row 0.0 (le_of_eq rfl)
+  have :
+      ∀ (rows : List (List Float)) (acc : Float), 0.0 ≤ acc →
+        0.0 ≤ rows.foldl
+          (fun acc row =>
+            let rowSum := row.foldl (fun s x => s + |x|) 0.0
+            max acc rowSum) acc := by
+    intro rows
+    induction rows with
+    | nil =>
+        intro acc hacc
+        simpa using hacc
+    | cons row rows ih =>
+        intro acc hacc
+        let rowSum := row.foldl (fun s x => s + |x|) 0.0
+        have h_rowSum : 0.0 ≤ rowSum := row_nonneg row
+        have h_acc' : 0.0 ≤ max acc rowSum := by
+          have : rowSum ≤ max acc rowSum := le_max_right _ _
+          exact le_trans h_rowSum this
+        have := ih (max acc rowSum) h_acc'
+        simpa [List.foldl, rowSum] using this
+  simpa using this M 0.0 (le_of_eq rfl)
 
 /-- Zero matrix has zero norm. -/
 theorem matrixNormInf_zero : matrixNormInf [] = 0.0 := by
@@ -227,7 +266,8 @@ theorem grain_bound_from_step
   (doms : List DomainSignature)
   (nodes : List DomainNode)
   (L_grain kernelLip stepLip : Float)
-  (θ_max : Float) :
+  (θ_max : Float)
+  (h_L_grain : 0.0 ≤ L_grain) :
   let result := stepE doms nodes
   let nodes' := result.2.1
   let M := resonanceMatrixW W nodes
@@ -253,7 +293,12 @@ by
     apply step_matrix_perturbation W stepE doms nodes kernelLip stepLip θ_max
   
   -- Combine
-  sorry  -- TODO: complete calc chain
+  have h_scaled :
+      L_grain * matrixNormInf (matrixDiff M' M) ≤
+        L_grain * (kernelLip * stepLip * θ_max) := by
+    exact Float.mul_le_mul_of_nonneg_left h_step h_L_grain
+  have := le_trans h_grain_lip h_scaled
+  simpa [grainDiff, Float.mul_assoc, Float.mul_comm, Float.mul_left_comm] using this
 
 theorem entropy_bound_from_step
   (W : Weighting)
@@ -261,7 +306,8 @@ theorem entropy_bound_from_step
   (doms : List DomainSignature)
   (nodes : List DomainNode)
   (L_entropy kernelLip stepLip : Float)
-  (θ_max : Float) :
+  (θ_max : Float)
+  (h_L_entropy : 0.0 ≤ L_entropy) :
   let result := stepE doms nodes
   let nodes' := result.2.1
   let M := resonanceMatrixW W nodes
@@ -284,7 +330,12 @@ by
   have h_step : matrixNormInf (matrixDiff M' M) ≤ kernelLip * stepLip * θ_max := by
     apply step_matrix_perturbation W stepE doms nodes kernelLip stepLip θ_max
   
-  sorry  -- TODO: complete calc chain
+  have h_scaled :
+      L_entropy * matrixNormInf (matrixDiff M' M) ≤
+        L_entropy * (kernelLip * stepLip * θ_max) := by
+    exact Float.mul_le_mul_of_nonneg_left h_step h_L_entropy
+  have := le_trans h_entropy_lip h_scaled
+  simpa [entropyDiff, Float.mul_assoc, Float.mul_comm, Float.mul_left_comm] using this
 
 end WeylBounds
 
