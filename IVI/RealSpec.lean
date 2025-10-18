@@ -92,25 +92,11 @@ axiom weyl_error_budget_inf
   |lambdaHead_float (n := n) (matrixAddF A_float E_float) - lambdaHead_float (n := n) A_float| ≤ ε + δ
 
 /-!
-## Power Iteration (Real Specification)
+## Power Iteration Bridge (Future Work)
 
-These would be proven from mathlib's spectral theory.
-{{ ... }}
-
-/-- Power iteration converges for symmetric nonnegative matrices. -/
-axiom powerIter_converges_real
-  (M : RealMatrix)
-  (h_symmetric : sorry)  -- would use mathlib's IsSymmetric
-  (h_nonneg : sorry)     -- would use mathlib's nonnegative
-  (iters : Nat)
-  (h_fuel : iters ≥ 100) :
-  -- converges to dominant eigenvector
-  sorry
-
-/-- Perron-Frobenius: dominant eigenvalue is non-negative. -/
-axiom perron_frobenius_real
-  (M : RealMatrix)
-  (h_nonneg : sorry) :
-  0 ≤ lambda_max M
+The connection between runtime Float power iteration and mathlib's Real theory
+will be filled in once the embedding `toRealMatN` is executable. At that point we
+plan to add the Perron–Frobenius lemmas needed for convergence guarantees.
+-/
 
 end IVI
