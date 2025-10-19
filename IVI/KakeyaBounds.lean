@@ -8,6 +8,7 @@ import IVI.Kakeya.Core
 import IVI.SVObj
 import IVI.Will
 import IVI.Bounds
+import IVI.WeylBounds
 
 namespace IVI
 
@@ -19,6 +20,7 @@ namespace KakeyaBounds
 open Classical
 open Invariant
 open List
+open WeylBounds
 
 /--
 Packaged deltas between successive IVI steps.
@@ -151,8 +153,8 @@ by
   let grainPrev := graininessScore matrixPrev
   let grainNext := graininessScore matrixNext
   let grainDiff := grainNext - grainPrev
-  let entropyPrev := rowEntropy (symmetriseLL matrixPrev)
-  let entropyNext := rowEntropy (symmetriseLL matrixNext)
+  let entropyPrev := rowEntropy matrixPrev
+  let entropyNext := rowEntropy matrixNext
   let entropyDiff := entropyNext - entropyPrev
   let lambdaPrev := spectralInvariant nodes
   let lambdaNext := spectralInvariant nodes₁
@@ -176,8 +178,8 @@ by
   let lamPrev := spectralInvariantW defaultWeighting nodes
   let lamNext := spectralInvariantW defaultWeighting nodes₁
   let spectral := ctx.spectral
-  let kernelLip := max spectral.kernelLip 1.0
-  let stepLip := max spectral.stepLip 1.0
+  let kernelLip := Float.abs spectral.kernelLip
+  let stepLip := Float.abs spectral.stepLip
   let denom := kernelLip * stepLip * thetaBound
   let degBound := Float.abs lambdaDiff / denom
   let preObjs :=
@@ -204,7 +206,8 @@ by
     , nodes := nodes₁ }
   let contract : KakeyaContract :=
     { (deltas.assemble) with θMax := thetaBound }
-  refine
+  have baseWitness :
+      ContractWitness stepE doms nodes :=
     { K := K
     , ctx := ctx
     , will := will
@@ -227,6 +230,33 @@ by
   · simp [contract]
   · simp [contract]
   · simp [contract]
+  let bounds :=
+    WeylBounds.boundStepDeltas collapseCfg.W stepE doms nodes thetaBound spectral
+  have result_eq : stepE doms nodes = (doms₁, (nodes₁, ev)) := rfl
+  have hCg_deltas :
+      deltas.Δgrain ≤ bounds.Cg := by
+    simpa [DeltaPack.Δgrain, deltas, grainDiff, grainNext, grainPrev,
+      matrixNext, matrixPrev, collapseCfg, result_eq] using bounds.grainBound
+  have hCe_deltas :
+      deltas.Δentropy ≤ bounds.Ce := by
+    simpa [DeltaPack.Δentropy, deltas, entropyDiff, entropyNext, entropyPrev,
+      matrixNext, matrixPrev, collapseCfg, result_eq] using bounds.entropyBound
+  have hCl_deltas :
+      deltas.Δlambda ≤ bounds.Cl := by
+    simpa [DeltaPack.Δlambda, deltas, lambdaDiff, lambdaNext, lambdaPrev,
+      lamNext, lamPrev, collapseCfg, result_eq] using bounds.lambdaBound
+  have hCg :
+      baseWitness.deltas.Δgrain ≤ bounds.Cg := by
+    simpa [baseWitness] using hCg_deltas
+  have hCe :
+      baseWitness.deltas.Δentropy ≤ bounds.Ce := by
+    simpa [baseWitness] using hCe_deltas
+  have hCl :
+      baseWitness.deltas.Δlambda ≤ bounds.Cl := by
+    simpa [baseWitness] using hCl_deltas
+  exact
+    ContractWitness.relax (w := baseWitness)
+      bounds.Cg bounds.Ce bounds.Cl thetaBound hCg hCe hCl
 
 /--
 Build a relaxed contract witness from existing measured deltas and external bounds.

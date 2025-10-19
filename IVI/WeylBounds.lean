@@ -14,7 +14,6 @@
 -/
 
 import IVI.Invariant
-import IVI.KakeyaBounds
 import IVI.SafeFloat
 import IVI.RealSpec
 import IVI.Will

@@ -10,6 +10,10 @@ namespace IVI
 
 set_option autoImplicit true
 
+open Classical
+
+noncomputable section
+
 /-- A Float that is guaranteed to be finite (not NaN, not infinity). -/
 structure SafeFloat where
   val      : Float
@@ -67,6 +71,8 @@ instance : ToString SafeFloat where
   toString a := toString a.val
 
 end SafeFloat
+
+end
 
 /-!
 ## Transitivity for SafeFloat
