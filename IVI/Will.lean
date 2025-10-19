@@ -16,9 +16,11 @@ set_option maxHeartbeats 400000
 
 /-- Lipschitz data used to bound the spectral perturbation. -/
 structure SpectralBudget where
-  kernelLip : Float := 0.0
-  stepLip   : Float := 0.0
-  degBound  : Float := 0.0
+  kernelLip  : Float := 1.0
+  stepLip    : Float := 1.0
+  degBound   : Float := 1.0
+  grainLip   : Float := 10.0
+  entropyLip : Float := 5.0
   deriving Repr, Inhabited
 
 @[simp] def SpectralBudget.eps (B : SpectralBudget) (θMax : Float) : Float :=

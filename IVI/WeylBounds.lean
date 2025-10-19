@@ -17,6 +17,7 @@ import IVI.Invariant
 import IVI.KakeyaBounds
 import IVI.SafeFloat
 import IVI.RealSpec
+import IVI.Will
 
 namespace IVI
 
@@ -321,6 +322,83 @@ by
   have := le_trans h_entropy_lip h_scaled
   simpa [entropyDiff, Float.mul_assoc, Float.mul_comm, Float.mul_left_comm] using this
 
+/-!
+## Bundled Step Bounds
+
+Package the grain, entropy, and spectral bounds for convenient transport into
+Kakeya contracts.
+-/
+
+structure StepDeltaBounds
+    (W : Weighting)
+    (stepE : StepE)
+    (doms : List DomainSignature)
+    (nodes : List DomainNode) where
+  θMax : Float
+  Cg   : Float
+  Ce   : Float
+  Cl   : Float
+  grainBound :
+    let result := stepE doms nodes
+    let nodes' := result.2.1
+    Float.abs
+      (graininessScore (resonanceMatrixW W nodes') -
+        graininessScore (resonanceMatrixW W nodes)) ≤ Cg
+  entropyBound :
+    let result := stepE doms nodes
+    let nodes' := result.2.1
+    Float.abs
+      (rowEntropy (resonanceMatrixW W nodes') -
+        rowEntropy (resonanceMatrixW W nodes)) ≤ Ce
+  lambdaBound :
+    let result := stepE doms nodes
+    let nodes' := result.2.1
+    Float.abs
+      (spectralInvariantW W nodes' - spectralInvariantW W nodes) ≤ Cl
+
+noncomputable def boundStepDeltas
+    (W : Weighting)
+    (stepE : StepE)
+    (doms : List DomainSignature)
+    (nodes : List DomainNode)
+    (θMax : Float)
+    (budget : SpectralBudget) :
+    StepDeltaBounds W stepE doms nodes :=
+by
+  classical
+  let kernelLip := Float.abs budget.kernelLip
+  let stepLip := Float.abs budget.stepLip
+  let grainLip := Float.abs budget.grainLip
+  let entropyLip := Float.abs budget.entropyLip
+  let Cg := grainLip * kernelLip * stepLip * θMax
+  let Ce := entropyLip * kernelLip * stepLip * θMax
+  let Cl := kernelLip * stepLip * θMax
+  have h_grainLip : 0.0 ≤ grainLip := by
+    simpa using abs_nonneg (budget.grainLip)
+  have h_entropyLip : 0.0 ≤ entropyLip := by
+    simpa using abs_nonneg (budget.entropyLip)
+  refine
+    { θMax := θMax
+    , Cg := Cg
+    , Ce := Ce
+    , Cl := Cl
+    , grainBound := ?_
+    , entropyBound := ?_
+    , lambdaBound := ?_ }
+  ·
+    have h :=
+      grain_bound_from_step W stepE doms nodes grainLip kernelLip stepLip θMax
+        h_grainLip
+    simpa [Cg, kernelLip, stepLip] using h
+  ·
+    have h :=
+      entropy_bound_from_step W stepE doms nodes entropyLip kernelLip stepLip θMax
+        h_entropyLip
+    simpa [Ce, kernelLip, stepLip] using h
+  ·
+    have h :=
+      spectral_invariant_weyl_bound W stepE doms nodes kernelLip stepLip θMax
+    simpa [Cl, kernelLip, stepLip] using h
 end WeylBounds
 
 end IVI

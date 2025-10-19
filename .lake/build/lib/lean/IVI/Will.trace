@@ -1,8 +1,8 @@
 {"synthetic": false,
  "outputs":
- {"o": ["11273692384247174303"],
-  "i": "3511794124811564172",
-  "c": "15086391809828771701"},
+ {"o": ["12970891635192525590"],
+  "i": "2087659587527120983",
+  "c": "9782502066293309244"},
  "log":
  [{"message":
    ".> LEAN_PATH=/Users/harryscott/Kantian-IVI/.lake/packages/Cli/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/batteries/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/Qq/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/aesop/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/proofwidgets/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/importGraph/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/plausible/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/build/lib/lean /Users/harryscott/.elan/toolchains/leanprover--lean4---v4.24.0-rc1/bin/lean /Users/harryscott/Kantian-IVI/IVI/Will.lean -o /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Will.olean -i /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Will.ilean -c /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Will.c --setup /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Will.setup.json --json",
@@ -25,7 +25,7 @@
       ["module plugins", "1723"]]]]],
   ["Lean 4.24.0, commit 919e297292280cdb27598edd4e03437be5850221",
    "16820442660988836695"],
-  ["/Users/harryscott/Kantian-IVI/IVI/Will.lean", "5274356079820564270"],
+  ["/Users/harryscott/Kantian-IVI/IVI/Will.lean", "4504136150265869793"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "14053840406163221082"}
+ "depHash": "15281058059152469925"}
