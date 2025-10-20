@@ -1,6 +1,6 @@
 {"plugins": [],
  "options": {},
- "name": "IVI.WeylBounds",
+ "name": "IVI.RealSpec",
  "isModule": false,
  "importArts":
  {"Qq.Typ":
@@ -14045,42 +14045,8 @@
   ["/Users/harryscott/Kantian-IVI/.lake/packages/importGraph/.lake/build/lib/lean/ImportGraph/RequiredModules.olean"],
   "ImportGraph.Imports":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/importGraph/.lake/build/lib/lean/ImportGraph/Imports.olean"],
-  "IVI.Will":
-  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Will.olean"],
-  "IVI.SchematismEvidence":
-  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/SchematismEvidence.olean"],
-  "IVI.SchemaLaw":
-  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/SchemaLaw.olean"],
-  "IVI.SafeFloat":
-  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/SafeFloat.olean"],
-  "IVI.SVObj":
-  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/SVObj.olean"],
   "IVI.RealSpecMathlib":
   ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/RealSpecMathlib.olean"],
-  "IVI.RealSpec":
-  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/RealSpec.olean"],
-  "IVI.Operators":
-  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Operators.olean"],
-  "IVI.Logic":
-  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Logic.olean"],
-  "IVI.Kakeya.Core":
-  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Kakeya/Core.olean"],
-  "IVI.Invariant":
-  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Invariant.olean"],
-  "IVI.Intangible":
-  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Intangible.olean"],
-  "IVI.Harmonics":
-  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Harmonics.olean"],
-  "IVI.Domain":
-  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Domain.olean"],
-  "IVI.Core":
-  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Core.olean"],
-  "IVI.Collapse":
-  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Collapse.olean"],
-  "IVI.C3Model":
-  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/C3Model.olean"],
-  "IVI.Bounds":
-  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Bounds.olean"],
   "Batteries.WF":
   ["/Users/harryscott/Kantian-IVI/.lake/packages/batteries/.lake/build/lib/lean/Batteries/WF.olean"],
   "Batteries.Util.ProofWanted":

@@ -1,0 +1,35 @@
+{"synthetic": false,
+ "outputs":
+ {"o": ["12698503935083816402"],
+  "i": "1762747028723739869",
+  "c": "3039238752527697240"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/Users/harryscott/Kantian-IVI/.lake/packages/Cli/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/batteries/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/Qq/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/aesop/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/proofwidgets/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/importGraph/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/plausible/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/build/lib/lean /Users/harryscott/.elan/toolchains/leanprover--lean4---v4.24.0-rc1/bin/lean /Users/harryscott/Kantian-IVI/IVI/RealSpecMathlib.lean -o /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/RealSpecMathlib.olean -i /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/RealSpecMathlib.ilean -c /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/RealSpecMathlib.c --setup /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/RealSpecMathlib.setup.json --json",
+   "level": "trace"},
+  {"message":
+   "IVI/RealSpecMathlib.lean:37:40: unused variable `A`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"}],
+ "inputs":
+ [["IVI.RealSpecMathlib:deps",
+   [["deps",
+     [["ivi/IVI:extraDep", [["@ivi:extraDep", "1723"]]],
+      ["imports",
+       [["Mathlib.Data.Matrix.Basic transitive imports (legacy)",
+         "6968649473961710032"],
+        ["Mathlib.Data.Matrix.Basic:importAllArts", "14956983883816667991"],
+        ["Mathlib.Data.Real.Basic transitive imports (legacy)",
+         "15654082332972587830"],
+        ["Mathlib.Data.Real.Basic:importAllArts", "9139094329547471548"]]]]],
+    ["libs",
+     [["import dynlibs", "1723"],
+      ["package external libraries", "1723"],
+      ["module dynlibs", "1723"],
+      ["module plugins", "1723"]]]]],
+  ["Lean 4.24.0, commit 919e297292280cdb27598edd4e03437be5850221",
+   "16820442660988836695"],
+  ["/Users/harryscott/Kantian-IVI/IVI/RealSpecMathlib.lean",
+   "14045655309710921839"],
+  ["options", "1723"],
+  ["Module.leanArgs: #[]", "1723"]],
+ "depHash": "6349076904347422462"}

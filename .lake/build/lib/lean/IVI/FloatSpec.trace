@@ -1,7 +1,7 @@
 {"synthetic": false,
  "outputs":
- {"o": ["756630541657246303"],
-  "i": "4382412548594524047",
+ {"o": ["7004823283175742547"],
+  "i": "9743736392497136347",
   "c": "9341998286685152926"},
  "log":
  [{"message":
@@ -18,7 +18,7 @@
       ["module plugins", "1723"]]]]],
   ["Lean 4.24.0, commit 919e297292280cdb27598edd4e03437be5850221",
    "16820442660988836695"],
-  ["/Users/harryscott/Kantian-IVI/IVI/FloatSpec.lean", "15734433396140487687"],
+  ["/Users/harryscott/Kantian-IVI/IVI/FloatSpec.lean", "17275096581406737018"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "8717691651069335536"}
+ "depHash": "5411549774294985342"}

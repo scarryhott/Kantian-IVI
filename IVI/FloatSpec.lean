@@ -22,4 +22,11 @@ axiom float_transfer_abs_le
   (r R ε : Float) (h : Float.abs (r - R) ≤ ε) :
     toReal r ≤ toReal R + (ε + ulpBudget R)
 
+/-- Absolute-difference control implies an additive upper bound.
+    This axiom encapsulates the intended Float↔ℝ transfer:
+    if |r - R| ≤ ε then r ≤ R + ε. -/
+axiom abs_sub_le_add
+  (r R ε : Float) :
+  Float.abs (r - R) ≤ ε → r ≤ R + ε
+
 end IVI

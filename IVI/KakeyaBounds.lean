@@ -9,6 +9,7 @@ import IVI.SVObj
 import IVI.Will
 import IVI.Bounds
 import IVI.WeylBounds
+import IVI.FloatSpec
 
 namespace IVI
 
@@ -117,6 +118,20 @@ structure ContractWitness
   kernelLip : Float
   stepLip : Float
   degBound : Float
+  grainPrev : Float
+  grainNext : Float
+  grainPrev_eval :
+    grainPrev = graininessScore (resonanceMatrixW K.collapseCfg.W nodes)
+  grainNext_eval :
+    grainNext = graininessScore (resonanceMatrixW K.collapseCfg.W nextNodes)
+  grainDiff_eval :
+    deltas.grainDiff = grainNext - grainPrev
+  lamPrev_eval :
+    lamPrev = spectralInvariantW K.collapseCfg.W nodes
+  lamNext_eval :
+    lamNext = spectralInvariantW K.collapseCfg.W nextNodes
+  lamDiff_eval :
+    deltas.lambdaDiff = lamNext - lamPrev
   grainWitness : contract.grain_ok
   entropyWitness : contract.entropy_ok
   lamWitness : contract.lam_ok
@@ -224,6 +239,20 @@ by
     , kernelLip := kernelLip
     , stepLip := stepLip
     , degBound := degBound
+    , grainPrev := grainPrev
+    , grainNext := grainNext
+    , grainPrev_eval := by
+        simp [grainPrev, matrixPrev, K, collapseCfg]
+    , grainNext_eval := by
+        simp [grainNext, matrixNext, K, collapseCfg]
+    , grainDiff_eval := by
+        simp [grainDiff, grainNext, grainPrev]
+    , lamPrev_eval := by
+        simp [lamPrev, K, collapseCfg]
+    , lamNext_eval := by
+        simp [lamNext, K, collapseCfg]
+    , lamDiff_eval := by
+        simp [lambdaDiff, lamNext, lamPrev]
     , grainWitness := ?_
     , entropyWitness := ?_
     , lamWitness := ?_ }
@@ -289,6 +318,36 @@ def ContractWitness.relax
     , grainWitness := w.deltas.relaxGrain hCg
     , entropyWitness := w.deltas.relaxEntropy hCe
     , lamWitness := w.deltas.relaxLambda hCl }
+
+namespace ContractWitness
+
+open FloatSpec
+
+/-- Convert a relaxed grain witness into a monotone-style inequality with slack. -/
+@[simp] theorem grain_relaxed_bound
+    {stepE : StepE} {doms : List DomainSignature} {nodes : List DomainNode}
+    (w : ContractWitness stepE doms nodes)
+    (h : Float.abs w.deltas.grainDiff ≤ w.contract.Cg) :
+    graininessScore (resonanceMatrixW w.K.collapseCfg.W w.nextNodes) ≤
+      graininessScore (resonanceMatrixW w.K.collapseCfg.W nodes) + w.contract.Cg :=
+by
+  have h' : Float.abs (w.grainNext - w.grainPrev) ≤ w.contract.Cg := by
+    simpa [w.grainDiff_eval]
+  have := abs_sub_le_add w.grainNext w.grainPrev w.contract.Cg h'
+  simpa [w.grainNext_eval, w.grainPrev_eval]
+
+@[simp] theorem lambda_relaxed_bound
+    {stepE : StepE} {doms : List DomainSignature} {nodes : List DomainNode}
+    (w : ContractWitness stepE doms nodes)
+    (h : Float.abs w.deltas.lambdaDiff ≤ w.contract.Cl) :
+    Float.abs
+        (spectralInvariantW w.K.collapseCfg.W w.nextNodes -
+          spectralInvariantW w.K.collapseCfg.W nodes) ≤
+      w.contract.Cl :=
+by
+  simpa [w.lamDiff_eval, w.lamNext_eval, w.lamPrev_eval]
+
+end ContractWitness
 
 namespace DeltaPack
 

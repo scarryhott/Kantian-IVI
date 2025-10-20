@@ -1,0 +1,45 @@
+{"synthetic": false,
+ "outputs":
+ {"o": ["4709469975031997277"],
+  "i": "16647918946807330200",
+  "c": "1688756765041133147"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/Users/harryscott/Kantian-IVI/.lake/packages/Cli/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/batteries/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/Qq/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/aesop/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/proofwidgets/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/importGraph/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/plausible/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/build/lib/lean /Users/harryscott/.elan/toolchains/leanprover--lean4---v4.24.0-rc1/bin/lean /Users/harryscott/Kantian-IVI/IVI/RealSpec.lean -o /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/RealSpec.olean -i /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/RealSpec.ilean -c /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/RealSpec.c --setup /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/RealSpec.setup.json --json",
+   "level": "trace"},
+  {"message":
+   "IVI/RealSpec.lean:59:5: unused variable `F`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "IVI/RealSpec.lean:60:5: unused variable `R`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "IVI/RealSpec.lean:61:5: unused variable `budget`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "IVI/RealSpec.lean:86:3: unused variable `A_real`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "IVI/RealSpec.lean:86:10: unused variable `E_real`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"}],
+ "inputs":
+ [["IVI.RealSpec:deps",
+   [["deps",
+     [["ivi/IVI:extraDep", [["@ivi:extraDep", "1723"]]],
+      ["imports",
+       [["Mathlib transitive imports (legacy)", "15631855316987060640"],
+        ["Mathlib:importAllArts", "7808763726585862296"],
+        ["IVI.RealSpecMathlib transitive imports (legacy)",
+         "16114986045417067589"],
+        ["IVI.RealSpecMathlib:importAllArts", "3725132933121886370"]]]]],
+    ["libs",
+     [["import dynlibs", "1723"],
+      ["package external libraries", "1723"],
+      ["module dynlibs", "1723"],
+      ["module plugins", "1723"]]]]],
+  ["Lean 4.24.0, commit 919e297292280cdb27598edd4e03437be5850221",
+   "16820442660988836695"],
+  ["/Users/harryscott/Kantian-IVI/IVI/RealSpec.lean", "7195753083312371821"],
+  ["options", "1723"],
+  ["Module.leanArgs: #[]", "1723"]],
+ "depHash": "12111617399441984050"}
