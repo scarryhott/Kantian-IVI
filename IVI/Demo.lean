@@ -220,7 +220,7 @@ def main : IO Unit := do
                 if acc < δ then δ else acc)
               0.0
           IO.println s!"  zoom {idx}→{idx+1}: grain={grainPrev}→{grainNext}, stick={(stickinessScoreEval SPrev SNext)}"
-          IO.println s!"    pack Δgrain={deltaPack.grainDiff}, ΔH={deltaPack.entropyDiff}, Δλ={deltaPack.lambdaDiff}, θMax={deltaPack.θMax}"
+          IO.println s!"    pack Δgrain={deltaPack.grainDiff}, ΔH={deltaPack.entropyDiff}, Δλ={deltaPack.lambdaDiff}, θMeasured={deltaPack.θMeasured}, θMax={deltaPack.θMax}"
           IO.println s!"    |Δ| pack={deltaPack.Δgrain}, {deltaPack.Δentropy}, {deltaPack.Δlambda}"
           IO.println s!"    pre-schema labels={witness.preObjs.map (·.kant.recognition.label)}"
           IO.println s!"    chosen θ={witness.nextObjs.map (·.ivi.θChoice)}"

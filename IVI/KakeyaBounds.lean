@@ -24,10 +24,11 @@ namespace KakeyaBounds
 
 /-- Minimal delta packet carried between steps. -/
 structure DeltaPack where
-  grainDiff   : Float := 0.0
-  entropyDiff : Float := 0.0
-  lambdaDiff  : Float := 0.0
-  θMax        : Float := 0.0
+  grainDiff    : Float := 0.0
+  entropyDiff  : Float := 0.0
+  lambdaDiff   : Float := 0.0
+  θMeasured    : Float := 0.0
+  θMax         : Float := 1.0
   deriving Repr, Inhabited
 
 namespace DeltaPack
@@ -118,14 +119,15 @@ by
   let θMeasured := thetaSpan (nodes.zip nodes')
   let θCap := ctx.bounds.θCap
   let θBound := if θCap ≤ θMeasured then θMeasured else θCap
+  let θMaxContract := max θBound 1.0
   let deltaPack : DeltaPack :=
     { grainDiff := grainNext - grainPrev
     , entropyDiff := entropyNext - entropyPrev
     , lambdaDiff := lamNext - lamPrev
-    , θMax := θBound }
+    , θMeasured := θMeasured
+    , θMax := θMaxContract }
   let preObjs := nodes.map (decorateWithWill ctx will)
   let nextObjs := nodes'.map (decorateWithWill ctx will)
-  let θMaxContract := max deltaPack.θMax 1.0
   have hGrain :
       Float.abs (grainNext - grainPrev) ≤ DeltaPack.Δgrain deltaPack := by
     simpa [DeltaPack.Δgrain, deltaPack] using
