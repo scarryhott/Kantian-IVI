@@ -1,6 +1,6 @@
 {"synthetic": false,
  "outputs":
- {"o": ["14625252773153140015"],
+ {"o": ["11181667040475913904"],
   "i": "16468007377788022012",
   "c": "9033307124297143932"},
  "log":
@@ -12,8 +12,8 @@
    [["deps",
      [["ivi/IVI:extraDep", [["@ivi:extraDep", "1723"]]],
       ["imports",
-       [["IVI.KakeyaBounds transitive imports (legacy)", "9117866046178321484"],
-        ["IVI.KakeyaBounds:importAllArts", "16678245573054036969"],
+       [["IVI.KakeyaBounds transitive imports (legacy)", "7005304465359819812"],
+        ["IVI.KakeyaBounds:importAllArts", "534796649105167143"],
         ["IVI.Bounds transitive imports (legacy)", "1723"],
         ["IVI.Bounds:importAllArts", "16094175997074693902"]]]]],
     ["libs",
@@ -26,4 +26,4 @@
   ["/Users/harryscott/Kantian-IVI/IVI/Relax.lean", "16412919920430615604"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "4635838030489424596"}
+ "depHash": "3615045626093047837"}

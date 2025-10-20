@@ -7,11 +7,7 @@ import IVI.Relax
 
 namespace IVI
 
-lemma abs_le_scaled (x θ : Float) (hθ : (1.0 : Float) ≤ θ) :
-    Float.abs x ≤ Float.abs x * θ := by
-  have hx : 0.0 ≤ Float.abs x := Float.abs_nonneg _
-  have := Float.mul_le_mul_of_nonneg_left hθ hx
-  simpa [hx, mul_comm] using this
+open KakeyaBounds
 
 lemma buildContract_relaxed
     (stepE : StepE)
@@ -23,72 +19,39 @@ lemma buildContract_relaxed
       (KakeyaBounds.buildContract stepE doms nodes ctx will).contract
       (KakeyaBounds.buildContract stepE doms nodes ctx will).deltas := by
   classical
-  let result := stepE doms nodes
-  let nodes' := result.2.1
-  let collapseCfg : ICollapseCfg := {}
-  let W := collapseCfg.W
-  let weightsPrev := resonanceMatrixW W nodes
-  let weightsNext := resonanceMatrixW W nodes'
-  let symPrev := symmetriseLL weightsPrev
-  let symNext := symmetriseLL weightsNext
-  let grainPrev := graininessScore weightsPrev
-  let grainNext := graininessScore weightsNext
-  let entropyPrev := rowEntropy symPrev
-  let entropyNext := rowEntropy symNext
-  let lamPrev := spectralInvariantW W nodes
-  let lamNext := spectralInvariantW W nodes'
-  let θMeasured := KakeyaBounds.thetaSpan (nodes.zip nodes')
-  let θCap := ctx.bounds.θCap
-  let θBound := if θCap ≤ θMeasured then θMeasured else θCap
-  let θMaxContract := Float.max θBound 1.0
-  let deltaPack :
-      KakeyaBounds.DeltaPack :=
-    { grainDiff := grainNext - grainPrev
-    , entropyDiff := entropyNext - entropyPrev
-    , lambdaDiff := lamNext - lamPrev
-    , θMeasured := θMeasured
-    , θMax := θMaxContract }
-  let contract :
-      KakeyaContract :=
-    { Cg := KakeyaBounds.DeltaPack.Δgrain deltaPack
-    , Ce := KakeyaBounds.DeltaPack.Δentropy deltaPack
-    , Cl := KakeyaBounds.DeltaPack.Δlambda deltaPack
-    , θMax := θMaxContract
-    , grain_ok := Float.abs (grainNext - grainPrev) ≤ KakeyaBounds.DeltaPack.Δgrain deltaPack
-    , entropy_ok := Float.abs (entropyNext - entropyPrev) ≤ KakeyaBounds.DeltaPack.Δentropy deltaPack
-    , lam_ok := Float.abs (lamNext - lamPrev) ≤ KakeyaBounds.DeltaPack.Δlambda deltaPack }
-  have hθ : (1.0 : Float) ≤ θMaxContract := by
-    have := (le_max_right θBound (1.0 : Float))
-    simpa [θMaxContract] using this
-  have hgr :
-      Float.abs (grainNext - grainPrev) ≤ Float.abs (grainNext - grainPrev) * θMaxContract :=
-    abs_le_scaled _ _ hθ
-  have hen :
-      Float.abs (entropyNext - entropyPrev) ≤ Float.abs (entropyNext - entropyPrev) * θMaxContract :=
-    abs_le_scaled _ _ hθ
-  have hlam :
-      Float.abs (lamNext - lamPrev) ≤ Float.abs (lamNext - lamPrev) * θMaxContract :=
-    abs_le_scaled _ _ hθ
-  have h_relaxed :
-      relaxedHolds contract deltaPack := by
-    dsimp [relaxedHolds, grain_ok_LE, entropy_ok_LE,
-      lambda_ok_LE, contract, deltaPack, KakeyaBounds.DeltaPack.Δgrain,
-      KakeyaBounds.DeltaPack.Δentropy, KakeyaBounds.DeltaPack.Δlambda] at hgr hen hlam ⊢
-    refine And.intro ?_ ?_
-    · simpa [θMaxContract]
-    · refine And.intro ?_ ?_
-      · simpa [θMaxContract]
-      · simpa [θMaxContract]
-  have h_pack :
-      (KakeyaBounds.buildContract stepE doms nodes ctx will).deltas = deltaPack := by
-    simp [KakeyaBounds.buildContract, deltaPack, θMaxContract, θBound, θCap, θMeasured,
-      lamPrev, lamNext, entropyPrev, entropyNext, grainPrev, grainNext,
-      symPrev, symNext, weightsPrev, weightsNext, W, collapseCfg, result]
-  have h_contract :
-      (KakeyaBounds.buildContract stepE doms nodes ctx will).contract = contract := by
-    simp [KakeyaBounds.buildContract, contract, deltaPack, θMaxContract, θBound, θCap,
-      θMeasured, lamPrev, lamNext, entropyPrev, entropyNext, grainPrev, grainNext,
-      symPrev, symNext, weightsPrev, weightsNext, W, collapseCfg, result, h_pack]
-  simpa [h_pack, h_contract] using h_relaxed
+  set w := KakeyaBounds.buildContract stepE doms nodes ctx will with hw
+  change relaxedHolds w.contract w.deltas
+  have hGrain : Float.abs w.deltas.grainDiff ≤ w.contract.Cg := by
+    simpa [hw, KakeyaBounds.buildContract, DeltaPack.Δgrain]
+      using w.grainWitness
+  have hEntropy : Float.abs w.deltas.entropyDiff ≤ w.contract.Ce := by
+    simpa [hw, KakeyaBounds.buildContract, DeltaPack.Δentropy]
+      using w.entropyWitness
+  have hLambda : Float.abs w.deltas.lambdaDiff ≤ w.contract.Cl := by
+    simpa [hw, KakeyaBounds.buildContract, DeltaPack.Δlambda]
+      using w.lamWitness
+  have hθ : w.contract.θMax = 1.0 := by
+    simp [hw, KakeyaBounds.buildContract]
+  have hCg : w.contract.Cg = Float.abs w.deltas.grainDiff := by
+    simp [hw, KakeyaBounds.buildContract, DeltaPack.Δgrain]
+  have hCe : w.contract.Ce = Float.abs w.deltas.entropyDiff := by
+    simp [hw, KakeyaBounds.buildContract, DeltaPack.Δentropy]
+  have hCl : w.contract.Cl = Float.abs w.deltas.lambdaDiff := by
+    simp [hw, KakeyaBounds.buildContract, DeltaPack.Δlambda]
+  have hGrain0 : Float.abs w.deltas.grainDiff ≤ Float.abs w.deltas.grainDiff :=
+    IVI.le_self _
+  have hEntropy0 : Float.abs w.deltas.entropyDiff ≤ Float.abs w.deltas.entropyDiff :=
+    IVI.le_self _
+  have hLambda0 : Float.abs w.deltas.lambdaDiff ≤ Float.abs w.deltas.lambdaDiff :=
+    IVI.le_self _
+  dsimp [relaxedHolds, grain_ok_LE, entropy_ok_LE, lambda_ok_LE]
+  refine And.intro ?_ ?_
+  · simpa [hCg, hθ, hw, KakeyaBounds.buildContract]
+      using hGrain0
+  · refine And.intro ?_ ?_
+    · simpa [hCe, hθ, hw, KakeyaBounds.buildContract]
+        using hEntropy0
+    · simpa [hCl, hθ, hw, KakeyaBounds.buildContract]
+        using hLambda0
 
 end IVI

@@ -1,6 +1,6 @@
 {"plugins": [],
  "options": {},
- "name": "IVI.Relax",
+ "name": "IVI.RelaxLemmas",
  "isModule": false,
  "importArts":
  {"Qq.Typ":
@@ -14053,6 +14053,8 @@
   ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/SchemaLaw.olean"],
   "IVI.SVObj":
   ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/SVObj.olean"],
+  "IVI.Relax":
+  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Relax.olean"],
   "IVI.Operators":
   ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Operators.olean"],
   "IVI.Logic":

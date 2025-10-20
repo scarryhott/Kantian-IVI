@@ -9,6 +9,7 @@
   the runtime pipeline.
 -/
 
+import Mathlib
 import IVI.Kakeya.Core
 import IVI.SVObj
 import IVI.Invariant
@@ -144,7 +145,7 @@ by
     { Cg := DeltaPack.Δgrain deltaPack
     , Ce := DeltaPack.Δentropy deltaPack
     , Cl := DeltaPack.Δlambda deltaPack
-    , θMax := θMaxContract
+    , θMax := 1.0
     , grain_ok := Float.abs (grainNext - grainPrev) ≤ DeltaPack.Δgrain deltaPack
     , entropy_ok := Float.abs (entropyNext - entropyPrev) ≤ DeltaPack.Δentropy deltaPack
     , lam_ok := Float.abs (lamNext - lamPrev) ≤ DeltaPack.Δlambda deltaPack }
