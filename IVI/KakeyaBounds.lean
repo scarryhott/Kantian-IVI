@@ -9,7 +9,6 @@
   the runtime pipeline.
 -/
 
-import Mathlib
 import IVI.Kakeya.Core
 import IVI.SVObj
 import IVI.Invariant

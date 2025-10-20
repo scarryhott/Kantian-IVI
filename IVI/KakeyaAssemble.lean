@@ -32,4 +32,15 @@ open KakeyaBounds
     preservesKakeya w.K stepE doms nodes :=
   preserves_of_witness (w := w)
 
+@[simp] theorem relaxed_of_buildContract
+    (stepE : StepE)
+    (doms : List DomainSignature)
+    (nodes : List DomainNode)
+    (ctx : WillCtx := {})
+    (will : Will := Will.idle) :
+    relaxedHolds
+      (KakeyaBounds.buildContract stepE doms nodes ctx will).contract
+      (KakeyaBounds.buildContract stepE doms nodes ctx will).deltas :=
+  buildContract_relaxed stepE doms nodes ctx will
+
 end IVI
