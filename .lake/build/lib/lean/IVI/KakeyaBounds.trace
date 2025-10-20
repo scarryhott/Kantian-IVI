@@ -1,12 +1,18 @@
 {"synthetic": false,
  "outputs":
- {"o": ["827442892534075290"],
-  "i": "17368029445441178140",
-  "c": "11232106632113473752"},
+ {"o": ["15441684047799983798"],
+  "i": "10758223387213242298",
+  "c": "14065748785073010224"},
  "log":
  [{"message":
    ".> LEAN_PATH=/Users/harryscott/Kantian-IVI/.lake/packages/Cli/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/batteries/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/Qq/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/aesop/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/proofwidgets/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/importGraph/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/plausible/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/build/lib/lean /Users/harryscott/.elan/toolchains/leanprover--lean4---v4.24.0-rc1/bin/lean /Users/harryscott/Kantian-IVI/IVI/KakeyaBounds.lean -o /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/KakeyaBounds.olean -i /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/KakeyaBounds.ilean -c /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/KakeyaBounds.c --setup /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/KakeyaBounds.setup.json --json",
-   "level": "trace"}],
+   "level": "trace"},
+  {"message":
+   "IVI/KakeyaBounds.lean:75:5: unused variable `ctx`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "IVI/KakeyaBounds.lean:76:5: unused variable `will`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"}],
  "inputs":
  [["IVI.KakeyaBounds:deps",
    [["deps",
@@ -16,10 +22,10 @@
         ["IVI.Kakeya.Core:importAllArts", "12016674898141207641"],
         ["IVI.SVObj transitive imports (legacy)", "8737099976314808308"],
         ["IVI.SVObj:importAllArts", "11747676440087304310"],
+        ["IVI.Invariant transitive imports (legacy)", "9700060304154019711"],
+        ["IVI.Invariant:importAllArts", "1878660865401756547"],
         ["IVI.Will transitive imports (legacy)", "4636988703362101689"],
-        ["IVI.Will:importAllArts", "16680125230638407964"],
-        ["IVI.Bounds transitive imports (legacy)", "1723"],
-        ["IVI.Bounds:importAllArts", "16094175997074693902"]]]]],
+        ["IVI.Will:importAllArts", "16680125230638407964"]]]]],
     ["libs",
      [["import dynlibs", "1723"],
       ["package external libraries", "1723"],
@@ -28,7 +34,7 @@
   ["Lean 4.24.0, commit 919e297292280cdb27598edd4e03437be5850221",
    "16820442660988836695"],
   ["/Users/harryscott/Kantian-IVI/IVI/KakeyaBounds.lean",
-   "15056160179560014790"],
+   "8765996946507636002"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "5188158038431583550"}
+ "depHash": "2446380284617836645"}

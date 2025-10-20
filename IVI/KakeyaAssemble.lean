@@ -30,9 +30,6 @@ open KakeyaBounds
     (hCe : w.deltas.Δentropy ≤ Ce)
     (hCl : w.deltas.Δlambda ≤ Cl) :
     preservesKakeya w.K stepE doms nodes :=
-by
-  have relaxed := KakeyaBounds.ContractWitness.relax
-    (w := w) Cg Ce Cl θMax hCg hCe hCl
-  simpa using preserves_of_witness (w := relaxed)
+  preserves_of_witness (w := w)
 
 end IVI
