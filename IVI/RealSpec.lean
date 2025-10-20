@@ -9,6 +9,7 @@
 
 import Mathlib
 import IVI.RealSpecMathlib
+import IVI.Invariant
 
 namespace IVI
 
@@ -59,12 +60,66 @@ structure ErrorBudget where
 
 /- No scalar bridge needed yet -/
 
-/-- Float matrix approximates real matrix of fixed size n (operator norm). -/
-def FloatMatrix.approximatesN {n : Nat}
-    (F : List (List Float)) 
-    (R : RealMatrixN n) 
+namespace FloatMatrix
+
+open Invariant
+
+/-- Row-wise difference between Float matrices, truncating to the shorter side. -/
+def diff (A B : List (List Float)) : List (List Float) :=
+  (A.zip B).map fun (ra, rb) =>
+    (ra.zip rb).map fun (a, b) => a - b
+
+/-- Non-negativity of the row infinity norm inherited from `Invariant.normInf`. -/
+private lemma rowNormInf_nonneg (row : List Float) :
+    0.0 ≤ Invariant.normInf row := by
+  induction row with
+  | nil =>
+      simp [Invariant.normInf]
+  | cons x xs ih =>
+      have hx : 0.0 ≤ Float.abs x := Float.abs_nonneg _
+      have :=
+        show
+            0.0 ≤ (if Float.abs x < Invariant.normInf xs then Invariant.normInf xs else Float.abs x) by
+          by_cases h : Float.abs x < Invariant.normInf xs
+          · simp [Invariant.normInf, fmax, h, ih]
+          · simp [Invariant.normInf, fmax, h, hx]
+      simpa [Invariant.normInf, fmax] using this
+
+/-- Infinity norm over Float matrices, lifted from list-level `normInf`. -/
+@[simp] def normInf : List (List Float) → Float
+  | [] => 0.0
+  | row :: rows => fmax (Invariant.normInf row) (normInf rows)
+
+@[simp] lemma normInf_nonneg (M : List (List Float)) :
+    0.0 ≤ normInf M := by
+  induction M with
+  | nil =>
+      simp [normInf]
+  | cons row rows ih =>
+      have hrow : 0.0 ≤ Invariant.normInf row := rowNormInf_nonneg row
+      have :=
+        show
+            0.0 ≤ (if Invariant.normInf row < normInf rows then normInf rows else Invariant.normInf row) by
+          by_cases h : Invariant.normInf row < normInf rows
+          · simp [normInf, fmax, h, ih]
+          · simp [normInf, fmax, h, hrow]
+      simpa [normInf, fmax] using this
+
+@[simp] lemma normInf_nil : normInf [] = 0.0 := rfl
+
+/-- Float matrix approximates a real matrix when a Float shadow bounds the
+operator norm error within the provided budget. -/
+def approximatesN {n : Nat}
+    (F : List (List Float))
+    (R : RealMatrixN n)
     (budget : ErrorBudget) : Prop :=
-  True
+  ∃ (shadow : List (List Float)) (δ : Float),
+    toRealMatN (n := n) shadow = R ∧
+    0.0 ≤ δ ∧
+    normInf (diff F shadow) ≤ δ ∧
+    (Float.toReal δ) ≤ budget.epsilon
+
+end FloatMatrix
 
 /-!
 ## Runtime Conformance: Minimal Bridge (fixed n)

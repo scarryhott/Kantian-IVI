@@ -13,6 +13,7 @@ import IVI.KakeyaBounds
 import IVI.KakeyaAssemble
 import IVI.Bounds
 import IVI.Relax
+import IVI.RelaxLemmas
 import IVI.FloatSpec
 import IVI.SVObj
 import IVI.SchemaLaw
