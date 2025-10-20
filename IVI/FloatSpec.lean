@@ -29,4 +29,7 @@ axiom abs_sub_le_add
   (r R ε : Float) :
   Float.abs (r - R) ≤ ε → r ≤ R + ε
 
+/-- Trivial reflexivity axiom for Float comparisons. -/
+axiom le_self (x : Float) : x ≤ x
+
 end IVI
