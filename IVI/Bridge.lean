@@ -275,9 +275,8 @@ by
   have hDenom_ne : kernelLip * stepLip * bridge.contract.θMax ≠ 0 := ne_of_gt hDenom_pos
   have hCl_abs :
       Float.abs bridge.deltas.lambdaDiff = bridge.contract.Cl := by
-    simpa [hBridge, soundnessBridge, bridgeStep, mkKakeyaBridge,
-          KakeyaBounds.buildContract,
-          KakeyaBounds.DeltaPack.contract_Cl_of_theta]
+    simp [hBridge, soundnessBridge, bridgeStep, mkKakeyaBridge,
+          KakeyaBounds.buildContract, KakeyaBounds.DeltaPack.Δlambda]
   have hProd_eq :
       kernelLip * stepLip * bridge.contract.θMax * degreeBound =
         Float.abs bridge.deltas.lambdaDiff := by
@@ -311,7 +310,7 @@ by
       Float.abs ((soundnessBridge cfgInv stepE domains nodes ctx will).deltas.lambdaDiff) =
         (soundnessBridge cfgInv stepE domains nodes ctx will).contract.Cl := by
     simp [soundnessBridge, bridgeStep, mkKakeyaBridge,
-          KakeyaBounds.DeltaPack.contract_Cl_of_theta]
+          KakeyaBounds.buildContract, KakeyaBounds.DeltaPack.Δlambda]
   have hDelta :
       Float.abs ((soundnessBridge cfgInv stepE domains nodes ctx will).deltas.lambdaDiff)
         ≤ cfgInv.epsUnity := by

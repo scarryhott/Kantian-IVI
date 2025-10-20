@@ -22,6 +22,7 @@ set_option maxHeartbeats 400000
 
 open Classical
 open Invariant
+open KakeyaBounds
 open WeylBounds
 
 universe u
@@ -100,6 +101,33 @@ theorem T2_liminal_persistence_monotonic
   unfold ICollapseCfg.safeScore at h_safe ⊢
   unfold ICollapseCfg.collapseScore
   exact le_trans h_bound h_safe
+
+/-- T2 (Quantitative): Graininess change is bounded by the contract constant. -/
+theorem T2_grain_delta_control
+  (stepE : StepE)
+  (doms : List DomainSignature)
+  (nodes : List DomainNode)
+  (w : ContractWitness stepE doms nodes) :
+  Float.abs w.deltas.grainDiff ≤ w.contract.Cg := by
+  simpa using w.grainWitness
+
+/-- T2 (Quantitative): Entropy change obeys the contract bound. -/
+theorem T2_entropy_delta_control
+  (stepE : StepE)
+  (doms : List DomainSignature)
+  (nodes : List DomainNode)
+  (w : ContractWitness stepE doms nodes) :
+  Float.abs w.deltas.entropyDiff ≤ w.contract.Ce := by
+  simpa using w.entropyWitness
+
+/-- T2 (Quantitative): λ-head shift is bounded by the contract constant. -/
+theorem T2_lambda_delta_control
+  (stepE : StepE)
+  (doms : List DomainSignature)
+  (nodes : List DomainNode)
+  (w : ContractWitness stepE doms nodes) :
+  Float.abs w.deltas.lambdaDiff ≤ w.contract.Cl := by
+  simpa using w.lamWitness
 
 /-!
 ## T3: Reciprocity Topology

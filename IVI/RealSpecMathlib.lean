@@ -1,5 +1,6 @@
 import Mathlib.Data.Matrix.Basic
 import Mathlib.Data.Real.Basic
+import Mathlib.Analysis.NormedSpace.OperatorNorm
 
 namespace IVI
 
@@ -34,17 +35,18 @@ and it keeps the implementation lightweight.
 
 abbrev RealMatrixN (n : Nat) := Matrix (Fin n) (Fin n) ℝ
 
-noncomputable def lambdaHead {n : Nat} (A : RealMatrixN n) : ℝ := 0
+noncomputable def lambdaHead {n : Nat} (A : RealMatrixN n) : ℝ := ‖A‖
 
 @[simp] theorem lambdaHead_nonneg {n : Nat} (A : RealMatrixN n) :
     0 ≤ lambdaHead A := by
-  simp [lambdaHead]
+  simpa [lambdaHead] using (norm_nonneg A : 0 ≤ ‖A‖)
 
 /-- Weyl-style eigenvalue bound specialised to the operator norm placeholder. -/
 theorem weyl_eigenvalue_bound_real_n
-    {n : Nat} (A E : RealMatrixN n) (ε : ℝ)
-    (hε : 0 ≤ ε) :
-    |lambdaHead (A + E) - lambdaHead A| ≤ ε := by
-  simpa [lambdaHead] using hε
+    {n : Nat} (A E : RealMatrixN n) :
+    |lambdaHead (A + E) - lambdaHead A| ≤ ‖E‖ := by
+  have h := abs_norm_sub_norm_le_norm (x := A + E) (y := A)
+  simpa [lambdaHead, add_comm, add_left_comm, add_assoc, sub_eq_add_neg]
+    using h
 
 end IVI.RealSpecMathlib

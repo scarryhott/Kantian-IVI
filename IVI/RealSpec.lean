@@ -34,10 +34,15 @@ noncomputable def lambdaHead {n : Nat} : RealMatrixN n → ℝ :=
   fun A => RealSpecMathlib.lambdaHead (n := n) A
 
 theorem weyl_eigenvalue_bound_real
+  {n : Nat} (A E : RealMatrixN n) :
+  |lambdaHead (A + E) - lambdaHead A| ≤ ‖E‖ :=
+  RealSpecMathlib.weyl_eigenvalue_bound_real_n A E
+
+theorem weyl_eigenvalue_bound_real_of_le
   {n : Nat} (A E : RealMatrixN n) (ε : ℝ)
-  (hε : 0 ≤ ε) :
+  (h : ‖E‖ ≤ ε) :
   |lambdaHead (A + E) - lambdaHead A| ≤ ε :=
-  RealSpecMathlib.weyl_eigenvalue_bound_real_n A E ε hε
+  (weyl_eigenvalue_bound_real (A := A) (E := E)).trans h
 
 /-!
 ## Error Budget Framework

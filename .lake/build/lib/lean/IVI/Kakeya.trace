@@ -1,6 +1,6 @@
 {"synthetic": false,
  "outputs":
- {"o": ["6088041684612834650"],
+ {"o": ["17082003262740992833"],
   "i": "2194562480573292298",
   "c": "7326307563495632621"},
  "log":
@@ -14,13 +14,13 @@
       ["imports",
        [["IVI.Kakeya.Core transitive imports (legacy)", "1092488171936073899"],
         ["IVI.Kakeya.Core:importAllArts", "12016674898141207641"],
-        ["IVI.KakeyaBounds transitive imports (legacy)", "4916925634145491069"],
-        ["IVI.KakeyaBounds:importAllArts", "10135179788849461520"],
+        ["IVI.KakeyaBounds transitive imports (legacy)", "9117866046178321484"],
+        ["IVI.KakeyaBounds:importAllArts", "9554254841812103844"],
         ["IVI.KakeyaAssemble transitive imports (legacy)",
-         "628605147799558437"],
+         "6489391558425547278"],
         ["IVI.KakeyaAssemble:importAllArts", "1658818908107057631"],
         ["IVI.InvariantBridge transitive imports (legacy)",
-         "1373714447767014078"],
+         "6105430050246487660"],
         ["IVI.InvariantBridge:importAllArts", "7927654953408202710"],
         ["IVI.Will transitive imports (legacy)", "4636988703362101689"],
         ["IVI.Will:importAllArts", "16680125230638407964"]]]]],
@@ -34,4 +34,4 @@
   ["/Users/harryscott/Kantian-IVI/IVI/Kakeya.lean", "13033874555967366612"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "16296857790762087861"}
+ "depHash": "6130659561232870681"}

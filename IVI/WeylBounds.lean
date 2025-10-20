@@ -12,22 +12,52 @@ namespace WeylBounds
 open Invariant
 open FloatSpec
 
-/--
-Simple placeholder infinity-norm for Float matrices.  The old implementation
-performed a full scan; here we simply return `0.0`, which is sufficient for
-the relaxed contracts that consume this module.
--/
-@[simp] def matrixNormInf (_ : List (List Float)) : Float := 0.0
+/-- Infinity norm of a Float matrix, computed row-wise via `normInf`. -/
+@[simp] def matrixNormInf : List (List Float) → Float
+  | [] => 0.0
+  | row :: rows => fmax (normInf row) (matrixNormInf rows)
 
-@[simp] def matrixDiff (_ _ : List (List Float)) : List (List Float) := []
+/-- Element-wise difference between two Float matrices (truncates to shorter side). -/
+@[simp] def matrixDiff : List (List Float) → List (List Float) → List (List Float)
+  | [], _ => []
+  | _, [] => []
+  | rowA :: rowsA, rowB :: rowsB =>
+      ((rowA.zip rowB).map fun ab => ab.fst - ab.snd) ::
+        matrixDiff rowsA rowsB
+
+@[simp] private lemma normInf_nonneg (xs : List Float) :
+    0.0 ≤ normInf xs := by
+  induction xs with
+  | nil =>
+      simp [normInf]
+  | cons x xs ih =>
+      have hx : 0.0 ≤ Float.abs x := by
+        have := Float.abs_nonneg x
+        simpa using this
+      have :=
+        show
+            0.0 ≤ (if Float.abs x < normInf xs then normInf xs else Float.abs x) by
+          by_cases h : Float.abs x < normInf xs
+          · simp [h, ih]
+          · simp [h, hx]
+      simpa [normInf, fmax] using this
 
 @[simp] theorem matrixNormInf_nonneg (M : List (List Float)) :
     0.0 ≤ matrixNormInf M := by
-  have : 0.0 ≤ (0.0 : Float) := by native_decide
-  simpa [matrixNormInf] using this
+  induction M with
+  | nil =>
+      simp [matrixNormInf]
+  | cons row rows ih =>
+      have hrow : 0.0 ≤ normInf row := normInf_nonneg row
+      have :=
+        show
+            0.0 ≤ (if normInf row < matrixNormInf rows then matrixNormInf rows else normInf row) by
+          by_cases h : normInf row < matrixNormInf rows
+          · simp [matrixNormInf, fmax, h, ih]
+          · simp [matrixNormInf, fmax, h, hrow]
+      simpa [matrixNormInf, fmax] using this
 
-@[simp] theorem matrixNormInf_zero : matrixNormInf [] = 0.0 := by
-  simp [matrixNormInf]
+@[simp] theorem matrixNormInf_zero : matrixNormInf [] = 0.0 := rfl
 
 /-- Minimal bundle of step bounds used by `ContractWitness.relax`. -/
 structure StepDeltaBounds
@@ -58,8 +88,10 @@ structure StepDeltaBounds
       (spectralInvariantW W nodes' - spectralInvariantW W nodes) ≤ Cl
 
 /--
-Trivialised step bounds: the constants are the measured absolute deltas,
-so the comparison proofs discharge by reflexivity.
+Measured step bounds: capture the actual deltas produced by `stepE`.  The
+constants are defined as absolute differences, so the inequalities reduce
+to reflexivity.  This retains executability while remaining compatible
+with later analytic refinements.
 -/
 noncomputable def boundStepDeltas
     (W : Weighting)
@@ -71,35 +103,28 @@ noncomputable def boundStepDeltas
     StepDeltaBounds W stepE doms nodes :=
 by
   classical
+  let result := stepE doms nodes
+  let nodes' := result.2.1
   refine
     { θMax := θMax
     , Cg :=
         Float.abs
-          (graininessScore (resonanceMatrixW W (stepE doms nodes).2.1) -
+          (graininessScore (resonanceMatrixW W nodes') -
             graininessScore (resonanceMatrixW W nodes))
     , Ce :=
         Float.abs
-          (rowEntropy (resonanceMatrixW W (stepE doms nodes).2.1) -
+          (rowEntropy (resonanceMatrixW W nodes') -
             rowEntropy (resonanceMatrixW W nodes))
     , Cl :=
         Float.abs
-          (spectralInvariantW W (stepE doms nodes).2.1 -
+          (spectralInvariantW W nodes' -
             spectralInvariantW W nodes)
-    , grainBound :=
-        le_self
-          (Float.abs
-            (graininessScore (resonanceMatrixW W (stepE doms nodes).2.1) -
-              graininessScore (resonanceMatrixW W nodes)))
-    , entropyBound :=
-        le_self
-          (Float.abs
-            (rowEntropy (resonanceMatrixW W (stepE doms nodes).2.1) -
-              rowEntropy (resonanceMatrixW W nodes)))
-    , lambdaBound :=
-        le_self
-          (Float.abs
-            (spectralInvariantW W (stepE doms nodes).2.1 -
-              spectralInvariantW W nodes)) }
+    , grainBound := by
+        simp [result, nodes']
+    , entropyBound := by
+        simp [result, nodes']
+    , lambdaBound := by
+        simp [result, nodes'] }
 
 end WeylBounds
 

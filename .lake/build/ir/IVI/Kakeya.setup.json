@@ -31,6 +31,8 @@
   ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Intangible.olean"],
   "IVI.Harmonics":
   ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Harmonics.olean"],
+  "IVI.FloatSpec":
+  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/FloatSpec.olean"],
   "IVI.Domain":
   ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Domain.olean"],
   "IVI.Core":

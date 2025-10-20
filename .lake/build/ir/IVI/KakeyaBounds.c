@@ -1,6 +1,6 @@
 // Lean compiler output
 // Module: IVI.KakeyaBounds
-// Imports: Init IVI.Kakeya.Core IVI.SVObj IVI.Invariant IVI.Will
+// Imports: Init IVI.Kakeya.Core IVI.SVObj IVI.Invariant IVI.Will IVI.FloatSpec
 #include <lean/lean.h>
 #if defined(__clang__)
 #pragma clang diagnostic ignored "-Wunused-parameter"
@@ -16,12 +16,15 @@ extern "C" {
 lean_object* l_Float_repr(double, lean_object*);
 static lean_object* l_IVI_KakeyaBounds_instReprDeltaPack_repr___redArg___closed__18;
 static lean_object* l_IVI_KakeyaBounds_instReprDeltaPack_repr___redArg___closed__4;
+LEAN_EXPORT lean_object* l___private_IVI_KakeyaBounds_0__IVI_KakeyaBounds_decorateWithWill(lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_IVI_KakeyaBounds_DeltaPack__u0394entropy___boxed(lean_object*);
 LEAN_EXPORT lean_object* l_IVI_KakeyaBounds_DeltaPack__u0394lambda___boxed(lean_object*);
 static lean_object* l_IVI_KakeyaBounds_instReprDeltaPack_repr___redArg___closed__2;
 static double l_IVI_KakeyaBounds_instInhabitedDeltaPack_default___closed__0;
 LEAN_EXPORT lean_object* l_IVI_KakeyaBounds_ContractWitness_ctorIdx(lean_object*, lean_object*, lean_object*, lean_object*);
 static lean_object* l_IVI_KakeyaBounds_instReprDeltaPack_repr___redArg___closed__6;
+static double l___private_IVI_KakeyaBounds_0__IVI_KakeyaBounds_decorateWithWill___closed__0;
+uint8_t lean_float_decLt(double, double);
 LEAN_EXPORT lean_object* l_IVI_KakeyaBounds_instInhabitedDeltaPack;
 static lean_object* l_IVI_KakeyaBounds_instReprDeltaPack_repr___redArg___closed__0;
 static lean_object* l_IVI_KakeyaBounds_instReprDeltaPack_repr___redArg___closed__8;
@@ -36,22 +39,29 @@ static lean_object* l_IVI_KakeyaBounds_instReprDeltaPack_repr___redArg___closed_
 static lean_object* l_IVI_KakeyaBounds_instReprDeltaPack_repr___redArg___closed__17;
 static lean_object* l_IVI_KakeyaBounds_instReprDeltaPack_repr___redArg___closed__22;
 static lean_object* l_IVI_KakeyaBounds_instReprDeltaPack_repr___redArg___closed__13;
+LEAN_EXPORT double l_List_foldl___at_____private_IVI_KakeyaBounds_0__IVI_KakeyaBounds_thetaSpan_spec__0(double, lean_object*);
 static lean_object* l_IVI_KakeyaBounds_instReprDeltaPack_repr___redArg___closed__14;
+LEAN_EXPORT double l___private_IVI_KakeyaBounds_0__IVI_KakeyaBounds_thetaSpan(lean_object*);
 LEAN_EXPORT lean_object* l_IVI_KakeyaBounds_instReprDeltaPack_repr(lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_IVI_KakeyaBounds_instReprDeltaPack_repr___redArg(lean_object*);
 LEAN_EXPORT lean_object* l_IVI_KakeyaBounds_instInhabitedDeltaPack_default;
 static lean_object* l_IVI_KakeyaBounds_instReprDeltaPack_repr___redArg___closed__16;
 LEAN_EXPORT lean_object* l_IVI_KakeyaBounds_DeltaPack_ctorIdx___boxed(lean_object*);
+LEAN_EXPORT lean_object* l___private_IVI_KakeyaBounds_0__IVI_KakeyaBounds_thetaSpan___boxed(lean_object*);
 static lean_object* l_IVI_KakeyaBounds_instReprDeltaPack_repr___redArg___closed__1;
+lean_object* l_IVI_SVObj_fromNode(lean_object*, double);
 static lean_object* l_IVI_KakeyaBounds_instReprDeltaPack_repr___redArg___closed__9;
+double l_Float_ofScientific(lean_object*, uint8_t, lean_object*);
 LEAN_EXPORT double l_IVI_KakeyaBounds_DeltaPack__u0394entropy(lean_object*);
 LEAN_EXPORT double l_IVI_KakeyaBounds_DeltaPack__u0394grain(lean_object*);
 static lean_object* l_IVI_KakeyaBounds_instReprDeltaPack_repr___redArg___closed__5;
 static lean_object* l_IVI_KakeyaBounds_instReprDeltaPack_repr___redArg___closed__20;
 static lean_object* l_IVI_KakeyaBounds_instReprDeltaPack_repr___redArg___closed__7;
+static lean_object* l___private_IVI_KakeyaBounds_0__IVI_KakeyaBounds_decorateWithWill___closed__1;
 LEAN_EXPORT lean_object* l_IVI_KakeyaBounds_instReprDeltaPack_repr___boxed(lean_object*, lean_object*);
 static lean_object* l_IVI_KakeyaBounds_instInhabitedDeltaPack_default___closed__1;
 static lean_object* l_IVI_KakeyaBounds_instReprDeltaPack_repr___redArg___closed__21;
+LEAN_EXPORT lean_object* l_List_foldl___at_____private_IVI_KakeyaBounds_0__IVI_KakeyaBounds_thetaSpan_spec__0___boxed(lean_object*, lean_object*);
 static lean_object* l_IVI_KakeyaBounds_instReprDeltaPack_repr___redArg___closed__3;
 double fabs(double);
 LEAN_EXPORT lean_object* l_IVI_KakeyaBounds_DeltaPack__u0394grain___boxed(lean_object*);
@@ -62,6 +72,7 @@ static lean_object* l_IVI_KakeyaBounds_instReprDeltaPack_repr___redArg___closed_
 LEAN_EXPORT lean_object* l_IVI_KakeyaBounds_DeltaPack_ctorIdx(lean_object*);
 LEAN_EXPORT double l_IVI_KakeyaBounds_DeltaPack__u0394lambda(lean_object*);
 static lean_object* l_IVI_KakeyaBounds_instReprDeltaPack_repr___redArg___closed__15;
+double lean_float_sub(double, double);
 LEAN_EXPORT lean_object* l_IVI_KakeyaBounds_DeltaPack_ctorIdx(lean_object* x_1) {
 _start:
 {
@@ -574,11 +585,225 @@ lean_dec_ref(x_1);
 return x_5;
 }
 }
+static double _init_l___private_IVI_KakeyaBounds_0__IVI_KakeyaBounds_decorateWithWill___closed__0() {
+_start:
+{
+lean_object* x_1; uint8_t x_2; lean_object* x_3; double x_4; 
+x_1 = lean_unsigned_to_nat(1u);
+x_2 = 1;
+x_3 = lean_unsigned_to_nat(0u);
+x_4 = l_Float_ofScientific(x_3, x_2, x_1);
+return x_4;
+}
+}
+static lean_object* _init_l___private_IVI_KakeyaBounds_0__IVI_KakeyaBounds_decorateWithWill___closed__1() {
+_start:
+{
+uint8_t x_1; lean_object* x_2; 
+x_1 = 1;
+x_2 = lean_alloc_ctor(0, 0, 2);
+lean_ctor_set_uint8(x_2, 0, x_1);
+lean_ctor_set_uint8(x_2, 1, x_1);
+return x_2;
+}
+}
+LEAN_EXPORT lean_object* l___private_IVI_KakeyaBounds_0__IVI_KakeyaBounds_decorateWithWill(lean_object* x_1, lean_object* x_2, lean_object* x_3) {
+_start:
+{
+uint8_t x_4; 
+x_4 = !lean_is_exclusive(x_2);
+if (x_4 == 0)
+{
+lean_object* x_5; lean_object* x_6; lean_object* x_7; uint8_t x_8; double x_9; lean_object* x_10; lean_object* x_11; lean_object* x_12; lean_object* x_13; uint8_t x_14; 
+x_5 = lean_ctor_get(x_2, 0);
+x_6 = lean_ctor_get(x_2, 1);
+x_7 = lean_ctor_get(x_2, 2);
+lean_dec(x_7);
+x_8 = 1;
+x_9 = l___private_IVI_KakeyaBounds_0__IVI_KakeyaBounds_decorateWithWill___closed__0;
+x_10 = l_IVI_SVObj_fromNode(x_3, x_9);
+x_11 = lean_ctor_get(x_10, 1);
+lean_inc_ref(x_11);
+x_12 = lean_box(0);
+x_13 = l___private_IVI_KakeyaBounds_0__IVI_KakeyaBounds_decorateWithWill___closed__1;
+x_14 = !lean_is_exclusive(x_11);
+if (x_14 == 0)
+{
+lean_object* x_15; lean_object* x_16; lean_object* x_17; lean_object* x_18; double x_19; lean_object* x_20; 
+x_15 = lean_ctor_get(x_11, 1);
+lean_dec(x_15);
+lean_inc_ref(x_10);
+lean_inc_ref(x_1);
+x_16 = lean_apply_2(x_5, x_1, x_10);
+x_17 = lean_apply_2(x_6, x_1, x_10);
+x_18 = lean_alloc_ctor(0, 1, 1);
+lean_ctor_set(x_18, 0, x_16);
+lean_ctor_set_uint8(x_18, sizeof(void*)*1, x_8);
+lean_ctor_set(x_2, 2, x_18);
+lean_ctor_set(x_2, 1, x_12);
+lean_ctor_set(x_2, 0, x_13);
+lean_ctor_set(x_11, 1, x_12);
+x_19 = lean_unbox_float(x_17);
+lean_dec_ref(x_17);
+lean_ctor_set_float(x_11, sizeof(void*)*2, x_19);
+x_20 = lean_alloc_ctor(0, 2, 0);
+lean_ctor_set(x_20, 0, x_2);
+lean_ctor_set(x_20, 1, x_11);
+return x_20;
+}
+else
+{
+lean_object* x_21; lean_object* x_22; lean_object* x_23; lean_object* x_24; lean_object* x_25; double x_26; lean_object* x_27; 
+x_21 = lean_ctor_get(x_11, 0);
+lean_inc(x_21);
+lean_dec(x_11);
+lean_inc_ref(x_10);
+lean_inc_ref(x_1);
+x_22 = lean_apply_2(x_5, x_1, x_10);
+x_23 = lean_apply_2(x_6, x_1, x_10);
+x_24 = lean_alloc_ctor(0, 1, 1);
+lean_ctor_set(x_24, 0, x_22);
+lean_ctor_set_uint8(x_24, sizeof(void*)*1, x_8);
+lean_ctor_set(x_2, 2, x_24);
+lean_ctor_set(x_2, 1, x_12);
+lean_ctor_set(x_2, 0, x_13);
+x_25 = lean_alloc_ctor(0, 2, 8);
+lean_ctor_set(x_25, 0, x_21);
+lean_ctor_set(x_25, 1, x_12);
+x_26 = lean_unbox_float(x_23);
+lean_dec_ref(x_23);
+lean_ctor_set_float(x_25, sizeof(void*)*2, x_26);
+x_27 = lean_alloc_ctor(0, 2, 0);
+lean_ctor_set(x_27, 0, x_2);
+lean_ctor_set(x_27, 1, x_25);
+return x_27;
+}
+}
+else
+{
+lean_object* x_28; lean_object* x_29; uint8_t x_30; double x_31; lean_object* x_32; lean_object* x_33; lean_object* x_34; lean_object* x_35; lean_object* x_36; lean_object* x_37; lean_object* x_38; lean_object* x_39; lean_object* x_40; lean_object* x_41; lean_object* x_42; double x_43; lean_object* x_44; 
+x_28 = lean_ctor_get(x_2, 0);
+x_29 = lean_ctor_get(x_2, 1);
+lean_inc(x_29);
+lean_inc(x_28);
+lean_dec(x_2);
+x_30 = 1;
+x_31 = l___private_IVI_KakeyaBounds_0__IVI_KakeyaBounds_decorateWithWill___closed__0;
+x_32 = l_IVI_SVObj_fromNode(x_3, x_31);
+x_33 = lean_ctor_get(x_32, 1);
+lean_inc_ref(x_33);
+x_34 = lean_box(0);
+x_35 = l___private_IVI_KakeyaBounds_0__IVI_KakeyaBounds_decorateWithWill___closed__1;
+x_36 = lean_ctor_get(x_33, 0);
+lean_inc_ref(x_36);
+if (lean_is_exclusive(x_33)) {
+ lean_ctor_release(x_33, 0);
+ lean_ctor_release(x_33, 1);
+ x_37 = x_33;
+} else {
+ lean_dec_ref(x_33);
+ x_37 = lean_box(0);
+}
+lean_inc_ref(x_32);
+lean_inc_ref(x_1);
+x_38 = lean_apply_2(x_28, x_1, x_32);
+x_39 = lean_apply_2(x_29, x_1, x_32);
+x_40 = lean_alloc_ctor(0, 1, 1);
+lean_ctor_set(x_40, 0, x_38);
+lean_ctor_set_uint8(x_40, sizeof(void*)*1, x_30);
+x_41 = lean_alloc_ctor(0, 3, 0);
+lean_ctor_set(x_41, 0, x_35);
+lean_ctor_set(x_41, 1, x_34);
+lean_ctor_set(x_41, 2, x_40);
+if (lean_is_scalar(x_37)) {
+ x_42 = lean_alloc_ctor(0, 2, 8);
+} else {
+ x_42 = x_37;
+}
+lean_ctor_set(x_42, 0, x_36);
+lean_ctor_set(x_42, 1, x_34);
+x_43 = lean_unbox_float(x_39);
+lean_dec_ref(x_39);
+lean_ctor_set_float(x_42, sizeof(void*)*2, x_43);
+x_44 = lean_alloc_ctor(0, 2, 0);
+lean_ctor_set(x_44, 0, x_41);
+lean_ctor_set(x_44, 1, x_42);
+return x_44;
+}
+}
+}
+LEAN_EXPORT double l_List_foldl___at_____private_IVI_KakeyaBounds_0__IVI_KakeyaBounds_thetaSpan_spec__0(double x_1, lean_object* x_2) {
+_start:
+{
+if (lean_obj_tag(x_2) == 0)
+{
+return x_1;
+}
+else
+{
+lean_object* x_3; lean_object* x_4; lean_object* x_5; lean_object* x_6; lean_object* x_7; lean_object* x_8; double x_9; double x_10; double x_11; double x_12; uint8_t x_13; 
+x_3 = lean_ctor_get(x_2, 0);
+x_4 = lean_ctor_get(x_3, 0);
+x_5 = lean_ctor_get(x_4, 1);
+x_6 = lean_ctor_get(x_3, 1);
+x_7 = lean_ctor_get(x_6, 1);
+x_8 = lean_ctor_get(x_2, 1);
+x_9 = lean_ctor_get_float(x_5, sizeof(void*)*2);
+x_10 = lean_ctor_get_float(x_7, sizeof(void*)*2);
+x_11 = lean_float_sub(x_10, x_9);
+x_12 = fabs(x_11);
+x_13 = lean_float_decLt(x_1, x_12);
+if (x_13 == 0)
+{
+x_2 = x_8;
+goto _start;
+}
+else
+{
+x_1 = x_12;
+x_2 = x_8;
+goto _start;
+}
+}
+}
+}
+LEAN_EXPORT double l___private_IVI_KakeyaBounds_0__IVI_KakeyaBounds_thetaSpan(lean_object* x_1) {
+_start:
+{
+double x_2; double x_3; 
+x_2 = l___private_IVI_KakeyaBounds_0__IVI_KakeyaBounds_decorateWithWill___closed__0;
+x_3 = l_List_foldl___at_____private_IVI_KakeyaBounds_0__IVI_KakeyaBounds_thetaSpan_spec__0(x_2, x_1);
+return x_3;
+}
+}
+LEAN_EXPORT lean_object* l_List_foldl___at_____private_IVI_KakeyaBounds_0__IVI_KakeyaBounds_thetaSpan_spec__0___boxed(lean_object* x_1, lean_object* x_2) {
+_start:
+{
+double x_3; double x_4; lean_object* x_5; 
+x_3 = lean_unbox_float(x_1);
+lean_dec_ref(x_1);
+x_4 = l_List_foldl___at_____private_IVI_KakeyaBounds_0__IVI_KakeyaBounds_thetaSpan_spec__0(x_3, x_2);
+lean_dec(x_2);
+x_5 = lean_box_float(x_4);
+return x_5;
+}
+}
+LEAN_EXPORT lean_object* l___private_IVI_KakeyaBounds_0__IVI_KakeyaBounds_thetaSpan___boxed(lean_object* x_1) {
+_start:
+{
+double x_2; lean_object* x_3; 
+x_2 = l___private_IVI_KakeyaBounds_0__IVI_KakeyaBounds_thetaSpan(x_1);
+lean_dec(x_1);
+x_3 = lean_box_float(x_2);
+return x_3;
+}
+}
 lean_object* initialize_Init(uint8_t builtin, lean_object*);
 lean_object* initialize_IVI_Kakeya_Core(uint8_t builtin, lean_object*);
 lean_object* initialize_IVI_SVObj(uint8_t builtin, lean_object*);
 lean_object* initialize_IVI_Invariant(uint8_t builtin, lean_object*);
 lean_object* initialize_IVI_Will(uint8_t builtin, lean_object*);
+lean_object* initialize_IVI_FloatSpec(uint8_t builtin, lean_object*);
 static bool _G_initialized = false;
 LEAN_EXPORT lean_object* initialize_IVI_KakeyaBounds(uint8_t builtin, lean_object* w) {
 lean_object * res;
@@ -597,6 +822,9 @@ res = initialize_IVI_Invariant(builtin, lean_io_mk_world());
 if (lean_io_result_is_error(res)) return res;
 lean_dec_ref(res);
 res = initialize_IVI_Will(builtin, lean_io_mk_world());
+if (lean_io_result_is_error(res)) return res;
+lean_dec_ref(res);
+res = initialize_IVI_FloatSpec(builtin, lean_io_mk_world());
 if (lean_io_result_is_error(res)) return res;
 lean_dec_ref(res);
 l_IVI_KakeyaBounds_instReprDeltaPack_repr___redArg___closed__0 = _init_l_IVI_KakeyaBounds_instReprDeltaPack_repr___redArg___closed__0();
@@ -658,6 +886,9 @@ l_IVI_KakeyaBounds_instInhabitedDeltaPack_default = _init_l_IVI_KakeyaBounds_ins
 lean_mark_persistent(l_IVI_KakeyaBounds_instInhabitedDeltaPack_default);
 l_IVI_KakeyaBounds_instInhabitedDeltaPack = _init_l_IVI_KakeyaBounds_instInhabitedDeltaPack();
 lean_mark_persistent(l_IVI_KakeyaBounds_instInhabitedDeltaPack);
+l___private_IVI_KakeyaBounds_0__IVI_KakeyaBounds_decorateWithWill___closed__0 = _init_l___private_IVI_KakeyaBounds_0__IVI_KakeyaBounds_decorateWithWill___closed__0();
+l___private_IVI_KakeyaBounds_0__IVI_KakeyaBounds_decorateWithWill___closed__1 = _init_l___private_IVI_KakeyaBounds_0__IVI_KakeyaBounds_decorateWithWill___closed__1();
+lean_mark_persistent(l___private_IVI_KakeyaBounds_0__IVI_KakeyaBounds_decorateWithWill___closed__1);
 return lean_io_result_mk_ok(lean_box(0));
 }
 #ifdef __cplusplus
