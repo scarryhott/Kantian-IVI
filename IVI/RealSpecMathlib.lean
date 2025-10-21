@@ -23,6 +23,7 @@ end IVI
 namespace IVI.RealSpecMathlib
 
 open Matrix
+open scoped Matrix.Norms.L2Operator
 
 /-!
 ## Finite-dimensional matrices over ℝ
@@ -45,8 +46,9 @@ noncomputable def lambdaHead {n : Nat} (A : RealMatrixN n) : ℝ := ‖A‖
 theorem weyl_eigenvalue_bound_real_n
     {n : Nat} (A E : RealMatrixN n) :
     |lambdaHead (A + E) - lambdaHead A| ≤ ‖E‖ := by
-  have h := abs_norm_sub_norm_le_norm (x := A + E) (y := A)
-  simpa [lambdaHead, add_comm, add_left_comm, add_assoc, sub_eq_add_neg]
-    using h
+  simp only [lambdaHead]
+  calc |‖A + E‖ - ‖A‖|
+      ≤ ‖(A + E) - A‖ := abs_norm_sub_norm_le (A + E) A
+    _ = ‖E‖ := by simp [add_sub_cancel_left]
 
 end IVI.RealSpecMathlib

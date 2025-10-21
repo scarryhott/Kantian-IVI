@@ -1,7 +1,7 @@
 {"synthetic": false,
  "outputs":
- {"o": ["13963145832249859966"],
-  "i": "15626963137398398342",
+ {"o": ["4787573523363723490"],
+  "i": "14244462005958458288",
   "c": "8599725628234642955"},
  "log":
  [{"message":
@@ -25,9 +25,9 @@
      [["ivi/IVI:extraDep", [["@ivi:extraDep", "1723"]]],
       ["imports",
        [["IVI.KakeyaBounds transitive imports (legacy)", "9117866046178321484"],
-        ["IVI.KakeyaBounds:importAllArts", "16678245573054036969"],
-        ["IVI.Relax transitive imports (legacy)", "14465496584988782910"],
-        ["IVI.Relax:importAllArts", "5555392511784427454"]]]]],
+        ["IVI.KakeyaBounds:importAllArts", "13678544484317393276"],
+        ["IVI.Relax transitive imports (legacy)", "3565729653954169960"],
+        ["IVI.Relax:importAllArts", "8543891971677700051"]]]]],
     ["libs",
      [["import dynlibs", "1723"],
       ["package external libraries", "1723"],
@@ -36,7 +36,7 @@
   ["Lean 4.24.0, commit 919e297292280cdb27598edd4e03437be5850221",
    "16820442660988836695"],
   ["/Users/harryscott/Kantian-IVI/IVI/KakeyaAssemble.lean",
-   "3069733932935551303"],
+   "8368265902916555730"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "15188424000854429999"}
+ "depHash": "13518229214963953318"}

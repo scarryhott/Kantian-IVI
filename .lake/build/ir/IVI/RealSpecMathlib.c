@@ -1,6 +1,6 @@
 // Lean compiler output
 // Module: IVI.RealSpecMathlib
-// Imports: Init Mathlib.Data.Matrix.Basic Mathlib.Data.Real.Basic
+// Imports: Init Mathlib.Data.Matrix.Basic Mathlib.Data.Real.Basic Mathlib.Analysis.CStarAlgebra.Matrix
 #include <lean/lean.h>
 #if defined(__clang__)
 #pragma clang diagnostic ignored "-Wunused-parameter"
@@ -156,6 +156,7 @@ return x_5;
 lean_object* initialize_Init(uint8_t builtin, lean_object*);
 lean_object* initialize_Mathlib_Data_Matrix_Basic(uint8_t builtin, lean_object*);
 lean_object* initialize_Mathlib_Data_Real_Basic(uint8_t builtin, lean_object*);
+lean_object* initialize_Mathlib_Analysis_CStarAlgebra_Matrix(uint8_t builtin, lean_object*);
 static bool _G_initialized = false;
 LEAN_EXPORT lean_object* initialize_IVI_RealSpecMathlib(uint8_t builtin, lean_object* w) {
 lean_object * res;
@@ -168,6 +169,9 @@ res = initialize_Mathlib_Data_Matrix_Basic(builtin, lean_io_mk_world());
 if (lean_io_result_is_error(res)) return res;
 lean_dec_ref(res);
 res = initialize_Mathlib_Data_Real_Basic(builtin, lean_io_mk_world());
+if (lean_io_result_is_error(res)) return res;
+lean_dec_ref(res);
+res = initialize_Mathlib_Analysis_CStarAlgebra_Matrix(builtin, lean_io_mk_world());
 if (lean_io_result_is_error(res)) return res;
 lean_dec_ref(res);
 return lean_io_result_mk_ok(lean_box(0));

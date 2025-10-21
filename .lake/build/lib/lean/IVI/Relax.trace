@@ -1,12 +1,21 @@
 {"synthetic": false,
  "outputs":
- {"o": ["14625252773153140015"],
-  "i": "16468007377788022012",
+ {"o": ["2508219794222811822"],
+  "i": "10171663382968941920",
   "c": "9033307124297143932"},
  "log":
  [{"message":
    ".> LEAN_PATH=/Users/harryscott/Kantian-IVI/.lake/packages/Cli/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/batteries/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/Qq/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/aesop/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/proofwidgets/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/importGraph/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/plausible/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/build/lib/lean /Users/harryscott/.elan/toolchains/leanprover--lean4---v4.24.0-rc1/bin/lean /Users/harryscott/Kantian-IVI/IVI/Relax.lean -o /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Relax.olean -i /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Relax.ilean -c /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Relax.c --setup /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Relax.setup.json --json",
-   "level": "trace"}],
+   "level": "trace"},
+  {"message":
+   "IVI/Relax.lean:15:28: unused variable `θMax`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "IVI/Relax.lean:19:30: unused variable `θMax`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "IVI/Relax.lean:23:29: unused variable `θMax`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"}],
  "inputs":
  [["IVI.Relax:deps",
    [["deps",
@@ -23,7 +32,7 @@
       ["module plugins", "1723"]]]]],
   ["Lean 4.24.0, commit 919e297292280cdb27598edd4e03437be5850221",
    "16820442660988836695"],
-  ["/Users/harryscott/Kantian-IVI/IVI/Relax.lean", "16412919920430615604"],
+  ["/Users/harryscott/Kantian-IVI/IVI/Relax.lean", "8589703109520175114"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "14570443917702148910"}
+ "depHash": "16548973743970121657"}
