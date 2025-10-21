@@ -1,6 +1,6 @@
 import Mathlib.Data.Matrix.Basic
 import Mathlib.Data.Real.Basic
-import Mathlib.Analysis.NormedSpace.OperatorNorm
+import Mathlib.Analysis.CStarAlgebra.Matrix
 
 namespace IVI
 
