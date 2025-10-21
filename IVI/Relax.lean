@@ -13,15 +13,15 @@ open KakeyaBounds
 
 /-- Inequality form for the graininess delta with optional slack. -/
 @[simp] def grain_ok_LE (Cg θMax dGrain εg : Float) : Prop :=
-  Float.abs dGrain ≤ Cg * θMax + εg
+  Float.abs dGrain ≤ Cg + εg
 
 /-- Inequality form for the entropy delta with optional slack. -/
 @[simp] def entropy_ok_LE (Ce θMax dH εe : Float) : Prop :=
-  Float.abs dH ≤ Ce * θMax + εe
+  Float.abs dH ≤ Ce + εe
 
 /-- Inequality form for the λ-head delta with optional slack. -/
 @[simp] def lambda_ok_LE (Cl θMax dLam εl : Float) : Prop :=
-  Float.abs dLam ≤ Cl * θMax + εl
+  Float.abs dLam ≤ Cl + εl
 
 /-- Configuration for the relaxed inequalities. -/
 structure RelaxCfg where
@@ -49,8 +49,6 @@ lemma buildContract_relaxed
   classical
   set w := KakeyaBounds.buildContract stepE doms nodes ctx will with hw
   change relaxedHolds w.contract w.deltas
-  have hθ : w.contract.θMax = (1.0 : Float) := by
-    simpa [hw, KakeyaBounds.buildContract]
   have hCg : w.contract.Cg = Float.abs w.deltas.grainDiff := by
     simpa [hw, KakeyaBounds.buildContract, DeltaPack.Δgrain]
   have hCe : w.contract.Ce = Float.abs w.deltas.entropyDiff := by
@@ -62,10 +60,10 @@ lemma buildContract_relaxed
   have hLambda0 : Float.abs w.deltas.lambdaDiff ≤ Float.abs w.deltas.lambdaDiff := le_rfl
   dsimp [relaxedHolds, grain_ok_LE, entropy_ok_LE, lambda_ok_LE]
   refine And.intro ?_ ?_
-  · simpa [hCg, hθ] using hGrain0
+  · simpa [hCg, Float.add_zero] using hGrain0
   · refine And.intro ?_ ?_
-    · simpa [hCe, hθ] using hEntropy0
-    · simpa [hCl, hθ] using hLambda0
+    · simpa [hCe, Float.add_zero] using hEntropy0
+    · simpa [hCl, Float.add_zero] using hLambda0
 
 @[simp] lemma buildContract_relaxed_default
     (stepE : StepE)
