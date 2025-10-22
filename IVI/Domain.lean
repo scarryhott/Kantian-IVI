@@ -85,6 +85,16 @@ theorem imaginaryOffset_ne_zero_of_i3_ne
   have := (imaginaryOffset_eq_zero_iff v).mp hz
   exact h this.2.2
 
+/-- Real Kakeya headings agree with the `projectToReal` projection. -/
+@[simp] theorem headingOf_eq_projectToReal (n : DomainNode) :
+    headingOf n = projectToReal n.state.ψ := by
+  classical
+  cases n with
+  | mk signature state =>
+      cases h : ((state.ψ.r1 * state.ψ.r1 + state.ψ.r2 * state.ψ.r2 + state.ψ.r3 * state.ψ.r3).sqrt == 0.0) <;>
+        simp [headingOf, projectToReal, Intangible.normaliseDir,
+          dirNorm, Intangible.spatialNorm, h]
+
 
 /-- Provide a simple inner-time instance on natural numbers (ticks). -/
 instance Nat.innerTime : InnerTime Nat := ⟨trivial⟩

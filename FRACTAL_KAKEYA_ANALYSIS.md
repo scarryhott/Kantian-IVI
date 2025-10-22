@@ -579,7 +579,7 @@ def detect_neural_cascade(emission_data, lensing_data):
 - Track phase-only observables (e.g. polarisation drift with intensity factored out) through successive zoom cycles.
 - Expect statistics to resist convergence to a minimal-volume bound; failure to collapse is interpreted as evidence of open complex dynamics.
 - Any attempt to force Kakeya-style summarisation should produce inconsistent or path-dependent results, aligning with `¬ preservesKakeyaAlongIComplex`.
-- Suggested guardrails: `IVI/Domain.lean` now exposes `imaginaryOffset_eq_zero_iff` (and coordinate simp lemmas) so only vanishing imaginary components collapse to the real frame; a complementary lemma for `projectToReal` and grain safety remains to be formalised.
+- Suggested guardrails: `IVI/Domain.lean` now exposes `imaginaryOffset_eq_zero_iff` (and coordinate simp lemmas) so only vanishing imaginary components collapse to the real frame, and `headingOf_eq_projectToReal` aligns real Kakeya headings with the projected vector; a final grain-safety lemma tying `projectToReal` into Kakeya thresholds is still open.
 
 ---
 
