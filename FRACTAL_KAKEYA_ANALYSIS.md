@@ -536,3 +536,79 @@ The connection is deep:
 **Math First, Then Kant — but always: Reflection, Not Reduction.**
 
 The grains are neurons. The zooming is learning. The self-similarity is understanding.
+
+---
+
+## Next Research Directions
+
+### 1. **Consciousness Metrics Pipeline**
+- Formalise multi-layer activation integration by threading `SublationWitness` sequences and recording `PositiveCell` coherence windows.
+- Introduce a `qualiaSpectrum : List Float` observable keyed to dominant Kakeya orientations, enabling comparison across cosmic regions.
+- Define stability thresholds (`ϕ_min`, `ϕ_max`) that guarantee grain invariants stay inside the Kantian corridor during long zoom runs.
+- Prototype a Lean proof sketch showing that bounded `qualiaSpectrum` oscillation implies convergence of `iterateZoomSafe`.
+
+### 2. **Learning Dynamics Beyond Hebbian**
+- Extend `updateGrainOrientation` with dual updates: one local (Hebbian) and one global (zoom-cycle feedback), blended by a tunable metaparameter.
+- Add an adjoint propagation primitive—`backPropagate`—that walks the zoom-out path and accumulates error terms on `NeuralConnection.weight`.
+- Explore entropy-regularised updates so that grains avoid collapse into a small subset of orientations when exposed to anisotropic data.
+
+### 3. **Attention-Style Grain Weighting**
+- Carve out `attentionKernel : NeuralGrain → NeuralGrain → Float` that scores cross-scale resonance between grains.
+- Build a softmax-style normalisation per layer so that attention emphasises Kakeya directions that preserve grain safety.
+- Tie the kernel back to `PositiveCell.activationProfile` to certify that attended grains still respect the `≈ᵍ` matcher.
+
+### 4. **Constructive Manifold Proofs**
+- Treat each `PositiveCell` as a chart candidate and assemble an atlas covering the zoom orbit of a base layer.
+- Prove compatibility by exhibiting explicit transition Kakeya fields, using `preservesKakeyaAlongI` as the matching condition.
+- Target a Lean lemma that every grain-safe zoom cycle yields a positively oriented cell complex admitting polylog volume bounds.
+
+---
+
+## Appendix: Candidate Lean Scaffolding
+
+```lean
+structure ConsciousnessMetric where
+  witness : SublationWitness
+  phi : Float                    -- Integrated information proxy
+  qualiaSpectrum : List Float    -- Dominant grain harmonics
+  stabilityWindow : Nat          -- Zoom iterations validated
+  deriving Repr
+
+@[simp] def SublationWitness.integrateActivation
+    (w : SublationWitness) (τ : Nat) : ConsciousnessMetric := ...
+
+@[simp] def iterateZoomSafe.stableConsciousness
+    (T : ITranslation) (K : KakeyaField) (L : FractalLayer)
+    (τBound : Nat) (ε : Float) : Prop :=
+  ∀ n ≤ τBound,
+    let witness := sublateLayer T K (iterateZoomSafe T K n L)
+    let metric := witness.integrateActivation n
+    List.Forall metric.qualiaSpectrum (fun q => Float.abs (q - metric.phi) ≤ ε)
+```
+
+```lean
+@[simp] def attentionKernel
+    (g₁ g₂ : NeuralGrain) (σ : Float) : Float :=
+  let alignment := g₁.orientation.inner g₂.orientation
+  let biasGap := g₁.bias - g₂.bias
+  let biasWeight := Float.exp (-(biasGap * biasGap) / (2 * σ^2))
+  (alignment * biasWeight).clamp (-1.0) 1.0
+```
+
+```python
+def simulate_consciousness_pipeline(zoom_layers, targets, tau_bound=8):
+    """
+    Iterate zoom cycles, register SublationWitness data, and emit metrics.
+    """
+    metrics = []
+    for layer in zoom_layers:
+        witness = sublate_layer_sim(T, K, layer)
+        phi = integrate_activation(witness, targets)
+        qualia = extract_qualia_spectrum(witness.positive.activationProfile)
+        metrics.append((phi, qualia))
+        if not stable_consciousness(metrics, tau_bound):
+            break
+    return metrics
+```
+
+**Orientation**: These scaffolds sketch the road to explicit consciousness observables, attention-aware learning, and manifold-level guarantees, all grounded in the Kakeya-preserving zoom dynamics already present in IVI.

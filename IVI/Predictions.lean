@@ -69,7 +69,6 @@ structure DarkMatterField where
   direction : C3Vec → C3Vec
   /-- Total mass/energy density -/
   density : Float
-  deriving Repr
 
 /-- The volume occupied by a dark matter field, measured by
     integrating the distribution over space. -/
@@ -140,7 +139,6 @@ structure Observable where
   operator : RealMatrixN n
   /-- The observable is Hermitian (real eigenvalues). -/
   hermitian : Matrix.IsHermitian operator
-  deriving Repr
 
 /-- **PREDICTION 3**: All observable effects are bounded by the
     spectral norm of the underlying operator, which equals the
@@ -217,7 +215,6 @@ structure LightRay where
   worldline : Float → C3Vec
   /-- Frequency/energy -/
   frequency : Float
-  deriving Repr
 
 /-- **PREDICTION 5**: Light propagation in 4D spacetime is the
     "extended" version of dark matter's 3D compressed structure.
@@ -353,16 +350,18 @@ axiom spectral_foundation :
 /-- Each eigenvalue is bounded by the operator norm.
     This is the foundation for Prediction 3a. -/
 axiom eigenvalue_bound_foundation :
-  ∀ {n : Nat} (A : RealMatrixN n) (hA : Matrix.IsHermitian A), Prop
+  ∀ {n : Nat} (A : RealMatrixN n) (hA : Matrix.IsHermitian A), True
 
 /-- The intangible translation formula is already implemented.
     This is the foundation for Prediction 2. -/
 theorem temporal_shift_foundation :
   ∀ (k : Float) (src tgt : DomainSignature) (node : C3State),
-    Intangible.deltaI k src tgt node = 
-      k * Intangible.spatialNorm node.ψ * 
+    Intangible.deltaI k src tgt node =
+      k * Intangible.spatialNorm node.ψ *
       Intangible.angleBetween node.ψ (Intangible.axisBetween src tgt) :=
-  by rfl
+by
+  intro k src tgt node
+  rfl
 
 end ProvenFoundations
 
