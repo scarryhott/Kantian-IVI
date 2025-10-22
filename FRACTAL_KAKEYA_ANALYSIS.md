@@ -179,7 +179,9 @@ This is like:
 
 ## What's Missing: Explicit Neural Geometry
 
-The project **doesn't currently have**:
+> _Status check_: This gap has now been filled by `IVI/NeuralGeometry.lean`, but the original diagnostic is kept for context.
+
+The project **originally lacked**:
 
 1. **Neural network terminology** (neurons, synapses, activations)
 2. **Learning dynamics** (gradient descent, backprop)
@@ -194,52 +196,105 @@ But the **structure is there implicitly**:
 
 ---
 
-## Proposed Extension: Neural Geometry Formalization
+## Implemented Extension: Neural Geometry (`IVI/NeuralGeometry.lean`)
 
-### Add to `IVI/NeuralGeometry.lean`
+### 1. Neural Connectivity
 
 ```lean
-/-- A neural grain is a grain with activation dynamics -/
-structure NeuralGrain extends KakeyaGrain where
-  /-- Activation level (0 to 1) -/
-  activation : Float
-  /-- Input connections from previous layer -/
-  inputs : List (NeuralGrain × Float)  -- (source, weight)
-  /-- Output connections to next layer -/
-  outputs : List (NeuralGrain × Float)
-
-/-- Activation function: grain alignment → activation -/
-def grain_activation (g : NeuralGrain) (input_direction : C3Vec) : Float :=
-  let alignment := Intangible.angleBetween g.normal input_direction
-  Float.exp (-alignment^2 / (2 * g.thickness^2))  -- Gaussian tuning
-
-/-- Forward propagation through fractal layers -/
-def forward_propagate 
-    (layers : List (List NeuralGrain)) 
-    (input : C3Vec) : List Float :=
-  layers.foldl (fun activations layer =>
-    layer.map (fun grain =>
-      grain_activation grain input
-    )
-  ) []
-
-/-- Grain alignment learning rule -/
-def update_grain_orientation 
-    (g : NeuralGrain) 
-    (target_direction : C3Vec) 
-    (learning_rate : Float) : NeuralGrain :=
-  let error := target_direction - g.normal
-  { g with normal := g.normal + learning_rate • error }
-
-/-- Self-similarity = learned invariance -/
-def learns_scale_invariance 
-    (T : ITranslation) 
-    (layers : List FractalLayer) : Prop :=
-  ∀ (L : FractalLayer), L ∈ layers →
-    ∃ (L' : FractalLayer), 
-      T.zoomCycle L = L' ∧
-      grain_statistics L ≈ grain_statistics L'
+structure NeuralConnection where
+  signature : DomainSignature
+  weight : Float
+  deriving Repr
 ```
+
+**Key Insight**: Links between grains are now explicit and weighted by domain signature.
+
+### 2. Neural Grain Upgrade
+
+```lean
+structure NeuralGrain extends EntropicGravity.KakeyaGrain where
+  activation : Float := 0.0
+  bias : Float := 0.0
+  inputs : List NeuralConnection := []
+  outputs : List NeuralConnection := []
+  deriving Repr
+
+@[simp] def FractalLayer.neuralise (L : FractalLayer) (K : KakeyaField) : List NeuralGrain := ...
+```
+
+**Key Insight**: Each Kakeya grain now carries neural activation state, biases, and connective tissue.
+
+### 3. Propagation & Learning Utilities
+
+```lean
+@[simp] def forwardPropagate (layers : List (List NeuralGrain)) (input : C3Vec) : List Float := ...
+
+@[simp] def updateGrainOrientation
+    (g : NeuralGrain) (targetDirection : C3Vec) (learningRate : Float) : NeuralGrain := ...
+
+@[simp] def learnsScaleInvariance
+    (T : ITranslation) (layers : List FractalLayer) : Prop := ...
+```
+
+**Key Insight**: Gaussian tuning, Hebbian orientation updates, and a formal `learnsScaleInvariance` predicate make the neural geometry operational.
+
+## Implemented Sublation: Positive Geometry (`IVI/PositiveGeometry.lean`)
+
+### 1. Synthesis Structures
+
+```lean
+structure PositiveCell where
+  support : List DomainNode
+  orientation : Dir3
+  weight : Float
+  activationProfile : List Float
+  deriving Repr
+
+structure SublationWitness where
+  thesis : FractalLayer
+  antithesis : FractalLayer
+  neuralLayer : List NeuralGrain
+  positive : PositiveCell
+  grainInvariant : Prop
+  deriving Repr
+```
+
+**Key Insight**: `SublationWitness` packages the Hegelian triad (thesis, antithesis, synthesis) with Kakeya grain invariants.
+
+### 2. Sublation Workflow
+
+```lean
+@[simp] def sublateLayer
+    (T : ITranslation) (K : KakeyaField) (L : FractalLayer) : SublationWitness := ...
+
+@[simp] def SublationWitness.valid (w : SublationWitness) : Prop :=
+  w.grainInvariant ∧
+    w.thesis.grainStatistics ≈ᵍ w.antithesis.grainStatistics
+
+@[simp] def ITranslation.positiveSynthesis
+    (T : ITranslation) (K : KakeyaField) (L : FractalLayer) : PositiveCell :=
+  (sublateLayer T K L).positive
+```
+
+**Key Insight**: Sublation is concretely encoded—positive geometry emerges only if grain statistics survive the zoom cycle (`≈ᵍ` matcher) and Kakeya safety holds.
+
+## Grain Statistics Bridge (`IVI/Fractal.lean`)
+
+```lean
+structure GrainStatistics where
+  radiusMean : Float
+  timeShiftMean : Float
+  deriving Repr
+
+@[simp] def FractalLayer.grainStatistics (L : FractalLayer) : GrainStatistics := ...
+
+@[simp] def GrainStatistics.close
+    (a b : GrainStatistics) (ε : Float := 1e-3) : Prop := ...
+
+infix:50 " ≈ᵍ " => GrainStatistics.close
+```
+
+**Key Insight**: Grain statistics act as the Kantian invariant whose preservation licenses the positive-geometry synthesis.
 
 ---
 
@@ -258,7 +313,9 @@ I-DIRECTED ZOOMING (Δi = k·‖r‖·θ)
     ↓
 SELF-SIMILARITY (scale invariance)
     ↓
-NEURAL GEOMETRY (implicit)
+NEURAL GEOMETRY (explicit `NeuralGrain`)
+    ↓
+SUBLATION POSITIVE CELL (`PositiveCell`)
 ```
 
 ### Key Properties
@@ -269,6 +326,8 @@ NEURAL GEOMETRY (implicit)
 4. **Invariant**: Self-similarity preserved under zooming
 5. **Geometric**: Grains are geometric objects (slabs)
 6. **Neural-Like**: Hierarchical processing, oriented filters
+7. **Sublative**: `SublationWitness` enforces thesis ↔ antithesis harmony
+8. **Positive**: `PositiveCell` captures the constructive geometry after sublation
 
 ---
 
@@ -434,21 +493,23 @@ If grains process information:
 ✅ **Kakeya field** (`KakeyaField`)  
 ✅ **Self-similarity** (`selfSimilar`)  
 ✅ **Iterated zooming** (`iterateZoom`)
+✅ **Neural grain formalization** (`NeuralGrain`, `forwardPropagate`)  
+✅ **Positive geometry sublation** (`PositiveCell`, `SublationWitness`)  
+✅ **Grain statistics invariant** (`GrainStatistics`, `≈ᵍ`)
 
-### What's Implicit but Not Formalized
+### What's Still Implicit
 
-🔶 **Neural network structure** (layers, connections, activations)  
-🔶 **Learning dynamics** (orientation adjustment, weight updates)  
-🔶 **Attention mechanisms** (grain alignment = attention)  
-🔶 **Manifold learning** (Kakeya structure = learned manifold)
+🔶 **Consciousness metrics** (integrated information, qualia indexing)  
+🔶 **Learning dynamics beyond Hebbian** (backprop / variational updates)  
+🔶 **Attention mechanisms** (multi-directional weighting across grains)  
+🔶 **Explicit manifold learning proofs** (constructive Kakeya-to-positive geometry)
 
 ### What Could Be Added
 
-🎯 `IVI/NeuralGeometry.lean` - Explicit neural formalization  
-🎯 Grain activation functions  
-🎯 Learning rules for grain orientations  
-🎯 Scale-invariant feature extraction  
-🎯 Consciousness metrics (integrated information)
+🎯 Consciousness observables (activation integration across sublation witnesses)  
+🎯 Data-driven calibration hooks for `NeuralConnection` weights  
+🎯 Positive-cell triangulations linked to amplituhedron-style volumes  
+🎯 Empirical test suites mirroring the predictions outlined above
 
 ---
 
@@ -462,11 +523,11 @@ The connection is deep:
 - **I-directed zooming** = scale transformations
 - **Self-similarity** = Kakeya preservation across scales
 
-**The neural geometry connection is implicit but profound:**
-- Grains act like oriented neurons
-- Layers form a processing hierarchy
-- Zooming is like feedforward propagation
-- Self-similarity is learned invariance
+**The neural/positive geometry bridge is now explicit:**
+- `NeuralGrain` turns grains into oriented neurons with activations
+- `forwardPropagate` and `updateGrainOrientation` implement learning dynamics
+- `SublationWitness` demands thesis/antithesis harmony before synthesis
+- `PositiveCell` captures the constructive geometry forged by that harmony
 
 **This is a geometric theory of consciousness, physics, and computation unified through Kakeya fractal structure.**
 

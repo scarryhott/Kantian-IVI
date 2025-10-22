@@ -1,8 +1,8 @@
 {"synthetic": false,
  "outputs":
- {"o": ["7063573175638851717"],
-  "i": "12311790194364496641",
-  "c": "7147571388571443952"},
+ {"o": ["11038503702462834106"],
+  "i": "13271898099619657862",
+  "c": "13801230261352117597"},
  "log":
  [{"message":
    ".> LEAN_PATH=/Users/harryscott/Kantian-IVI/.lake/packages/Cli/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/batteries/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/Qq/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/aesop/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/proofwidgets/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/importGraph/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/plausible/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/build/lib/lean /Users/harryscott/.elan/toolchains/leanprover--lean4---v4.24.0-rc1/bin/lean /Users/harryscott/Kantian-IVI/IVI/Fractal.lean -o /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Fractal.olean -i /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Fractal.ilean -c /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Fractal.c --setup /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Fractal.setup.json --json",
@@ -37,7 +37,7 @@
       ["module plugins", "1723"]]]]],
   ["Lean 4.24.0, commit 919e297292280cdb27598edd4e03437be5850221",
    "16820442660988836695"],
-  ["/Users/harryscott/Kantian-IVI/IVI/Fractal.lean", "13501463215043298475"],
+  ["/Users/harryscott/Kantian-IVI/IVI/Fractal.lean", "10684183334083676974"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "3095737613600346606"}
+ "depHash": "647539149014944159"}

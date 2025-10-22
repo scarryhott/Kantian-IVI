@@ -178,4 +178,28 @@ structure ITranslation where
   | 0, L => L
   | Nat.succ n, L => iterateZoom T n (T.zoomCycle L)
 
+/-- Coarse statistics summarising one fractal layer for neural or positive-geometry
+    synthesis. These aggregates act as the Kantian invariant that must survive
+    the Hegelian sublation step. -/
+structure GrainStatistics where
+  /-- Mean spatial radius across nodes (geometric scale). -/
+  radiusMean : Float
+  /-- Mean temporal shift across nodes (subjective scale). -/
+  timeShiftMean : Float
+  deriving Repr
+
+/-- Extract averaged geometric + temporal features from a fractal layer. -/
+@[simp] def FractalLayer.grainStatistics (L : FractalLayer) : GrainStatistics :=
+  { radiusMean := L.radiusMean
+  , timeShiftMean := L.iCentroid }
+
+/-- Two grain-statistic packages agree up to a tolerance (default 1e-3). -/
+@[simp] def GrainStatistics.close
+    (a b : GrainStatistics) (ε : Float := 1e-3) : Prop :=
+  Float.abs (a.radiusMean - b.radiusMean) ≤ ε ∧
+  Float.abs (a.timeShiftMean - b.timeShiftMean) ≤ ε
+
+/-- Notation for closeness of grain statistics (default tolerance 1e-3). -/
+infix:50 " ≈ᵍ " => GrainStatistics.close
+
 end IVI
