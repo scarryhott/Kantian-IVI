@@ -349,6 +349,67 @@ SUBLATION POSITIVE CELL (`PositiveCell`)
 - Activation = grain alignment with light direction
 - Learning = grain orientation adjustment
 
+---
+
+## I-Dimension Mapping: Dark Matter and Light
+
+### I-Transform Semantics
+- The imaginary-axis increment `Δi = k · ‖r‖ · θ` drives each `ITranslation.zoom` step; it measures how far a grain travels through the time-phase corridor before reprojecting into real space.
+- `depth : Nat` tracks discrete samples of that phase walk: every successor depth corresponds to one full I-cycle (zoom in, zoom out) across which Kakeya orientation must be preserved.
+- Dark matter geometry therefore lives on the *I-fiber* over space: for every spatial grain we keep an I-stacked history encoding past and future light alignments.
+
+### Dark Matter Recursion
+- Let `L₀` be the observed mass-distribution layer; iterating `T.zoomCycle` produces `L₁, L₂, ...` capturing finer I-phase refinements of the same Kakeya scaffold.
+- The recursion assembles a density estimator
+
+```text
+ρᴰᴹ(x, iₙ) = weight(K.withLayer Lₙ, x) · exp(-(Δiₙ)² / σ²)
+```
+
+  where `iₙ` is the accumulated imaginary offset after `n` zoom cycles and `weight` extracts Kakeya-aligned support. The Gaussian factor keeps layers grain-safe by damping large I-excursions.
+- When `iterateZoomSafe` stabilises, the induced `ρᴰᴹ` converges to a self-similar profile matching the observed halo: dark matter is the limit of I-recursive Kakeya weights.
+
+### Light Form Propagation
+- Photons supply boundary conditions: each incident light form `ℒ` imprints an orientation phase `(θ_ℒ, φ_ℒ)` onto the top layer, seeding the next I-step.
+- During zoom-in, `ℒ` biases the selection of grains whose normals align with its propagation direction; during zoom-out that bias is averaged, producing an activation trail through the stack.
+- The resulting light-form density is
+
+```text
+ρᴸ(x, iₙ) = activationProfileₙ(x) · cos(θ_ℒ - θ_grain) · e^{i iₙ}
+```
+
+  so dark matter and light share the same I-coordinate while differing in phase coupling: dark matter weights depend on Kakeya support, light weights depend on coherent activation.
+
+### Coupled Recursion Schematic
+1. start with `(L, K, ℒ)` satisfying grain safety;
+2. compute `Δi` from `ℒ` and the local Kakeya frame;
+3. push `L` forward via `T.zoom`, storing the I-shifted dark matter slice;
+4. accumulate photon-driven activations into `PositiveCell.activationProfile`;
+5. pull back via `zoomOut`, verifying `≈ᵍ` so no dark-matter collapse has occurred;
+6. repeat while `SublationWitness.valid` remains true—this maintains a joint dark matter/light invariant along I.
+
+### Implementation Hooks
+
+```lean
+structure DarkMatterSlice where
+  layer : FractalLayer
+  phaseOffset : Float      -- cumulative Δi
+  density : Float
+  deriving Repr
+
+structure LightForm where
+  direction : Dir3
+  frequency : Float
+  phase : Float
+  deriving Repr
+
+@[simp] def FractalLayer.bindDarkLight
+    (L : FractalLayer) (K : KakeyaField) (ℒ : LightForm)
+    (Δi : Float) : DarkMatterSlice × PositiveCell := ...
+```
+
+These stubs formalise the shared recursion: `DarkMatterSlice` captures the I-shifted grain statistics, while `PositiveCell` records how light reorganises the same fractal support. Completing them makes the dark matter/light dual birth explicit inside IVI.
+
 ### Observable Predictions
 
 1. **Multi-Scale Anisotropy**

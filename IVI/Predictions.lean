@@ -301,59 +301,52 @@ axiom spectral_unification :
       (h_df : Matrix.IsHermitian op_df),
       True  -- Placeholder for specific bounds
 
-/-! ## 8. Experimental Tests -/
+-- ## 8. Experimental Tests
 
-/-- A collection of specific experimental predictions that can
-    be tested with current or near-future technology. -/
+-- A collection of specific experimental predictions that can
+-- be tested with current or near-future technology.
 
-namespace ExperimentalTests
-
-/-- Test 1: Measure time dilation near dark matter filaments -/
-axiom test_time_dilation :
+-- Test 1: Measure time dilation near dark matter filaments
+axiom experimental_test_time_dilation :
   ∃ (setup : String) (prediction : Float → Float),
     setup = "Place atomic clocks at varying distances from known dark matter filament" ∧
     ∀ (distance : Float),
       ∃ (measured_dilation : Float),
         measured_dilation = prediction distance
 
-/-- Test 2: Verify Kakeya bound on dark matter distribution -/
-axiom test_kakeya_bound :
+-- Test 2: Verify Kakeya bound on dark matter distribution
+axiom experimental_test_kakeya_bound :
   ∃ (lensing_data : DarkMatterField → Float),
     ∀ (dm : DarkMatterField),
       volume dm ≤ kakeya_dimension * directional_coverage dm
 
-/-- Test 3: Check spectral bound on lensing angles -/
-axiom test_lensing_bound :
+-- Test 3: Check spectral bound on lensing angles
+axiom experimental_test_lensing_bound :
   ∃ (max_observed_angle : Float) (predicted_eigenvalue : Float),
     max_observed_angle ≤ predicted_eigenvalue
 
-/-- Test 4: Derive coupling constant from geometry -/
-axiom test_coupling_constant :
+-- Test 4: Derive coupling constant from geometry
+axiom experimental_test_coupling_constant :
   ∃ (k_measured k_predicted : Float),
     Float.abs (k_measured - k_predicted) < 0.01 * k_measured  -- Within 1%
+-- ## 9. Connection to Proven Theorems
 
-end ExperimentalTests
+-- The predictions above are not arbitrary - they follow from
+-- theorems already proven in the IVI project.
 
-/-! ## 9. Connection to Proven Theorems -/
-
-/-- The predictions above are not arbitrary - they follow from
-    theorems already proven in the IVI project. -/
-
-namespace ProvenFoundations
-
-/-- The spectral theorem connects operator norm to eigenvalues.
-    This is the foundation for Prediction 3. -/
+-- The spectral theorem connects operator norm to eigenvalues.
+-- This is the foundation for Prediction 3.
 axiom spectral_foundation :
   ∀ {n : Nat} (A : RealMatrixN n) (hA : Matrix.IsHermitian A),
     opNorm A = lambdaHead A hA
 
-/-- Each eigenvalue is bounded by the operator norm.
-    This is the foundation for Prediction 3a. -/
+-- Each eigenvalue is bounded by the operator norm.
+-- This is the foundation for Prediction 3a.
 axiom eigenvalue_bound_foundation :
   ∀ {n : Nat} (A : RealMatrixN n) (hA : Matrix.IsHermitian A), True
 
-/-- The intangible translation formula is already implemented.
-    This is the foundation for Prediction 2. -/
+-- The intangible translation formula is already implemented.
+-- This is the foundation for Prediction 2.
 theorem temporal_shift_foundation :
   ∀ (k : Float) (src tgt : DomainSignature) (node : C3State),
     Intangible.deltaI k src tgt node =
@@ -363,9 +356,7 @@ by
   intro k src tgt node
   rfl
 
-end ProvenFoundations
-
-/-! ## 10. Philosophical Reflection -/
+-- ## 10. Philosophical Reflection
 
 /-- The IVI project demonstrates that:
     
