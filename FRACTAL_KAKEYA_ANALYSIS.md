@@ -130,6 +130,16 @@ def iterateZoom (T : ITranslation) : Nat → FractalLayer → FractalLayer
 
 ---
 
+## Updated Axiom Set
+
+1. **Noumenal Openness**: There exists a potential space `ComplexDomain ≔ ℂ³` (the `I`-domain) that is unordered, non-positive, and records dissonant possibility.
+2. **Phenomenal Projection**: All coherent experience and verification occur in `RealDomain ≔ ℝ³`, an ordered field that supports positivity and geometric bounds.
+3. **Resonant Constraint**: Resonance, dissonance scores, grain rigidity, and positive geometry are defined only after projection into `RealDomain`; Kakeya-style constraints apply here.
+4. **Sublation / IVI**: IVI realises the projection `π : ComplexDomain → RealDomain`, selecting only those structures that survive resonance and coherence tests.
+5. **Dual Dissonance**: Dissonance in `ComplexDomain` is ontological and open; dissonance in `RealDomain` is representational and measured. Resonance aligns representational dissonance with phenomenal coherence.
+
+---
+
 ## The Neural Geometry Connection (Implicit)
 
 While the code doesn't explicitly mention "neural geometry," the structure is **deeply geometric**:
@@ -420,6 +430,8 @@ These stubs formalise the shared recursion: `DarkMatterSlice` captures the I-shi
 - **Axiom (Projection Axiom)**: Every resonance–dissonance structure treated in IVI arises via projection `π : ℂⁿ → ℝ³` from a noumenal potential space to a phenomenal constraint space. Positivity, Kakeya rigidity, and all associated real invariants apply *only after* this projection.
 - Consequence: proofs of grain safety, `≈ᵍ`, and positive geometry must assume the projected context; within the noumenal fiber their hypotheses remain intentionally unsatisfied, preserving Kantian openness.
 - Design intent: IVI's sublation pipeline (`T.zoom`, `zoomOut`, `positiveSynthesis`) is exactly the mechanism that realises `π`, cementing the separation between noumenal generation and phenomenal resonance.
+- **Domain labels**: we write `RealDomain ≔ ℝ³` for the phenomenal layer and `ComplexDomain ≔ ℂ³` for the noumenal layer; every resonance/dissonance predicate specifies the domain it inhabits.
+- **Projection helper**: `project : ComplexDomain → RealDomain` (a placeholder in Lean) makes the sublation step explicit and ensures future code respects the axiom.
 
 ```lean
 @[simp] def resonanceMapR3
@@ -568,6 +580,7 @@ def detect_neural_cascade(emission_data, lensing_data):
 - Track phase-only observables (e.g. polarisation drift with intensity factored out) through successive zoom cycles.
 - Expect statistics to resist convergence to a minimal-volume bound; failure to collapse is interpreted as evidence of open complex dynamics.
 - Any attempt to force Kakeya-style summarisation should produce inconsistent or path-dependent results, aligning with `¬ preservesKakeyaAlongIComplex`.
+- Suggested guardrails: write Lean lemmas asserting `projectToReal` preserves grain safety while `imaginaryOffset` witnesses failure of Kakeya constraints in `ComplexDomain`.
 
 ---
 

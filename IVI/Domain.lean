@@ -1,14 +1,31 @@
 /-
   IVI/Domain.lean
-  Domain specializations as instances of the pure operators.
+  Domain specializations as instances of the pure operators and helpers that
+  distinguish the phenomenal (real) and noumenal (complex) layers.
 -/
 
 import IVI.Core
 import IVI.Operators
+import IVI.Kakeya.Core
+import IVI.C3Model
 
 namespace IVI
 
 set_option autoImplicit true
+
+/-- Phenomenal resonance space (ordered, Kakeya-rigid). -/
+abbrev RealDomain := Dir3
+
+/-- Noumenal potential space (unordered, dissonant). -/
+abbrev ComplexDomain := C3Vec
+
+/-- Sublation helper: project a noumenal configuration into the phenomenal frame. -/
+@[simp] def projectToReal (v : ComplexDomain) : RealDomain :=
+  normaliseDir3 { x := v.r1, y := v.r2, z := v.r3 }
+
+/-- Extract the imaginary displacement that measures noumenal dissonance. -/
+@[simp] def imaginaryOffset (v : ComplexDomain) : Dir3 :=
+  { x := v.i1, y := v.i2, z := v.i3 }
 
 /-- Provide a simple inner-time instance on natural numbers (ticks). -/
 instance Nat.innerTime : InnerTime Nat := ⟨trivial⟩

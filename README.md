@@ -25,6 +25,12 @@ See [BREAKTHROUGH_SUMMARY.md](BREAKTHROUGH_SUMMARY.md) for details.
 - 🌈 **[SUPERPOSITION_METAPHOR.md](SUPERPOSITION_METAPHOR.md)** - Reflection, not decomposition
 - ⚖️ **[TRUTH_AS_STABILITY.md](TRUTH_AS_STABILITY.md)** - Lies cause collapse
 
+### Real vs Complex Domains
+- **Noumenal Openness** lives in `ComplexDomain ≔ ℂ³`; no positivity or Kakeya bounds apply until sublation.
+- **Phenomenal Resonance** resides in `RealDomain ≔ ℝ³`; all grain safety, resonance, and positive geometry assertions are made here.
+- **Projection (`projectToReal`)** is the IVI sublation map `π : ℂ³ → ℝ³` that filters noumenal candidates before verification.
+- **Dissonance vs Resonance**: `imaginaryOffset` witnesses noumenal freedom; resonance metrics in `IVI/Harmonics.lean` explicitly operate in `RealDomain`.
+
 ## Build
 
 ```bash

@@ -1,6 +1,8 @@
 /-
   IVI/Harmonics.lean
   Lightweight spectral helpers for resonance/dissonance phrased as harmonics.
+  These scores live in `RealDomain` (ℝ³ projection); noumenal metrics should be
+  handled in the complex layer before calling the projection helpers.
   Stays list-based (mathlib-free) to match the existing invariant pipeline.
 -/
 

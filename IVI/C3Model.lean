@@ -1,7 +1,8 @@
 /-
   IVI/C3Model.lean
-  Mathlib-free placeholder for a C³-like representation of SVO states and resonance.
-  This is only a model scaffold; the pure ground remains IVI/Core + Pure.
+  Mathlib-free placeholder for the noumenal `ComplexDomain` (ℂ³) representation
+  of SVO states and dissonant potential. Projection into `RealDomain` happens in
+  `IVI/Domain` via `projectToReal`.
 -/
 
 import IVI.Core
