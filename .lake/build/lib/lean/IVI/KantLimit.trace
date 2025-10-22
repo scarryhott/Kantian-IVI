@@ -12,11 +12,11 @@
    [["deps",
      [["ivi/IVI:extraDep", [["@ivi:extraDep", "1723"]]],
       ["imports",
-       [["IVI.Invariant transitive imports (legacy)", "9700060304154019711"],
+       [["IVI.Invariant transitive imports (legacy)", "6894599487352664433"],
         ["IVI.Invariant:importAllArts", "1878660865401756547"],
-        ["IVI.Harmonics transitive imports (legacy)", "452625926964414483"],
-        ["IVI.Harmonics:importAllArts", "4372698553045683716"],
-        ["IVI.Kakeya transitive imports (legacy)", "17440972458195093419"],
+        ["IVI.Harmonics transitive imports (legacy)", "4287509539109913969"],
+        ["IVI.Harmonics:importAllArts", "14244454116463982443"],
+        ["IVI.Kakeya transitive imports (legacy)", "12365998927862323009"],
         ["IVI.Kakeya:importAllArts", "15053650425515955251"]]]]],
     ["libs",
      [["import dynlibs", "1723"],
@@ -28,4 +28,4 @@
   ["/Users/harryscott/Kantian-IVI/IVI/KantLimit.lean", "15692200279887317632"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "17010391921231809876"}
+ "depHash": "12964385387152059204"}

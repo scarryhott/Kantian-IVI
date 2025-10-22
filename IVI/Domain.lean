@@ -85,6 +85,7 @@ theorem imaginaryOffset_ne_zero_of_i3_ne
   have := (imaginaryOffset_eq_zero_iff v).mp hz
   exact h this.2.2
 
+
 /-- Provide a simple inner-time instance on natural numbers (ticks). -/
 instance Nat.innerTime : InnerTime Nat := ⟨trivial⟩
 
