@@ -1,7 +1,7 @@
 {"synthetic": false,
  "outputs":
- {"o": ["5258647327825467434"],
-  "i": "10653607888771042489",
+ {"o": ["13633728383437651220"],
+  "i": "13650869737147046483",
   "c": "6065121343995376141"},
  "log":
  [{"message":
@@ -12,7 +12,7 @@
    [["deps",
      [["ivi/IVI:extraDep", [["@ivi:extraDep", "1723"]]],
       ["imports",
-       [["IVI.Invariant transitive imports (legacy)", "9700060304154019711"],
+       [["IVI.Invariant transitive imports (legacy)", "6894599487352664433"],
         ["IVI.Invariant:importAllArts", "1878660865401756547"]]]]],
     ["libs",
      [["import dynlibs", "1723"],
@@ -21,7 +21,7 @@
       ["module plugins", "1723"]]]]],
   ["Lean 4.24.0, commit 919e297292280cdb27598edd4e03437be5850221",
    "16820442660988836695"],
-  ["/Users/harryscott/Kantian-IVI/IVI/Harmonics.lean", "16576466831767859721"],
+  ["/Users/harryscott/Kantian-IVI/IVI/Harmonics.lean", "6497631741364343057"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "15711112135928091359"}
+ "depHash": "17187161603601053508"}

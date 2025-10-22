@@ -1,12 +1,15 @@
 {"synthetic": false,
  "outputs":
- {"o": ["10914219240415381518"],
-  "i": "10130257619174184461",
-  "c": "3190502620723864184"},
+ {"o": ["13285177521568870201"],
+  "i": "139704085129276646",
+  "c": "13986929254636916796"},
  "log":
  [{"message":
    ".> LEAN_PATH=/Users/harryscott/Kantian-IVI/.lake/packages/Cli/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/batteries/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/Qq/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/aesop/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/proofwidgets/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/importGraph/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/plausible/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/build/lib/lean /Users/harryscott/.elan/toolchains/leanprover--lean4---v4.24.0-rc1/bin/lean /Users/harryscott/Kantian-IVI/IVI/Domain.lean -o /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Domain.olean -i /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Domain.ilean -c /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Domain.c --setup /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Domain.setup.json --json",
-   "level": "trace"}],
+   "level": "trace"},
+  {"message":
+   "IVI/Domain.lean:62:31: This simp argument is unused:\n  Dir3.mk.injEq\n\nHint: Omit it from the simp argument list.\n  simp [imaginaryOffset, D̵i̵r̵3̵.̵m̵k̵.̵i̵n̵j̵E̵q̵,̵ ̵hx', hy', hz']\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "level": "warning"}],
  "inputs":
  [["IVI.Domain:deps",
    [["deps",
@@ -15,7 +18,11 @@
        [["IVI.Core transitive imports (legacy)", "1723"],
         ["IVI.Core:importAllArts", "7906131056702661987"],
         ["IVI.Operators transitive imports (legacy)", "6084700986844957008"],
-        ["IVI.Operators:importAllArts", "10699347543340682045"]]]]],
+        ["IVI.Operators:importAllArts", "10699347543340682045"],
+        ["IVI.Kakeya.Core transitive imports (legacy)", "16334316237314534281"],
+        ["IVI.Kakeya.Core:importAllArts", "12016674898141207641"],
+        ["IVI.C3Model transitive imports (legacy)", "4005159908360421023"],
+        ["IVI.C3Model:importAllArts", "18126194044165490598"]]]]],
     ["libs",
      [["import dynlibs", "1723"],
       ["package external libraries", "1723"],
@@ -23,7 +30,7 @@
       ["module plugins", "1723"]]]]],
   ["Lean 4.24.0, commit 919e297292280cdb27598edd4e03437be5850221",
    "16820442660988836695"],
-  ["/Users/harryscott/Kantian-IVI/IVI/Domain.lean", "14423566601948454908"],
+  ["/Users/harryscott/Kantian-IVI/IVI/Domain.lean", "976468890052385376"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "3357853520413761918"}
+ "depHash": "7927415265450426790"}

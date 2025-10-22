@@ -1,6 +1,6 @@
 // Lean compiler output
 // Module: IVI.Domain
-// Imports: Init IVI.Core IVI.Operators
+// Imports: Init IVI.Core IVI.Operators IVI.Kakeya.Core IVI.C3Model
 #include <lean/lean.h>
 #if defined(__clang__)
 #pragma clang diagnostic ignored "-Wunused-parameter"
@@ -17,6 +17,7 @@ static lean_object* l_IVI_Law_instReprNorm___closed__0;
 LEAN_EXPORT lean_object* l_IVI_Math_stepSchema;
 LEAN_EXPORT lean_object* l_IVI_Law_instReprNorm_repr(lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_IVI_Ethics_instReprMaxim_repr___redArg(lean_object*);
+LEAN_EXPORT lean_object* l_IVI_imaginaryOffset___boxed(lean_object*);
 static lean_object* l_IVI_Physics_instReprState_repr___redArg___closed__7;
 LEAN_EXPORT lean_object* l_IVI_Ethics_instReprMaxim;
 static lean_object* l_IVI_Ethics_instReprMaxim_repr___redArg___closed__0;
@@ -24,6 +25,7 @@ static lean_object* l_IVI_Aesthetics_f_u2080___closed__1;
 LEAN_EXPORT lean_object* l_IVI_Law_rec;
 static lean_object* l_IVI_Physics_instReprState_repr___redArg___closed__10;
 LEAN_EXPORT lean_object* l_IVI_Aesthetics_instReprForm_repr(lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_IVI_projectToReal(lean_object*);
 LEAN_EXPORT lean_object* l_IVI_Math_monotoneRule;
 lean_object* l_String_quote(lean_object*);
 LEAN_EXPORT lean_object* l_IVI_Law_J;
@@ -34,6 +36,7 @@ LEAN_EXPORT lean_object* l_IVI_Math_rec;
 LEAN_EXPORT lean_object* l_IVI_Aesthetics_instReprForm_repr___redArg(lean_object*);
 LEAN_EXPORT lean_object* l_IVI_Aesthetics_freePlay___lam__0(lean_object*, lean_object*);
 static lean_object* l_IVI_Aesthetics_instReprForm_repr___redArg___closed__1;
+LEAN_EXPORT lean_object* l_IVI_imaginaryOffset(lean_object*);
 static lean_object* l_IVI_Physics_instReprState_repr___redArg___closed__9;
 static lean_object* l_IVI_Physics_instReprState_repr___redArg___closed__0;
 LEAN_EXPORT lean_object* l_IVI_Aesthetics_freePlay;
@@ -84,6 +87,7 @@ LEAN_EXPORT lean_object* l_IVI_Aesthetics_rec;
 static lean_object* l_IVI_Law_rec___closed__0;
 static lean_object* l_IVI_Aesthetics_rec___closed__1;
 static lean_object* l_IVI_Physics_s_u2082___closed__1;
+LEAN_EXPORT lean_object* l_IVI_projectToReal___boxed(lean_object*);
 LEAN_EXPORT lean_object* l_IVI_Math_fSVO;
 LEAN_EXPORT lean_object* l_IVI_Ethics_Maxim_ctorIdx___boxed(lean_object*);
 LEAN_EXPORT lean_object* l_IVI_Physics_s_u2081;
@@ -130,6 +134,7 @@ LEAN_EXPORT lean_object* l_IVI_Aesthetics_instReprForm_repr___boxed(lean_object*
 LEAN_EXPORT lean_object* l_IVI_Ethics_deliberation___lam__0___boxed(lean_object*, lean_object*);
 lean_object* lean_string_append(lean_object*, lean_object*);
 static lean_object* l_IVI_Ethics_instReprMaxim_repr___redArg___closed__3;
+lean_object* l_IVI_normaliseDir3(lean_object*);
 static lean_object* l_IVI_Aesthetics_instReprForm_repr___redArg___closed__3;
 static lean_object* l_IVI_Law_dueProcess___closed__1;
 lean_object* lean_nat_add(lean_object*, lean_object*);
@@ -140,6 +145,53 @@ LEAN_EXPORT lean_object* l_IVI_Ethics_J;
 static lean_object* l_IVI_Law_instReprNorm_repr___redArg___closed__2;
 static lean_object* l_IVI_Ethics_rec___closed__1;
 static lean_object* l_IVI_Ethics_instReprMaxim_repr___redArg___closed__4;
+LEAN_EXPORT lean_object* l_IVI_projectToReal(lean_object* x_1) {
+_start:
+{
+double x_2; double x_3; double x_4; lean_object* x_5; lean_object* x_6; 
+x_2 = lean_ctor_get_float(x_1, 0);
+x_3 = lean_ctor_get_float(x_1, 16);
+x_4 = lean_ctor_get_float(x_1, 32);
+x_5 = lean_alloc_ctor(0, 0, 24);
+lean_ctor_set_float(x_5, 0, x_2);
+lean_ctor_set_float(x_5, 8, x_3);
+lean_ctor_set_float(x_5, 16, x_4);
+x_6 = l_IVI_normaliseDir3(x_5);
+return x_6;
+}
+}
+LEAN_EXPORT lean_object* l_IVI_projectToReal___boxed(lean_object* x_1) {
+_start:
+{
+lean_object* x_2; 
+x_2 = l_IVI_projectToReal(x_1);
+lean_dec_ref(x_1);
+return x_2;
+}
+}
+LEAN_EXPORT lean_object* l_IVI_imaginaryOffset(lean_object* x_1) {
+_start:
+{
+double x_2; double x_3; double x_4; lean_object* x_5; 
+x_2 = lean_ctor_get_float(x_1, 8);
+x_3 = lean_ctor_get_float(x_1, 24);
+x_4 = lean_ctor_get_float(x_1, 40);
+x_5 = lean_alloc_ctor(0, 0, 24);
+lean_ctor_set_float(x_5, 0, x_2);
+lean_ctor_set_float(x_5, 8, x_3);
+lean_ctor_set_float(x_5, 16, x_4);
+return x_5;
+}
+}
+LEAN_EXPORT lean_object* l_IVI_imaginaryOffset___boxed(lean_object* x_1) {
+_start:
+{
+lean_object* x_2; 
+x_2 = l_IVI_imaginaryOffset(x_1);
+lean_dec_ref(x_1);
+return x_2;
+}
+}
 static lean_object* _init_l_IVI_Nat_innerTime() {
 _start:
 {
@@ -1366,6 +1418,8 @@ return x_1;
 lean_object* initialize_Init(uint8_t builtin, lean_object*);
 lean_object* initialize_IVI_Core(uint8_t builtin, lean_object*);
 lean_object* initialize_IVI_Operators(uint8_t builtin, lean_object*);
+lean_object* initialize_IVI_Kakeya_Core(uint8_t builtin, lean_object*);
+lean_object* initialize_IVI_C3Model(uint8_t builtin, lean_object*);
 static bool _G_initialized = false;
 LEAN_EXPORT lean_object* initialize_IVI_Domain(uint8_t builtin, lean_object* w) {
 lean_object * res;
@@ -1378,6 +1432,12 @@ res = initialize_IVI_Core(builtin, lean_io_mk_world());
 if (lean_io_result_is_error(res)) return res;
 lean_dec_ref(res);
 res = initialize_IVI_Operators(builtin, lean_io_mk_world());
+if (lean_io_result_is_error(res)) return res;
+lean_dec_ref(res);
+res = initialize_IVI_Kakeya_Core(builtin, lean_io_mk_world());
+if (lean_io_result_is_error(res)) return res;
+lean_dec_ref(res);
+res = initialize_IVI_C3Model(builtin, lean_io_mk_world());
 if (lean_io_result_is_error(res)) return res;
 lean_dec_ref(res);
 l_IVI_Nat_innerTime = _init_l_IVI_Nat_innerTime();

@@ -1,7 +1,7 @@
 {"synthetic": false,
  "outputs":
- {"o": ["842426222891128212"],
-  "i": "12473814046534800207",
+ {"o": ["117888773267884043"],
+  "i": "7847777633279032416",
   "c": "11081552294470199009"},
  "log":
  [{"message":
@@ -21,7 +21,7 @@
       ["module plugins", "1723"]]]]],
   ["Lean 4.24.0, commit 919e297292280cdb27598edd4e03437be5850221",
    "16820442660988836695"],
-  ["/Users/harryscott/Kantian-IVI/IVI/C3Model.lean", "12190262126208824254"],
+  ["/Users/harryscott/Kantian-IVI/IVI/C3Model.lean", "2376350704312816156"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "6135851434333717809"}
+ "depHash": "11920718654479872407"}

@@ -64,8 +64,8 @@
      [["ivi/IVI:extraDep", [["@ivi:extraDep", "1723"]]],
       ["imports",
        [["IVI.C3Model transitive imports (legacy)", "4005159908360421023"],
-        ["IVI.C3Model:importAllArts", "17879023223971992579"],
-        ["IVI.Intangible transitive imports (legacy)", "12527941517874735524"],
+        ["IVI.C3Model:importAllArts", "18126194044165490598"],
+        ["IVI.Intangible transitive imports (legacy)", "14120071172048712673"],
         ["IVI.Intangible:importAllArts", "6697781964442365726"]]]]],
     ["libs",
      [["import dynlibs", "1723"],
@@ -77,4 +77,4 @@
   ["/Users/harryscott/Kantian-IVI/IVI/Predictions.lean", "8504283879854655734"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "7192784071466260878"}
+ "depHash": "6806867562650436777"}

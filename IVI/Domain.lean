@@ -27,6 +27,40 @@ abbrev ComplexDomain := C3Vec
 @[simp] def imaginaryOffset (v : ComplexDomain) : Dir3 :=
   { x := v.i1, y := v.i2, z := v.i3 }
 
+/-- Coordinates of the imaginary offset are the imaginary components. -/
+@[simp]
+theorem imaginaryOffset_x (v : ComplexDomain) :
+    (imaginaryOffset v).x = v.i1 := rfl
+
+@[simp]
+theorem imaginaryOffset_y (v : ComplexDomain) :
+    (imaginaryOffset v).y = v.i2 := rfl
+
+@[simp]
+theorem imaginaryOffset_z (v : ComplexDomain) :
+    (imaginaryOffset v).z = v.i3 := rfl
+
+/-- The imaginary offset vanishes exactly when all imaginary components vanish. -/
+@[simp]
+theorem imaginaryOffset_eq_zero_iff (v : ComplexDomain) :
+    imaginaryOffset v = { x := 0, y := 0, z := 0 } ↔
+      v.i1 = 0 ∧ v.i2 = 0 ∧ v.i3 = 0 := by
+  cases v with
+  | mk r1 i1 r2 i2 r3 i3 =>
+      constructor
+      · intro h
+        have hx := congrArg Dir3.x h
+        have hy := congrArg Dir3.y h
+        have hz := congrArg Dir3.z h
+        simp [imaginaryOffset] at hx hy hz
+        exact ⟨hx, ⟨hy, hz⟩⟩
+      · intro h
+        rcases h with ⟨hx, hy, hz⟩
+        have hx' : i1 = 0 := by simpa [imaginaryOffset] using hx
+        have hy' : i2 = 0 := by simpa [imaginaryOffset] using hy
+        have hz' : i3 = 0 := by simpa [imaginaryOffset] using hz
+        simp [imaginaryOffset, hx', hy', hz']
+
 /-- Provide a simple inner-time instance on natural numbers (ticks). -/
 instance Nat.innerTime : InnerTime Nat := ⟨trivial⟩
 

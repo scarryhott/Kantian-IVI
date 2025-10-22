@@ -21,7 +21,7 @@
    [["deps",
      [["ivi/IVI:extraDep", [["@ivi:extraDep", "1723"]]],
       ["imports",
-       [["IVI.Intangible transitive imports (legacy)", "12527941517874735524"],
+       [["IVI.Intangible transitive imports (legacy)", "14120071172048712673"],
         ["IVI.Intangible:importAllArts", "6697781964442365726"],
         ["IVI.SchematismEvidence transitive imports (legacy)", "1723"],
         ["IVI.SchematismEvidence:importAllArts", "13462879084447671572"]]]]],
@@ -35,4 +35,4 @@
   ["/Users/harryscott/Kantian-IVI/IVI/Invariant.lean", "6818767328693925297"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "16425533300951326421"}
+ "depHash": "2278316272113054297"}

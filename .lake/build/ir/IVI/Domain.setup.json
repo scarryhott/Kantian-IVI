@@ -3,10 +3,24 @@
  "name": "IVI.Domain",
  "isModule": false,
  "importArts":
- {"IVI.Operators":
+ {"IVI.SchematismEvidence":
+  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/SchematismEvidence.olean"],
+  "IVI.Operators":
   ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Operators.olean"],
   "IVI.Logic":
   ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Logic.olean"],
+  "IVI.Kakeya.Core":
+  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Kakeya/Core.olean"],
+  "IVI.Invariant":
+  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Invariant.olean"],
+  "IVI.Intangible":
+  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Intangible.olean"],
+  "IVI.Harmonics":
+  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Harmonics.olean"],
   "IVI.Core":
-  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Core.olean"]},
+  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Core.olean"],
+  "IVI.Collapse":
+  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Collapse.olean"],
+  "IVI.C3Model":
+  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/C3Model.olean"]},
  "dynlibs": []}
