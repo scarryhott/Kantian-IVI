@@ -2,6 +2,14 @@
   IVI/Fractal.lean
   Describes I-directed fractal layering of IVI nodes and how Kakeya-preserving
   resuperposition realises zoom-in/zoom-out self-similarity.
+
+  Projection Axiom (module level):
+    Every resonance–dissonance structure represented here is understood as the
+    projection `π : ℂⁿ → ℝ³` of a noumenal potential configuration into the
+    phenomenal Kakeya layer. Positivity, grain safety, and Kakeya rigidity
+    apply only after this projection; inside the complex fiber the data remain
+    intentionally unconstrained so that I-directed zoom can explore dissonant
+    possibilities before sublation.
 -/
 
 import IVI.Intangible

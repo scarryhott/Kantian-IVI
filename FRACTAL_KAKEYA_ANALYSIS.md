@@ -47,7 +47,7 @@ def ITranslation.zoomCycle (T : ITranslation) (L : FractalLayer) : FractalLayer 
   (T.zoom L).zoomOut
 ```
 
-**Key Insight**: A complete cycle = zoom in + zoom out, creating **self-similarity**
+**Key Insight**: A complete cycle = zoom in + zoom out, creating **self-similarity in the real slice after complex traversal**
 
 ---
 
@@ -61,7 +61,7 @@ def KakeyaField.grainSafe (K : KakeyaField) (L : FractalLayer) : Prop
   -- Kakeya field preserved during zoom
 ```
 
-**Key Insight**: Zooming must **preserve Kakeya grain structure**
+**Key Insight**: Zooming must **preserve Kakeya grain structure in the real projection**
 
 ---
 
@@ -74,7 +74,7 @@ def preservesKakeyaAlongI
   preservesKakeya (K.withLayer L) (T.stepE) doms L.nodes
 ```
 
-**Key Insight**: **Zooming preserves the Kakeya field** (directional structure maintained across scales)
+**Key Insight**: **Zooming preserves the Kakeya field after returning to the real slice** (directional structure maintained across scales while the complex excursion stays open)
 
 ---
 
@@ -92,7 +92,7 @@ def selfSimilar
     (K.withLayer L).isCollapseZero
 ```
 
-**Key Insight**: **Fractal self-similarity = Kakeya structure preserved under zoom cycles**
+**Key Insight**: **Fractal self-similarity = Kakeya structure preserved under zoom cycles once the I-motion is reprojected**
 
 ---
 
@@ -112,7 +112,7 @@ def iterateZoom (T : ITranslation) : Nat → FractalLayer → FractalLayer
   -- Infinite stream of zoom levels
 ```
 
-**Key Insight**: Can iterate zooming **indefinitely** as long as grain structure is preserved
+**Key Insight**: Can iterate zooming **indefinitely** as long as the real-slice grain structure is preserved
 
 ---
 
@@ -321,13 +321,14 @@ SUBLATION POSITIVE CELL (`PositiveCell`)
 ### Key Properties
 
 1. **Multi-Scale**: Fractal layers at different depths
-2. **Directional**: Grains encode orientations (Kakeya)
-3. **Dynamic**: I-translation propagates information
-4. **Invariant**: Self-similarity preserved under zooming
-5. **Geometric**: Grains are geometric objects (slabs)
-6. **Neural-Like**: Hierarchical processing, oriented filters
-7. **Sublative**: `SublationWitness` enforces thesis ↔ antithesis harmony
-8. **Positive**: `PositiveCell` captures the constructive geometry after sublation
+2. **Directional (real)**: Grains encode Kakeya orientations once reprojected to the phenomenal slice
+3. **Dynamic (complex)**: I-translation propagates information through an open complex excursion
+4. **Invariant (reconciled)**: Self-similarity appears when the complex motion is reconciled with the real Kakeya frame
+5. **Resonance/Dissonance**: `resonanceMapR3` vs `dissonanceMapC3` quantify how real coherence and complex openness interplay
+6. **Geometric**: Grains are geometric objects (slabs)
+7. **Neural-Like**: Hierarchical processing, oriented filters
+8. **Sublative**: `SublationWitness` enforces thesis ↔ antithesis harmony
+9. **Positive**: `PositiveCell` captures the constructive geometry after sublation
 
 ---
 
@@ -337,11 +338,11 @@ SUBLATION POSITIVE CELL (`PositiveCell`)
 
 **Standard view**: Dark matter = particles
 
-**IVI view**: Dark matter = fractal Kakeya structure
-- **Grains at multiple scales** (fractal hierarchy)
-- **Directional information** (Kakeya property)
-- **Scale-invariant** (self-similarity)
-- **Processes light** (grain activation by photons)
+**IVI view**: Dark matter = fractal Kakeya structure observed in the real slice
+- **Grains at multiple scales** (fractal hierarchy in observable matter)
+- **Directional information** (Kakeya property after projection)
+- **Scale-invariant** (self-similarity once noumenal motion is reconciled)
+- **Processes light** (grain activation by photons within the phenomenal frame)
 
 **Neural analogy**:
 - Grains = neurons with oriented receptive fields
@@ -410,6 +411,32 @@ structure LightForm where
 
 These stubs formalise the shared recursion: `DarkMatterSlice` captures the I-shifted grain statistics, while `PositiveCell` records how light reorganises the same fractal support. Completing them makes the dark matter/light dual birth explicit inside IVI.
 
+### Resonance–Dissonance Maps (`ℝ³` vs `ℂ³`)
+- IVI treats `ℝ³` as the phenomenal theatre of *resonance*: vectors in `Dir3`/`R3Vec` encode geometric alignment, and Kakeya rigidity measures how tightly those directions cohere.
+- The noumenal fiber `ℂ³` holds **dissonance**: elements of `C3Vec` track complex amplitudes whose imaginary parts register divergence from real resonance, preserving openness during I-translation.
+- A resonance map `ℛ : FractalLayer × KakeyaField → ℝ` evaluates the projected grain data, while a dissonance map `𝒟 : FractalLayer × ITranslation → ℂ` captures phase excursions before projection.
+
+### Projection Axiom
+- **Axiom (Projection Axiom)**: Every resonance–dissonance structure treated in IVI arises via projection `π : ℂⁿ → ℝ³` from a noumenal potential space to a phenomenal constraint space. Positivity, Kakeya rigidity, and all associated real invariants apply *only after* this projection.
+- Consequence: proofs of grain safety, `≈ᵍ`, and positive geometry must assume the projected context; within the noumenal fiber their hypotheses remain intentionally unsatisfied, preserving Kantian openness.
+- Design intent: IVI's sublation pipeline (`T.zoom`, `zoomOut`, `positiveSynthesis`) is exactly the mechanism that realises `π`, cementing the separation between noumenal generation and phenomenal resonance.
+
+```lean
+@[simp] def resonanceMapR3
+    (K : KakeyaField) (L : FractalLayer) : Float :=
+  let stats := L.grainStatistics
+  let alignment := K.meanAlignment L.nodes
+  alignment * stats.radiusMean
+
+@[simp] def dissonanceMapC3
+    (T : ITranslation) (L : FractalLayer) : Complex :=
+  let (_, phase) := T.zoomE L
+  Complex.mk phase.ΔiMean (phase.curvatureIm)
+```
+
+- Resonance maps feed the positive-geometry predicates (`≈ᵍ`, `grainInvariant`), ensuring that once noumenal motion collapses, the geometry remains Kantian and rigid.
+- Dissonance maps feed back into `Δi`, guiding which complex directions remain available for future synthesis; high dissonance signals unexplored noumenal potential that IVI can sublate in later cycles.
+
 ### Noumenal Kakeya Failure
 - In the complex (`I`) direction there is no analogue of Kakeya's minimal-volume guarantee; the complex measure lacks the ordering needed for line-segment packing arguments.
 - Each `Δi` excursion therefore suspends Kakeya rigidity: lines can shear, overlap, or split without violating any noumenal law, embodying the openness required by the Kantian interpretation.
@@ -417,6 +444,8 @@ These stubs formalise the shared recursion: `DarkMatterSlice` captures the I-shi
 - This failure is not a bug but the mathematical proof of noumenal potential: it guarantees that positive geometry governs the real, while the complex direction safeguards dissonance and availability for new syntheses.
 
 ### Observable Predictions
+
+*All three predictions interrogate the real (phenomenal) projection of the fractal field; they intentionally leave the complex fiber unconstrained, consistent with noumenal openness.*
 
 1. **Multi-Scale Anisotropy**
    - Lensing shows grain structure at multiple scales
@@ -433,11 +462,18 @@ These stubs formalise the shared recursion: `DarkMatterSlice` captures the I-shi
    - Cascade through scales (zoom propagation)
    - Phase-coherent emission (neural synchrony)
 
+4. **Noumenal Freedom (non-prediction)**
+   - No Kakeya-style minimal-volume constraint is expected purely within the complex fiber
+   - Observables that depend only on complex phases may therefore display dissonant or non-convergent behaviour
+   - Detecting such openness would confirm the theorised failure of Kakeya preservation away from the real slice
+
 ---
 
 ## Experimental Tests
 
 ### Test 1: Multi-Scale Grain Tomography
+
+*Phenomenal observable: probes Kakeya coherence after projecting lensing data onto the real slice.*
 
 **Method**: Analyze lensing at multiple scales simultaneously
 
@@ -467,6 +503,8 @@ def multi_scale_grain_analysis(shear_data, scales):
 
 ### Test 2: Zoom Invariance
 
+*Phenomenal observable: tests real-slice grain statistics across cosmological distances.*
+
 **Method**: Compare grain statistics at different redshifts
 
 ```python
@@ -495,6 +533,8 @@ def test_zoom_invariance(lensing_catalog):
 
 ### Test 3: Neural Activation Pattern
 
+*Phenomenal observable: measures light-form cascades once complex activations collapse into real emissions.*
+
 **Method**: Look for cascade-like emission patterns
 
 ```python
@@ -520,6 +560,14 @@ def detect_neural_cascade(emission_data, lensing_data):
 ```
 
 **Prediction**: Emission cascades correlated with grain density
+
+### Complex Fiber Diagnostic (Non-Constraint)
+
+*Noumenal probe: aims to verify the absence of Kakeya rigidity off the real slice.*
+
+- Track phase-only observables (e.g. polarisation drift with intensity factored out) through successive zoom cycles.
+- Expect statistics to resist convergence to a minimal-volume bound; failure to collapse is interpreted as evidence of open complex dynamics.
+- Any attempt to force Kakeya-style summarisation should produce inconsistent or path-dependent results, aligning with `¬ preservesKakeyaAlongIComplex`.
 
 ---
 
@@ -556,13 +604,14 @@ If grains process information:
 ✅ **Fractal layer structure** (`FractalLayer`)  
 ✅ **I-directed zooming** (`ITranslation.zoom`)  
 ✅ **Zoom cycles** (`zoomCycle`)  
-✅ **Grain preservation** (`grainSafeLayer`)  
-✅ **Kakeya field** (`KakeyaField`)  
-✅ **Self-similarity** (`selfSimilar`)  
+✅ **Grain preservation** (`grainSafeLayer`, real-slice guarantee)  
+✅ **Kakeya field** (`KakeyaField`, phenomenal projection)  
+✅ **Self-similarity** (`selfSimilar`, reconciliation of complex and real)  
 ✅ **Iterated zooming** (`iterateZoom`)
 ✅ **Neural grain formalization** (`NeuralGrain`, `forwardPropagate`)  
 ✅ **Positive geometry sublation** (`PositiveCell`, `SublationWitness`)  
 ✅ **Grain statistics invariant** (`GrainStatistics`, `≈ᵍ`)
+✅ **Resonance/dissonance maps** (ℝ³ coherence vs ℂ³ openness stubs)
 
 ### What's Still Implicit
 
@@ -578,6 +627,7 @@ If grains process information:
 🎯 Positive-cell triangulations linked to amplituhedron-style volumes  
 🎯 Empirical test suites mirroring the predictions outlined above  
 🎯 A Lean refutation lemma for `preservesKakeyaAlongI` inside the complex fiber, establishing noumenal openness explicitly
+🎯 Fully realised `resonanceMapR3`/`dissonanceMapC3` definitions with proofs of their complementary invariants
 
 ---
 
