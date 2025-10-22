@@ -130,13 +130,12 @@ def iterateZoom (T : ITranslation) : Nat → FractalLayer → FractalLayer
 
 ---
 
-## Updated Axiom Set
+## Revised Ultimate Axioms
 
-1. **Noumenal Openness**: There exists a potential space `ComplexDomain ≔ ℂ³` (the `I`-domain) that is unordered, non-positive, and records dissonant possibility.
-2. **Phenomenal Projection**: All coherent experience and verification occur in `RealDomain ≔ ℝ³`, an ordered field that supports positivity and geometric bounds.
-3. **Resonant Constraint**: Resonance, dissonance scores, grain rigidity, and positive geometry are defined only after projection into `RealDomain`; Kakeya-style constraints apply here.
-4. **Sublation / IVI**: IVI realises the projection `π : ComplexDomain → RealDomain`, selecting only those structures that survive resonance and coherence tests.
-5. **Dual Dissonance**: Dissonance in `ComplexDomain` is ontological and open; dissonance in `RealDomain` is representational and measured. Resonance aligns representational dissonance with phenomenal coherence.
+1. **Noumenal Openness (C-Domain)**: There exists an unbounded potential field `ComplexDomain ≔ ℂ³` that cannot be fully measured, ordered, or reduced. It carries the dissonant, uncollapsed possibilities explored by I-directed zoom.
+2. **Phenomenal Constraint (R-Domain)**: Whatever enters experience must take on coherent, navigable structure inside `RealDomain ≔ ℝ³`. This structure is workable but never total; it is where we evaluate grain safety, Kakeya bounds, and observable resonance.
+3. **Resonant Coherence**: Harmony across scales, perspectives, and contexts provides the operational notion of “truth” in `RealDomain`. Resonance tolerates dissonance as reserve—patterns stay shareable without demanding closure or necessity.
+4. **Sublation as Selection (Bridging Principle)**: IVI enacts a selection/projection `π : ComplexDomain → RealDomain` that stabilises provisional forms for shared use while deliberately leaving the noumenal reservoir untouched. Sublation is discernment, not domination.
 
 ---
 

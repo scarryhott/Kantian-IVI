@@ -26,10 +26,11 @@ See [BREAKTHROUGH_SUMMARY.md](BREAKTHROUGH_SUMMARY.md) for details.
 - ⚖️ **[TRUTH_AS_STABILITY.md](TRUTH_AS_STABILITY.md)** - Lies cause collapse
 
 ### Real vs Complex Domains
-- **Noumenal Openness** lives in `ComplexDomain ≔ ℂ³`; no positivity or Kakeya bounds apply until sublation.
-- **Phenomenal Resonance** resides in `RealDomain ≔ ℝ³`; all grain safety, resonance, and positive geometry assertions are made here.
-- **Projection (`projectToReal`)** is the IVI sublation map `π : ℂ³ → ℝ³` that filters noumenal candidates before verification.
-- **Dissonance vs Resonance**: `imaginaryOffset` witnesses noumenal freedom; resonance metrics in `IVI/Harmonics.lean` explicitly operate in `RealDomain`.
+- **Noumenal Openness** (`ComplexDomain ≔ ℂ³`): unbounded potential, never fully reduced.
+- **Phenomenal Constraint** (`RealDomain ≔ ℝ³`): workable structure for experience; not total, but testable.
+- **Resonant Coherence**: harmony across scales replaces rigid positivity; dissonance remains as possibility.
+- **Sublation as Selection**: `projectToReal : ℂ³ → ℝ³` stabilises shareable forms without exhausting the noumenal field.
+- **Dissonance vs Resonance**: `imaginaryOffset` witnesses noumenal freedom; resonance metrics in `IVI/Harmonics.lean` operate explicitly in `RealDomain`.
 
 ## Build
 
