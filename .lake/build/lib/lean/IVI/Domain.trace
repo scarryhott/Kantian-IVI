@@ -1,15 +1,12 @@
 {"synthetic": false,
  "outputs":
- {"o": ["13285177521568870201"],
-  "i": "139704085129276646",
+ {"o": ["2781394429790930670"],
+  "i": "10876048016800920513",
   "c": "13986929254636916796"},
  "log":
  [{"message":
    ".> LEAN_PATH=/Users/harryscott/Kantian-IVI/.lake/packages/Cli/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/batteries/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/Qq/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/aesop/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/proofwidgets/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/importGraph/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/plausible/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/build/lib/lean /Users/harryscott/.elan/toolchains/leanprover--lean4---v4.24.0-rc1/bin/lean /Users/harryscott/Kantian-IVI/IVI/Domain.lean -o /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Domain.olean -i /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Domain.ilean -c /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Domain.c --setup /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Domain.setup.json --json",
-   "level": "trace"},
-  {"message":
-   "IVI/Domain.lean:62:31: This simp argument is unused:\n  Dir3.mk.injEq\n\nHint: Omit it from the simp argument list.\n  simp [imaginaryOffset, D̵i̵r̵3̵.̵m̵k̵.̵i̵n̵j̵E̵q̵,̵ ̵hx', hy', hz']\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
-   "level": "warning"}],
+   "level": "trace"}],
  "inputs":
  [["IVI.Domain:deps",
    [["deps",
@@ -30,7 +27,7 @@
       ["module plugins", "1723"]]]]],
   ["Lean 4.24.0, commit 919e297292280cdb27598edd4e03437be5850221",
    "16820442660988836695"],
-  ["/Users/harryscott/Kantian-IVI/IVI/Domain.lean", "976468890052385376"],
+  ["/Users/harryscott/Kantian-IVI/IVI/Domain.lean", "4342475059329765074"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "7927415265450426790"}
+ "depHash": "10763611783269376667"}

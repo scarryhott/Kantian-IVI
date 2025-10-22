@@ -61,6 +61,30 @@ theorem imaginaryOffset_eq_zero_iff (v : ComplexDomain) :
         have hz' : i3 = 0 := by simpa [imaginaryOffset] using hz
         simp [imaginaryOffset, hx', hy', hz']
 
+/-- Non-zero imaginary component forces non-zero offset (first coordinate). -/
+theorem imaginaryOffset_ne_zero_of_i1_ne
+    {v : ComplexDomain} (h : v.i1 ≠ 0) :
+    imaginaryOffset v ≠ { x := 0, y := 0, z := 0 } := by
+  intro hz
+  have := (imaginaryOffset_eq_zero_iff v).mp hz
+  exact h this.1
+
+/-- Non-zero imaginary component forces non-zero offset (second coordinate). -/
+theorem imaginaryOffset_ne_zero_of_i2_ne
+    {v : ComplexDomain} (h : v.i2 ≠ 0) :
+    imaginaryOffset v ≠ { x := 0, y := 0, z := 0 } := by
+  intro hz
+  have := (imaginaryOffset_eq_zero_iff v).mp hz
+  exact h this.2.1
+
+/-- Non-zero imaginary component forces non-zero offset (third coordinate). -/
+theorem imaginaryOffset_ne_zero_of_i3_ne
+    {v : ComplexDomain} (h : v.i3 ≠ 0) :
+    imaginaryOffset v ≠ { x := 0, y := 0, z := 0 } := by
+  intro hz
+  have := (imaginaryOffset_eq_zero_iff v).mp hz
+  exact h this.2.2
+
 /-- Provide a simple inner-time instance on natural numbers (ticks). -/
 instance Nat.innerTime : InnerTime Nat := ⟨trivial⟩
 
