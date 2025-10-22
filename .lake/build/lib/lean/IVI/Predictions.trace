@@ -1,0 +1,80 @@
+{"synthetic": false,
+ "outputs":
+ {"o": ["15702596989475112130"],
+  "i": "2075645719615372310",
+  "c": "15842982086572996764"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/Users/harryscott/Kantian-IVI/.lake/packages/Cli/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/batteries/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/Qq/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/aesop/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/proofwidgets/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/importGraph/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/plausible/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/build/lib/lean /Users/harryscott/.elan/toolchains/leanprover--lean4---v4.24.0-rc1/bin/lean /Users/harryscott/Kantian-IVI/IVI/Predictions.lean -o /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Predictions.olean -i /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Predictions.ilean -c /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Predictions.c --setup /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Predictions.setup.json --json",
+   "level": "trace"},
+  {"message":
+   "IVI/Predictions.lean:103:24: unused variable `state`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "IVI/Predictions.lean:107:5: unused variable `dm`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "IVI/Predictions.lean:107:28: unused variable `path`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "IVI/Predictions.lean:117:5: unused variable `dm`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "IVI/Predictions.lean:126:5: unused variable `dm`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "IVI/Predictions.lean:126:28: unused variable `light`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "IVI/Predictions.lean:131:5: unused variable `phenomenon`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "IVI/Predictions.lean:138:5: unused variable `dm`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "IVI/Predictions.lean:138:23: unused variable `lm`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "IVI/Predictions.lean:138:42: unused variable `lf`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "IVI/Predictions.lean:138:59: unused variable `df`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "IVI/Predictions.lean:142:7: unused variable `h_dm`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "IVI/Predictions.lean:143:7: unused variable `h_lm`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "IVI/Predictions.lean:144:7: unused variable `h_lf`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "IVI/Predictions.lean:145:7: unused variable `h_df`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "IVI/Predictions.lean:158:5: unused variable `lensingSurvey`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "IVI/Predictions.lean:178:35: unused variable `hA`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"}],
+ "inputs":
+ [["IVI.Predictions:deps",
+   [["deps",
+     [["ivi/IVI:extraDep", [["@ivi:extraDep", "1723"]]],
+      ["imports",
+       [["IVI.C3Model transitive imports (legacy)", "4005159908360421023"],
+        ["IVI.C3Model:importAllArts", "17879023223971992579"],
+        ["IVI.Intangible transitive imports (legacy)", "12527941517874735524"],
+        ["IVI.Intangible:importAllArts", "6697781964442365726"]]]]],
+    ["libs",
+     [["import dynlibs", "1723"],
+      ["package external libraries", "1723"],
+      ["module dynlibs", "1723"],
+      ["module plugins", "1723"]]]]],
+  ["Lean 4.24.0, commit 919e297292280cdb27598edd4e03437be5850221",
+   "16820442660988836695"],
+  ["/Users/harryscott/Kantian-IVI/IVI/Predictions.lean", "8504283879854655734"],
+  ["options", "1723"],
+  ["Module.leanArgs: #[]", "1723"]],
+ "depHash": "7192784071466260878"}

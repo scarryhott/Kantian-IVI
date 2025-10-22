@@ -123,10 +123,10 @@ def iterateZoom (T : ITranslation) : Nat → FractalLayer → FractalLayer
 **Kakeya Sets**: Contain unit line segments in all directions with minimal volume
 
 **Fractal Zooming in IVI**: 
-1. Each layer has a **Kakeya field** (directional structure)
-2. Zooming **preserves** this directional structure
-3. Grains (local directional slabs) remain **coherent** across scales
-4. Self-similarity = **Kakeya structure is scale-invariant**
+1. Each layer carries a **Kakeya field on the real slice** (directional structure in the phenomenal projection)
+2. Zooming uses complex (`I`) shifts yet reprojects to the real Kakeya frame, preserving those orientations after reconciliation
+3. Grains (local directional slabs) remain **coherent in the real projection**, while their I-components stay intentionally unconstrained
+4. Self-similarity = **repeated alignment between open I-dynamics and the Kakeya structure of the real**, not Kakeya symmetry inside the complex fiber itself
 
 ---
 
@@ -172,7 +172,7 @@ The `Δi = k · ‖r‖ · θ` formula:
 
 This is like:
 - Feedforward propagation in neural nets
-- But with **geometric structure** (Kakeya grains)
+- But anchored by **geometric structure** once reprojected to Kakeya grains
 - And **phase information** (imaginary component)
 
 ---
@@ -354,9 +354,9 @@ SUBLATION POSITIVE CELL (`PositiveCell`)
 ## I-Dimension Mapping: Dark Matter and Light
 
 ### I-Transform Semantics
-- The imaginary-axis increment `Δi = k · ‖r‖ · θ` drives each `ITranslation.zoom` step; it measures how far a grain travels through the time-phase corridor before reprojecting into real space.
-- `depth : Nat` tracks discrete samples of that phase walk: every successor depth corresponds to one full I-cycle (zoom in, zoom out) across which Kakeya orientation must be preserved.
-- Dark matter geometry therefore lives on the *I-fiber* over space: for every spatial grain we keep an I-stacked history encoding past and future light alignments.
+- The imaginary-axis increment `Δi = k · ‖r‖ · θ` drives each `ITranslation.zoom` step; it measures how far a grain travels through the time-phase corridor before any return to the real slice.
+- `depth : Nat` tracks discrete samples of that phase walk: every successor depth corresponds to one full I-cycle whose end-point **re-aligns** with the real Kakeya frame while leaving the intermediate complex motion unconstrained.
+- Dark matter geometry therefore sits on an *open I-fiber* over space: each spatial grain keeps an I-stacked history encoding potential alignments that need not satisfy Kakeya symmetries until they are projected back to the phenomenal layer.
 
 ### Dark Matter Recursion
 - Let `L₀` be the observed mass-distribution layer; iterating `T.zoomCycle` produces `L₁, L₂, ...` capturing finer I-phase refinements of the same Kakeya scaffold.
@@ -366,19 +366,19 @@ SUBLATION POSITIVE CELL (`PositiveCell`)
 ρᴰᴹ(x, iₙ) = weight(K.withLayer Lₙ, x) · exp(-(Δiₙ)² / σ²)
 ```
 
-  where `iₙ` is the accumulated imaginary offset after `n` zoom cycles and `weight` extracts Kakeya-aligned support. The Gaussian factor keeps layers grain-safe by damping large I-excursions.
-- When `iterateZoomSafe` stabilises, the induced `ρᴰᴹ` converges to a self-similar profile matching the observed halo: dark matter is the limit of I-recursive Kakeya weights.
+  where `iₙ` is the accumulated imaginary offset after `n` zoom cycles and `weight` extracts **real** Kakeya-aligned support. The Gaussian factor keeps layers grain-safe by damping large I-excursions without forcing Kakeya structure inside the complex fiber.
+- When `iterateZoomSafe` stabilises, the induced `ρᴰᴹ` converges to a self-similar profile in the real projection; the complex components remain a reservoir of potential, demonstrating that dark matter is the limit of reconciling open I-recursion with closed Kakeya slices.
 
 ### Light Form Propagation
 - Photons supply boundary conditions: each incident light form `ℒ` imprints an orientation phase `(θ_ℒ, φ_ℒ)` onto the top layer, seeding the next I-step.
 - During zoom-in, `ℒ` biases the selection of grains whose normals align with its propagation direction; during zoom-out that bias is averaged, producing an activation trail through the stack.
-- The resulting light-form density is
+- The resulting light-form density (in the real slice) is
 
 ```text
 ρᴸ(x, iₙ) = activationProfileₙ(x) · cos(θ_ℒ - θ_grain) · e^{i iₙ}
 ```
 
-  so dark matter and light share the same I-coordinate while differing in phase coupling: dark matter weights depend on Kakeya support, light weights depend on coherent activation.
+  so dark matter and light share the same I-coordinate while differing in phase coupling: dark matter weights depend on real Kakeya support, light weights depend on coherent activation, and the exponential `e^{i iₙ}` flags the unconstrained noumenal excursion.
 
 ### Coupled Recursion Schematic
 1. start with `(L, K, ℒ)` satisfying grain safety;
@@ -409,6 +409,12 @@ structure LightForm where
 ```
 
 These stubs formalise the shared recursion: `DarkMatterSlice` captures the I-shifted grain statistics, while `PositiveCell` records how light reorganises the same fractal support. Completing them makes the dark matter/light dual birth explicit inside IVI.
+
+### Noumenal Kakeya Failure
+- In the complex (`I`) direction there is no analogue of Kakeya's minimal-volume guarantee; the complex measure lacks the ordering needed for line-segment packing arguments.
+- Each `Δi` excursion therefore suspends Kakeya rigidity: lines can shear, overlap, or split without violating any noumenal law, embodying the openness required by the Kantian interpretation.
+- The Lean goal is to show `¬ preservesKakeyaAlongIComplex`, witnessing that no dependent Kakeya predicate persists once we remain in the complex fiber; only after retraction to the real slice do established Kakeya invariants reappear.
+- This failure is not a bug but the mathematical proof of noumenal potential: it guarantees that positive geometry governs the real, while the complex direction safeguards dissonance and availability for new syntheses.
 
 ### Observable Predictions
 
@@ -570,7 +576,8 @@ If grains process information:
 🎯 Consciousness observables (activation integration across sublation witnesses)  
 🎯 Data-driven calibration hooks for `NeuralConnection` weights  
 🎯 Positive-cell triangulations linked to amplituhedron-style volumes  
-🎯 Empirical test suites mirroring the predictions outlined above
+🎯 Empirical test suites mirroring the predictions outlined above  
+🎯 A Lean refutation lemma for `preservesKakeyaAlongI` inside the complex fiber, establishing noumenal openness explicitly
 
 ---
 
@@ -579,10 +586,10 @@ If grains process information:
 **Yes, the project extensively covers fractal zooming and its relation to Kakeya!**
 
 The connection is deep:
-- **Kakeya structure** = directional geometry
-- **Fractal layers** = multi-scale hierarchy
-- **I-directed zooming** = scale transformations
-- **Self-similarity** = Kakeya preservation across scales
+- **Kakeya structure (real)** = directional geometry anchoring each layer after projection
+- **Fractal layers** = multi-scale hierarchy mediating between real closure and complex openness
+- **I-directed zooming** = complex-phase transformations whose reconciliation with the real enforces grain safety
+- **Self-similarity** = iterative harmony between noumenal freedom (failure of Kakeya in the complex fiber) and phenomenal order (Kakeya in the real slice)
 
 **The neural/positive geometry bridge is now explicit:**
 - `NeuralGrain` turns grains into oriented neurons with activations
@@ -620,7 +627,7 @@ The grains are neurons. The zooming is learning. The self-similarity is understa
 
 ### 4. **Constructive Manifold Proofs**
 - Treat each `PositiveCell` as a chart candidate and assemble an atlas covering the zoom orbit of a base layer.
-- Prove compatibility by exhibiting explicit transition Kakeya fields, using `preservesKakeyaAlongI` as the matching condition.
+- Prove compatibility by exhibiting explicit transition Kakeya fields on the real slice, using `preservesKakeyaAlongI` as the matching condition after projection.
 - Target a Lean lemma that every grain-safe zoom cycle yields a positively oriented cell complex admitting polylog volume bounds.
 
 ---

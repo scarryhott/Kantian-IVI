@@ -1,0 +1,16 @@
+{"plugins": [],
+ "options": {},
+ "name": "IVI.EntropicGravity",
+ "isModule": false,
+ "importArts":
+ {"IVI.SchematismEvidence":
+  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/SchematismEvidence.olean"],
+  "IVI.Predictions":
+  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Predictions.olean"],
+  "IVI.Intangible":
+  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Intangible.olean"],
+  "IVI.Core":
+  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Core.olean"],
+  "IVI.C3Model":
+  ["/Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/C3Model.olean"]},
+ "dynlibs": []}
