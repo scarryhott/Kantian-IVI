@@ -871,3 +871,75 @@ def iterateDarkLight
 - **Sublation**: Positive geometry should be narrated as the constructive resolution of tension between resonance and dissonance, echoing Hegelian triads while remaining computationally explicit.
 
 These notes guide documentation tone and guard against collapsing the theoretical narrative into purely algorithmic language.
+
+---
+
+## Collaboration Checklist
+
+- **Data Pipeline**: Coordinate with observation specialists to secure lensing catalogs and emission datasets in the JSON schema expected by `WitnessReport` ingestion.
+- **Lean Core**: Sync with proof engineers before modifying `project` simp lemmas to avoid clashes with ongoing invariant work.
+- **Simulation UX**: Pair with visualization engineers to embed resonance/dissonance dashboards directly into the phase-warp sandbox.
+- **Philosophy Alignment**: Schedule fortnightly reviews with conceptual leads to ensure narrative sections stay faithful to Kantian framing while reflecting new code paths.
+
+---
+
+## Milestone Outlook
+
+1. **Phase-Warp Prototype (Week 1)**
+   - Minimal simulator producing `(DarkMatterSlice, PositiveCell)` traces.
+   - Basic plots for resonance/dissonance and grain safety status.
+
+2. **Resonance Proof Pack (Weeks 2–3)**
+   - Completed `resonanceMapR3`/`dissonanceMapC3` definitions with supporting lemmas.
+  - `grain_safe` tactic operational inside `iterateZoomSafe` proofs.
+
+3. **Dark–Light Replay (Week 4)**
+   - Catalog replay pipeline emitting `WitnessReport` telemetry.
+   - First empirical comparison against Lean predicates with anomaly logging.
+
+4. **Attention Integration (Week 5)**
+   - Attention kernels plugged into neural grain propagation with cascade benchmarks.
+   - Auditor producing bias-variance diagnostics for activation profiles.
+
+5. **Positive Geometry Release (Week 6)**
+   - `SublationWitness.audit` hardened, telemetry visualised, and documentation updated.
+   - Philosophical synthesis aligned with empirical findings for external circulation.
+
+Each milestone depends on retaining grain safety guarantees, so schedule buffer time for resolving Lean proof blockers.
+
+---
+
+## Risk Register
+
+- **Phase Noise Instability**: Excessive stochasticity in simulated `Δi` could invalidate grain safety proofs; mitigation = enforce damping bounds and monitor `DarkMatterSlice.density` thresholds.
+- **Proof Drift**: Concurrent edits to invariant lemmas may desynchronise `grain_safe` automation; mitigation = freeze core proof files during milestone sprints and run nightly Lean checks.
+- **Data Drift**: Catalog updates with new calibration pipelines might break `WitnessReport` parsers; mitigation = version schemas and keep backward-compatible adapters.
+- **Narrative Misalignment**: Rapid technical iteration risks diluting the Kantian framing; mitigation = maintain the scheduled philosophy reviews and document rationale for deviations.
+
+---
+
+## Open Research Questions
+
+1. **Qualia Dynamics**: Can `qualiaSpectrum` trajectories be shown to obey conservation-like principles during stable zoom cycles?
+2. **Attention–Resonance Coupling**: How does the attention kernel influence `resonanceMapR3` monotonicity, and can we bound its effect analytically?
+3. **Positive Geometry Volumes**: Is there a direct link between `PositiveCell.weight` distributions and amplituhedron-style volume constraints?
+4. **Noumenal Diagnostics**: What observable signatures would empirically confirm `¬ preservesKakeyaAlongIComplex` without relying solely on theoretical construction?
+5. **Learning Regimes**: Which optimisation strategies (Hebbian vs. backprop hybrids) best maintain `≈ᵍ` while accelerating convergence of activation cascades?
+
+---
+
+## Immediate Action Items
+
+- Stand up the phase-warp simulator skeleton with fixed `Δi` schedules and log export hooks.
+- Finalise JSON schema drafts for `WitnessReport` so data partners can begin formatting catalogs.
+- Pair author a Lean spike implementing the `project` simp attribute to unblock automation work.
+- Prepare a short memo translating the risk register into ownership assignments for the next sync.
+
+---
+
+## Communication Cadence
+
+- **Weekly Engineering Sync (Mondays)**: Review milestone progress, unblock Lean automation tasks, and confirm simulator deliverables.
+- **Data + Theory Check-in (Wednesdays)**: Align observational inputs with proof assumptions and monitor catalog ingestion health.
+- **Philosophy Roundtable (Biweekly Fridays)**: Reconcile narrative framing with new technical artifacts and update documentation tone guidelines.
+- **Async Updates (Daily)**: Post status snapshots to the shared IVI kanban, tagging risk register items when thresholds are crossed.
