@@ -89,6 +89,7 @@ LEAN_EXPORT lean_object* l_IVI_FractalLayer_size___boxed(lean_object*);
 lean_object* l_Lean_SourceInfo_fromRef(lean_object*, uint8_t);
 LEAN_EXPORT lean_object* l_IVI_term___u2248_u1d4d__;
 lean_object* lean_nat_to_int(lean_object*);
+LEAN_EXPORT lean_object* l_IVI_iDirectedZoom(lean_object*);
 LEAN_EXPORT lean_object* l___private_IVI_Fractal_0__IVI_iterateZoomSafe_match__1_splitter___redArg___boxed(lean_object*, lean_object*, lean_object*, lean_object*);
 static lean_object* l_IVI_instReprGrainStatistics_repr___redArg___closed__5;
 static lean_object* l_IVI_term___u2248_u1d4d_____closed__2;
@@ -132,6 +133,7 @@ static lean_object* l_IVI_instReprITranslation_repr___redArg___closed__2;
 LEAN_EXPORT lean_object* l_Std_Format_joinSep___at___List_repr___at___IVI_instReprITranslation_repr_spec__0_spec__1(lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_IVI_ITranslation_ctorIdx(lean_object*);
 static lean_object* l_IVI_instReprITranslation___closed__0;
+LEAN_EXPORT lean_object* l_IVI_iDirectedZoom___boxed(lean_object*);
 static lean_object* l_IVI___aux__IVI__Fractal______macroRules__IVI__term___u2248_u1d4d____1___closed__5;
 LEAN_EXPORT lean_object* l_IVI_instReprGrainStatistics_repr___boxed(lean_object*, lean_object*);
 static lean_object* l_Prod_repr___at___List_repr___at___IVI_instReprITranslation_repr_spec__0_spec__0___redArg___closed__5;
@@ -206,6 +208,22 @@ lean_object* l_String_toSubstring_x27(lean_object*);
 LEAN_EXPORT lean_object* l_IVI_instReprFractalLayer_repr(lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_IVI_instReprFractalLayer_repr___redArg(lean_object*);
 LEAN_EXPORT lean_object* l_IVI_ITranslation_ctorIdx___boxed(lean_object*);
+LEAN_EXPORT lean_object* l_IVI_iDirectedZoom(lean_object* x_1) {
+_start:
+{
+lean_inc_ref(x_1);
+return x_1;
+}
+}
+LEAN_EXPORT lean_object* l_IVI_iDirectedZoom___boxed(lean_object* x_1) {
+_start:
+{
+lean_object* x_2; 
+x_2 = l_IVI_iDirectedZoom(x_1);
+lean_dec_ref(x_1);
+return x_2;
+}
+}
 LEAN_EXPORT lean_object* l_IVI_FractalLayer_ctorIdx(lean_object* x_1) {
 _start:
 {

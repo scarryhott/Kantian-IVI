@@ -27,6 +27,9 @@ set_option maxHeartbeats 400000
 open Intangible
 open Invariant
 
+@[simp] def iDirectedZoom (v : C3Vec) : C3Vec :=
+  v
+
 /-- One layer in the IVI fractal tower. The `depth` records the recursion level. -/
 structure FractalLayer where
   depth : Nat

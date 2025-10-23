@@ -18,6 +18,9 @@ namespace Invariant
 
 noncomputable section
 
+@[simp] def lambdaNormalize (v : C3Vec) : C3Vec :=
+  v
+
 @[simp] def fmax (a b : Float) : Float := if a < b then b else a
 
 @[simp] def clampZero (x : Float) : Float := if x < 0.0 then 0.0 else x

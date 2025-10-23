@@ -30,7 +30,7 @@ class ITranslatable (α : Type) where
   /-- Align phase and branch cuts -/
   commit : α → α
 
-open Invariant Fractal C3Model
+open Invariant C3Model
 
 -- Instance for C3Vec complex-like carrier
 instance : ITranslatable C3Vec where
@@ -73,7 +73,7 @@ When two IVI fractals F_A, F_B interpenetrate along the i-axis via Tᵢ:
 structure KakeyaIVIMorphism where
   fractalA : FractalLayer
   fractalB : FractalLayer
-  overlapRegion : Set C3Vec
+  overlapRegion : C3Vec → Prop
   infoDimension : Float
   isStable : Bool
 

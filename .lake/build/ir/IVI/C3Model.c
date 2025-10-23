@@ -73,6 +73,7 @@ LEAN_EXPORT lean_object* l_IVI_instReprC3Vec;
 static lean_object* l_IVI_instReprC3Vec_repr___redArg___closed__18;
 static lean_object* l_IVI_instReprC3State_repr___redArg___closed__4;
 LEAN_EXPORT lean_object* l_IVI_mkC3(double, double, double, double, double, double, double, lean_object*);
+LEAN_EXPORT lean_object* l_IVI_alignPhase(lean_object*);
 static lean_object* l_IVI_instReprC3Vec_repr___redArg___closed__10;
 double l_Float_ofScientific(lean_object*, uint8_t, lean_object*);
 LEAN_EXPORT lean_object* l_IVI_C3Reciprocity___boxed(lean_object*, lean_object*, lean_object*, lean_object*);
@@ -88,6 +89,7 @@ static lean_object* l_IVI_instReprPhase_repr___redArg___closed__3;
 static lean_object* l_IVI_instReprC3Vec_repr___redArg___closed__23;
 LEAN_EXPORT lean_object* l_IVI_instReprC3Vec_repr___boxed(lean_object*, lean_object*);
 static lean_object* l_IVI_instReprC3Vec_repr___redArg___closed__17;
+LEAN_EXPORT lean_object* l_IVI_alignPhase___boxed(lean_object*);
 static lean_object* l_IVI_instReprC3Vec_repr___redArg___closed__1;
 static lean_object* l_IVI_instReprC3Vec_repr___redArg___closed__5;
 LEAN_EXPORT lean_object* l_IVI_C3State_ctorIdx(lean_object*);
@@ -1030,6 +1032,22 @@ lean_dec_ref(x_2);
 x_5 = l_IVI_align(x_3, x_4);
 x_6 = lean_box_float(x_5);
 return x_6;
+}
+}
+LEAN_EXPORT lean_object* l_IVI_alignPhase(lean_object* x_1) {
+_start:
+{
+lean_inc_ref(x_1);
+return x_1;
+}
+}
+LEAN_EXPORT lean_object* l_IVI_alignPhase___boxed(lean_object* x_1) {
+_start:
+{
+lean_object* x_2; 
+x_2 = l_IVI_alignPhase(x_1);
+lean_dec_ref(x_1);
+return x_2;
 }
 }
 LEAN_EXPORT lean_object* l_IVI_C3Reciprocity(lean_object* x_1, lean_object* x_2, double x_3, double x_4) {

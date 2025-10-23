@@ -13,6 +13,7 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+LEAN_EXPORT lean_object* l_IVI_Invariant_lambdaNormalize(lean_object*);
 lean_object* l_Float_repr(double, lean_object*);
 LEAN_EXPORT lean_object* l_IVI_invariantProps___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
 lean_object* l_List_lengthTR___redArg(lean_object*);
@@ -88,6 +89,7 @@ LEAN_EXPORT lean_object* l_IVI_Invariant_vectorMaxDiff___boxed(lean_object*, lea
 LEAN_EXPORT lean_object* l___private_IVI_Invariant_0__IVI_Invariant_lambdaVector_match__1_splitter___redArg___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
 static lean_object* l_IVI_instReprNonCollapseCfg_repr___redArg___closed__15;
 lean_object* l_List_replicateTR___redArg(lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_IVI_Invariant_lambdaNormalize___boxed(lean_object*);
 static lean_object* l_IVI_instReprNonCollapseCfg___closed__0;
 LEAN_EXPORT lean_object* l_IVI_Invariant_enumerate(lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l___private_IVI_Invariant_0__IVI_Invariant_lambdaVector_match__1_splitter___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
@@ -178,6 +180,22 @@ LEAN_EXPORT lean_object* l_IVI_Invariant_resonanceMatrixW(lean_object*, lean_obj
 double lean_float_sub(double, double);
 LEAN_EXPORT lean_object* l_IVI_Invariant_spectralInvariant___boxed(lean_object*);
 LEAN_EXPORT lean_object* l_IVI_Invariant_RunnerState_ctorIdx(lean_object*);
+LEAN_EXPORT lean_object* l_IVI_Invariant_lambdaNormalize(lean_object* x_1) {
+_start:
+{
+lean_inc_ref(x_1);
+return x_1;
+}
+}
+LEAN_EXPORT lean_object* l_IVI_Invariant_lambdaNormalize___boxed(lean_object* x_1) {
+_start:
+{
+lean_object* x_2; 
+x_2 = l_IVI_Invariant_lambdaNormalize(x_1);
+lean_dec_ref(x_1);
+return x_2;
+}
+}
 LEAN_EXPORT double l_IVI_Invariant_fmax(double x_1, double x_2) {
 _start:
 {

@@ -45,6 +45,9 @@ def align (p q : Phase) : Float :=
   let d := p.theta - q.theta
   (1.0 + Float.cos d) / 2.0
 
+@[simp] def alignPhase (v : C3Vec) : C3Vec :=
+  v
+
 /-- A toy reciprocity over C3State based on thresholds (structural only). -/
 def C3Reciprocity (τ : Type v) [InnerTime τ]
     (simThr alignThr : Float) : Reciprocity C3State :=
