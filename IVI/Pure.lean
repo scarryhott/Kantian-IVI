@@ -18,10 +18,19 @@
 -/
 
 import IVI.Core
+import IVI.TiTranslator
 
 namespace IVI
 
 set_option autoImplicit true
+
+/-- Translational mediation packages the Kantian schema (metaphor) that bridges
+the noumenal vector and its phenomenal realisation. -/
+structure TranslationalMediation where
+  prep   : C3Vec → C3Vec
+  izoom  : C3Vec → C3Vec
+  commit : C3Vec → C3Vec
+  law    : ∀ v, commit (izoom (prep v)) = T_i' v
 
 /-- Subject as carrier of forms and unity. -/
 structure Subject (τ : Type u) [InnerTime τ] : Type u where
@@ -34,9 +43,14 @@ theorem intuition_time {τ} [InnerTime τ] (_ : Subject τ) :
     ∀ t : τ, InnerTime.before t t :=
   InnerTime.refl
 
-/-- A2: All thinking-of-an-object proceeds under categories. -/
-theorem categories_bind (_any : Prop) : True :=
-  trivial
+/-- A2: All thinking-of-an-object proceeds under categories (the lawful schema). -/
+def categories_bind : TranslationalMediation :=
+  { prep := lambdaNormalize
+  , izoom := iDirectedZoom
+  , commit := alignPhase
+  , law := by
+      intro v
+      rfl }
 
 /-- A3: Unity of apperception. -/
 theorem unity_of_apperception : True :=
@@ -183,9 +197,9 @@ structure Thread (τ : Type u) [InnerTime τ] (s : Subject τ) : Type (max (u+2)
   /--
   "The same function which gives unity to the different representations in a judgement
   also gives unity to the mere synthesis of different representations in an intuition"
-  (A79/B104).
+  (A79/B104). Encoded as the translational mediation schema.
   -/
-  categoriesForJudgment : ∀ {_any : Prop}, iThink → True
+  translator : TranslationalMediation
   /--
   "This transcendental unity of apperception is that unity through which all the
   manifold given in an intuition is united" (B135).
@@ -234,7 +248,7 @@ noncomputable def canonical (τ : Type u) [InnerTime τ] (s : Subject τ) : Thre
   iThink := True
   iThinkWitness := Axioms.unity_of_apperception
   formOfInnerTime := fun _ => Axioms.intuition_time s
-  categoriesForJudgment := fun {_any} _ => Axioms.categories_bind _any
+  translator := Axioms.categories_bind
   apperceptiveUnity := fun _ => Axioms.unity_of_apperception
   noumenalBoundary := fun _ => Axioms.noumenal_limit
   regulativeIdeas := fun _ => Axioms.ideas_regulative
@@ -261,9 +275,10 @@ theorem intuitionTime (t : Thread τ s) :
 
 /-- "The same function which gives unity to the different representations in a judgment
 also gives unity to the mere synthesis of different representations in an intuition"
-(A79/B104). Pulls the categorical binding ensured by the thread. -/
-theorem categoriesBind {_any : Prop} (t : Thread τ s) : True :=
-  t.categoriesForJudgment (_any := _any) t.iThinkWitness
+(A79/B104). The translational mediation satisfies the Tᵢ law. -/
+theorem categoriesBind (t : Thread τ s) (v : C3Vec) :
+    t.translator.commit (t.translator.izoom (t.translator.prep v)) = T_i' v :=
+  t.translator.law v
 
 /-- "This transcendental unity of apperception is that unity through which all the
 manifold given in an intuition is united" (B135). -/
