@@ -12,11 +12,11 @@
    [["deps",
      [["ivi/IVI:extraDep", [["@ivi:extraDep", "1723"]]],
       ["imports",
-       [["IVI.SVObj transitive imports (legacy)", "16682693942221282937"],
+       [["IVI.SVObj transitive imports (legacy)", "15855263957316475114"],
         ["IVI.SVObj:importAllArts", "11747676440087304310"],
         ["IVI.Bounds transitive imports (legacy)", "1723"],
         ["IVI.Bounds:importAllArts", "16094175997074693902"],
-        ["IVI.SchemaLaw transitive imports (legacy)", "7431802105004383432"],
+        ["IVI.SchemaLaw transitive imports (legacy)", "14964628819830780832"],
         ["IVI.SchemaLaw:importAllArts", "4032870487220351965"]]]]],
     ["libs",
      [["import dynlibs", "1723"],
@@ -28,4 +28,4 @@
   ["/Users/harryscott/Kantian-IVI/IVI/Will.lean", "4504136150265869793"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "17984321289278693795"}
+ "depHash": "9748903704972662593"}

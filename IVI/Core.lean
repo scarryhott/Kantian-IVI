@@ -31,9 +31,14 @@ inductive CategoryModality
 | possibility | actuality | necessity
   deriving DecidableEq, Repr
 
-/-- Minimal inner-time class. Serves as a marker that a type functions as time. -/
+/-- Minimal inner-time class: provides a preorder capturing Kantian inner time. -/
 class InnerTime (τ : Type u) : Type u where
-  mk' : True
+  /-- Reflexive ordering capturing "before or at" in inner time. -/
+  before : τ → τ → Prop
+  /-- Reflexivity of the inner-time ordering. -/
+  refl   : ∀ t, before t t
+  /-- Transitivity of the inner-time ordering. -/
+  trans  : ∀ {a b c}, before a b → before b c → before a c
 
 /-- Intuition bundle (forms available to a subject). -/
 structure Intuition (τ : Type u) [InnerTime τ] : Type u where

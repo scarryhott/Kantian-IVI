@@ -101,7 +101,14 @@ theorem imaginaryOffset_ne_zero_of_i3_ne
 
 
 /-- Provide a simple inner-time instance on natural numbers (ticks). -/
-instance Nat.innerTime : InnerTime Nat := ⟨trivial⟩
+instance Nat.innerTime : InnerTime Nat where
+  before := (· ≤ ·)
+  refl := by
+    intro t
+    exact Nat.le_refl t
+  trans := by
+    intro a b c hab hbc
+    exact Nat.le_trans hab hbc
 
 /-! ### Mathematics -/
 namespace Math

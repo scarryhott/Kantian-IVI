@@ -12,8 +12,8 @@
    [["deps",
      [["ivi/IVI:extraDep", [["@ivi:extraDep", "1723"]]],
       ["imports",
-       [["IVI.C3Model transitive imports (legacy)", "4005159908360421023"],
-        ["IVI.C3Model:importAllArts", "18126194044165490598"],
+       [["IVI.C3Model transitive imports (legacy)", "4610866122702356971"],
+        ["IVI.C3Model:importAllArts", "17935738630660000421"],
         ["IVI.SchematismEvidence transitive imports (legacy)", "1723"],
         ["IVI.SchematismEvidence:importAllArts", "13462879084447671572"]]]]],
     ["libs",
@@ -26,4 +26,4 @@
   ["/Users/harryscott/Kantian-IVI/IVI/Intangible.lean", "6859357462732592923"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "8563201940966165258"}
+ "depHash": "8673048280516786143"}

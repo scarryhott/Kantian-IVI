@@ -1,7 +1,7 @@
 {"synthetic": false,
  "outputs":
- {"o": ["17800901944813591242"],
-  "i": "14027065391080837410",
+ {"o": ["17018250339202455858"],
+  "i": "3108668011450192170",
   "c": "13986929254636916796"},
  "log":
  [{"message":
@@ -13,13 +13,13 @@
      [["ivi/IVI:extraDep", [["@ivi:extraDep", "1723"]]],
       ["imports",
        [["IVI.Core transitive imports (legacy)", "1723"],
-        ["IVI.Core:importAllArts", "7906131056702661987"],
-        ["IVI.Operators transitive imports (legacy)", "6084700986844957008"],
+        ["IVI.Core:importAllArts", "1406338874490492985"],
+        ["IVI.Operators transitive imports (legacy)", "7443232379004448533"],
         ["IVI.Operators:importAllArts", "10699347543340682045"],
-        ["IVI.Kakeya.Core transitive imports (legacy)", "16334316237314534281"],
+        ["IVI.Kakeya.Core transitive imports (legacy)", "14680283800488627855"],
         ["IVI.Kakeya.Core:importAllArts", "12016674898141207641"],
-        ["IVI.C3Model transitive imports (legacy)", "4005159908360421023"],
-        ["IVI.C3Model:importAllArts", "18126194044165490598"]]]]],
+        ["IVI.C3Model transitive imports (legacy)", "4610866122702356971"],
+        ["IVI.C3Model:importAllArts", "17935738630660000421"]]]]],
     ["libs",
      [["import dynlibs", "1723"],
       ["package external libraries", "1723"],
@@ -27,7 +27,7 @@
       ["module plugins", "1723"]]]]],
   ["Lean 4.24.0, commit 919e297292280cdb27598edd4e03437be5850221",
    "16820442660988836695"],
-  ["/Users/harryscott/Kantian-IVI/IVI/Domain.lean", "10456994473506111257"],
+  ["/Users/harryscott/Kantian-IVI/IVI/Domain.lean", "7042853446509408422"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "9860902103679639796"}
+ "depHash": "5559938019725331905"}

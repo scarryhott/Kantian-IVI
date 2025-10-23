@@ -15,9 +15,10 @@ structure Subject (τ : Type u) [InnerTime τ] : Type u where
 
 namespace Axioms
 
-/-- A1: All givenness-for-a-subject is ordered by inner time. -/
-theorem intuition_time {τ} [InnerTime τ] (_ : Subject τ) : True :=
-  trivial
+/-- A1: All givenness-for-a-subject is ordered by inner time (reflexivity witness). -/
+theorem intuition_time {τ} [InnerTime τ] (_ : Subject τ) :
+    ∀ t : τ, InnerTime.before t t :=
+  InnerTime.refl
 
 /-- A2: All thinking-of-an-object proceeds under categories. -/
 theorem categories_bind (_any : Prop) : True :=
@@ -163,7 +164,8 @@ structure Thread (τ : Type u) [InnerTime τ] (s : Subject τ) : Type (max (u+2)
   /--
   "Time is the formal condition a priori of all appearances whatsoever" (A33/B49).
   -/
-  formOfInnerTime : iThink → True
+  formOfInnerTime :
+    iThink → ∀ t : τ, InnerTime.before t t
   /--
   "The same function which gives unity to the different representations in a judgement
   also gives unity to the mere synthesis of different representations in an intuition"
@@ -238,8 +240,10 @@ variable {τ : Type u} [InnerTime τ] {s : Subject τ}
 @[simp] theorem witness (t : Thread τ s) : t.iThink := t.iThinkWitness
 
 /-- "Time is the formal condition a priori of all appearances whatsoever" (A33/B49).
-    Extracts the inner-time ordering guaranteed by the thread. -/
-theorem intuitionTime (t : Thread τ s) : True := t.formOfInnerTime t.iThinkWitness
+    Extracts the inner-time reflexivity guaranteed by the thread. -/
+theorem intuitionTime (t : Thread τ s) :
+    ∀ t' : τ, InnerTime.before t' t' :=
+  t.formOfInnerTime t.iThinkWitness
 
 /-- "The same function which gives unity to the different representations in a judgment
 also gives unity to the mere synthesis of different representations in an intuition"

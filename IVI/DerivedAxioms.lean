@@ -56,21 +56,19 @@ theorem reciprocity_from_community
 The inner time ordering can be derived from the InnerTime typeclass structure.
 -/
 
-/-- A trivial ordering witness extracted from the inner-time structure. -/
+/-- The canonical inner-time ordering is the `before` relation from the typeclass. -/
 def innerTimeOrdering {τ : Type u} [InnerTime τ] : τ → τ → Prop :=
-  fun _ _ => True
+  InnerTime.before
 
-/-- Inner time always relates any pair of temporal states via the ordering witness. -/
-theorem innerTime_is_ordered {τ : Type u} [InnerTime τ] (t₁ t₂ : τ) :
-    innerTimeOrdering t₁ t₂ :=
-  trivial
+/-- Reflexivity of the canonical inner-time ordering. -/
+theorem innerTime_refl {τ : Type u} [InnerTime τ] (t : τ) :
+    innerTimeOrdering t t :=
+  InnerTime.refl t
 
-/-- A1 follows from the InnerTime typeclass providing temporal ordering. -/
+/-- A1 follows from the InnerTime typeclass providing temporal reflexivity. -/
 theorem intuition_time_from_typeclass {τ : Type u} [InnerTime τ] (s : Subject τ) :
-    ∃ (ordering : τ → τ → Prop), ∀ t₁ t₂, ordering t₁ t₂ := by
-  refine ⟨innerTimeOrdering, ?_⟩
-  intro t₁ t₂
-  exact innerTime_is_ordered t₁ t₂
+    ∀ t : τ, innerTimeOrdering t t :=
+  Axioms.intuition_time s
 
 /-!
 ## A6: Schematism from SchematismEvidence
@@ -220,7 +218,7 @@ This theorem collects the derivability results.
 /-- Several Kantian axioms can be derived from the IVI type structure. -/
 theorem axioms_derivable :
     (∀ W nodes τ, ∃ R : Reciprocity Nat, True) ∧  -- A7
-    (∀ τ [InnerTime τ], ∃ ordering : τ → τ → Prop, ∀ t₁ t₂, ordering t₁ t₂) ∧  -- A1
+    (∀ τ [InnerTime τ], ∀ (s : Subject τ), ∀ t : τ, innerTimeOrdering t t) ∧  -- A1
     (∀ stepE doms nodes, ∃ ev : StepEvidence, True) ∧  -- A6
     (∀ svos : List (SVO Nat), ∃ S : System Nat Nat, S.recs.length > 0) ∧  -- A12
     (∀ ctx svo, ∃ schema : SchemaId, True) :=  -- A10
@@ -230,10 +228,8 @@ by
     use reciprocityFromResonance W nodes τ
     trivial
   constructor
-  · intro τ _
-    use innerTimeOrdering
-    intro t₁ t₂
-    exact innerTime_is_ordered t₁ t₂
+  · intro τ _ s t
+    exact intuition_time_from_typeclass (τ := τ) (s := s) t
   constructor
   · intro stepE doms nodes
     let result := stepE doms nodes

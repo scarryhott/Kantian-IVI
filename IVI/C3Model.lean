@@ -62,7 +62,13 @@ def trivialRule : Rule C3State :=
 
 /-- Provide Nat as a simple inner time for the placeholder. -/
 instance : InnerTime Nat where
-  mk' := trivial
+  before := (· ≤ ·)
+  refl := by
+    intro t
+    exact Nat.le_refl t
+  trans := by
+    intro a b c hab hbc
+    exact Nat.le_trans hab hbc
 
 /-- Identity schema on C3State under Nat-time (keeps content; exhibits the interface). -/
 def idSchema : Schema C3State Nat :=

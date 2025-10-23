@@ -12,7 +12,7 @@
    [["deps",
      [["ivi/IVI:extraDep", [["@ivi:extraDep", "1723"]]],
       ["imports",
-       [["IVI.Invariant transitive imports (legacy)", "6894599487352664433"],
+       [["IVI.Invariant transitive imports (legacy)", "1454023063916316651"],
         ["IVI.Invariant:importAllArts", "1878660865401756547"]]]]],
     ["libs",
      [["import dynlibs", "1723"],
@@ -24,4 +24,4 @@
   ["/Users/harryscott/Kantian-IVI/IVI/Harmonics.lean", "6497631741364343057"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "17187161603601053508"}
+ "depHash": "12415463230299502666"}

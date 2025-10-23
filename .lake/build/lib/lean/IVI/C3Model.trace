@@ -1,7 +1,7 @@
 {"synthetic": false,
  "outputs":
- {"o": ["117888773267884043"],
-  "i": "7847777633279032416",
+ {"o": ["3348262855556421719"],
+  "i": "16270521551681710127",
   "c": "11081552294470199009"},
  "log":
  [{"message":
@@ -13,7 +13,7 @@
      [["ivi/IVI:extraDep", [["@ivi:extraDep", "1723"]]],
       ["imports",
        [["IVI.Core transitive imports (legacy)", "1723"],
-        ["IVI.Core:importAllArts", "7906131056702661987"]]]]],
+        ["IVI.Core:importAllArts", "1406338874490492985"]]]]],
     ["libs",
      [["import dynlibs", "1723"],
       ["package external libraries", "1723"],
@@ -21,7 +21,7 @@
       ["module plugins", "1723"]]]]],
   ["Lean 4.24.0, commit 919e297292280cdb27598edd4e03437be5850221",
    "16820442660988836695"],
-  ["/Users/harryscott/Kantian-IVI/IVI/C3Model.lean", "2376350704312816156"],
+  ["/Users/harryscott/Kantian-IVI/IVI/C3Model.lean", "14179353630125321570"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "11920718654479872407"}
+ "depHash": "6599728373433910875"}
