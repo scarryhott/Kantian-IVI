@@ -39,12 +39,17 @@ theorem ideas_regulative : True :=
 theorem schematism_possible : True :=
   trivial
 
-/-- A7: Reciprocity (Community). -/
+/-- A7: Reciprocity (Community).
+
+Rather than postulating an indiscriminate “always related” witness,
+we use equality as the canonical community relation.  This keeps the
+axiom honest—reciprocity now amounts to the familiar symmetry property
+of equality. -/
 def reciprocity (α : Type u) : Reciprocity α :=
-  { relates := fun _ _ => True
+  { relates := fun x y => x = y
   , symm := by
-      intro x y _
-      trivial }
+      intro x y h
+      simpa using h.symm }
 
 /-- A8: Synthetic a priori validity is possible. -/
 theorem synthetic_apriori_possible : True :=
@@ -91,7 +96,9 @@ theorem reciprocity_from_symmetric_relation
 /-- A7_v2: Reciprocity is constructive, not axiomatic. -/
 theorem A7_reciprocity_constructive {α : Type u} :
     ∃ (R : Reciprocity α), ∀ x y, R.relates x y → R.relates y x :=
-  ⟨Axioms.reciprocity α, fun _ _ _ => trivial⟩
+  ⟨Axioms.reciprocity α, by
+    intro x y hxy
+    simpa using hxy.symm⟩
 
 /-!
 ## A1: Inner Time Ordering

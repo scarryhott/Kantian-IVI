@@ -13,7 +13,7 @@
      [["ivi/IVI:extraDep", [["@ivi:extraDep", "1723"]]],
       ["imports",
        [["IVI.Domain transitive imports (legacy)", "6039242378079471573"],
-        ["IVI.Domain:importAllArts", "5455826878123029274"],
+        ["IVI.Domain:importAllArts", "13693316328290231690"],
         ["IVI.Kakeya.Core transitive imports (legacy)", "16334316237314534281"],
         ["IVI.Kakeya.Core:importAllArts", "12016674898141207641"]]]]],
     ["libs",
@@ -26,4 +26,4 @@
   ["/Users/harryscott/Kantian-IVI/IVI/SVObj.lean", "5645367260933088495"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "1871859352784287753"}
+ "depHash": "6991717605821054496"}
