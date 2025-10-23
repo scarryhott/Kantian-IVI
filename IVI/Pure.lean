@@ -1,6 +1,20 @@
-/-
+/- 
   IVI/Pure.lean
   Axioms and scaffolding from pure reason (A1–A12).
+
+  Ontological reading:
+    * A1 registers inner time (Kant’s form of inner intuition) as a preorder on
+      potential experience.  This is the substrate on which every subject moves.
+    * A2–A4 (refined elsewhere in the codebase) articulate how noumenal content
+      is “metaphorised” into the phenomenal layer.  In IVI this metaphor is not
+      loose imagery—it is the translational mediation implemented by the i-axis
+      translator Tᵢ.  Every lawful bridge from the complex (noumenal) domain to
+      the real (phenomenal) resonance geometry must pass through that schema.
+      Tᵢ is therefore the formal counterpart of Kant’s productive imagination:
+      it normalises, advances along the i-axis (time/potential), and reprojects
+      into ℝ³ where resonance/dissonance can be checked.  The remaining axioms
+      simply enforce that this mediation preserves the geometric and recursive
+      invariants that make phenomenology measurable.
 -/
 
 import IVI.Core
