@@ -22,3 +22,4 @@ import IVI.KantLimit
 import IVI.Fractal
 import IVI.NeuralGeometry
 import IVI.PositiveGeometry
+import IVI.TiTranslator

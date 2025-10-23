@@ -12,6 +12,20 @@ See [BREAKTHROUGH_SUMMARY.md](BREAKTHROUGH_SUMMARY.md) for details.
 
 ## Quick Links
 
+### Core Components
+- `Fractal.lean`: I-Directed Zoom (imaginary/time axis refinements)
+- `C3Model.lean`: C3Vec carrier for complex-like vectors
+- `Invariant.lean`: λ-ops for normalization and scale consistency
+- `Bridge/TiTranslator.lean`: Unifies the above as Tᵢ
+- `Resonance/`: Computes geometry after Tᵢ + projection to ℝ³
+
+### Key Constraints
+- **C-domain**: No positivity/Kakeya constraints
+- **R-domain**: All resonance/dissonance and positive-geometry live here
+- **Projection**: Required before any geometric computation
+
+### New Documentation
+
 ### **New Documentation** (Oct 11-12, 2025)
 - 🎉 **[BREAKTHROUGH_SUMMARY.md](BREAKTHROUGH_SUMMARY.md)** - First axiom eliminated!
 - 📋 **[AXIOM_ELIMINATION_LOG.md](AXIOM_ELIMINATION_LOG.md)** - Track progress to 12 axioms
@@ -43,6 +57,49 @@ lake build
 ```bash
 lake exe ivi-demo
 ```
+
+## Core Concepts
+
+### IVI in One Picture
+
+- **C-domain (noumenal, ℂⁿ)**: Unbounded potential, no positivity constraints
+- **Tᵢ (i-dimension translator)**: Carries meta-vectors across representational layers via:
+  - I-Directed Zoom
+  - λ-invariant normalization
+  - Phase alignment
+- **R-domain (phenomenal, ℝ³)**: Resonance/dissonance maps, fractal grains, positive geometry
+- **Projection**: Only after Tᵢ do we compute resonance + geometry
+
+### i-Dimension Translator (Tᵢ)
+
+The i-dimension translator is implemented across multiple modules and unified in `Bridge/TiTranslator.lean`:
+
+```lean
+def T_i (m : MetaVec C3Vec) : MetaVec C3Vec := Id.run do
+  let v₁ := ITranslatable.prep m.dir    -- λ-invariant normalization
+  let v₂ := ITranslatable.izoom v₁      -- I-directed zoom
+  let v₃ := ITranslatable.commit v₂     -- Phase alignment
+  { dir := v₃, tags := "T_i" :: m.tags }
+```
+
+**Key Transformation**:
+```
+Δi = k·‖r‖·θ
+```
+Where:
+- `r = (x,y,z)` is the spatial vector
+- `θ` is the angle between `r` and the temporal axis `i_old → i_new`
+- `k` is a domain constant
+
+### Kakeya-IVI Fractal Morphism (Zoom-Into-Each-Other)
+
+When two IVI fractals F_A, F_B interpenetrate along the i-axis via Tᵢ:
+
+1. **Dual Self-Similarity**: Zooming into a node of F_A reveals F_B's pattern, and vice versa
+2. **Information Growth**: Metadata accumulates across recursive scales while form remains stable (multi-scale λ-vector steady state)
+3. **Kakeya Analogy**: Achieves maximal directional content with minimal extent
+
+**Prediction**: For an IVI fractal built from `d` interacting domains, the information dimension tracks `d` even when no classical measure is present.
 
 ## Architecture: Spec vs Runtime
 
