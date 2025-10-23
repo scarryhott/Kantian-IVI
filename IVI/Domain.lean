@@ -91,9 +91,13 @@ theorem imaginaryOffset_ne_zero_of_i3_ne
   classical
   cases n with
   | mk signature state =>
-      cases h : ((state.ψ.r1 * state.ψ.r1 + state.ψ.r2 * state.ψ.r2 + state.ψ.r3 * state.ψ.r3).sqrt == 0.0) <;>
-        simp [headingOf, projectToReal, Intangible.normaliseDir,
-          dirNorm, Intangible.spatialNorm, h]
+      cases h : (state.ψ.r1 * state.ψ.r1 + state.ψ.r2 * state.ψ.r2 + state.ψ.r3 * state.ψ.r3).sqrt == 0.0 with
+      | false =>
+          simp [headingOf, projectToReal, Intangible.normaliseDir,
+            dirNorm, Intangible.spatialNorm, h]
+      | true =>
+          simp [headingOf, projectToReal, Intangible.normaliseDir,
+            dirNorm, Intangible.spatialNorm, h]
 
 
 /-- Provide a simple inner-time instance on natural numbers (ticks). -/
