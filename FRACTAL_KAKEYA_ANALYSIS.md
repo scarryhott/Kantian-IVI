@@ -742,3 +742,132 @@ def simulate_consciousness_pipeline(zoom_layers, targets, tau_bound=8):
 ```
 
 **Orientation**: These scaffolds sketch the road to explicit consciousness observables, attention-aware learning, and manifold-level guarantees, all grounded in the Kakeya-preserving zoom dynamics already present in IVI.
+
+---
+
+## Implementation Backlog
+
+### 1. Dark–Light Binding Pipeline
+- Finish `FractalLayer.bindDarkLight` by threading `T.zoomE` phase data into `DarkMatterSlice.phaseOffset` and accumulating light-derived activations in `PositiveCell.activationProfile`.
+- Define `DarkMatterSlice.updateDensity` so that each zoom cycle blends projected Kakeya weights with exponential damping on `Δi`.
+- Export a convenience wrapper `iterateDarkLight : Nat → DarkMatterSlice → LightForm → List (DarkMatterSlice × PositiveCell)` for downstream analysis scripts.
+
+### 2. Resonance/Dissonance Metrics
+- Provide concrete bodies for `resonanceMapR3` and `dissonanceMapC3`, then prove complementary bounds: `resonanceMapR3 ≤ K.maxAlignment` and `Float.abs (Complex.im (dissonanceMapC3 …)) ≤ T.maxPhase`.
+- Introduce `resonanceStable : Prop` that checks `resonanceMapR3` monotonicity across `iterateZoomSafe` steps.
+- Build a Lean lemma that `resonanceStable` together with grain safety implies convergence of `GrainStatistics.timeShiftMean`.
+
+### 3. Sublation Witness Auditor
+- Implement `SublationWitness.audit : AuditorCfg → WitnessReport` that flags failing invariants, notably when `≈ᵍ` or `grainInvariant` break under perturbations.
+- Generate summary metrics (`meanActivation`, `phaseVariance`) to feed into prediction scripts.
+- Hook the auditor into `PositiveCell` creation so every synthesis records justification metadata for later proofs.
+
+---
+
+## Proof Roadmap (Lean)
+
+1. **Noumenal Kakeya Failure**
+   - Formalise a predicate `preservesKakeyaAlongIComplex` mirroring the real-side version but living entirely in the `ComplexDomain`.
+   - Produce an explicit counterexample using a controlled I-step where line directions shear beyond any minimal-volume bound.
+   - Encapsulate the argument as `openNoumenalFiber : ¬ preservesKakeyaAlongIComplex T K L`.
+
+2. **Resonance Stability Lemma**
+   - Show `resonanceStable T K L → (iterateZoomSafe T K n L).grainStatistics.radiusMean` forms a Cauchy sequence.
+   - Deduce convergence of positive geometry by combining with `≈ᵍ` and the auditor report.
+
+3. **Attention Kernel Soundness**
+   - Prove `attentionKernel g₁ g₂ σ` respects Kakeya alignment bounds: if `g₁` and `g₂` align with the same Kakeya segment, the kernel remains within ε of 1.
+   - Establish that attention-weighted propagation keeps `GrainStatistics.close` true across layers.
+
+---
+
+## Data Integration Strategy
+
+- **Simulated Lensing Benchmarks**: Adapt `multi_scale_grain_analysis` to generate synthetic shear fields parameterised by known Kakeya distributions; use them to validate `DarkMatterSlice` convergence numerically.
+- **Cosmological Catalog Hook**: Outline a pipeline that ingests redshift-binned catalogs, computes grain statistics, and feeds the results into the Lean-backed `resonanceStable` checks.
+- **Activation Telemetry**: Define a JSON schema for recording `SublationWitness.audit` outputs so experiments can be replayed and cross-compared.
+
+---
+
+## Appendix B: Supplemental Lean Sketches
+
+```lean
+structure WitnessReport where
+  valid : Bool
+  resonanceScore : Float
+  dissonanceScore : Float
+  notes : List String
+  deriving Repr
+
+@[simp] def SublationWitness.audit
+    (cfg : AuditorCfg) (w : SublationWitness) : WitnessReport := ...
+```
+
+```lean
+@[simp] def DarkMatterSlice.updateDensity
+    (slice : DarkMatterSlice) (weight : Float) (Δi : Float)
+    (σ : Float) : DarkMatterSlice :=
+  let damping := Float.exp (-(Δi * Δi) / (2 * σ * σ))
+  { slice with
+    density := Float.clamp (slice.density * damping + weight) 0.0 cfgρ.maxDensity,
+    phaseOffset := slice.phaseOffset + Δi }
+```
+
+```lean
+def iterateDarkLight
+    (T : ITranslation) (K : KakeyaField)
+    (ℒ : LightForm) (steps : Nat)
+    (seed : DarkMatterSlice) :
+    List (DarkMatterSlice × PositiveCell) :=
+  List.range steps |>.map fun n =>
+    let Δi := computePhaseShift T ℒ n
+    let (slice', positive) := FractalLayer.bindDarkLight seed.layer K ℒ Δi
+    (slice'.updateDensity (K.meanAlignment seed.layer.nodes) Δi cfgσ, positive)
+```
+
+**Note**: These sketches introduce `AuditorCfg`, `cfgρ`, `cfgσ`, and `computePhaseShift` placeholders; defining them completes the instrumentation necessary for empirical validation.
+
+---
+
+## Simulation Agenda
+
+### 1. Phase-Warp Sandbox
+- Prototype a deterministic simulator that evolves `(DarkMatterSlice, PositiveCell)` pairs through scripted `Δi` schedules; expose hooks for injecting noise into the complex phase to test robustness of grain safety.
+- Visualise resonance/dissonance trajectories on a shared timeline to verify that peak dissonance precedes sublation-triggered resonance spikes.
+- Validate that the simulator respects `resonanceStable` thresholds once Lean proofs land, flagging divergences for further theorem work.
+
+### 2. Cosmic Catalog Replay
+- Replay public weak-lensing catalogs through the `multi_scale_grain_analysis` / `test_zoom_invariance` workflow, storing intermediate `WitnessReport` telemetry.
+- Quantify how often empirical data satisfies `≈ᵍ` within observational error; correlate failures with known measurement artefacts to refine grain safety tolerances.
+- Feed replay outputs back into Lean via JSON → `WitnessReport` parsers to stress-test formal predicates against noisy data.
+
+### 3. Light-Form Cascade Lab
+- Couple synthetic photon streams to the neural grain stack, using sampled direction-frequency pairs to drive `FractalLayer.bindDarkLight`.
+- Examine how activation cascades propagate when attention kernels are toggled on/off, measuring their impact on `PositiveCell.activationProfile`.
+- Benchmark cascade persistence under varying learning-rate schedules from the extended `updateGrainOrientation` routine.
+
+---
+
+## Lean Automation Targets
+
+1. **Projection Normaliser**
+   - Implement a `simp` attribute for the placeholder `project` map so proofs can rewrite mixed-domain expressions automatically.
+   - Provide simp lemmas bridging `project (Complex.mk r 0)` back to `r` and aligning orientation vectors with `Dir3`.
+
+2. **Grain Safety Automation**
+   - Craft a `simp` chain establishing `grainSafeLayer cfg (T.zoomCycle L)` from base hypotheses `grainSafeLayer cfg L` and `K.grainSafe L`.
+   - Package the result into a tactic `grain_safe` that resolves routine safety subgoals inside iterated zoom proofs.
+
+3. **Resonance–Dissonance Rewrites**
+   - Add rewrite lemmas allowing `resonanceMapR3` evaluations to commute with `zoomOut`, ensuring self-similarity proofs avoid manual unfolding.
+   - Sync `dissonanceMapC3` with the phase output of `T.zoomE`, enabling automated bounds on imaginary curvature terms.
+
+---
+
+## Philosophical Synthesis Notes
+
+- **Noumenal Openness**: Maintain the interpretation that failure of complex Kakeya preservation is a feature safeguarding Kantian freedom, not a technical debt.
+- **Phenomenal Constraint**: Treat every empirical check (`WitnessReport.valid`, `resonanceStable`) as an articulation of how experience narrows the open field without erasing it.
+- **Sublation**: Positive geometry should be narrated as the constructive resolution of tension between resonance and dissonance, echoing Hegelian triads while remaining computationally explicit.
+
+These notes guide documentation tone and guard against collapsing the theoretical narrative into purely algorithmic language.
