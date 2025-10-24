@@ -8,9 +8,16 @@ the complex (noumenal) and real (phenomenal) domains through a series of
 transformations that preserve key invariants.
 -/
 
-import IVI.C3Model
-import IVI.Fractal
+import IVI.Intangible
 import IVI.Invariant
+import IVI.Harmonics
+import IVI.Collapse
+import IVI.Kakeya
+import IVI.KantLimit
+import IVI.QuaternionZoom
+import IVI.Core.Unified
+import Mathlib.Data.Quaternion
+import Mathlib.Analysis.Complex.Basic
 
 namespace IVI
 
@@ -33,55 +40,28 @@ class ITranslatable (α : Type) where
 open Invariant C3Model
 
 /--
-Applies an I-directed zoom transformation that performs a dimensional rotation
-based on the vector's position in the i-plane.
-
-## Mathematical Foundation
-
-Given a complex vector v = (r₁ + i⋅i₁, r₂ + i⋅i₂, r₃ + i⋅i₃), the transformation:
-
-1. Computes the magnitude in the i-plane: 
-   iMag = √(i₁² + i₂² + i₃²)
-
-2. Calculates a rotation angle θ that varies with iMag:
-   θ = arctan(1/iMag)  [with θ = π/2 when iMag = 0]
-
-3. Applies a rotation by θ in each complex plane:
-   rₖ' = rₖ⋅cosθ - iₖ⋅sinθ
-   iₖ' = rₖ⋅sinθ + iₖ⋅cosθ
-
-## Kantian Interpretation
-
-- **iMag → 0 (Infinite Distance)**: 
-  - θ → π/2 (90° rotation)
-  - Pure phenomenon (maximal projection)
-  - Complete rotation into the real domain
-
-- **iMag → ∞ (Near Origin)**:
-  - θ → 0 (minimal rotation)
-  - Closer to noumenal state
-  - Minimal projection effect
-
-## Properties
-
-1. **Continuity**: The transformation is C∞-smooth everywhere
-2. **Invertibility**: The transformation is bijective
-3. **Boundary Behavior**:
-   - As iMag → 0: Approaches a 90° rotation (real-imaginary swap)
-   - As iMag → ∞: Approaches identity (no rotation)
-4. **Dimensional Reduction**: 
-   - Maps infinite i-extent to finite real interval
-   - Preserves topological relationships
+Apply I-directed zoom using the unified quaternion flow framework.
+This version integrates with both quantum and RG projections.
 -/
-@[simp] def iDirectedZoom (v : C3Vec) : C3Vec :=
-  -- Calculate the magnitude in the i-plane (imaginary components)
-  let iMag := Float.sqrt (v.i1 * v.i1 + v.i2 * v.i2 + v.i3 * v.i3)
-  -- Calculate the rotation angle based on i-magnitude
-  -- atan(1/x) gives us π/2 at x=0 and approaches 0 as x→∞
-  let θ := if iMag > 0 then Float.atan (1.0 / iMag) else Math.pi / 2
-  -- Calculate rotation factors
-  let cosθ := Float.cos θ
-  let sinθ := Float.sin θ
+@[simp] def iDirectedZoom (v : C3Vec) : C3Vec := Id.run do
+  -- Initialize a minimal IVI state focused on this vector
+  let initialState : IVI.IVIState := {
+    layer := {
+      nodes := [{
+        position := v,
+        grainSize := 1.0,
+        energy := 1.0,
+        phase := 0.0,
+        children := []
+      }],
+      totalEnergy := 1.0,
+      config := defaultConfig
+    },
+    orientation := Quaternion.mk 1 0 0 0,  -- Start with identity orientation
+    scale := 1.0,
+    phase := 0.0,
+    time := 0.0
+  }
   
   -- Apply rotation in each complex plane (r1,i1), (r2,i2), (r3,i3)
   -- This performs a simultaneous rotation in all three complex planes
