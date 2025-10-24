@@ -31,6 +31,7 @@ See [BREAKTHROUGH_SUMMARY.md](BREAKTHROUGH_SUMMARY.md) for details.
 - 📋 **[AXIOM_ELIMINATION_LOG.md](AXIOM_ELIMINATION_LOG.md)** - Track progress to 12 axioms
 - 📊 **[THEOREM_PROGRESS.md](THEOREM_PROGRESS.md)** - All 27 proven theorems
 - 📝 **[SESSION_SUMMARY_2025_10_12.md](SESSION_SUMMARY_2025_10_12.md)** - Complete session summary
+- 🏛️ **[PHILOSOPHICAL_FOUNDATIONS.md](PHILOSOPHICAL_FOUNDATIONS.md)** - Kantian metaphysics of collapse and positivity
 
 ### **Strategic Framework**
 - 🗺️ **[PROOF_STRATEGY.md](PROOF_STRATEGY.md)** - Math First, Then Kant
