@@ -18,6 +18,8 @@ import IVI.Harmonics
 import IVI.Collapse
 import IVI.Kakeya
 import IVI.KantLimit
+import IVI.QuaternionZoom
+import Mathlib.Data.Quaternion
 
 namespace IVI
 
@@ -27,8 +29,12 @@ set_option maxHeartbeats 400000
 open Intangible
 open Invariant
 
+/-- Apply I-directed zoom using quaternion-based transformation -/
 @[simp] def iDirectedZoom (v : C3Vec) : C3Vec :=
-  v
+  -- Create a zoom transformation along the current vector's direction
+  let direction := Quat3.ofC3Vec v
+  let zoom := QuatZoom.fromAxis direction 0.1  -- Default small zoom step
+  zoom.apply v
 
 /-- One layer in the IVI fractal tower. The `depth` records the recursion level. -/
 structure FractalLayer where
