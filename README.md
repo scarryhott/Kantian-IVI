@@ -47,6 +47,13 @@ See [BREAKTHROUGH_SUMMARY.md](BREAKTHROUGH_SUMMARY.md) for details.
 - **Sublation as Selection**: `projectToReal : ℂ³ → ℝ³` stabilises shareable forms without exhausting the noumenal field.
 - **Dissonance vs Resonance**: `imaginaryOffset` witnesses noumenal freedom; resonance metrics in `IVI/Harmonics.lean` operate explicitly in `RealDomain`.
 
+### Lightmatter Integration
+- 📦 **Python workspace**: `packages/ivi-core`, `packages/ivi-lightmatter`, `packages/ivi-cli`
+- 📘 **Guide**: [docs/LIGHTMATTER_INTEGRATION.md](docs/LIGHTMATTER_INTEGRATION.md)
+- 🧭 **Unified equation**: [docs/UNIFIED_IVI_EQUATION.md](docs/UNIFIED_IVI_EQUATION.md)
+- ▶️ **CLI**: `python3 -m ivi_cli run` or `python3 -m ivi_cli measure`
+- ✅ **Tests**: `pytest packages/ivi-core/tests packages/ivi-lightmatter/tests`
+
 ## Build
 
 ```bash

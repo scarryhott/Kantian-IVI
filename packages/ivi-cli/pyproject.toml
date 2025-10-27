@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ivi-cli"
+version = "0.1.0"
+description = "Command-line entrypoint for IVI + Lightmatter workflows."
+authors = [{ name = "Kantian-IVI Project" }]
+requires-python = ">=3.10"
+dependencies = ["ivi-core>=0.1.0", "ivi-lightmatter>=0.1.0", "numpy>=1.24"]
+scripts = { "ivi" = "ivi_cli.__main__:main" }
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["ivi_cli*"]

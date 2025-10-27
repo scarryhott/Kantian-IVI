@@ -1,0 +1,19 @@
+[tool.pytest.ini_options]
+addopts = "-ra"
+pythonpath = [
+  "packages/ivi-core",
+  "packages/ivi-lightmatter",
+  "packages/ivi-cli",
+  "lightmatter"
+]
+testpaths = [
+  "packages/ivi-core/tests",
+  "packages/ivi-lightmatter/tests"
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.black]
+line-length = 100

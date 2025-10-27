@@ -1,7 +1,7 @@
 # Kantian-IVI Documentation Index
 
-**Last Updated**: 2025-10-13  
-**Total Documents**: 21
+**Last Updated**: 2025-10-22  
+**Total Documents**: 23
 
 ---
 
@@ -85,6 +85,8 @@ These documents show how mathematical theorems embody philosophical principles:
 ### Implementation
 - **Code**: See `IVI/` directory
 - **Key file**: `IVI/RealSpecMathlib.lean` — Mathematical foundations
+- **Integration guide**: [docs/LIGHTMATTER_INTEGRATION.md](docs/LIGHTMATTER_INTEGRATION.md)
+- **Unified equation**: [docs/UNIFIED_IVI_EQUATION.md](docs/UNIFIED_IVI_EQUATION.md)
 
 ---
 
@@ -169,9 +171,9 @@ These documents show how mathematical theorems embody philosophical principles:
 | Strategic | 6 |
 | Philosophical | 4 |
 | Progress Tracking | 8 |
-| Technical | 2 |
+| Technical | 4 |
 | Release Notes | 3 |
-| **Total** | **21** |
+| **Total** | **23** |
 
 ---
 
