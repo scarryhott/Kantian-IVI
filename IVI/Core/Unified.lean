@@ -61,22 +61,22 @@ structure IVIState where
 The fractal expansion operator F:
 Expands the state by adding more detail and branches.
 -/
-def fractalExpansion (s : IVIState) : IVIState := {
+def fractalExpansion (s : IVIState) : IVIState :=
+{ s with
   -- Double the number of nodes through resuperposition
   layer := resuperposeStep defaultConfig s.layer
-  
+
   -- Maintain orientation
   orientation := s.orientation
-  
+
   -- Decrease scale (more detail)
   scale := s.scale * 0.5
-  
+
   -- Adjust phase based on position
   phase := s.phase + 0.1 * s.time
-  
+
   -- Increment time
-  time := s.time + 1
-}
+  time := s.time + 1 }
 
 /--
 The quaternion flow Q(t):

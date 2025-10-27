@@ -107,7 +107,7 @@ def ivi_run(s0, times, F, Q, K, forms):
 
 ---
 
-## 7. Lean Scaffolds (see `IVI/Core/UnifiedEquation.lean`)
+## 7. Lean Scaffolds (see `IVI/Core/UnifiedEquation.lean`, `IVI/Core/UnifiedInstance.lean`)
 
 ```lean
 structure Fractal (S : Type _) := (run : S → S)
@@ -119,7 +119,7 @@ def iviStep {S} (F : Fractal S) (Q : QFlow S) (K : Kakeya S)
   K.run (Q.run t (F.run s))
 ```
 
-An auxiliary record packages the ODE data: vector field `QF`, coherence potential `K*`, and parameter `λ`. (Full code lives in the Lean module.)
+`IVI/Core/UnifiedInstance.lean` pins these abstractions to the concrete `IVIState`, proves zero-metric Lipschitz / non-expansive lemmas for `F`, `Q`, and `K`, and shows (assuming the Kakeya guard succeeds) that the Schrödinger and RG projections of `IVI.Core.UnifiedEquation.step` leave the recorded quantum amplitudes and couplings unchanged.
 
 ---
 
