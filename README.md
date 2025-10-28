@@ -52,7 +52,8 @@ See [BREAKTHROUGH_SUMMARY.md](BREAKTHROUGH_SUMMARY.md) for details.
 - 🧭 **Unified equation**: [docs/UNIFIED_IVI_EQUATION.md](docs/UNIFIED_IVI_EQUATION.md)
 - 📘 **Guide**: [docs/LIGHTMATTER_INTEGRATION.md](docs/LIGHTMATTER_INTEGRATION.md)
 - 🌐 **Physics sources**: use `lightmatter/` (v1) or `lightmatter2/` (v2) on `PYTHONPATH` / `pip install -e`
-- ▶️ **CLI**: `python3 -m ivi_cli run` or `python3 -m ivi_cli measure`
+- 🔍 **Invariants**: `ivi_cli run` reports sheet/duality/lapse checks for CI gating
+- ▶️ **CLI**: `python3 -m ivi_cli run --check-invariants` or `python3 -m ivi_cli measure`
 - ✅ **Tests**: `pytest packages/ivi-core/tests packages/ivi-lightmatter/tests`
 
 ## Build

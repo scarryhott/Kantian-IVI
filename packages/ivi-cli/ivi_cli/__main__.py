@@ -13,6 +13,7 @@ from ivi_core.types import IProjection, PhenomenalRecord, ThicknessField
 
 try:
     from ivi_lightmatter.adapter import LightmatterForms
+    from ivi_lightmatter.invariants import assert_invariants, compute_invariants
     from ivi_lightmatter.models import LMParams
     from ivi_lightmatter.inference import run_wls
     from ivi_thickness.model import Params as LMRawParams
@@ -65,6 +66,29 @@ def main() -> None:
     p_run.add_argument("--p", type=float, default=1.0)
     p_run.add_argument("--q", type=float, default=1.0)
     p_run.add_argument("--data-dir", type=str, default="./time_thickness_data")
+    p_run.add_argument(
+        "--check-invariants",
+        action="store_true",
+        help="Fail if theoretical invariants exceed tolerance (for CI).",
+    )
+    p_run.add_argument(
+        "--spacetime-tol",
+        type=float,
+        default=1e-6,
+        help="Tolerance for λ·(1/λ) product invariant (default 1e-6).",
+    )
+    p_run.add_argument(
+        "--sheet-tol",
+        type=float,
+        default=1e-6,
+        help="Tolerance for sheet closure δ (default 1e-6).",
+    )
+    p_run.add_argument(
+        "--min-lapse",
+        type=float,
+        default=0.0,
+        help="Minimum acceptable lapse scalar (default 0.0).",
+    )
 
     p_meas = sub.add_parser("measure", help="Perform an IVI measurement (i-projection)")
     p_meas.add_argument("--T", type=float, required=True, help="Temperature (K)")
@@ -87,6 +111,15 @@ def main() -> None:
             args.eps_grain, args.eps_flat, args.E0_eV, args.kappa0, args.p, args.q
         )
         fits = run_wls(params, args.data_dir)
+        lm_params = LMParams(
+            args.eps_grain,
+            args.eps_flat,
+            args.E0_eV,
+            args.kappa0,
+            args.p,
+            args.q,
+        )
+        invariants = compute_invariants(lm_params)
         out = {
             "lens": {
                 "beta": _normalize_beta(fits.lens.beta),
@@ -107,7 +140,15 @@ def main() -> None:
                 "chi2": float(fits.combined.chi2_total),
                 "dof": int(fits.combined.dof_total),
             },
+            "invariants": invariants.as_dict(),
         }
+        if args.check_invariants:
+            assert_invariants(
+                invariants,
+                spacetime_tol=args.spacetime_tol,
+                sheet_tol=args.sheet_tol,
+                min_lapse=args.min_lapse,
+            )
         print(json.dumps(out, indent=2))
         return
 

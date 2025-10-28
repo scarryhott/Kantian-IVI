@@ -55,8 +55,8 @@ PYTHONPATH=packages/ivi-core:packages/ivi-lightmatter:packages/ivi-cli:lightmatt
 After installation:
 
 ```bash
-# run full Lightmatter fits and capture summary JSON
-python3 -m ivi_cli run --data-dir ./lightmatter/time_thickness_data
+# run full Lightmatter fits, capture summary JSON, and enforce invariants
+python3 -m ivi_cli run --data-dir ./lightmatter/time_thickness_data --check-invariants
 
 # generate a toy IVI measurement that consumes Lightmatter lapse data
 python3 -m ivi_cli measure --T 300 --kappa 1e20 --phi_c2 0.0
@@ -66,6 +66,8 @@ python3 -m ivi_cli null-forms
 ```
 
 The CLI surfaces JSON so downstream tooling (Lean scripts, notebooks, dashboards) can ingest phenomena records without importing Python internals.
+
+Running `ivi_cli run` now also emits an `invariants` block verifying the duality/product constraint, sheet closure, and lapse positivity using the Lightmatter v2 physics bundle. CI can parse these fields to ensure theoretical contracts remain satisfied.
 
 ## Tests
 
