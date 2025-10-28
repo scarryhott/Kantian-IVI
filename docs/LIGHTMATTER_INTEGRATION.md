@@ -11,10 +11,11 @@ Kantian-IVI/
 │  ├─ ivi-lightmatter/   # Adapter that wraps Lightmatter physics
 │  ├─ ivi-cli/           # Unified CLI (IVI + Lightmatter)
 │  └─ ivi-examples/      # Optional notebooks/configs
-└─ lightmatter/          # Upstream Lightmatter repo (ivi_thickness package)
+├─ lightmatter/          # Lightmatter v1 (ivi_thickness package)
+└─ lightmatter2/         # Lightmatter v2 (drop-in replacement, richer outputs)
 ```
 
-The `packages` workspace keeps reusable Python components in editable sub-packages. The existing `lightmatter/` directory remains the canonical source for the physics package (`ivi_thickness`).
+The `packages` workspace keeps reusable Python components in editable sub-packages. Both `lightmatter/` and `lightmatter2/` ship the `ivi_thickness` module; you can work with either by putting the desired folder on `PYTHONPATH` or installing it in editable mode.
 
 ## Installation
 
@@ -23,16 +24,20 @@ The `packages` workspace keeps reusable Python components in editable sub-packag
    pip install -e packages/ivi-core -e packages/ivi-lightmatter -e packages/ivi-cli
    ```
 
-2. Install Lightmatter (`ivi_thickness`). Either:
-   - use the bundled repository:
+2. Install Lightmatter (`ivi_thickness`). Choose the release you need:
+   - v1 (original workflow):
      ```bash
      pip install -e lightmatter
+     ```
+   - v2 (updated diagnostics & publishing):
+     ```bash
+     pip install -e lightmatter2
      ```
    - or install from PyPI/another source if available.
 
 When running commands ad-hoc without installation you can rely on `PYTHONPATH`, e.g.:
 ```bash
-PYTHONPATH=packages/ivi-core:packages/ivi-lightmatter:packages/ivi-cli:lightmatter python3 -m ivi_cli null-forms
+PYTHONPATH=packages/ivi-core:packages/ivi-lightmatter:packages/ivi-cli:lightmatter2 python3 -m ivi_cli null-forms
 ```
 
 ## Key Interfaces
@@ -78,6 +83,7 @@ The Lightmatter adapter tests auto-skip when `ivi_thickness` is unavailable so C
 Use this checklist when upstreaming changes:
 
 - [ ] Vendor or install the `lightmatter/` repo (`ivi_thickness` import path resolvable).
+- [ ] (Optional) Prefer the newer `lightmatter2/` drop-in package if you want the latest diagnostics (`PYTHONPATH` now includes both).
 - [ ] `pip install -e packages/ivi-core -e packages/ivi-lightmatter -e packages/ivi-cli`.
 - [ ] Run `pytest packages/ivi-core/tests packages/ivi-lightmatter/tests`.
 - [ ] Run `python3 -m ivi_cli run --data-dir ./lightmatter/time_thickness_data` (smoke).

@@ -4,7 +4,8 @@ pythonpath = [
   "packages/ivi-core",
   "packages/ivi-lightmatter",
   "packages/ivi-cli",
-  "lightmatter"
+  "lightmatter",
+  "lightmatter2"
 ]
 testpaths = [
   "packages/ivi-core/tests",
