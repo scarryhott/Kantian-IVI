@@ -12,6 +12,19 @@ jobs:
     
     steps:
     - uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+        cache: 'pip'
+
+    - name: Install Python dependencies
+      run: |
+        python -m pip install --upgrade pip
+        python -m pip install -e lightmatter2
+        python -m pip install -e packages/ivi-core -e packages/ivi-lightmatter -e packages/ivi-cli
+        python -m pip install pytest
     
     - name: Install Lean
       run: |
@@ -29,9 +42,14 @@ jobs:
     
     - name: Build project
       run: lake build
-    
+
     - name: Run demo
       run: lake exe ivi-demo
+
+    - name: Run Lightmatter invariant tests
+      run: |
+        python -m pytest packages/ivi-lightmatter/tests/test_invariants.py
+        python -m ivi_cli run --data-dir lightmatter2/time_thickness_data --check-invariants
     
     - name: Check axiom count
       run: |
