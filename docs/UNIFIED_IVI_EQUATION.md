@@ -119,7 +119,11 @@ def iviStep {S} (F : Fractal S) (Q : QFlow S) (K : Kakeya S)
   K.run (Q.run t (F.run s))
 ```
 
-`IVI/Core/UnifiedInstance.lean` pins these abstractions to the concrete `IVIState`, proves zero-metric Lipschitz / non-expansive lemmas for `F`, `Q`, and `K`, and shows (assuming the Kakeya guard succeeds) that the Schrödinger and RG projections of `IVI.Core.UnifiedEquation.step` leave the recorded quantum amplitudes and couplings unchanged.
+`IVI/Core/UnifiedInstance.lean` pins these abstractions to the concrete `IVIState`, proves zero-metric Lipschitz / non-expansive lemmas for `F`, `Q`, and `K`, and shows (assuming the Kakeya guard succeeds) that the Schrödinger and RG projections of `IVI.Core.UnifiedEquation.step` leave the recorded quantum amplitudes and couplings unchanged. The core invariant statements now live in `IVI/Core/UnifiedEquation.lean`:
+
+- `spectrum_duality : λ · λ⁻¹ = 1` for any positive `SpectrumValue` (formal version of the spacetime duality check).
+- `sheetDelta_zero_of_local_time` shows that choosing `t = √m · ℓ²` annihilates the sheet deviation (δ = 0), matching the Kakeya sheet invariant.
+- `lapseScalar_pos_of_bound` provides a lightweight lemma to certify lapse positivity once a lower bound is established.
 
 ---
 

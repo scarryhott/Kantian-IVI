@@ -12,6 +12,7 @@
 -/
 
 import Mathlib.Data.Real.Basic
+import Mathlib.Data.Real.Sqrt
 
 namespace IVI
 
@@ -75,5 +76,74 @@ def flattening {S} (dyn : IVIDynamicsODE S) (s : S) : Flattening S :=
   { weight := dyn.lambda, direction := dyn.gradK s }
 
 end IVIDynamicsODE
+
+/-
+Auxiliary invariants that mirror the Lightmatter diagnostic checks.
+-/
+
+/-- Positive spectral values (λ > 0) used for the spacetime-duality invariant. -/
+def SpectrumValue := { λ : ℝ // 0 < λ }
+
+@[simp] lemma spectrum_duality (λ : SpectrumValue) :
+    (λ : ℝ) * (λ : ℝ)⁻¹ = (1 : ℝ) := by
+  have hλ : (λ : ℝ) ≠ 0 := ne_of_gt λ.property
+  simpa [hλ] using mul_inv_cancel hλ
+
+/-- Kakeya sheet deviation δ = 1 - j · ℓ². -/
+def sheetDelta (j ℓ : ℝ) : ℝ := 1 - j * ℓ ^ 2
+
+/-- Local sheet time law t(ℓ) = √m · ℓ² (requires m ≥ 0). -/
+def tLocal (m ℓ : ℝ) : ℝ := Real.sqrt m * ℓ ^ 2
+
+/--
+Using the local sheet time (`tLocal`) eliminates the deviation (δ = 0).
+We require m > 0 and ℓ ≠ 0 so that the algebraic manipulations are well-defined.
+-/
+lemma sheetDelta_zero_of_local_time
+    {m ℓ : ℝ} (hm : 0 < m) (hℓ : ℓ ≠ 0) :
+    sheetDelta (m * ℓ ^ 2 / (tLocal m ℓ) ^ 2) ℓ = 0 := by
+  have hm0 : 0 ≤ m := hm.le
+  have hℓ2 : ℓ ^ 2 ≠ 0 := pow_ne_zero _ hℓ
+  have hden : tLocal m ℓ ≠ 0 := by
+    unfold tLocal
+    have hsqrt : Real.sqrt m ≠ 0 := by
+      exact ne_of_gt (Real.sqrt_pos.mpr hm)
+    have : ℓ ^ 2 ≠ 0 := hℓ2
+    exact mul_ne_zero hsqrt this
+  have ht_sq :
+      (tLocal m ℓ) ^ 2 = m * ℓ ^ 4 := by
+        unfold tLocal
+        have hsqrt : (Real.sqrt m) ^ 2 = m := by
+          simpa [pow_two] using Real.mul_self_sqrt hm0
+        have hpow :
+            (ℓ ^ 2) ^ 2 = ℓ ^ 4 := by
+              simpa [pow_mul] using pow_mul ℓ 2 2
+        simp [pow_two, mul_comm, mul_left_comm, mul_assoc, hsqrt, hpow]
+  have hℓ4 : ℓ ^ 4 ≠ 0 := pow_ne_zero 4 hℓ
+  have hden_sq : (tLocal m ℓ) ^ 2 ≠ 0 := by
+    simpa [ht_sq] using mul_ne_zero (ne_of_gt hm) hℓ4
+  calc
+    sheetDelta (m * ℓ ^ 2 / (tLocal m ℓ) ^ 2) ℓ
+        = 1 - (m * ℓ ^ 2 / (tLocal m ℓ) ^ 2) * ℓ ^ 2 := rfl
+    _ = 1 - (m * ℓ ^ 2 * ℓ ^ 2) / (tLocal m ℓ) ^ 2 := by
+          simp [mul_assoc, mul_comm, mul_left_comm, pow_two]
+    _ = 1 - (m * ℓ ^ 4) / (tLocal m ℓ) ^ 2 := by
+          simp [pow_two, mul_comm, mul_left_comm, mul_assoc]
+    _ = 1 - (tLocal m ℓ) ^ 2 / (tLocal m ℓ) ^ 2 := by
+          simpa [ht_sq]
+    _ = 1 - 1 := by
+          simp [div_self hden_sq]
+    _ = 0 := by norm_num
+
+/-- Lightweight lapse scalar (mirrors the Python computation). -/
+def lapseScalar (Φ εgrain εflat F G : ℝ) : ℝ :=
+  1 + 2 * Φ - εgrain * F + εflat * G
+
+lemma lapseScalar_pos_of_bound
+    {Φ εgrain εflat F G lower : ℝ}
+    (hlower : 0 < lower)
+    (hle : lower ≤ lapseScalar Φ εgrain εflat F G) :
+    0 < lapseScalar Φ εgrain εflat F G :=
+  lt_of_lt_of_le hlower hle
 
 end IVI
