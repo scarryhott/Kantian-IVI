@@ -5,40 +5,37 @@ This is a formal skeleton; we keep proofs as `sorry` placeholders to be filled g
 -/
 
 import Mathlib.Data.Real.Basic
-import Mathlib.Init.Algebra.Order
+import Mathlib.Analysis.SpecialFunctions.Log.Basic
 
 set_option autoImplicit true
 set_option maxHeartbeats 400000
 
 namespace IVI
 
+noncomputable section
+
 /-- Layers encoded as [0,1] intensities or integers for contexts. -/
 structure IdentityLayer where
   persistence         : ℝ  -- [0,1]
   collisionResistance : ℝ  -- [0,1]
-deriving Repr
 
 structure MemoryLayer where
   immutability : ℝ  -- [0,1]
   availability : ℝ  -- [0,1]
-deriving Repr
 
 structure TrustLayer where
   decentralization : ℝ  -- [0,1]
   verifiability    : ℝ  -- [0,1]
-deriving Repr
 
 structure Dimensionality where
   contexts     : Nat -- ≥ 1
   independence : ℝ  -- [0,1]
-deriving Repr
 
 structure Layers where
   I : IdentityLayer
   M : MemoryLayer
   T : TrustLayer
   D : Dimensionality
-deriving Repr
 
 /-- Helper: clamp to [0,1]. -/
 def clamp01 (x : ℝ) : ℝ := max 0 (min 1 x)
@@ -80,14 +77,23 @@ def HasCriticalDimensionality
   (Dc : Nat) (L : Layers) (hypocrisyRate : ℝ) : Prop :=
   -- Below Dc, marginal dimensional increase reduces stability;
   -- Above or at Dc, marginal increase raises stability.
-  ∀ dBelow, dAbove : Nat,
+  ∀ (dBelow dAbove : Nat),
     dBelow < Dc → dAbove ≥ Dc →
-    let L₁ := { L with D := { L.D with contexts := dBelow } }
-    let L₂ := { L with D := { L.D with contexts := dBelow + 1 } }
-    let L₃ := { L with D := { L.D with contexts := dAbove } }
-    let L₄ := { L with D := { L.D with contexts := dAbove + 1 } }
-    (stability L₂ hypocrisyRate ≤ stability L₁ hypocrisyRate) ∧
-    (stability L₄ hypocrisyRate ≥ stability L₃ hypocrisyRate)
+    (stability
+        { L with D := { L.D with contexts := dBelow + 1 } }
+        hypocrisyRate
+      ≤
+      stability
+        { L with D := { L.D with contexts := dBelow } }
+        hypocrisyRate)
+    ∧
+    (stability
+        { L with D := { L.D with contexts := dAbove + 1 } }
+        hypocrisyRate
+      ≥
+      stability
+        { L with D := { L.D with contexts := dAbove } }
+        hypocrisyRate)
 
 /-
 Targets to prove (future work):
@@ -117,5 +123,6 @@ theorem stability_nondec_after_Dc
             stability Ld1 h ≥ stability Ld h := by
   sorry
 
-end IVI
+end
 
+end IVI

@@ -1,23 +1,23 @@
 {"synthetic": false,
  "outputs":
- {"o": ["2698759187055721323"],
-  "i": "14638486246038302177",
-  "c": "1035911319654122535"},
+ {"o": ["16925015752632675456"],
+  "i": "14119225366644099084",
+  "c": "17541786142916047110"},
  "log":
  [{"message":
    ".> LEAN_PATH=/Users/harryscott/Kantian-IVI/.lake/packages/Cli/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/batteries/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/Qq/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/aesop/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/proofwidgets/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/importGraph/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/plausible/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/packages/mathlib/.lake/build/lib/lean:/Users/harryscott/Kantian-IVI/.lake/build/lib/lean /Users/harryscott/.elan/toolchains/leanprover--lean4---v4.24.0-rc1/bin/lean /Users/harryscott/Kantian-IVI/IVI/Pure.lean -o /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Pure.olean -i /Users/harryscott/Kantian-IVI/.lake/build/lib/lean/IVI/Pure.ilean -c /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Pure.c --setup /Users/harryscott/Kantian-IVI/.lake/build/ir/IVI/Pure.setup.json --json",
    "level": "trace"},
   {"message":
-   "IVI/Pure.lean:127:60: unused variable `s`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "IVI/Pure.lean:144:60: unused variable `s`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "IVI/Pure.lean:128:7: unused variable `ordering`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "IVI/Pure.lean:145:7: unused variable `ordering`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "IVI/Pure.lean:133:7: unused variable `t`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "IVI/Pure.lean:150:7: unused variable `t`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "IVI/Pure.lean:155:38: unused variable `α`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "IVI/Pure.lean:172:38: unused variable `α`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"}],
  "inputs":
  [["IVI.Pure:deps",
@@ -25,7 +25,12 @@
      [["ivi/IVI:extraDep", [["@ivi:extraDep", "1723"]]],
       ["imports",
        [["IVI.Core transitive imports (legacy)", "1723"],
-        ["IVI.Core:importAllArts", "1406338874490492985"]]]]],
+        ["IVI.Core:importAllArts", "1406338874490492985"],
+        ["IVI.Invariant transitive imports (legacy)", "15438588992484952601"],
+        ["IVI.Invariant:importAllArts", "17142208629345613795"],
+        ["IVI.TiTranslator transitive imports (legacy)",
+         "14658820233959523510"],
+        ["IVI.TiTranslator:importAllArts", "13087623023287005265"]]]]],
     ["libs",
      [["import dynlibs", "1723"],
       ["package external libraries", "1723"],
@@ -33,7 +38,7 @@
       ["module plugins", "1723"]]]]],
   ["Lean 4.24.0, commit 919e297292280cdb27598edd4e03437be5850221",
    "16820442660988836695"],
-  ["/Users/harryscott/Kantian-IVI/IVI/Pure.lean", "16808645621143780639"],
+  ["/Users/harryscott/Kantian-IVI/IVI/Pure.lean", "16822142662965834264"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "490231294949989529"}
+ "depHash": "3102910698285019819"}

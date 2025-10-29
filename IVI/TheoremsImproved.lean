@@ -130,6 +130,81 @@ theorem T2_lambda_delta_control
   simpa using w.lamWitness
 
 /-!
+## Relativized Verification and Complexity
+
+These helpers make explicit the philosophical reading that a verified
+configuration witnesses a global truth precisely relative to a chosen
+local solution, and that any claim of `P = NP` in IVI is framed by the
+resulting equivalence.
+-/
+
+/-- Local solution: each node remains grain-safe when considered in isolation. -/
+def localSolution (cfg : ICollapseCfg) (nodes : List DomainNode) : Prop :=
+  ∀ n ∈ nodes, cfg.grainSafe [n]
+
+/-- Global truth: the entire configuration is grain-safe. -/
+def globalTruth (cfg : ICollapseCfg) (nodes : List DomainNode) : Prop :=
+  cfg.grainSafe nodes
+
+/-- Bundle witnessing that verification ties a global truth to a local solution. -/
+structure VerificationRelativity (cfg : ICollapseCfg) (nodes : List DomainNode) where
+  /-- Local witness that each node is grain-safe on its own slice. -/
+  local : localSolution cfg nodes
+  /-- Global certificate that the full configuration is grain-safe. -/
+  global : globalTruth cfg nodes
+
+@[simp] theorem VerificationRelativity.local_solution
+  {cfg : ICollapseCfg} {nodes : List DomainNode}
+  (rel : VerificationRelativity cfg nodes) :
+  localSolution cfg nodes :=
+  rel.local
+
+@[simp] theorem VerificationRelativity.global_truth
+  {cfg : ICollapseCfg} {nodes : List DomainNode}
+  (rel : VerificationRelativity cfg nodes) :
+  globalTruth cfg nodes :=
+  rel.global
+
+/-- Explicitly exhibit verification as global truth relative to a local solution. -/
+@[simp] theorem verification_is_global_truth_relative
+  {cfg : ICollapseCfg} {nodes : List DomainNode}
+  (rel : VerificationRelativity cfg nodes) :
+  globalTruth cfg nodes ∧ localSolution cfg nodes :=
+by
+  exact ⟨rel.global, rel.local⟩
+
+/-- A complexity frame packages how verification (P) and measurement (NP) relate. -/
+structure ComplexityFrame where
+  verifying : Prop
+  measuring : Prop
+  relativity : verifying ↔ measuring
+
+@[simp] theorem ComplexityFrame.relativized (frame : ComplexityFrame) :
+  frame.verifying ↔ frame.measuring :=
+  frame.relativity
+
+/-- The IVI grain checker induces a relativized complexity frame when collapse is bounded. -/
+def grainComplexityFrame
+  (cfg : ICollapseCfg) (nodes : List DomainNode)
+  (rel : VerificationRelativity cfg nodes)
+  (collapse : localSolution cfg nodes → globalTruth cfg nodes) :
+  ComplexityFrame :=
+{ verifying := globalTruth cfg nodes
+, measuring := localSolution cfg nodes
+, relativity := Iff.intro (fun _ => rel.local) collapse }
+
+/-- `P = NP` holds relative to the supplied frame when the backward implication is given. -/
+@[simp] theorem P_eq_NP_relative
+  (cfg : ICollapseCfg) (nodes : List DomainNode)
+  (rel : VerificationRelativity cfg nodes)
+  (collapse : localSolution cfg nodes → globalTruth cfg nodes) :
+  globalTruth cfg nodes ↔ localSolution cfg nodes :=
+by
+  simpa using
+    ComplexityFrame.relativized
+      (grainComplexityFrame cfg nodes rel collapse)
+
+/-!
 ## T3: Reciprocity Topology
 
 Reciprocity induces a symmetric relation that can be extended to an equivalence.

@@ -18,9 +18,12 @@
 -/
 
 import IVI.Core
+import IVI.Invariant
 import IVI.TiTranslator
 
 namespace IVI
+
+open Invariant
 
 set_option autoImplicit true
 

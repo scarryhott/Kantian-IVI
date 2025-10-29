@@ -57,6 +57,7 @@ Sustainable morality is exactly the set of maxims that survive universal verific
 
 - Formal layer: `IVI/MoralDimensionality.lean`, `IVI/CItoStability.lean`
 - Simulation layer: `src/sim/moral_dimensionality.ts`, `src/sim/examples/run_moral_scan.ts`
+- Runtime integration: `IVI/TiTranslator.lean` (`TiTranslator.Context` drives the default I-zoom used across the repo)
 - Diagram (placeholder): `docs/diagrams/moral_phase_transition.svg`
 
 Each layer expresses the same claim:
@@ -64,4 +65,3 @@ Each layer expresses the same claim:
 ```
 Morality = stable attractor of recursive identity resonance in an expanded existence manifold.
 ```
-

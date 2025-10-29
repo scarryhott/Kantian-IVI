@@ -82,24 +82,24 @@ lake exe ivi-demo
 
 ### i-Dimension Translator (Tᵢ)
 
-The i-dimension translator is implemented across multiple modules and unified in `Bridge/TiTranslator.lean`:
+The i-dimension translator now carries an explicit moral-dimensional context and the implementation lives in `IVI/TiTranslator.lean`:
 
 ```lean
-def T_i (m : MetaVec C3Vec) : MetaVec C3Vec := Id.run do
-  let v₁ := ITranslatable.prep m.dir    -- λ-invariant normalization
-  let v₂ := ITranslatable.izoom v₁      -- I-directed zoom
-  let v₃ := ITranslatable.commit v₂     -- Phase alignment
-  { dir := v₃, tags := "T_i" :: m.tags }
+def T_i (m : MetaVec C3Vec) : MetaVec C3Vec :=
+  let ctx := m.ctx
+  let v₁ := ITranslatable.prep m.dir    -- λ-invariant normalisation
+  let v₂ := ITranslatable.izoom ctx v₁ -- context-driven I-zoom
+  let v₃ := ITranslatable.commit v₂    -- phase alignment
+  { dir := v₃
+  , ctx := ctx
+  , tags := "T_i" :: (TiTranslator.Context.tags ctx ++ m.tags) }
 ```
 
 **Key Transformation**:
 ```
-Δi = k·‖r‖·θ
+θ = arctan(Λ·(1+S)),     Λ = lift(I,M,T,D),     S = stability(I,M,T,D)
 ```
-Where:
-- `r = (x,y,z)` is the spatial vector
-- `θ` is the angle between `r` and the temporal axis `i_old → i_new`
-- `k` is a domain constant
+Where the context drives both the rotation angle `θ` and the scaling on real/imaginary components.
 
 ### Kakeya-IVI Fractal Morphism (Zoom-Into-Each-Other)
 
