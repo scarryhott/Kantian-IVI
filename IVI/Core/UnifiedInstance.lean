@@ -103,6 +103,32 @@ lemma canonicalRealState_sheetInvariant :
     sheetDelta (1 * (1 : ℝ) ^ 2 / (tLocal 1 (1 : ℝ)) ^ 2) (1 : ℝ) = 0 := by
   simpa using sheetDelta_zero_unit
 
+/-!
+## Soundness relation between runtime and real-valued states
+
+`SoundState` witnesses how a Float-based runtime state corresponds to a
+real-valued abstraction that satisfies the invariant assumptions.  In a more
+complete development this would carry bounds propagated from the runtime layer.
+-/
+
+structure SoundState (s : IVIState) : Prop where
+  scale_nonneg : 0 ≤ (s.scale : ℝ)
+  lapse_lb : lapseScalar ((1 : ℝ) / 10) ((1 : ℝ) / 1000) (-(1 : ℝ) / 1000) 1 1 ≥ 0
+
+def canonicalSoundState : SoundState
+  { layer := default
+    orientation := Quaternion.mk 1 0 0 0
+    scale := 1
+    phase := 0
+    time := 0
+    quantumState := none
+    couplings := [] } where
+  scale_nonneg := by norm_num
+  lapse_lb := by
+    have h : lapseScalar ((1 : ℝ) / 10) ((1 : ℝ) / 1000) (-(1 : ℝ) / 1000) 1 1
+        = (599 : ℝ) / 500 := by norm_num [lapseScalar]
+    simpa [h] using show (0 : ℝ) ≤ (599 : ℝ) / 500 by norm_num
+
 /--
 Simple helper: applying the Kakeya projection is non-expansive with respect
 to the current pseudo-metric.  This witnesses the structural property used
