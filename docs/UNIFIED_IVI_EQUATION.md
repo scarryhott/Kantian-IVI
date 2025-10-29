@@ -125,6 +125,8 @@ def iviStep {S} (F : Fractal S) (Q : QFlow S) (K : Kakeya S)
 - `sheetDelta_zero_of_local_time` shows that choosing `t = √m · ℓ²` annihilates the sheet deviation (δ = 0), matching the Kakeya sheet invariant.
 - `lapseScalar_pos_of_bound` provides a lightweight lemma to certify lapse positivity once a lower bound is established.
 
+Their concrete instantiations—`canonicalSpectrum_duality`, `sheetDelta_zero_unit`, `default_lapse_positive`, and `canonicalRealState_scale_pos`—reside in `IVI/Core/UnifiedInstance.lean`, reflecting the default Lightmatter parameter window used by the CLI. That module also introduces `IVIStateReal`, a real-valued mirror of the runtime state so Lean proofs can reason about scale/time bounds without depending on floating-point arithmetic.
+
 ---
 
 ## 8. Python Scaffolds (see `packages/ivi-core/ivi_core/unified.py`)

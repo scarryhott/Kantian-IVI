@@ -57,6 +57,17 @@ structure IVIState where
   
   deriving Repr, Inhabited
 
+-- Abstracted state with real-valued fields for formal reasoning.
+structure IVIStateReal where
+  layer : FractalLayer
+  orientation : Quaternion ℝ
+  scale : ℝ
+  phase : ℝ
+  time : ℝ := 0
+  quantumState : Option (Array (Complex ℝ)) := none
+  couplings : List (String × ℝ) := []
+  deriving Repr, Inhabited
+
 /--
 The fractal expansion operator F:
 Expands the state by adding more detail and branches.
@@ -123,6 +134,7 @@ def iviStep (s : IVIState) : Option IVIState :=
   let expanded := fractalExpansion s  -- F(S_t)
   let transformed := quaternionFlow expanded.time expanded expanded  -- Q(t) ∘ F(S_t)
   kakeyaConstraint transformed  -- K(...)
+
 
 /--
 The continuous-time differential form of IVI evolution:

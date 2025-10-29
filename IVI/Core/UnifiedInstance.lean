@@ -7,12 +7,15 @@
   abstract lemmas from `IVI.Core.UnifiedEquation` become usable facts.
 -/
 
-import IVI.Core.UnifiedEquation
 import IVI.Core.Unified
+import IVI.Core.UnifiedEquation
 import IVI.Core.Transform
 import Mathlib.Data.Real.Basic
+import Mathlib.Data.Real.Sqrt
 
 namespace IVI
+
+open Real
 
 /-!
 ## Metric scaffolding
@@ -52,6 +55,53 @@ def defaultDynamics : IVIDynamics IVIState :=
 { fractal := fractalOperator
   , flow := flowOperator
   , kakeya := kakeyaOperator }
+
+/-!
+Lifted operators for the real-valued abstraction.  These mirror the Float
+implementations but operate on `IVIStateReal` so that we can reason about
+arithmetic constraints symbolically.
+-/
+
+def fractalOperatorReal : Fractal IVIStateReal where
+  run s :=
+    { s with
+      layer := resuperposeStep defaultConfig s.layer
+      scale := s.scale * (1 / 2 : ℝ)
+      phase := s.phase + 0.1 * s.time
+      time := s.time + 1 }
+
+def flowOperatorReal : QFlow IVIStateReal where
+  run t s :=
+    { s with
+      orientation := s.orientation * Quaternion.exp (Quaternion.mk 0 (t * 0.1) (t * 0.05) (t * 0.02))
+      scale := s.scale * (1 + 0.01 * Real.sin t)
+      phase := s.phase + 0.05 * Real.cos t
+      time := s.time + 0.1 }
+
+def kakeyaOperatorReal : Kakeya IVIStateReal where
+  run s := s
+
+def defaultDynamicsReal : IVIDynamics IVIStateReal where
+  fractal := fractalOperatorReal
+  flow := flowOperatorReal
+  kakeya := kakeyaOperatorReal
+
+/-- Canonical real-valued state used for invariant proofs. -/
+noncomputable def canonicalRealState : IVIStateReal :=
+{ layer := default
+  , orientation := Quaternion.mk 1 0 0 0
+  , scale := 1
+  , phase := 0
+  , time := 0
+  , quantumState := none
+  , couplings := [] }
+
+lemma canonicalRealState_scale_pos : 0 < canonicalRealState.scale := by
+  simp [canonicalRealState]
+
+lemma canonicalRealState_sheetInvariant :
+    sheetDelta (1 * (1 : ℝ) ^ 2 / (tLocal 1 (1 : ℝ)) ^ 2) (1 : ℝ) = 0 := by
+  simpa using sheetDelta_zero_unit
 
 /--
 Simple helper: applying the Kakeya projection is non-expansive with respect
@@ -143,5 +193,37 @@ lemma πQM_flattening_eq (s : IVIState) :
 lemma πRG_flattening_eq (s : IVIState) :
   Π_RG (defaultDynamicsODE.gradK s) = Π_RG s := by
   simp [Π_RG, defaultDynamicsODE, kakeyaGradientDefault]
+
+/-%!
+## Instantiated invariants
+
+These lemmas witness the abstract invariants from
+`IVI/Core/UnifiedEquation.lean` using concrete choices that reflect the
+default Lightmatter / IVI configuration.  They serve as a bridge between
+the formal layer and the Python diagnostics enforced in CI.
+-/
+
+def canonicalSpectrum : SpectrumValue := ⟨1, by norm_num⟩
+
+@[simp] lemma coe_canonicalSpectrum : (canonicalSpectrum : ℝ) = 1 := rfl
+
+lemma canonicalSpectrum_duality :
+    (canonicalSpectrum : ℝ) * (canonicalSpectrum : ℝ)⁻¹ = (1 : ℝ) := by
+  simpa using spectrum_duality canonicalSpectrum
+
+lemma sheetDelta_zero_unit :
+    sheetDelta (1 * (1 : ℝ) ^ 2 / (tLocal 1 (1 : ℝ)) ^ 2) (1 : ℝ) = 0 := by
+  have hm : 0 < (1 : ℝ) := by norm_num
+  have hℓ : (1 : ℝ) ≠ 0 := by norm_num
+  simpa using sheetDelta_zero_of_local_time (m := (1 : ℝ)) (ℓ := (1 : ℝ)) hm hℓ
+
+lemma default_lapse_positive :
+    0 < lapseScalar ((1 : ℝ) / 10) ((1 : ℝ) / 1000) (-(1 : ℝ) / 1000) 1 1 := by
+  have h_eval :
+      lapseScalar ((1 : ℝ) / 10) ((1 : ℝ) / 1000) (-(1 : ℝ) / 1000) 1 1
+        = (599 : ℝ) / 500 := by
+    norm_num [lapseScalar]
+  have h_pos : 0 < (599 : ℝ) / 500 := by norm_num
+  simpa [h_eval] using h_pos
 
 end IVI
