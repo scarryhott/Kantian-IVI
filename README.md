@@ -379,6 +379,14 @@ The v0.2.0 tag exists but the Release page hasn't been created yet. To make it v
    ```
 6. Click "Publish release"
 
+## Moral Dimensionality (IVI ↔ Kant)
+
+- Models moral stability `S = f(I, M, T, D)` where Identity, Memory, Trust, and Dimensionality reinforce high-dimensional cooperation.
+- Low-dimensional regimes (`D < D_c`) fragment into local relativism; high-dimensional regimes (`D ≥ D_c`) surface contradictions until cooperation becomes the stable attractor.
+- Formal skeletons: `IVI/MoralDimensionality.lean`, `IVI/CItoStability.lean` (current proof obligations marked with `sorry`).
+- Simulation tooling: `src/sim/moral_dimensionality.ts` with an example runner at `src/sim/examples/run_moral_scan.ts`.
+- Conceptual overview: `docs/IVI_MoralDimensionality.md` (diagram placeholder at `docs/diagrams/moral_phase_transition.svg`).
+
 ## License
 
 See LICENSE file for details.

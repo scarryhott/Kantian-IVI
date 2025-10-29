@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180">
+  <title>Moral Phase Transition (placeholder)</title>
+  <rect x="0" y="0" width="320" height="180" fill="#f5f5f5" />
+  <line x1="40" y1="140" x2="280" y2="140" stroke="#333" stroke-width="2" />
+  <line x1="40" y1="140" x2="40" y2="40" stroke="#333" stroke-width="2" />
+  <path d="M40 130 Q120 80 190 100 T280 60" stroke="#005cc5" stroke-width="3" fill="none" />
+  <text x="285" y="150" font-size="12" fill="#333">D</text>
+  <text x="20" y="35" font-size="12" fill="#333">S</text>
+  <text x="155" y="30" font-size="12" fill="#333">High-D Cooperation</text>
+  <text x="90" y="160" font-size="12" fill="#333">Low-D Fragmentation</text>
+  <circle cx="195" cy="98" r="4" fill="#d73a49" />
+  <text x="205" y="105" font-size="12" fill="#333">D_c</text>
+</svg>
