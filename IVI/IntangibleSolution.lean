@@ -115,6 +115,52 @@ by
   have : False := by simpa [hEmpty] using h
   exact False.elim this
 
+/-- Package the stability proof for zero-step resuperposition into an intangible solution. -/
+@[simp] def ofResuperposeZero
+    {cfg : ICollapseCfg} {layer : FractalLayer}
+    {εσ εg : Float}
+    (witness : VerificationRelativity cfg layer.nodes) :
+    IntangibleSolution cfg layer εσ εg :=
+  ofResuperpose (εσ := εσ) (εg := εg) 0 layer witness
+    (stable_resuperpose_zero cfg layer εσ εg)
+
+/-- Coherence stability weakens monotonically with looser thresholds. -/
+@[simp] theorem coherenceWithin_mono
+    {cmp : CoherenceComparison}
+    {εσ εg εσ' εg' : Float}
+    (hσ : εσ ≤ εσ') (hg : εg ≤ εg')
+    (h : coherenceWithin εσ εg cmp) :
+    coherenceWithin εσ' εg' cmp :=
+by
+  rcases h with ⟨hΔσ, hΔg⟩
+  exact ⟨le_trans hΔσ hσ, le_trans hΔg hg⟩
+
+/-- Once a comparison satisfies strict bounds, it also satisfies any larger bounds. -/
+@[simp] theorem stableComparisons_mono
+    {cfg : ICollapseCfg} {base : FractalLayer}
+    {εσ εg εσ' εg' : Float}
+    (sol : IntangibleSolution cfg base εσ εg)
+    (hσ : εσ ≤ εσ') (hg : εg ≤ εg')
+    {cmp : CoherenceComparison}
+    (hCmp : cmp ∈ trailComparisons sol.snapshots) :
+    coherenceWithin εσ' εg' cmp :=
+by
+  have hWithin : coherenceWithin εσ εg cmp := sol.stable cmp hCmp
+  exact coherenceWithin_mono hσ hg hWithin
+
+/-- Relax the tolerance thresholds of an intangible solution while keeping the same trail. -/
+@[simp] def relaxThresholds
+    {cfg : ICollapseCfg} {base : FractalLayer}
+    {εσ εg εσ' εg' : Float}
+    (sol : IntangibleSolution cfg base εσ εg)
+    (hσ : εσ ≤ εσ') (hg : εg ≤ εg') :
+    IntangibleSolution cfg base εσ' εg' :=
+  { witness := sol.witness
+  , snapshots := sol.snapshots
+  , stable := by
+      intro cmp hCmp
+      exact stableComparisons_mono sol hσ hg hCmp }
+
 end IntangibleSolution
 
 end IVI
