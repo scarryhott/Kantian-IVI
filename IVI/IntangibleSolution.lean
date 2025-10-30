@@ -161,6 +161,13 @@ by
       intro cmp hCmp
       exact stableComparisons_mono sol hσ hg hCmp }
 
+@[simp] theorem principleSolution_hasWitness
+    {cfg : ICollapseCfg} {layer : FractalLayer}
+    {εσ εg : Float}
+    (sol : IntangibleSolution cfg layer εσ εg) :
+    VerificationRelativity cfg layer.nodes :=
+  sol.witness
+
 end IntangibleSolution
 
 end IVI

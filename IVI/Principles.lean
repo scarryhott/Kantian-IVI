@@ -23,5 +23,11 @@ def existentialPEqNP : Prop :=
 /-- Principle asserting the existential P = NP acceptance. -/
 axiom principlePEqNP : existentialPEqNP
 
-end IVI
+/-- Extract an intangible solution using the existential principle. -/
+@[simp] theorem principleProvidesSolution
+    {cfg : ICollapseCfg} {layer : FractalLayer}
+    (witness : VerificationRelativity cfg layer.nodes) :
+    ∃ (εσ εg : Float), IntangibleSolution cfg layer εσ εg :=
+  principlePEqNP witness
 
+end IVI
