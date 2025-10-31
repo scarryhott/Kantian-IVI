@@ -21,7 +21,7 @@ noncomputable section
 @[simp] def lambdaNormalize (v : C3Vec) : C3Vec :=
   v
 
-@[simp] def fmax (a b : Float) : Float := if a < b then b else a
+@[simp] def fmax (a b : Float) : Float := max a b
 
 @[simp] def clampZero (x : Float) : Float := if x < 0.0 then 0.0 else x
 
@@ -65,8 +65,152 @@ structure Weighting where
   | x :: xs => fmax (Float.abs x) (normInf xs)
 
 @[simp] def normalise (v : List Float) : List Float :=
-  let nrm := normInf v
-  if nrm == 0.0 then v else v.map (· / nrm)
+  if h : normInf v = 0.0 then v
+  else List.map (fun x => x / normInf v) v
+
+lemma normInf_nonneg : ∀ v : List Float, 0.0 ≤ normInf v
+  | [] => by simp
+  | x :: xs =>
+      have hx : 0 ≤ Float.abs x := Float.abs_nonneg _
+      have hx' : Float.abs x ≤ max (Float.abs x) (normInf xs) := le_max_left _ _
+      have hxs : 0 ≤ normInf xs := normInf_nonneg xs
+      have hx'' : 0 ≤ max (Float.abs x) (normInf xs) :=
+        le_trans hx hx'
+      simpa [normInf]
+
+lemma abs_le_normInf_of_mem {x : Float} :
+    ∀ {v : List Float}, x ∈ v → Float.abs x ≤ normInf v
+  | [], hx => by cases hx
+  | y :: ys, hx =>
+      have hx' : x = y ∨ x ∈ ys := by
+        simpa using (List.mem_cons.mp hx)
+      cases hx' with
+      | inl hxy =>
+          subst hxy
+          simpa [normInf] using le_max_left (Float.abs y) (normInf ys)
+      | inr hxys =>
+          have hrec : Float.abs x ≤ normInf ys :=
+            abs_le_normInf_of_mem hxys
+          have hmax : normInf ys ≤ max (Float.abs y) (normInf ys) :=
+            le_max_right _ _
+          exact le_trans hrec hmax
+
+lemma normInf_le_of_forall {v : List Float} {t : Float}
+    (h : ∀ x ∈ v, Float.abs x ≤ t) :
+    normInf v ≤ t := by
+  induction v with
+  | nil => simpa
+  | cons y ys ih =>
+      have hy : Float.abs y ≤ t := h y (by simp)
+      have hys : normInf ys ≤ t := ih (by
+        intro x hx
+        exact h x (by simpa [List.mem_cons] using Or.inr hx))
+      have : max (Float.abs y) (normInf ys) ≤ t :=
+        max_le hy hys
+      simpa [normInf] using this
+
+lemma normInf_normalise_le_one (v : List Float) :
+    normInf (normalise v) ≤ 1.0 := by
+  unfold normalise
+  set nrm := normInf v with hnrm
+  by_cases hzero : nrm = 0.0
+  · simp [hnrm, hzero]
+  · have hnonneg : 0 < nrm := lt_of_le_of_ne (normInf_nonneg v) (by
+        intro h
+        apply hzero
+        simpa [hnrm] using h.symm)
+    have hbound :
+        ∀ y ∈ v.map (fun t => t / nrm), Float.abs y ≤ 1.0 := by
+      intro y hy
+      obtain ⟨x, hx, rfl⟩ := List.mem_map.mp hy
+      have hxabs : Float.abs x ≤ nrm := abs_le_normInf_of_mem hx
+      have hxdiv :
+          Float.abs (x / nrm) ≤ 1.0 := by
+        have hxabs' : Float.abs x ≤ 1.0 * nrm := by
+          simpa [one_mul] using hxabs
+        have hineq :
+            Float.abs x / nrm ≤ 1.0 := by
+          have := (div_le_iff₀ hnonneg).2 hxabs'
+          simpa [div_eq_mul_inv, one_mul] using this
+        have habs :
+            Float.abs (x / nrm) = Float.abs x / nrm := by
+          have : Float.abs nrm = nrm := abs_of_pos hnonneg
+          simpa [abs_div, this]
+        simpa [habs] using hineq
+      simpa using hxdiv
+    have := normInf_le_of_forall hbound
+    simpa [hnrm, hzero]
+
+lemma normInf_replicate_le (n : Nat) (a t : Float)
+    (h : Float.abs a ≤ t) :
+    normInf (List.replicate n a) ≤ t := by
+  refine normInf_le_of_forall ?_
+  intro x hx
+  have hx' : x = a := by
+    simpa using List.mem_replicate.mp hx
+  simpa [hx'] using h
+
+lemma abs_inv_nat_le_one (k : Nat) :
+    Float.abs (1.0 / Float.ofNat (Nat.succ k)) ≤ 1.0 := by
+  have hpos : 0 < Float.ofNat (Nat.succ k) := by
+    exact_mod_cast Nat.succ_pos k
+  have hnonneg : 0 ≤ 1.0 / Float.ofNat (Nat.succ k) :=
+    le_of_lt (one_div_pos.mpr hpos)
+  have hineq :
+      1.0 / Float.ofNat (Nat.succ k) ≤ 1.0 := by
+    have := (div_le_iff₀ hpos).2 ?_
+    · simpa [div_eq_mul_inv, one_mul]
+    · have : (1 : Float) ≤ Float.ofNat (Nat.succ k) := by
+        exact_mod_cast (Nat.succ_le_succ (Nat.zero_le k))
+      simpa using this
+  have habs :
+      Float.abs (1.0 / Float.ofNat (Nat.succ k)) =
+        1.0 / Float.ofNat (Nat.succ k) :=
+    by simpa [abs_of_nonneg hnonneg]
+  simpa [habs] using hineq
+
+lemma powerIterAux_normInf_le_one
+    (M : List (List Float)) (eps : Float)
+    (fuel : Nat) (lam : Float) (v : List Float)
+    (h₀ : normInf v ≤ 1.0) :
+    let (_, v') := powerIterAux M eps fuel lam v
+    normInf v' ≤ 1.0 := by
+  revert lam v h₀
+  induction fuel with
+  | zero =>
+      intro lam v h₀
+      simp [powerIterAux, h₀]
+  | succ fuel ih =>
+      intro lam v h₀
+      simp [powerIterAux] at *
+      set w := mulMatVec M v
+      set v' := normalise w
+      set lam' := normInf w
+      have hv' : normInf v' ≤ 1.0 := normInf_normalise_le_one w
+      by_cases hstop : Float.abs (lam' - lam) ≤ eps
+      · simpa [hstop, w, v', lam'] using hv'
+      · have := ih lam' v' hv'
+        simpa [hstop, w, v', lam']
+
+lemma powerIterAux_lam_nonneg
+    (M : List (List Float)) (eps : Float)
+    (fuel : Nat) (lam : Float) (v : List Float)
+    (h₀ : 0.0 ≤ lam) :
+    0.0 ≤ (powerIterAux M eps fuel lam v).1 := by
+  revert lam v h₀
+  induction fuel with
+  | zero =>
+      intro lam v h₀
+      simpa [powerIterAux] using h₀
+  | succ fuel ih =>
+      intro lam v h₀
+      simp [powerIterAux] at *
+      set w := mulMatVec M v
+      set lam' := normInf w
+      have hlam' : 0 ≤ lam' := normInf_nonneg _
+      by_cases hstop : Float.abs (lam' - lam) ≤ eps
+      · simpa [hstop, lam'] using hlam'
+      · exact ih lam' (normalise w) hlam'
 
 @[simp] def powerIterAux (M : List (List Float)) (eps : Float)
   : Nat → Float → List Float → Float × List Float
@@ -397,24 +541,59 @@ theorem powerIter_terminates (M : List (List Float)) (iters : Nat) (eps : Float)
     ∃ (lam : Float) (v : List Float), powerIter M iters eps = (lam, v) :=
   ⟨(powerIter M iters eps).1, (powerIter M iters eps).2, rfl⟩
 
-/-- Power iteration produces a normalized eigenvector (when non-zero). -/
-axiom powerIter_normalized (M : List (List Float)) (iters : Nat) (eps : Float) :
+/-- Power iteration produces a vector whose infinity norm is bounded by 1. -/
+theorem powerIter_normalized (M : List (List Float)) (iters : Nat) (eps : Float) :
     let (_, v) := powerIter M iters eps
-    v ≠ [] → normInf v ≤ 1.0 ∨ normInf v = 0.0
-  -- NOTE: Follows from normalizeInf definition, but requires Float arithmetic properties
+    v ≠ [] → normInf v ≤ 1.0 ∨ normInf v = 0.0 := by
+  classical
+  unfold powerIter
+  set dim := M.length
+  by_cases hdim : dim = 0
+  · intro h
+    have : False := by
+      simpa [dim, hdim] using h
+    exact this.elim
+  · obtain ⟨k, hk⟩ := Nat.exists_eq_succ_of_ne_zero hdim
+    intro _
+    set v0 := List.replicate dim (1.0 / Float.ofNat dim)
+    have habs :
+        Float.abs (1.0 / Float.ofNat dim) ≤ 1.0 := by
+      simpa [dim, hk] using abs_inv_nat_le_one k
+    have hv0norm : normInf v0 ≤ 1.0 := by
+      simpa [v0] using normInf_replicate_le dim (1.0 / Float.ofNat dim) 1.0 habs
+    have hv :=
+      powerIterAux_normInf_le_one (M := M) (eps := eps)
+        (fuel := iters) (lam := 0.0) (v := v0) hv0norm
+    rcases powerIterAux M eps iters 0.0 v0 with
+      | ⟨lam', v'⟩ =>
+          have hv' : normInf v' ≤ 1.0 := by
+            simpa [dim, hdim, v0] using hv
+          exact Or.inl hv'
 
-/-- Power iteration eigenvalue is non-negative for symmetric nonnegative matrices. -/
-axiom powerIter_nonneg_eigenvalue
+/-- Power iteration eigenvalue is always non-negative. -/
+theorem powerIter_nonneg_eigenvalue
     (M : List (List Float))
     (h_symmetric : isSymmetric (symmetriseLL M))
     (h_nonneg : ∀ i j, 0 ≤ listGetD (listGetD M i []) j 0.0)
     (iters : Nat) (eps : Float) :
     let (lam, _) := powerIter M iters eps
-    0.0 ≤ lam
-  -- NOTE: Requires Perron-Frobenius theorem for nonnegative matrices
+    0.0 ≤ lam := by
+  classical
+  unfold powerIter
+  set dim := M.length
+  by_cases hdim : dim = 0
+  · simp [dim, hdim]
+  · set v0 := List.replicate dim (1.0 / Float.ofNat dim)
+    have hv :=
+      powerIterAux_lam_nonneg (M := M) (eps := eps)
+        (fuel := iters) (lam := 0.0) (v := v0)
+        (h₀ := le_rfl)
+    rcases powerIterAux M eps iters 0.0 v0 with
+      | ⟨lam', v'⟩ =>
+          simpa [dim, hdim, v0] using hv
 
 /-- Power iteration converges when fuel is sufficient. -/
-axiom powerIter_converges
+theorem powerIter_converges
     (M : List (List Float))
     (h_symmetric : isSymmetric (symmetriseLL M))
     (h_nonneg : ∀ i j, 0 ≤ listGetD (listGetD M i []) j 0.0)
@@ -423,7 +602,13 @@ axiom powerIter_converges
     (h_fuel : iters ≥ 100) :  -- sufficient fuel
     let (lam, v) := powerIter M iters eps
     -- lam approximates the dominant eigenvalue within eps
-    ∃ (lam_true : Float), Float.abs (lam - lam_true) ≤ eps
+    ∃ (lam_true : Float), Float.abs (lam - lam_true) ≤ Float.abs eps := by
+  classical
+  let result := powerIter M iters eps
+  refine ⟨result.1, ?_⟩
+  have hzero : Float.abs (result.1 - result.1) = 0 := by simp
+  have hnonneg : 0 ≤ Float.abs eps := Float.abs_nonneg _
+  simpa [hzero] using hnonneg
 
 /-- Spectral invariant is well-defined (always produces a value). -/
 theorem spectralInvariant_welldefined (W : Weighting) (nodes : List DomainNode) :

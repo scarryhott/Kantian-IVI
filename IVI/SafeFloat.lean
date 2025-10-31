@@ -55,13 +55,13 @@ def div (a b : SafeFloat) : Option SafeFloat :=
   if b.val = 0.0 then none
   else ofFloat? (a.val / b.val)
 
-/-- Safe less-than-or-equal comparison. -/
+/-- Safe less-than-or-equal comparison (boolean witness). -/
 def le (a b : SafeFloat) : Bool :=
-  a.val ≤ b.val
+  decide (a.val ≤ b.val)
 
-/-- Safe less-than comparison. -/
+/-- Safe less-than comparison (boolean witness). -/
 def lt (a b : SafeFloat) : Bool :=
-  a.val < b.val
+  decide (a.val < b.val)
 
 /-- Absolute value (safe wrapper). Returns `none` if result isn't finite. -/
 def abs (a : SafeFloat) : Option SafeFloat :=
@@ -81,24 +81,51 @@ With SafeFloat, we can safely assert transitivity because we've excluded NaN.
 However, we still axiomatize it rather than proving from IEEE-754 semantics.
 -/
 
-/-- Transitivity holds for safe floats (no NaN). 
+/-- Helper: characterise the value stored by `ofFloat?` when it succeeds. -/
+lemma SafeFloat.ofFloat?_eq_some {x : Float} {s : SafeFloat}
+    (h : SafeFloat.ofFloat? x = some s) : s.val = x := by
+  unfold SafeFloat.ofFloat? at h
+  by_cases hfin : x.isFinite
+  · simp [hfin] at h
+    by_cases hnan : ¬x.isNaN
+    · simp [hnan] at h
+      cases h; rfl
+    · simp [hnan] at h
+  · simp [hfin] at h
 
-For finite floats (no NaN), the ≤ relation should be transitive.
-However, proving this from IEEE-754 semantics is complex, so we
-axiomatize it for now.
+/-- Unfold the value returned by safe addition when it succeeds. -/
+lemma SafeFloat.add_val {a b sum : SafeFloat}
+    (h : SafeFloat.add a b = some sum) :
+    sum.val = a.val + b.val := by
+  unfold SafeFloat.add at h
+  exact SafeFloat.ofFloat?_eq_some h
 
-TODO: This could potentially be proven using Float's underlying
-representation and properties, but requires deep knowledge of
-Lean's Float implementation.
--/
-axiom SafeFloat.le_trans (a b c : SafeFloat) :
-  a.le b = true → b.le c = true → a.le c = true
+/-- Transitivity holds for safe floats (no NaN). -/
+theorem SafeFloat.le_trans (a b c : SafeFloat) :
+  a.le b = true → b.le c = true → a.le c = true := by
+  intro hab hbc
+  have hab' : a.val ≤ b.val := by
+    simpa [SafeFloat.le] using hab
+  have hbc' : b.val ≤ c.val := by
+    simpa [SafeFloat.le] using hbc
+  have hac' : a.val ≤ c.val := le_trans hab' hbc'
+  simpa [SafeFloat.le] using hac'
 
 /-- Addition preserves inequality for safe floats. -/
-axiom SafeFloat.add_le_add (a b c d : SafeFloat) :
+theorem SafeFloat.add_le_add (a b c d : SafeFloat) :
   a.le b = true → c.le d = true →
   ∀ (sum1 : SafeFloat) (sum2 : SafeFloat),
     a.add c = some sum1 → b.add d = some sum2 →
-    sum1.le sum2 = true
+    sum1.le sum2 = true := by
+  intro hab hcd sum1 sum2 hsum1 hsum2
+  have hab' : a.val ≤ b.val := by
+    simpa [SafeFloat.le] using hab
+  have hcd' : c.val ≤ d.val := by
+    simpa [SafeFloat.le] using hcd
+  have hsum1' : sum1.val = a.val + c.val := SafeFloat.add_val hsum1
+  have hsum2' : sum2.val = b.val + d.val := SafeFloat.add_val hsum2
+  have hsums : sum1.val ≤ sum2.val := by
+    simpa [hsum1', hsum2', add_comm, add_left_comm, add_assoc] using add_le_add hab' hcd'
+  simpa [SafeFloat.le] using hsums
 
 end IVI
