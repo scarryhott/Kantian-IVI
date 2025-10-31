@@ -168,6 +168,22 @@ by
     VerificationRelativity cfg layer.nodes :=
   sol.witness
 
+/-- The base layer of an intangible solution is globally grain-safe. -/
+@[simp] theorem grainSafe_base
+    {cfg : ICollapseCfg} {layer : FractalLayer}
+    {εσ εg : Float}
+    (sol : IntangibleSolution cfg layer εσ εg) :
+    cfg.grainSafe layer.nodes :=
+  sol.global_truth
+
+/-- Every node of the base layer is grain-safe individually. -/
+@[simp] theorem grainSafe_nodes
+    {cfg : ICollapseCfg} {layer : FractalLayer}
+    {εσ εg : Float}
+    (sol : IntangibleSolution cfg layer εσ εg) :
+    ∀ n ∈ layer.nodes, cfg.grainSafe [n] :=
+  sol.local_solution
+
 end IntangibleSolution
 
 end IVI
